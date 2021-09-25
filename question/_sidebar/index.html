@@ -1,0 +1,755 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>sidebar - Tim-wcx</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tim-wcx" class="md-header__button md-logo" aria-label="Tim-wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tim-wcx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+               sidebar
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tim-wcx" class="md-nav__button md-logo" aria-label="Tim-wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tim-wcx
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          ICPC题解
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ICPC题解" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ICPC题解
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B9%9D%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（九）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AB%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（八）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%83%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（七）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（六）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E9%A2%98%E8%A7%A3%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训题解系列（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-08-2%E6%9C%888%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-08-2月8日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-09-2%E6%9C%889%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-09-2月9日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-12-%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%2B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B3%A8%E8%A7%A3/" class="md-nav__link">
+        2021-02-12-安卓课表客户端+服务端注解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-16-2%E6%9C%8816%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-16-2月16日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-19-2%E6%9C%8819%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-19-2月19日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-20-2%E6%9C%8820%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-20-2月20日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-22-2%E6%9C%8822%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-22-2月22日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-24-2%E6%9C%8824%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-24-2月24日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-28-2%E6%9C%8828%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-28-2月28日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-02-3%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-02-3月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-07-3%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-07-3月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-09-%E6%95%B0%E8%AE%BA/" class="md-nav__link">
+        2021-03-09-数论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-06-05-6%E6%9C%885%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-06-05-6月5日题解
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../icpc/" class="md-nav__link">
+        ICPC模板
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        ICPC题单
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1> sidebar</h1>
+                
+                <ul>
+<li><a href="/README">上一级</a></li>
+<li><a href="/question/">ICPC题单</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

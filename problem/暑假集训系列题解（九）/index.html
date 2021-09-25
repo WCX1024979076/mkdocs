@@ -1,0 +1,1859 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>暑假集训系列题解（九） - Tim-wcx</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tim-wcx" class="md-header__button md-logo" aria-label="Tim-wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tim-wcx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              暑假集训系列题解（九）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tim-wcx" class="md-nav__button md-logo" aria-label="Tim-wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tim-wcx
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          ICPC题解
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ICPC题解" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ICPC题解
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          暑假集训系列题解（九）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        暑假集训系列题解（九）
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    暑假集训系列题解（九）
+  </a>
+  
+    <nav class="md-nav" aria-label="暑假集训系列题解（九）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    题目1
+  </a>
+  
+    <nav class="md-nav" aria-label="题目1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    题目2
+  </a>
+  
+    <nav class="md-nav" aria-label="题目2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    题目3
+  </a>
+  
+    <nav class="md-nav" aria-label="题目3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    提示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    题目4
+  </a>
+  
+    <nav class="md-nav" aria-label="题目4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AB%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（八）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%83%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（七）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（六）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E9%A2%98%E8%A7%A3%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训题解系列（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-08-2%E6%9C%888%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-08-2月8日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-09-2%E6%9C%889%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-09-2月9日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-12-%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%2B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B3%A8%E8%A7%A3/" class="md-nav__link">
+        2021-02-12-安卓课表客户端+服务端注解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-16-2%E6%9C%8816%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-16-2月16日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-19-2%E6%9C%8819%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-19-2月19日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-20-2%E6%9C%8820%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-20-2月20日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-22-2%E6%9C%8822%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-22-2月22日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-24-2%E6%9C%8824%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-24-2月24日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-02-28-2%E6%9C%8828%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-28-2月28日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-03-02-3%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-02-3月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-03-07-3%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-07-3月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-03-09-%E6%95%B0%E8%AE%BA/" class="md-nav__link">
+        2021-03-09-数论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-06-05-6%E6%9C%885%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-06-05-6月5日题解
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../icpc/" class="md-nav__link">
+        ICPC模板
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../question/" class="md-nav__link">
+        ICPC题单
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    暑假集训系列题解（九）
+  </a>
+  
+    <nav class="md-nav" aria-label="暑假集训系列题解（九）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    题目1
+  </a>
+  
+    <nav class="md-nav" aria-label="题目1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    题目2
+  </a>
+  
+    <nav class="md-nav" aria-label="题目2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    题目3
+  </a>
+  
+    <nav class="md-nav" aria-label="题目3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    提示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    题目4
+  </a>
+  
+    <nav class="md-nav" aria-label="题目4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>暑假集训系列题解（九）</h1>
+                
+                <h3 id="_1">暑假集训系列题解（九）<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="1">题目1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<h5 id="_2">题目链接<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<p><a href="http://icpc.upc.edu.cn/problem.php?cid=2887&amp;pid=1">Spread of Information</a></p>
+<h5 id="_3">题目描述<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<p>Takahashi Kingdom has N towns, called Town 1 through N. There are N−1 roads in this kingdom. The i-th road connects Town ui and Town vi bidirectionally. For any two towns a and b, it is possible to get from Town a to Town b by traversing some roads.
+Takahashi, the king, wants to spread some information all over the kingdom. Since he is busy, he can directly transmit this information to at most K towns.
+Assume that Takahashi finishes transmitting the information at time 0. Then, for each t=1,2,3,⋯, the following happens:
+For towns a and b directly connected by a road, if a has already received the information at time t−0.5 but b has not, b receives it at time t.
+Takahashi wants to choose the K towns to transmit the information to minimize the time taken until every town receives it. Find the minimum time this takes.</p>
+<p>Constraints
+All values in input are integers.
+1≤K&lt;N≤<span><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span>
+1≤ui,vi≤N
+For any two towns a and b, it is possible to get from Town a to Town b by traversing some roads.</p>
+<h5 id="_4">输入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p>Input is given from Standard Input in the following format:
+N K
+u1 v1
+u2 v2
+⋮
+uN−1 vN−1</p>
+<h5 id="_5">输出<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p>Print the answer.</p>
+<h5 id="_6">样例输入<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>【样例1】
+5 2
+1 2
+2 3
+3 4
+4 5
+【样例2】
+5 1
+1 2
+1 3
+1 4
+5 4
+【样例3】
+20 3
+2 15
+6 5
+12 1
+7 9
+17 2
+15 5
+2 4
+17 16
+12 2
+8 17
+17 19
+18 11
+20 8
+20 3
+13 9
+11 10
+11 20
+14 8
+11 7
+</code></pre></div>
+<h5 id="_7">样例输出<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>【样例1】
+1
+【样例2】
+2
+【样例3】
+3
+</code></pre></div>
+<h5 id="_8">题解<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<p>树上DP，详细见代码注释。</p>
+<p>参考链接：</p>
+<p><a href="https://blog.csdn.net/qq_48099121/article/details/115670878">https://blog.csdn.net/qq_48099121/article/details/115670878</a></p>
+<h5 id="_9">代码<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="cp">#define inf 0x3f3f3f3f</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">node</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="n">node</span><span class="w"> </span><span class="n">edge</span><span class="p">[</span><span class="mi">400500</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="mi">200500</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">add_edge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">edge</span><span class="p">[</span><span class="o">++</span><span class="n">cnt</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">to</span><span class="p">,</span><span class="n">head</span><span class="p">[</span><span class="n">from</span><span class="p">]};</span><span class="w"></span>
+<span class="w">    </span><span class="n">head</span><span class="p">[</span><span class="n">from</span><span class="p">]</span><span class="o">=</span><span class="n">cnt</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">200500</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"> </span><span class="c1">///f代表以u为根节点的子树中距离u最近的特殊点</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">[</span><span class="mi">200500</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"> </span><span class="c1">///g代表以u为根节点的子树中未被覆盖到的最远的点</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">fa</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">f</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">=</span><span class="n">inf</span><span class="p">,</span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">head</span><span class="p">[</span><span class="n">now</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">next</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">to</span><span class="o">==</span><span class="n">fa</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">to</span><span class="p">,</span><span class="n">now</span><span class="p">,</span><span class="n">mid</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">f</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">=</span><span class="n">min</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">now</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="n">to</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">],</span><span class="n">g</span><span class="p">[</span><span class="n">to</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">+</span><span class="n">f</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">mid</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">=-</span><span class="n">inf</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">==</span><span class="n">mid</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">=-</span><span class="n">inf</span><span class="p">,</span><span class="n">f</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">num</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">-1</span><span class="p">,</span><span class="n">mid</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span><span class="w">   </span><span class="c1">///还有未被覆盖到的点</span>
+<span class="w">        </span><span class="n">num</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">add_edge</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">add_edge</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="o">=</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">r</span><span class="o">=</span><span class="n">mid</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="n">l</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">l</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="2">题目2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<h5 id="_10">题目链接<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<p><a href="http://icpc.upc.edu.cn/problem.php?cid=2889&amp;pid=5">http://icpc.upc.edu.cn/problem.php?cid=2889&amp;pid=5</a></p>
+<h5 id="_11">题目描述<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
+<p>Farmer John has just received a new shipment of N (1 &lt;= N &lt;= 20) bales of hay, where bale i has size S_i (1 &lt;= S_i &lt;= 100). He wants to divide the bales between his three barns as fairly as possible.  </p>
+<p>After some careful thought, FJ decides that a "fair" division of the hay bales should make the largest share as small as possible. That is, if B_1, B_2, and B_3 are the total sizes of all the bales placed in barns 1, 2, and 3, respectively (where B_1 &gt;= B_2 &gt;= B_3), then FJ wants to make B_1 as small as possible.</p>
+<p>For example, if there are 8 bales in these sizes:
+2 4 5 8 9 14 15 20</p>
+<p>A fair solution is
+Barn 1: 2 9 15  B_1 = 26
+Barn 2: 4 8 14  B_2 = 26
+Barn 3: 5 20   B_3 = 25</p>
+<p>Please help FJ determine the value of B_1 for a fair division of the hay bales.</p>
+<h5 id="_12">输入<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<p>* Line 1: The number of bales, N.
+* Lines 2..1+N: Line i+1 contains S_i, the size of the ith bale.</p>
+<h5 id="_13">输出<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
+<p>* Line 1: Please output the value of B_1 in a fair division of the hay bales.</p>
+<h5 id="_14">样例输入<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>8
+14
+2
+5
+15
+8
+9
+20
+4
+</code></pre></div>
+<h5 id="_15">样例输出<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>26
+</code></pre></div>
+<h5 id="_16">题解<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<p>三维动态规划转移，代码如下：</p>
+<h5 id="_17">代码<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="cp">#define inf 0x3f3f3f3f3f3f3f3f</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ll</span><span class="p">;</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2005</span><span class="p">][</span><span class="mi">2005</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">sum</span><span class="o">+=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">last</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">now</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">ans</span><span class="o">=</span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="mi">2005</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="mi">2005</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">2005</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">2005</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="n">dp</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="mi">2005</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="mi">2005</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">])</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">ans</span><span class="o">=</span><span class="n">min</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">max</span><span class="p">(</span><span class="n">sum</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">max</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)));</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ans</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="3">题目3<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<h5 id="_18">题目链接<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<p><a href="http://icpc.upc.edu.cn/problem.php?cid=2889&amp;pid=7">http://icpc.upc.edu.cn/problem.php?cid=2889&amp;pid=7</a></p>
+<h5 id="_19">题目描述<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
+<p>Given are two sequences of length N each: A=(A1,A2,A3,…,AN) and B=(B1,B2,B3,…,BN).
+Determine whether it is possible to make A equal B by repeatedly doing the operation below (possibly zero times). If it is possible, find the minimum number of operations required to do so.</p>
+<p>Choose an integer i such that 1≤i&lt;N, and do the following in order:
+swap Ai and Ai+1;
+add 1 to Ai;
+subtract 1 from Ai+1.
+Constraints
+2≤N≤<span><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span>​​
+0≤Ai≤<span><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span>​
+0≤Bi≤<span><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span>
+All values in input are integers.</p>
+<h5 id="_20">输入<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
+<p>Input is given from Standard Input in the following format:
+N
+A1 A2 A3 … AN
+B1 B2 B3 … BN</p>
+<h5 id="_21">输出<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h5>
+<p>If it is impossible to make A equal B, print -1.
+Otherwise, print the minimum number of operations required to do so.</p>
+<h5 id="_22">样例输入<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>【样例1】
+3
+3 1 4
+6 2 0
+【样例2】
+3
+1 1 1
+1 1 2
+【样例3】
+5
+5 4 1 3 2
+5 4 1 3 2
+【样例4】
+6
+8 5 4 7 4 5
+10 5 6 7 4 1
+</code></pre></div>
+<h5 id="_23">样例输出<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>【样例1】
+2
+【样例2】
+-1
+【样例3】
+0
+【样例4】
+7
+</code></pre></div>
+<h5 id="_24">提示<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h5>
+<p>样例1解释：
+We can match A with B in two operations, as follows:
+First, do the operation with i=2, making A=(3,5,0).
+Next, do the operation with i=1, making A=(6,2,0).
+We cannot meet our objective in one or fewer operations.
+样例2解释：
+In this case, it is impossible to match A with B.
+样例3解释：
+A may equal B before doing any operation.</p>
+<h5 id="_25">题解<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h5>
+<p>对一个数组进行如上的三次操作之后<span><span class="MathJax_Preview">i+a[i]</span><script type="math/tex">i+a[i]</script></span>​的值保持不变，所以只要把a数组<span><span class="MathJax_Preview">i+a[i]</span><script type="math/tex">i+a[i]</script></span>​转变为b数组中<span><span class="MathJax_Preview">j+b[j]</span><script type="math/tex">j+b[j]</script></span>​即可，又因为为相邻交换，所以只需要求出逆序对即可。</p>
+<p>参考链接：</p>
+<p><a href="https://blog.csdn.net/weixin_45483201/article/details/117699573">https://blog.csdn.net/weixin_45483201/article/details/117699573</a></p>
+<p><a href="https://www.cnblogs.com/spnooyseed/p/14810702.html">https://www.cnblogs.com/spnooyseed/p/14810702.html</a></p>
+<h5 id="_26">代码<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma GCC optimize(1)</span>
+<span class="cp">#pragma GCC optimize(2)</span>
+<span class="cp">#pragma GCC optimize(3.&quot;Ofast&quot;,&quot;inline&quot;)</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="cp">#define inf 0x3f3f3f3f3f3f3f3f</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ll</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="n">maxn</span><span class="o">=</span><span class="mi">400000</span><span class="p">;</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="n">tree</span><span class="p">[</span><span class="mi">400500</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">200500</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">200500</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="n">mpa</span><span class="p">,</span><span class="n">mpb</span><span class="p">;</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="nf">lowbit</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">&amp;</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="n">ll</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">pos</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">400000</span><span class="p">;</span><span class="n">i</span><span class="o">+=</span><span class="n">lowbit</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">pos</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">ans</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">pos</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">-=</span><span class="n">lowbit</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="n">ans</span><span class="o">+=</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">mpa</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]].</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">mpb</span><span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]].</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="nl">v</span><span class="p">:</span><span class="n">mpa</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">!=</span><span class="n">mpb</span><span class="p">[</span><span class="n">v</span><span class="p">.</span><span class="n">first</span><span class="p">].</span><span class="n">size</span><span class="p">())</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="o">*</span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;-1&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">v2</span><span class="o">=</span><span class="n">mpb</span><span class="p">[</span><span class="n">v</span><span class="p">.</span><span class="n">first</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">a</span><span class="p">[</span><span class="n">v</span><span class="p">.</span><span class="n">second</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">=</span><span class="n">v2</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">ans</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">ans</span><span class="o">+=</span><span class="n">i</span><span class="o">-</span><span class="n">query</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ans</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="4">题目4<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<h5 id="_27">题目链接<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h5>
+<p><a href="http://icpc.upc.edu.cn/problem.php?cid=2890&amp;pid=3">http://icpc.upc.edu.cn/problem.php?cid=2890&amp;pid=3</a></p>
+<h5 id="_28">题目描述<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h5>
+<p>Farmer John has discovered that his cows produce higher quality milk when they are subject to strenuous exercise. He therefore decides to send his N cows (1 &lt;= N &lt;= 25,000) to climb up and then back down a nearby mountain!</p>
+<p>Cow i takes U(i) time to climb up the mountain and then D(i) time to climb down the mountain. Being domesticated cows, each cow needs the help of a farmer for each leg of the climb, but due to the poor economy, there are only two farmers available, Farmer John and his cousin Farmer Don. FJ plans to guide cows for the upward climb, and FD will then guide the cows for the downward climb. Since every cow needs a guide, and there is only one farmer for each part of the voyage, at most one cow may be climbing upward at any point in time (assisted by FJ), and at most one cow may be climbing down at any point in time (assisted by FD). A group of cows may temporarily accumulate at the top of the mountain if they climb up and then need to wait for FD's assistance before climbing down. Cows may climb down in a different order than they climbed up.</p>
+<p>Please determine the least possible amount of time for all N cows to make the entire journey.</p>
+<h5 id="_29">输入<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Line 1: The number of cows, N.</p>
+</li>
+<li>
+<p>Lines 2..1+N: Line i+1 contains two space-separated integers: U(i) and D(i). (1 &lt;= U(i), D(i) &lt;= 50,000).</p>
+</li>
+</ul>
+<h5 id="_30">输出<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Line 1: A single integer representing the least amount of time for all the cows to cross the mountain.</li>
+</ul>
+<h5 id="_31">样例输入<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>3
+6 4
+8 1
+2 3
+</code></pre></div>
+<h5 id="_32">样例输出<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>17
+</code></pre></div>
+<h5 id="_33">题解<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h5>
+<p>贪心，详细见代码注释。</p>
+<h5 id="_34">代码<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="cp">#define inf 0x3f3f3f3f3f3f3f3f3f</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ll</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">node</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">sum</span><span class="p">,</span><span class="n">sum1</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">cmp</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">node</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">d</span><span class="o">&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="o">&amp;&amp;</span><span class="n">b</span><span class="p">.</span><span class="n">d</span><span class="o">&lt;=</span><span class="n">b</span><span class="p">.</span><span class="n">u</span><span class="p">)</span><span class="w">        </span><span class="c1">///下山比上山慢的的优先上</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">d</span><span class="o">&lt;=</span><span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="o">&amp;&amp;</span><span class="n">b</span><span class="p">.</span><span class="n">d</span><span class="o">&gt;</span><span class="n">b</span><span class="p">.</span><span class="n">u</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">d</span><span class="o">&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="p">)</span><span class="w">            </span><span class="c1">///先上的优先让上山快的上，加速时间</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="o">&lt;</span><span class="n">b</span><span class="p">.</span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">d</span><span class="o">&gt;</span><span class="n">b</span><span class="p">.</span><span class="n">d</span><span class="p">;</span><span class="w">         </span><span class="c1">///后上的优先让下山的慢的上，尽可能拖延时间</span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">node</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">25500</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">u</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">cmp</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">ans</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sum</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">].</span><span class="n">sum</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sum1</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sum</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">].</span><span class="n">sum1</span><span class="p">)</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ans</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sum1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ans</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%EF%BC%89/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 暑假集训系列题解（十）" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              暑假集训系列题解（十）
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AB%EF%BC%89/" class="md-footer__link md-footer__link--next" aria-label="下一页: 暑假集训系列题解（八）" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              暑假集训系列题解（八）
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2616 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>ICPC题单 - Tim-wcx</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tim-wcx" class="md-header__button md-logo" aria-label="Tim-wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tim-wcx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ICPC题单
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tim-wcx" class="md-nav__button md-logo" aria-label="Tim-wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tim-wcx
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          ICPC题解
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ICPC题解" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ICPC题解
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B9%9D%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（九）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AB%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（八）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%83%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（七）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（六）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E9%A2%98%E8%A7%A3%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训题解系列（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-08-2%E6%9C%888%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-08-2月8日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-09-2%E6%9C%889%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-09-2月9日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-12-%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%2B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B3%A8%E8%A7%A3/" class="md-nav__link">
+        2021-02-12-安卓课表客户端+服务端注解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-16-2%E6%9C%8816%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-16-2月16日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-19-2%E6%9C%8819%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-19-2月19日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-20-2%E6%9C%8820%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-20-2月20日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-22-2%E6%9C%8822%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-22-2月22日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-24-2%E6%9C%8824%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-24-2月24日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-02-28-2%E6%9C%8828%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-28-2月28日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-03-02-3%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-02-3月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-03-07-3%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-07-3月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-03-09-%E6%95%B0%E8%AE%BA/" class="md-nav__link">
+        2021-03-09-数论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem/2021-06-05-6%E6%9C%885%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-06-05-6月5日题解
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icpc/" class="md-nav__link">
+        ICPC模板
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ICPC题单
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ICPC题单
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    2021秋组队训练赛第十一场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第十一场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-collatz-conjecture" class="md-nav__link">
+    问题 B: Collatz Conjecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-hoarse-horses" class="md-nav__link">
+    问题 G: Hoarse Horses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-lemonade-trade" class="md-nav__link">
+    问题 K: Lemonade Trade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-manhattan-mornings" class="md-nav__link">
+    问题 L: Manhattan Mornings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-irrational-division" class="md-nav__link">
+    问题 H: Irrational Division
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_1" class="md-nav__link">
+    2021秋组队训练赛第九场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第九场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#h-prime-set" class="md-nav__link">
+    问题 H: Prime Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-numbersi" class="md-nav__link">
+    问题 G: NumbersI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-crusaders-quest" class="md-nav__link">
+    问题 C: Crusaders Quest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-string-of-ccpc" class="md-nav__link">
+    问题 E: String of CCPC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-one-dimensional-maze" class="md-nav__link">
+    问题 L: One-Dimensional Maze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-balloon-robot" class="md-nav__link">
+    问题 A: Balloon Robot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-safest-buildings" class="md-nav__link">
+    问题 M: Safest Buildings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_2" class="md-nav__link">
+    2021秋组队训练赛第八场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第八场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-hopscotch" class="md-nav__link">
+    问题 F: Hopscotch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-letter-wheels" class="md-nav__link">
+    问题 H: Letter Wheels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-icpc-camp" class="md-nav__link">
+    问题 G: ICPC Camp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-rooted-subtrees" class="md-nav__link">
+    问题 K: Rooted Subtrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-mini-battleship" class="md-nav__link">
+    问题 B: Mini Battleship
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-all-kill" class="md-nav__link">
+    问题 D: All Kill
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_3" class="md-nav__link">
+    2021秋组队训练赛第七场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第七场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-anagram" class="md-nav__link">
+    问题 A: Anagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-cities" class="md-nav__link">
+    问题 C: Cities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-four-tuples" class="md-nav__link">
+    问题 F: Four-tuples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-bullet" class="md-nav__link">
+    问题 B: Bullet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-games" class="md-nav__link">
+    问题 G: Games
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_4" class="md-nav__link">
+    2021秋组队训练赛第六场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第六场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l-mixtape-management" class="md-nav__link">
+    问题 L: Mixtape Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-adolescent-architecture" class="md-nav__link">
+    问题 A: Adolescent Architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-bookshelf-building" class="md-nav__link">
+    问题 B: Bookshelf Building
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-knightly-knowledge" class="md-nav__link">
+    问题 J: Knightly Knowledge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-lexicographical-lecturing" class="md-nav__link">
+    问题 K: Lexicographical Lecturing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-decorative-dominoes" class="md-nav__link">
+    问题 C: Decorative Dominoes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-gravity-grid" class="md-nav__link">
+    问题 F: Gravity Grid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_5" class="md-nav__link">
+    2021秋组队训练赛第五场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第五场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-safe-distance" class="md-nav__link">
+    问题 C: Safe Distance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-decoration" class="md-nav__link">
+    问题 G: Decoration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-emails" class="md-nav__link">
+    问题 I: Emails
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-unique-activities" class="md-nav__link">
+    问题 K: Unique Activities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_6" class="md-nav__link">
+    2021秋组队训练赛第四场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第四场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-fair-distribution" class="md-nav__link">
+    问题 F: Fair Distribution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_7" class="md-nav__link">
+    2021秋组队训练赛第三场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第三场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#e-interview-queue" class="md-nav__link">
+    问题 E: Interview Queue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-conquest" class="md-nav__link">
+    问题 F: Conquest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-antimatter-rain" class="md-nav__link">
+    问题 H: Antimatter Rain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-pegs-and-legs" class="md-nav__link">
+    问题 J: Pegs and Legs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_8" class="md-nav__link">
+    2021秋组队训练赛第二场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第二场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-three-axis-views" class="md-nav__link">
+    问题 A: Three-Axis Views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-secrets-of-legendary-treasure" class="md-nav__link">
+    问题 B: Secrets of Legendary Treasure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-jewelry-size" class="md-nav__link">
+    问题 E: Jewelry Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-to-be-connected-or-not-to-be-that-is-the-question" class="md-nav__link">
+    问题 G: To be Connected, or not to be, that is the Question
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-lcm-of-gcds" class="md-nav__link">
+    问题 H: LCM of GCDs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-high-tech-detective" class="md-nav__link">
+    问题 I: High-Tech Detective
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-formica-sokobanica" class="md-nav__link">
+    问题 J: Formica Sokobanica
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_9" class="md-nav__link">
+    2021秋组队训练赛第一场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第一场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-agamemnons-odyssey" class="md-nav__link">
+    问题 F: Agamemnon’s Odyssey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-substring-characters" class="md-nav__link">
+    问题 D: Substring Characters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-ada-loveslaces" class="md-nav__link">
+    问题 J: Ada Loveslaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-staggering-to-the-finish" class="md-nav__link">
+    问题 I: Staggering to the Finish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-icpc-record-matching" class="md-nav__link">
+    问题 K: ICPC Record Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-logdb" class="md-nav__link">
+    问题 A: LogDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-ride-hailing" class="md-nav__link">
+    问题 B: Ride-Hailing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202152" class="md-nav__link">
+    2021个人训练赛第52场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第52场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    问题 C: 抢占城堡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    问题 H: 包含
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-gcd" class="md-nav__link">
+    问题 K: GCD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    问题 B: 放牛奶的冰箱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-reverse-and-compare" class="md-nav__link">
+    问题 I: Reverse and Compare
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-fountain-walk" class="md-nav__link">
+    问题 J: Fountain Walk
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202151" class="md-nav__link">
+    2021个人训练赛第51场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第51场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-getting-difference" class="md-nav__link">
+    问题 B: Getting Difference
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    问题 C: 野牛与狼
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    问题 D: 老死不相往来
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-cow-lineup-i" class="md-nav__link">
+    问题 G: Cow Lineup I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-painting-the-fence" class="md-nav__link">
+    问题 K: Painting the Fence
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202150" class="md-nav__link">
+    2021个人训练赛第50场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第50场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c_2" class="md-nav__link">
+    问题 C: 牛牛的方程式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-milk-routing" class="md-nav__link">
+    问题 M: Milk Routing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d_1" class="md-nav__link">
+    问题 D: 牛牛的猜球游戏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-lh" class="md-nav__link">
+    问题 A: LH 撸串串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-moderate-differences" class="md-nav__link">
+    问题 J: Moderate Differences
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-biscuits" class="md-nav__link">
+    问题 K: Biscuits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202149" class="md-nav__link">
+    2021个人训练赛第49场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第49场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-rectangle" class="md-nav__link">
+    问题 A: +/- Rectangle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-wifi-setup" class="md-nav__link">
+    问题 H: Wifi Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-shrinking" class="md-nav__link">
+    问题 J: Shrinking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-colorful-hats" class="md-nav__link">
+    问题 G: Colorful Hats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-scrambled-letters" class="md-nav__link">
+    问题 D: Scrambled Letters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202148" class="md-nav__link">
+    2021个人训练赛第48场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第48场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    问题F：括号序列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-a-oror-b-problem" class="md-nav__link">
+    问题 L: A or...or B Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-nuske-vs-phantom-thnook" class="md-nav__link">
+    问题 H: Nuske vs Phantom Thnook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    问题 K: 字母金字塔
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    2021秋组队训练赛第十一场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第十一场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-collatz-conjecture" class="md-nav__link">
+    问题 B: Collatz Conjecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-hoarse-horses" class="md-nav__link">
+    问题 G: Hoarse Horses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-lemonade-trade" class="md-nav__link">
+    问题 K: Lemonade Trade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-manhattan-mornings" class="md-nav__link">
+    问题 L: Manhattan Mornings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-irrational-division" class="md-nav__link">
+    问题 H: Irrational Division
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_1" class="md-nav__link">
+    2021秋组队训练赛第九场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第九场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#h-prime-set" class="md-nav__link">
+    问题 H: Prime Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-numbersi" class="md-nav__link">
+    问题 G: NumbersI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-crusaders-quest" class="md-nav__link">
+    问题 C: Crusaders Quest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-string-of-ccpc" class="md-nav__link">
+    问题 E: String of CCPC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-one-dimensional-maze" class="md-nav__link">
+    问题 L: One-Dimensional Maze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-balloon-robot" class="md-nav__link">
+    问题 A: Balloon Robot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-safest-buildings" class="md-nav__link">
+    问题 M: Safest Buildings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_2" class="md-nav__link">
+    2021秋组队训练赛第八场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第八场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-hopscotch" class="md-nav__link">
+    问题 F: Hopscotch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-letter-wheels" class="md-nav__link">
+    问题 H: Letter Wheels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-icpc-camp" class="md-nav__link">
+    问题 G: ICPC Camp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-rooted-subtrees" class="md-nav__link">
+    问题 K: Rooted Subtrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-mini-battleship" class="md-nav__link">
+    问题 B: Mini Battleship
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-all-kill" class="md-nav__link">
+    问题 D: All Kill
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_3" class="md-nav__link">
+    2021秋组队训练赛第七场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第七场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-anagram" class="md-nav__link">
+    问题 A: Anagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-cities" class="md-nav__link">
+    问题 C: Cities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-four-tuples" class="md-nav__link">
+    问题 F: Four-tuples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-bullet" class="md-nav__link">
+    问题 B: Bullet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-games" class="md-nav__link">
+    问题 G: Games
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_4" class="md-nav__link">
+    2021秋组队训练赛第六场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第六场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#l-mixtape-management" class="md-nav__link">
+    问题 L: Mixtape Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-adolescent-architecture" class="md-nav__link">
+    问题 A: Adolescent Architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-bookshelf-building" class="md-nav__link">
+    问题 B: Bookshelf Building
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-knightly-knowledge" class="md-nav__link">
+    问题 J: Knightly Knowledge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-lexicographical-lecturing" class="md-nav__link">
+    问题 K: Lexicographical Lecturing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-decorative-dominoes" class="md-nav__link">
+    问题 C: Decorative Dominoes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-gravity-grid" class="md-nav__link">
+    问题 F: Gravity Grid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_5" class="md-nav__link">
+    2021秋组队训练赛第五场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第五场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-safe-distance" class="md-nav__link">
+    问题 C: Safe Distance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-decoration" class="md-nav__link">
+    问题 G: Decoration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-emails" class="md-nav__link">
+    问题 I: Emails
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-unique-activities" class="md-nav__link">
+    问题 K: Unique Activities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_6" class="md-nav__link">
+    2021秋组队训练赛第四场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第四场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-fair-distribution" class="md-nav__link">
+    问题 F: Fair Distribution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_7" class="md-nav__link">
+    2021秋组队训练赛第三场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第三场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#e-interview-queue" class="md-nav__link">
+    问题 E: Interview Queue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-conquest" class="md-nav__link">
+    问题 F: Conquest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-antimatter-rain" class="md-nav__link">
+    问题 H: Antimatter Rain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-pegs-and-legs" class="md-nav__link">
+    问题 J: Pegs and Legs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_8" class="md-nav__link">
+    2021秋组队训练赛第二场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第二场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-three-axis-views" class="md-nav__link">
+    问题 A: Three-Axis Views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-secrets-of-legendary-treasure" class="md-nav__link">
+    问题 B: Secrets of Legendary Treasure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-jewelry-size" class="md-nav__link">
+    问题 E: Jewelry Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-to-be-connected-or-not-to-be-that-is-the-question" class="md-nav__link">
+    问题 G: To be Connected, or not to be, that is the Question
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-lcm-of-gcds" class="md-nav__link">
+    问题 H: LCM of GCDs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-high-tech-detective" class="md-nav__link">
+    问题 I: High-Tech Detective
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-formica-sokobanica" class="md-nav__link">
+    问题 J: Formica Sokobanica
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021_9" class="md-nav__link">
+    2021秋组队训练赛第一场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021秋组队训练赛第一场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-agamemnons-odyssey" class="md-nav__link">
+    问题 F: Agamemnon’s Odyssey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-substring-characters" class="md-nav__link">
+    问题 D: Substring Characters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-ada-loveslaces" class="md-nav__link">
+    问题 J: Ada Loveslaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-staggering-to-the-finish" class="md-nav__link">
+    问题 I: Staggering to the Finish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-icpc-record-matching" class="md-nav__link">
+    问题 K: ICPC Record Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-logdb" class="md-nav__link">
+    问题 A: LogDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-ride-hailing" class="md-nav__link">
+    问题 B: Ride-Hailing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202152" class="md-nav__link">
+    2021个人训练赛第52场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第52场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    问题 C: 抢占城堡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    问题 H: 包含
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-gcd" class="md-nav__link">
+    问题 K: GCD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    问题 B: 放牛奶的冰箱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-reverse-and-compare" class="md-nav__link">
+    问题 I: Reverse and Compare
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-fountain-walk" class="md-nav__link">
+    问题 J: Fountain Walk
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202151" class="md-nav__link">
+    2021个人训练赛第51场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第51场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-getting-difference" class="md-nav__link">
+    问题 B: Getting Difference
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    问题 C: 野牛与狼
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    问题 D: 老死不相往来
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-cow-lineup-i" class="md-nav__link">
+    问题 G: Cow Lineup I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-painting-the-fence" class="md-nav__link">
+    问题 K: Painting the Fence
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202150" class="md-nav__link">
+    2021个人训练赛第50场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第50场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c_2" class="md-nav__link">
+    问题 C: 牛牛的方程式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-milk-routing" class="md-nav__link">
+    问题 M: Milk Routing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d_1" class="md-nav__link">
+    问题 D: 牛牛的猜球游戏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-lh" class="md-nav__link">
+    问题 A: LH 撸串串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-moderate-differences" class="md-nav__link">
+    问题 J: Moderate Differences
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-biscuits" class="md-nav__link">
+    问题 K: Biscuits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202149" class="md-nav__link">
+    2021个人训练赛第49场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第49场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-rectangle" class="md-nav__link">
+    问题 A: +/- Rectangle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-wifi-setup" class="md-nav__link">
+    问题 H: Wifi Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-shrinking" class="md-nav__link">
+    问题 J: Shrinking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-colorful-hats" class="md-nav__link">
+    问题 G: Colorful Hats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-scrambled-letters" class="md-nav__link">
+    问题 D: Scrambled Letters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202148" class="md-nav__link">
+    2021个人训练赛第48场
+  </a>
+  
+    <nav class="md-nav" aria-label="2021个人训练赛第48场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    问题F：括号序列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-a-oror-b-problem" class="md-nav__link">
+    问题 L: A or...or B Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-nuske-vs-phantom-thnook" class="md-nav__link">
+    问题 H: Nuske vs Phantom Thnook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    问题 K: 字母金字塔
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">题单<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h4 id="2021">2021秋组队训练赛第十一场<a class="headerlink" href="#2021" title="Permanent link">&para;</a></h4>
+<h5 id="b-collatz-conjecture"><a href="http://icpc.upc.edu.cn/problem.php?cid=2964&amp;pid=1">问题 B: Collatz Conjecture</a><a class="headerlink" href="#b-collatz-conjecture" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：GCD 性质</li>
+</ul>
+<h5 id="g-hoarse-horses"><a href="http://icpc.upc.edu.cn/problem.php?cid=2964&amp;pid=6">问题 G: Hoarse Horses</a><a class="headerlink" href="#g-hoarse-horses" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：计算几何+图的性质</li>
+</ul>
+<h5 id="k-lemonade-trade"><a href="http://icpc.upc.edu.cn/problem.php?cid=2964&amp;pid=10">问题 K: Lemonade Trade</a><a class="headerlink" href="#k-lemonade-trade" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：数学，乘法---对数变换---&gt;加法</li>
+</ul>
+<h5 id="l-manhattan-mornings"><a href="http://icpc.upc.edu.cn/problem.php?cid=2964&amp;pid=11">问题 L: Manhattan Mornings</a><a class="headerlink" href="#l-manhattan-mornings" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：最大上升子序列</li>
+</ul>
+<h5 id="h-irrational-division"><a href="http://icpc.upc.edu.cn/problem.php?cid=2964&amp;pid=7">问题 H: Irrational Division</a><a class="headerlink" href="#h-irrational-division" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：规律题</li>
+</ul>
+<h4 id="2021_1">2021秋组队训练赛第九场<a class="headerlink" href="#2021_1" title="Permanent link">&para;</a></h4>
+<h5 id="h-prime-set"><a href="http://icpc.upc.edu.cn/problem.php?cid=2960&amp;pid=7">问题 H: Prime Set</a><a class="headerlink" href="#h-prime-set" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：二分图匹配+匈牙利网路</li>
+</ul>
+<h5 id="g-numbersi"><a href="http://icpc.upc.edu.cn/problem.php?cid=2960&amp;pid=6">问题 G: NumbersI</a><a class="headerlink" href="#g-numbersi" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：Java高精度+贪心</li>
+</ul>
+<h5 id="c-crusaders-quest"><a href="http://icpc.upc.edu.cn/problem.php?cid=2960&amp;pid=2">问题 C: Crusaders Quest</a><a class="headerlink" href="#c-crusaders-quest" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串</li>
+</ul>
+<h5 id="e-string-of-ccpc"><a href="http://icpc.upc.edu.cn/problem.php?cid=2960&amp;pid=4">问题 E: String of CCPC</a><a class="headerlink" href="#e-string-of-ccpc" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串</li>
+</ul>
+<h5 id="l-one-dimensional-maze"><a href="http://icpc.upc.edu.cn/problem.php?cid=2960&amp;pid=11">问题 L: One-Dimensional Maze</a><a class="headerlink" href="#l-one-dimensional-maze" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：前后缀</li>
+</ul>
+<h5 id="a-balloon-robot"><a href="http://icpc.upc.edu.cn/problem.php?cid=2960&amp;pid=0">问题 A: Balloon Robot</a><a class="headerlink" href="#a-balloon-robot" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：前后缀</li>
+</ul>
+<h5 id="m-safest-buildings"><a href="http://icpc.upc.edu.cn/problem.php?cid=2960&amp;pid=12">问题 M: Safest Buildings</a><a class="headerlink" href="#m-safest-buildings" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：计算几何</li>
+</ul>
+<h4 id="2021_2">2021秋组队训练赛第八场<a class="headerlink" href="#2021_2" title="Permanent link">&para;</a></h4>
+<h5 id="f-hopscotch"><a href="http://icpc.upc.edu.cn/problem.php?cid=2958&amp;pid=5">问题 F: Hopscotch</a><a class="headerlink" href="#f-hopscotch" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：多源最短路</li>
+</ul>
+<h5 id="h-letter-wheels"><a href="http://icpc.upc.edu.cn/problem.php?cid=2958&amp;pid=7">问题 H: Letter Wheels</a><a class="headerlink" href="#h-letter-wheels" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串哈希</li>
+</ul>
+<h5 id="g-icpc-camp"><a href="http://icpc.upc.edu.cn/problem.php?cid=2958&amp;pid=6">问题 G: ICPC Camp</a><a class="headerlink" href="#g-icpc-camp" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：二分+匹配</li>
+</ul>
+<h5 id="k-rooted-subtrees"><a href="http://icpc.upc.edu.cn/problem.php?cid=2958&amp;pid=10">问题 K: Rooted Subtrees</a><a class="headerlink" href="#k-rooted-subtrees" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：LCA+ST倍增</li>
+</ul>
+<h5 id="b-mini-battleship"><a href="http://icpc.upc.edu.cn/problem.php?cid=2958&amp;pid=1">问题 B: Mini Battleship</a><a class="headerlink" href="#b-mini-battleship" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：搜索</li>
+</ul>
+<h5 id="d-all-kill"><a href="http://icpc.upc.edu.cn/problem.php?cid=2958&amp;pid=3">问题 D: All Kill</a><a class="headerlink" href="#d-all-kill" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：概率论+打表/找规律</li>
+</ul>
+<h4 id="2021_3">2021秋组队训练赛第七场<a class="headerlink" href="#2021_3" title="Permanent link">&para;</a></h4>
+<h5 id="a-anagram"><a href="http://icpc.upc.edu.cn/problem.php?cid=2956&amp;pid=0">问题 A: Anagram</a><a class="headerlink" href="#a-anagram" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串模拟</li>
+</ul>
+<h5 id="c-cities"><a href="http://icpc.upc.edu.cn/problem.php?cid=2956&amp;pid=2">问题 C: Cities</a><a class="headerlink" href="#c-cities" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：最小生成树</li>
+</ul>
+<h5 id="f-four-tuples"><a href="http://icpc.upc.edu.cn/problem.php?cid=2956&amp;pid=5">问题 F: Four-tuples</a><a class="headerlink" href="#f-four-tuples" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：容斥原理</li>
+</ul>
+<h5 id="b-bullet"><a href="http://icpc.upc.edu.cn/problem.php?cid=2956&amp;pid=1">问题 B: Bullet</a><a class="headerlink" href="#b-bullet" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：二分+二分图匹配</li>
+</ul>
+<h5 id="g-games"><a href="http://icpc.upc.edu.cn/problem.php?cid=2956&amp;pid=6">问题 G: Games</a><a class="headerlink" href="#g-games" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：博弈论+动态规划</li>
+</ul>
+<h4 id="2021_4">2021秋组队训练赛第六场<a class="headerlink" href="#2021_4" title="Permanent link">&para;</a></h4>
+<h5 id="l-mixtape-management"><a href="http://icpc.upc.edu.cn/problem.php?cid=2954&amp;pid=11">问题 L: Mixtape Management</a><a class="headerlink" href="#l-mixtape-management" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串构造题目</li>
+</ul>
+<h5 id="a-adolescent-architecture"><a href="http://icpc.upc.edu.cn/problem.php?cid=2953&amp;pid=0">问题 A: Adolescent Architecture</a><a class="headerlink" href="#a-adolescent-architecture" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：排序</li>
+</ul>
+<h5 id="b-bookshelf-building"><a href="http://icpc.upc.edu.cn/problem.php?cid=2953&amp;pid=1">问题 B: Bookshelf Building</a><a class="headerlink" href="#b-bookshelf-building" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：动态规划</li>
+</ul>
+<h5 id="j-knightly-knowledge"><a href="http://icpc.upc.edu.cn/problem.php?cid=2953&amp;pid=9">问题 J: Knightly Knowledge</a><a class="headerlink" href="#j-knightly-knowledge" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：二分查找</li>
+</ul>
+<h5 id="k-lexicographical-lecturing"><a href="http://icpc.upc.edu.cn/problem.php?cid=2953&amp;pid=10">问题 K: Lexicographical Lecturing</a><a class="headerlink" href="#k-lexicographical-lecturing" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：思维+字符串</li>
+</ul>
+<h5 id="c-decorative-dominoes"><a href="http://icpc.upc.edu.cn/problem.php?cid=2954&amp;pid=2">问题 C: Decorative Dominoes</a><a class="headerlink" href="#c-decorative-dominoes" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：二分图的匹配</li>
+</ul>
+<h5 id="f-gravity-grid"><a href="http://icpc.upc.edu.cn/problem.php?cid=2954&amp;pid=5">问题 F: Gravity Grid</a><a class="headerlink" href="#f-gravity-grid" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：大模拟</li>
+</ul>
+<h4 id="2021_5">2021秋组队训练赛第五场<a class="headerlink" href="#2021_5" title="Permanent link">&para;</a></h4>
+<h5 id="c-safe-distance"><a href="http://icpc.upc.edu.cn/problem.php?cid=2951&amp;pid=2">问题 C: Safe Distance</a><a class="headerlink" href="#c-safe-distance" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：并查集</li>
+</ul>
+<h5 id="g-decoration"><a href="http://icpc.upc.edu.cn/problem.php?cid=2951&amp;pid=6">问题 G: Decoration</a><a class="headerlink" href="#g-decoration" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：图论+数论</li>
+</ul>
+<h5 id="i-emails"><a href="http://icpc.upc.edu.cn/problem.php?cid=2951&amp;pid=8">问题 I: Emails</a><a class="headerlink" href="#i-emails" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：BFS，无向图直径</li>
+</ul>
+<h5 id="k-unique-activities"><a href="http://icpc.upc.edu.cn/problem.php?cid=2951&amp;pid=10">问题 K: Unique Activities</a><a class="headerlink" href="#k-unique-activities" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串+二分check</li>
+</ul>
+<h4 id="2021_6">2021秋组队训练赛第四场<a class="headerlink" href="#2021_6" title="Permanent link">&para;</a></h4>
+<h5 id="f-fair-distribution"><a href="http://icpc.upc.edu.cn/problem.php?cid=2949&amp;pid=5">问题 F: Fair Distribution</a><a class="headerlink" href="#f-fair-distribution" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：数论+整数分块</li>
+</ul>
+<h4 id="2021_7">2021秋组队训练赛第三场<a class="headerlink" href="#2021_7" title="Permanent link">&para;</a></h4>
+<h5 id="e-interview-queue"><a href="http://icpc.upc.edu.cn/problem.php?cid=2947&amp;pid=4">问题 E: Interview Queue</a><a class="headerlink" href="#e-interview-queue" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：STL+模拟</li>
+</ul>
+<h5 id="f-conquest"><a href="http://icpc.upc.edu.cn/problem.php?cid=2947&amp;pid=5">问题 F: Conquest</a><a class="headerlink" href="#f-conquest" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：优先队列+BFS</li>
+</ul>
+<h5 id="h-antimatter-rain"><a href="http://icpc.upc.edu.cn/problem.php?cid=2947&amp;pid=7">问题 H: Antimatter Rain</a><a class="headerlink" href="#h-antimatter-rain" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：扫描线+线段树</li>
+</ul>
+<h5 id="j-pegs-and-legs"><a href="http://icpc.upc.edu.cn/problem.php?cid=2947&amp;pid=9">问题 J: Pegs and Legs</a><a class="headerlink" href="#j-pegs-and-legs" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：图论+概率论</li>
+</ul>
+<h4 id="2021_8">2021秋组队训练赛第二场<a class="headerlink" href="#2021_8" title="Permanent link">&para;</a></h4>
+<h5 id="a-three-axis-views"><a href="http://icpc.upc.edu.cn/problem.php?cid=2945&amp;pid=0">问题 A: Three-Axis Views</a><a class="headerlink" href="#a-three-axis-views" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：三视图模拟</li>
+</ul>
+<h5 id="b-secrets-of-legendary-treasure"><a href="http://icpc.upc.edu.cn/problem.php?cid=2945&amp;pid=1">问题 B: Secrets of Legendary Treasure</a><a class="headerlink" href="#b-secrets-of-legendary-treasure" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：构造+模拟题目</li>
+</ul>
+<h5 id="e-jewelry-size"><a href="http://icpc.upc.edu.cn/problem.php?cid=2945&amp;pid=4">问题 E: Jewelry Size</a><a class="headerlink" href="#e-jewelry-size" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：计算几何</li>
+</ul>
+<h5 id="g-to-be-connected-or-not-to-be-that-is-the-question"><a href="http://icpc.upc.edu.cn/problem.php?cid=2945&amp;pid=6">问题 G: To be Connected, or not to be, that is the Question</a><a class="headerlink" href="#g-to-be-connected-or-not-to-be-that-is-the-question" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：并查集的撤销</li>
+</ul>
+<h5 id="h-lcm-of-gcds"><a href="http://icpc.upc.edu.cn/problem.php?cid=2945&amp;pid=7">问题 H: LCM of GCDs</a><a class="headerlink" href="#h-lcm-of-gcds" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：线段树+GCD&amp;LCM性质</li>
+</ul>
+<h5 id="i-high-tech-detective"><a href="http://icpc.upc.edu.cn/problem.php?cid=2946&amp;pid=8">问题 I: High-Tech Detective</a><a class="headerlink" href="#i-high-tech-detective" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串+动态规划</li>
+</ul>
+<h5 id="j-formica-sokobanica"><a href="http://icpc.upc.edu.cn/problem.php?cid=2945&amp;pid=9">问题 J: Formica Sokobanica</a><a class="headerlink" href="#j-formica-sokobanica" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：搜索</li>
+</ul>
+<h4 id="2021_9">2021秋组队训练赛第一场<a class="headerlink" href="#2021_9" title="Permanent link">&para;</a></h4>
+<h5 id="f-agamemnons-odyssey"><a href="http://icpc.upc.edu.cn/problem.php?cid=2943&amp;pid=5">问题 F: Agamemnon’s Odyssey</a><a class="headerlink" href="#f-agamemnons-odyssey" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：树的直径</li>
+</ul>
+<h5 id="d-substring-characters"><a href="http://icpc.upc.edu.cn/problem.php?cid=2943&amp;pid=3">问题 D: Substring Characters</a><a class="headerlink" href="#d-substring-characters" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：字符串</li>
+</ul>
+<h5 id="j-ada-loveslaces"><a href="http://icpc.upc.edu.cn/problem.php?cid=2943&amp;pid=9">问题 J: Ada Loveslaces</a><a class="headerlink" href="#j-ada-loveslaces" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：状压</li>
+</ul>
+<h5 id="i-staggering-to-the-finish"><a href="http://icpc.upc.edu.cn/problem.php?cid=2943&amp;pid=8">问题 I: Staggering to the Finish</a><a class="headerlink" href="#i-staggering-to-the-finish" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：计算几何，有点难</li>
+</ul>
+<h5 id="k-icpc-record-matching"><a href="http://icpc.upc.edu.cn/problem.php?cid=2943&amp;pid=10">问题 K: ICPC Record Matching</a><a class="headerlink" href="#k-icpc-record-matching" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：字符串哈希，模拟</li>
+</ul>
+<h5 id="a-logdb"><a href="http://icpc.upc.edu.cn/problem.php?cid=2943&amp;pid=0">问题 A: LogDB</a><a class="headerlink" href="#a-logdb" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 算法：字符串模拟</li>
+</ul>
+<h5 id="b-ride-hailing"><a href="http://icpc.upc.edu.cn/problem.php?cid=2944&amp;pid=1">问题 B: Ride-Hailing</a><a class="headerlink" href="#b-ride-hailing" title="Permanent link">&para;</a></h5>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> 算法：图匹配+最大流Dinic算法</li>
+</ul>
+<h4 id="202152">2021个人训练赛第52场<a class="headerlink" href="#202152" title="Permanent link">&para;</a></h4>
+<h5 id="c"><a href="http://icpc.upc.edu.cn/problem.php?cid=2941&amp;pid=2">问题 C: 抢占城堡</a><a class="headerlink" href="#c" title="Permanent link">&para;</a></h5>
+<p>算法：直接搜索，注意有坑！！！</p>
+<h5 id="h"><a href="http://icpc.upc.edu.cn/problem.php?cid=2941&amp;pid=7">问题 H: 包含</a><a class="headerlink" href="#h" title="Permanent link">&para;</a></h5>
+<p>算法：字典树+搜素</p>
+<h5 id="k-gcd"><a href="http://icpc.upc.edu.cn/problem.php?cid=2941&amp;pid=10">问题 K: GCD</a><a class="headerlink" href="#k-gcd" title="Permanent link">&para;</a></h5>
+<p>算法：质因数</p>
+<h5 id="b"><a href="http://icpc.upc.edu.cn/problem.php?cid=2941&amp;pid=1">问题 B: 放牛奶的冰箱</a><a class="headerlink" href="#b" title="Permanent link">&para;</a></h5>
+<p>算法：未知，还没补，qaq，可以暴力或二分试试</p>
+<h5 id="i-reverse-and-compare"><a href="http://icpc.upc.edu.cn/problem.php?cid=2941&amp;pid=8">问题 I: Reverse and Compare</a><a class="headerlink" href="#i-reverse-and-compare" title="Permanent link">&para;</a></h5>
+<p>算法：规律题，给个样例提示：abca，暂时还没补</p>
+<h5 id="j-fountain-walk"><a href="http://icpc.upc.edu.cn/problem.php?cid=2941&amp;pid=9">问题 J: Fountain Walk</a><a class="headerlink" href="#j-fountain-walk" title="Permanent link">&para;</a></h5>
+<p>算法：最大上升子序列，可以先放一放，我还没补出来，qaq</p>
+<h4 id="202151">2021个人训练赛第51场<a class="headerlink" href="#202151" title="Permanent link">&para;</a></h4>
+<h5 id="b-getting-difference"><a href="http://icpc.upc.edu.cn/problem.php?cid=2939&amp;pid=1">问题 B: Getting Difference</a><a class="headerlink" href="#b-getting-difference" title="Permanent link">&para;</a></h5>
+<p>算法：思维+数论</p>
+<h5 id="c_1"><a href="http://icpc.upc.edu.cn/problem.php?cid=2939&amp;pid=2">问题 C: 野牛与狼</a><a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h5>
+<p>算法：前缀+思维</p>
+<h5 id="d"><a href="http://icpc.upc.edu.cn/problem.php?cid=2939&amp;pid=3">问题 D: 老死不相往来</a><a class="headerlink" href="#d" title="Permanent link">&para;</a></h5>
+<p>算法：离散化</p>
+<h5 id="g-cow-lineup-i"><a href="http://icpc.upc.edu.cn/problem.php?cid=2939&amp;pid=6">问题 G: Cow Lineup I</a><a class="headerlink" href="#g-cow-lineup-i" title="Permanent link">&para;</a></h5>
+<p>算法：二分或者暴力</p>
+<h5 id="k-painting-the-fence"><a href="http://icpc.upc.edu.cn/problem.php?cid=2939&amp;pid=10">问题 K: Painting the Fence</a><a class="headerlink" href="#k-painting-the-fence" title="Permanent link">&para;</a></h5>
+<p>算法：离散化+前缀</p>
+<h4 id="202150">2021个人训练赛第50场<a class="headerlink" href="#202150" title="Permanent link">&para;</a></h4>
+<h5 id="c_2"><a href="http://icpc.upc.edu.cn/problem.php?cid=2937&amp;pid=2">问题 C: 牛牛的方程式</a><a class="headerlink" href="#c_2" title="Permanent link">&para;</a></h5>
+<p>算法：签到题，数论</p>
+<h5 id="m-milk-routing"><a href="http://icpc.upc.edu.cn/problem.php?cid=2937&amp;pid=12">问题 M: Milk Routing</a><a class="headerlink" href="#m-milk-routing" title="Permanent link">&para;</a></h5>
+<p>算法：图论，最短路，搜素</p>
+<h5 id="d_1"><a href="http://icpc.upc.edu.cn/problem.php?cid=2937&amp;pid=3">问题 D: 牛牛的猜球游戏</a><a class="headerlink" href="#d_1" title="Permanent link">&para;</a></h5>
+<p>算法：思维题目</p>
+<h5 id="a-lh"><a href="http://icpc.upc.edu.cn/problem.php?cid=2937&amp;pid=0">问题 A: LH 撸串串</a><a class="headerlink" href="#a-lh" title="Permanent link">&para;</a></h5>
+<p>算法：无脑暴力</p>
+<h5 id="j-moderate-differences"><a href="http://icpc.upc.edu.cn/problem.php?cid=2937&amp;pid=9">问题 J: Moderate Differences</a><a class="headerlink" href="#j-moderate-differences" title="Permanent link">&para;</a></h5>
+<p>算法：思维+枚举</p>
+<h5 id="k-biscuits"><a href="http://icpc.upc.edu.cn/problem.php?cid=2937&amp;pid=10">问题 K: Biscuits</a><a class="headerlink" href="#k-biscuits" title="Permanent link">&para;</a></h5>
+<p>算法：动态规划/组合数学</p>
+<h4 id="202149">2021个人训练赛第49场<a class="headerlink" href="#202149" title="Permanent link">&para;</a></h4>
+<h5 id="a-rectangle"><a href="http://icpc.upc.edu.cn/problem.php?cid=2935&amp;pid=0">问题 A: &plusmn; Rectangle</a><a class="headerlink" href="#a-rectangle" title="Permanent link">&para;</a></h5>
+<p>算法：比较难的构造题，不过模拟也可以过，额</p>
+<h5 id="h-wifi-setup"><a href="http://icpc.upc.edu.cn/problem.php?cid=2935&amp;pid=7">问题 H: Wifi Setup</a><a class="headerlink" href="#h-wifi-setup" title="Permanent link">&para;</a></h5>
+<p>算法：DP？可能是吧</p>
+<h5 id="j-shrinking"><a href="http://icpc.upc.edu.cn/problem.php?cid=2935&amp;pid=9">问题 J: Shrinking</a><a class="headerlink" href="#j-shrinking" title="Permanent link">&para;</a></h5>
+<p>算法：字符串</p>
+<h5 id="g-colorful-hats"><a href="http://icpc.upc.edu.cn/problem.php?cid=2935&amp;pid=6">问题 G: Colorful Hats</a><a class="headerlink" href="#g-colorful-hats" title="Permanent link">&para;</a></h5>
+<p>算法：未知，还没补出来，<img alt="😳" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f633.png" title=":flushed:" /></p>
+<h5 id="d-scrambled-letters"><a href="http://icpc.upc.edu.cn/problem.php?cid=2936&amp;pid=3">问题 D: Scrambled Letters</a><a class="headerlink" href="#d-scrambled-letters" title="Permanent link">&para;</a></h5>
+<p>算法：未知，还没补出来，<img alt="😳" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f633.png" title=":flushed:" /></p>
+<h4 id="202148">2021个人训练赛第48场<a class="headerlink" href="#202148" title="Permanent link">&para;</a></h4>
+<h5 id="f"><a href="http://icpc.upc.edu.cn/problem.php?cid=2933&amp;pid=5">问题F：括号序列</a><a class="headerlink" href="#f" title="Permanent link">&para;</a></h5>
+<p>算法：栈的应用</p>
+<h5 id="l-a-oror-b-problem"><a href="http://icpc.upc.edu.cn/problem.php?cid=2933&amp;pid=11">问题 L: A or...or B Problem</a><a class="headerlink" href="#l-a-oror-b-problem" title="Permanent link">&para;</a></h5>
+<p>算法：思维，位运算</p>
+<h5 id="h-nuske-vs-phantom-thnook"><a href="http://icpc.upc.edu.cn/problem.php?cid=2934&amp;pid=7">问题 H: Nuske vs Phantom Thnook</a><a class="headerlink" href="#h-nuske-vs-phantom-thnook" title="Permanent link">&para;</a></h5>
+<p>算法：前缀和、树的性质</p>
+<h5 id="k"><a href="http://icpc.upc.edu.cn/problem.php?cid=2933&amp;pid=10">问题 K: 字母金字塔</a><a class="headerlink" href="#k" title="Permanent link">&para;</a></h5>
+<p>算法：大模拟，可以先放一放</p>
+<div class="highlight"><pre><span></span><code>&lt;script&gt;
+    console.log(&quot;Hello World!&quot;);
+&lt;/script&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;script&gt;
+    console.log(&quot;你好啊！&quot;);
+&lt;/script&gt;
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../icpc/" class="md-footer__link md-footer__link--prev" aria-label="上一页: ICPC模板" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              ICPC模板
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+        <script src="../js/extra.js"></script>
+      
+        <script src="../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
