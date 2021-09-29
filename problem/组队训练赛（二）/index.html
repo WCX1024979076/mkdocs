@@ -999,11 +999,11 @@
 <h5 id="_8">提示<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
 <p>For first test case, n = 21*31= 6, and the answer is (φ(1)*n/1+φ(2)*n/2+φ(3)*n/3+φ(6)*n/6) mod 998244353 = (6 + 3 + 4 + 2) mod 998244353 = 15.</p>
 <h5 id="_9">题解<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
-<p>题目要求求解$ F(n)=\sum_{d|n} \varphi(d)*\frac{n}{d} <span><span class="MathJax_Preview">，由于欧拉函数和</span><script type="math/tex">，由于欧拉函数和</script></span>\frac{n}{d}$均为积性函数，则有</p>
-<p>$ F(m*n)=F(m)*F(n) $</p>
+<p>题目要求求解<span><span class="MathJax_Preview">F(n)=\sum_{d|n} \varphi(d)*\frac{n}{d}</span><script type="math/tex">F(n)=\sum_{d|n} \varphi(d)*\frac{n}{d}</script></span>，由于欧拉函数和<span><span class="MathJax_Preview">\frac{n}{d}</span><script type="math/tex">\frac{n}{d}</script></span>均为积性函数，则有</p>
+<p><span><span class="MathJax_Preview">F(m*n)=F(m)*F(n)</span><script type="math/tex">F(m*n)=F(m)*F(n)</script></span></p>
 <p>即为$ F( \prod p_i^{q_i})=\prod F(p_i^{q_i}) $，则</p>
-<p>$ F(p_i<sup>{q_i})=\sum_{d|n}\varphi(d)*\frac{n}{d}=\varphi(1)*n+\sum_{i=1}</sup>{q} \varphi(p<sup>i)*\frac{n}{p</sup>i}=p_i^{q_i}+\sum _{i=1} <sup>{q_i}(p_i-1)*(p_i</sup>{i-1}*\frac{p_i^{q_i}}{p_i}) $</p>
-<p>$ =p_i<sup>{q_i}+p_i</sup>{q_i-1}<em>(p_i-1)</em>{q_i}=p_i^{q_i-1}<em>(p_i+q_i</em>(p_i-1)) $</p>
+<p><span><span class="MathJax_Preview">F(p_i^{q_i})=\sum_{d|n}\varphi(d)*\frac{n}{d}=\varphi(1)*n+\sum_{i=1}^{q} \varphi(p^i)*\frac{n}{p^i}=p_i^{q_i}+\sum _{i=1} ^{q_i}(p_i-1)*(p_i^{i-1}*\frac{p_i^{q_i}}{p_i})</span><script type="math/tex">F(p_i^{q_i})=\sum_{d|n}\varphi(d)*\frac{n}{d}=\varphi(1)*n+\sum_{i=1}^{q} \varphi(p^i)*\frac{n}{p^i}=p_i^{q_i}+\sum _{i=1} ^{q_i}(p_i-1)*(p_i^{i-1}*\frac{p_i^{q_i}}{p_i})</script></span></p>
+<p><span><span class="MathJax_Preview">=p_i^{q_i}+p_i^{q_i-1}*(p_i-1)*{q_i}=p_i^{q_i-1}*(p_i+q_i*(p_i-1))</span><script type="math/tex">=p_i^{q_i}+p_i^{q_i-1}*(p_i-1)*{q_i}=p_i^{q_i-1}*(p_i+q_i*(p_i-1))</script></span></p>
 <p>参考链接：</p>
 <p><a href="https://blog.csdn.net/xiongshuxian2019/article/details/109631325">https://blog.csdn.net/xiongshuxian2019/article/details/109631325</a></p>
 <p><a href="https://blog.csdn.net/consciousman/article/details/77888386">https://blog.csdn.net/consciousman/article/details/77888386</a></p>
