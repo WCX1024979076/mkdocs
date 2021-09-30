@@ -965,9 +965,9 @@ A × C = B <img alt="img" src="http://icpc.upc.edu.cn/upload/image/20210914/2021
 <p>The answer may be very large, so you only need to output the answer module 998244353.</p>
 <h5 id="_4">输入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
 <p>The first line has one integer N</p>
-<p>Then there are N lines and each line has N integers, the j-th integer of the i-th line denotes <span><span class="MathJax_Preview">A_{i,j}</span><script type="math/tex">A_{i,j}</script></span></p>
-<p>Then there are N lines and each line has N integers, the j-th integer of the i-th line denotes <span><span class="MathJax_Preview">B_{i,j}</span><script type="math/tex">B_{i,j}</script></span></p>
-<p>1≤N≤200, <span><span class="MathJax_Preview">A_{i,j}</span><script type="math/tex">A_{i,j}</script></span>,$ B_{i,j}$∈{ 0, 1 }</p>
+<p>Then there are N lines and each line has N integers, the j-th integer of the i-th line denotes <span class="arithmatex"><span class="MathJax_Preview">A_{i,j}</span><script type="math/tex">A_{i,j}</script></span></p>
+<p>Then there are N lines and each line has N integers, the j-th integer of the i-th line denotes <span class="arithmatex"><span class="MathJax_Preview">B_{i,j}</span><script type="math/tex">B_{i,j}</script></span></p>
+<p>1≤N≤200, <span class="arithmatex"><span class="MathJax_Preview">A_{i,j}</span><script type="math/tex">A_{i,j}</script></span>,$ B_{i,j}$∈{ 0, 1 }</p>
 <h5 id="_5">输出<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
 <p>Output the answer module 998244353.</p>
 <h5 id="_6">样例输入<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
@@ -1007,7 +1007,7 @@ A × C = B <img alt="img" src="http://icpc.upc.edu.cn/upload/image/20210914/2021
 <h5 id="_8">题解<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
 <p>高斯消元法求解矩阵的秩，对于每一列单独考虑可以将题目转换为以下方程：</p>
 <p><img alt="在这里插入图片描述" src="http://pic.tim-wcx.ltd/img/20210927180443.jpeg" /></p>
-<p>对于每一个方程组系数矩阵，如果秩为k，则<span><span class="MathJax_Preview">C_k,C_{K+1} .... C_n</span><script type="math/tex">C_k,C_{K+1} .... C_n</script></span>，可以任意选择0和1，则对应答案为<span><span class="MathJax_Preview">2^{n-k}</span><script type="math/tex">2^{n-k}</script></span>，最后将每一列的答案乘起来即为答案。</p>
+<p>对于每一个方程组系数矩阵，如果秩为k，则<span class="arithmatex"><span class="MathJax_Preview">C_k,C_{K+1} .... C_n</span><script type="math/tex">C_k,C_{K+1} .... C_n</script></span>，可以任意选择0和1，则对应答案为<span class="arithmatex"><span class="MathJax_Preview">2^{n-k}</span><script type="math/tex">2^{n-k}</script></span>，最后将每一列的答案乘起来即为答案。</p>
 <p><img alt="在这里插入图片描述" src="http://pic.tim-wcx.ltd/img/20210927182240.png" /></p>
 <p>参考于：</p>
 <p><a href="https://blog.csdn.net/hddddh/article/details/111828336">https://blog.csdn.net/hddddh/article/details/111828336</a></p>

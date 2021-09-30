@@ -995,8 +995,8 @@
 <p>For the third sample, the best way is to destroy a robot and create an energy bar. After that, we have 7 robots and 21 energy bars, which leads to a fair distribution.</p>
 <h5 id="_9">题解<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
 <p>枚举机器人少了x个，则可得当前的答案：</p>
-<p><span><span class="MathJax_Preview">n-(n-x)+(\frac{m+n-x-1}{n-x})*(n-x)-m=n-m+\frac{m-1}{n-x}*(n-x)</span><script type="math/tex">n-(n-x)+(\frac{m+n-x-1}{n-x})*(n-x)-m=n-m+\frac{m-1}{n-x}*(n-x)</script></span></p>
-<p>其中 <span><span class="MathJax_Preview">\frac{m-1}{n-x}*(n-x)</span><script type="math/tex">\frac{m-1}{n-x}*(n-x)</script></span>可以由整数分块得到，类似于<span><span class="MathJax_Preview">\sum{\frac{n}{i}}</span><script type="math/tex">\sum{\frac{n}{i}}</script></span>，最后统计答案取最小值即可。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">n-(n-x)+(\frac{m+n-x-1}{n-x})*(n-x)-m=n-m+\frac{m-1}{n-x}*(n-x)</span><script type="math/tex">n-(n-x)+(\frac{m+n-x-1}{n-x})*(n-x)-m=n-m+\frac{m-1}{n-x}*(n-x)</script></span></p>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">\frac{m-1}{n-x}*(n-x)</span><script type="math/tex">\frac{m-1}{n-x}*(n-x)</script></span>可以由整数分块得到，类似于<span class="arithmatex"><span class="MathJax_Preview">\sum{\frac{n}{i}}</span><script type="math/tex">\sum{\frac{n}{i}}</script></span>，最后统计答案取最小值即可。</p>
 <p>参考博客：<a href="https://blog.csdn.net/qq_50377393/article/details/119151746">https://blog.csdn.net/qq_50377393/article/details/119151746</a></p>
 <h5 id="_10">代码<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>

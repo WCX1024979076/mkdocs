@@ -1391,7 +1391,7 @@ For towns a and b directly connected by a road, if a has already received the in
 Takahashi wants to choose the K towns to transmit the information to minimize the time taken until every town receives it. Find the minimum time this takes.</p>
 <p>Constraints
 All values in input are integers.
-1≤K&lt;N≤<span><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span>
+1≤K&lt;N≤<span class="arithmatex"><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span>
 1≤ui,vi≤N
 For any two towns a and b, it is possible to get from Town a to Town b by traversing some roads.</p>
 <h5 id="_4">输入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
@@ -1610,9 +1610,9 @@ swap Ai and Ai+1;
 add 1 to Ai;
 subtract 1 from Ai+1.
 Constraints
-2≤N≤<span><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span>​​
-0≤Ai≤<span><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span>​
-0≤Bi≤<span><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span>
+2≤N≤<span class="arithmatex"><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span>​​
+0≤Ai≤<span class="arithmatex"><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span>​
+0≤Bi≤<span class="arithmatex"><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span>
 All values in input are integers.</p>
 <h5 id="_20">输入<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
 <p>Input is given from Standard Input in the following format:
@@ -1661,7 +1661,7 @@ In this case, it is impossible to match A with B.
 样例3解释：
 A may equal B before doing any operation.</p>
 <h5 id="_25">题解<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h5>
-<p>对一个数组进行如上的三次操作之后<span><span class="MathJax_Preview">i+a[i]</span><script type="math/tex">i+a[i]</script></span>​的值保持不变，所以只要把a数组<span><span class="MathJax_Preview">i+a[i]</span><script type="math/tex">i+a[i]</script></span>​转变为b数组中<span><span class="MathJax_Preview">j+b[j]</span><script type="math/tex">j+b[j]</script></span>​即可，又因为为相邻交换，所以只需要求出逆序对即可。</p>
+<p>对一个数组进行如上的三次操作之后<span class="arithmatex"><span class="MathJax_Preview">i+a[i]</span><script type="math/tex">i+a[i]</script></span>​的值保持不变，所以只要把a数组<span class="arithmatex"><span class="MathJax_Preview">i+a[i]</span><script type="math/tex">i+a[i]</script></span>​转变为b数组中<span class="arithmatex"><span class="MathJax_Preview">j+b[j]</span><script type="math/tex">j+b[j]</script></span>​即可，又因为为相邻交换，所以只需要求出逆序对即可。</p>
 <p>参考链接：</p>
 <p><a href="https://blog.csdn.net/weixin_45483201/article/details/117699573">https://blog.csdn.net/weixin_45483201/article/details/117699573</a></p>
 <p><a href="https://www.cnblogs.com/spnooyseed/p/14810702.html">https://www.cnblogs.com/spnooyseed/p/14810702.html</a></p>

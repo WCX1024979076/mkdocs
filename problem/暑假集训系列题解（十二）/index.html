@@ -1827,7 +1827,7 @@
 <h5 id="_19">题目链接<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
 <p><a href="http://icpc.upc.edu.cn/problem.php?cid=2917&amp;pid=4">123 Triangle</a></p>
 <h5 id="_20">题目描述<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
-<p>You are given four positive integers x0, x1, a, b. And you know <span><span class="MathJax_Preview">x_i=a⋅x_{i−1}+b⋅x_{i−2}</span><script type="math/tex">x_i=a⋅x_{i−1}+b⋅x_{i−2}</script></span> for all i≥2.</p>
+<p>You are given four positive integers x0, x1, a, b. And you know <span class="arithmatex"><span class="MathJax_Preview">x_i=a⋅x_{i−1}+b⋅x_{i−2}</span><script type="math/tex">x_i=a⋅x_{i−1}+b⋅x_{i−2}</script></span> for all i≥2.</p>
 <p>Given two positive integers n, and MOD, please calculate xn modulo MOD.</p>
 <p>Does the problem look simple? Surprise! The value of n may have many many digits! </p>
 <h5 id="_21">输入<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h5>
@@ -1847,8 +1847,8 @@
 <p>The resulting sequence x is Fibonacci sequence. The 11-th item is 89.</p>
 <h5 id="_26">题解<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h5>
 <p>首先是十进制快速幂，例如：</p>
-<p><span><span class="MathJax_Preview">3^{1234}=((((ans*3^1)^{10}*3^2)^{10}*3^3)^{10}*3^4)^{10}</span><script type="math/tex">3^{1234}=((((ans*3^1)^{10}*3^2)^{10}*3^3)^{10}*3^4)^{10}</script></span></p>
-<p>然后是矩阵快速幂，<span><span class="MathJax_Preview">x_i=a⋅x_{i−1}+b⋅x_{i−2}</span><script type="math/tex">x_i=a⋅x_{i−1}+b⋅x_{i−2}</script></span>可以转换为：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">3^{1234}=((((ans*3^1)^{10}*3^2)^{10}*3^3)^{10}*3^4)^{10}</span><script type="math/tex">3^{1234}=((((ans*3^1)^{10}*3^2)^{10}*3^3)^{10}*3^4)^{10}</script></span></p>
+<p>然后是矩阵快速幂，<span class="arithmatex"><span class="MathJax_Preview">x_i=a⋅x_{i−1}+b⋅x_{i−2}</span><script type="math/tex">x_i=a⋅x_{i−1}+b⋅x_{i−2}</script></span>可以转换为：</p>
 <p>$\left( \matrix{  a &amp; b \  1&amp; 0  } \right) ^{n-1} * \left(\matrix {x1  \ x0  } \right) $</p>
 <p>求出矩阵变为答案。</p>
 <p>参考与：</p>
@@ -1950,8 +1950,8 @@
 <p>this score, while Bob wants to minimize it. Find the score of the game when both players play optimally </p>
 <p>under their objectives.</p>
 <p>Constraints</p>
-<p>1≤N≤<span><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span></p>
-<p>0≤Ai&lt;<span><span class="MathJax_Preview">2^{30}</span><script type="math/tex">2^{30}</script></span></p>
+<p>1≤N≤<span class="arithmatex"><span class="MathJax_Preview">2×10^5</span><script type="math/tex">2×10^5</script></span></p>
+<p>0≤Ai&lt;<span class="arithmatex"><span class="MathJax_Preview">2^{30}</span><script type="math/tex">2^{30}</script></span></p>
 <p>All values in input are integers.</p>
 <h5 id="_30">输入<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h5>
 <p>Input is given from Standard Input in the following format:</p>
@@ -2139,9 +2139,9 @@ Below is one possible progress of the game (it may contain suboptimal choices).<
 Find the maximum possible sum of the values of the blocks contained in the tower.</p>
 <p>Constraints
 All values in input are integers.</p>
-<p>1≤N≤<span><span class="MathJax_Preview">10^3</span><script type="math/tex">10^3</script></span></p>
-<p>1≤wi,si≤<span><span class="MathJax_Preview">10^4</span><script type="math/tex">10^4</script></span></p>
-<p>1≤vi≤<span><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span></p>
+<p>1≤N≤<span class="arithmatex"><span class="MathJax_Preview">10^3</span><script type="math/tex">10^3</script></span></p>
+<p>1≤wi,si≤<span class="arithmatex"><span class="MathJax_Preview">10^4</span><script type="math/tex">10^4</script></span></p>
+<p>1≤vi≤<span class="arithmatex"><span class="MathJax_Preview">10^9</span><script type="math/tex">10^9</script></span></p>
 <h5 id="_47">输入<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h5>
 <p>Input is given from Standard Input in the following format:
 N
@@ -2198,7 +2198,7 @@ wN sN vN</p>
 <p>样例4解释：We should, for example, stack Blocks 5,6,8,4 in this order from top to bottom.</p>
 <h5 id="_52">题解<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h5>
 <p>首先贪心排序，对于a和b两个物品，如果a放在b上面则权值为s[b]-w[a]，如果b放在a上面，则权值为s[a]-w[b]，则a和b的顺序由s[b]-w[a]和s[a]-w[b]所决定，移项可得即为比较s[a]+w[a]和s[b]+w[b]，所以根据s[a]+w[a]的大小贪心排序，后根据重量限制动态规划，即假设dp[i]为重量为i时的最大权值，则转移方程为：</p>
-<p><span><span class="MathJax_Preview">dp[j+w[i]]=max(dp[j+w[i]],dp[j]+v[i])(0&lt;=j&lt;=s[i])</span><script type="math/tex">dp[j+w[i]]=max(dp[j+w[i]],dp[j]+v[i])(0<=j<=s[i])</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">dp[j+w[i]]=max(dp[j+w[i]],dp[j]+v[i])(0&lt;=j&lt;=s[i])</span><script type="math/tex">dp[j+w[i]]=max(dp[j+w[i]],dp[j]+v[i])(0<=j<=s[i])</script></span></p>
 <h5 id="_53">代码<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>

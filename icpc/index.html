@@ -3953,7 +3953,7 @@
 <li>数组中所有数均可以由线性基中部分数异或得到</li>
 <li>数组中所有数异或出来均不为0</li>
 <li>对于同一数组线性基个数唯一
-  例如<span><span class="MathJax_Preview">2 ，4 ， 5 ， 6 <span><span class="MathJax_Preview">,由线性基</span><script type="math/tex">,由线性基</script></span>1 , 2 , 4 1 , 2 , 4 <span><span class="MathJax_Preview">数组所有数均可以由</span><script type="math/tex">数组所有数均可以由</script></span>1,2,41,2,4</span><script type="math/tex">2 ，4 ， 5 ， 6 <span><span class="MathJax_Preview">,由线性基</span><script type="math/tex">,由线性基</script></span>1 , 2 , 4 1 , 2 , 4 <span><span class="MathJax_Preview">数组所有数均可以由</span><script type="math/tex">数组所有数均可以由</script></span>1,2,41,2,4</script></span>异或得到</li>
+  例如<span class="arithmatex"><span class="MathJax_Preview">2 ，4 ， 5 ， 6 <span class="arithmatex"><span class="MathJax_Preview">,由线性基</span><script type="math/tex">,由线性基</script></span>1 , 2 , 4 1 , 2 , 4 <span class="arithmatex"><span class="MathJax_Preview">数组所有数均可以由</span><script type="math/tex">数组所有数均可以由</script></span>1,2,41,2,4</span><script type="math/tex">2 ，4 ， 5 ， 6 <span class="arithmatex"><span class="MathJax_Preview">,由线性基</span><script type="math/tex">,由线性基</script></span>1 , 2 , 4 1 , 2 , 4 <span class="arithmatex"><span class="MathJax_Preview">数组所有数均可以由</span><script type="math/tex">数组所有数均可以由</script></span>1,2,41,2,4</script></span>异或得到</li>
 </ul>
 <p>线性基构造</p>
 <p>数组每加入一个数，对线性基进行修改
@@ -3976,8 +3976,8 @@
 <li>若不能插入x，则x最终异或为0，即可以由线性基表达</li>
 </ul>
 <p>区间异或最大值</p>
-<p>数组<span><span class="MathJax_Preview">( L , R )</span><script type="math/tex">( L , R )</script></span> 内取若干个数，使这些数异或后得到的值最大</p>
-<p>令<span><span class="MathJax_Preview">d [ 32 ] <span><span class="MathJax_Preview">数组表示线性基的值，</span><script type="math/tex">数组表示线性基的值，</script></span>p [ 32 ]p [ 32 ]</span><script type="math/tex">d [ 32 ] <span><span class="MathJax_Preview">数组表示线性基的值，</span><script type="math/tex">数组表示线性基的值，</script></span>p [ 32 ]p [ 32 ]</script></span>数组表示线性基的位置（为了便于询问，位置尽量存偏右的）</p>
+<p>数组<span class="arithmatex"><span class="MathJax_Preview">( L , R )</span><script type="math/tex">( L , R )</script></span> 内取若干个数，使这些数异或后得到的值最大</p>
+<p>令<span class="arithmatex"><span class="MathJax_Preview">d [ 32 ] <span class="arithmatex"><span class="MathJax_Preview">数组表示线性基的值，</span><script type="math/tex">数组表示线性基的值，</script></span>p [ 32 ]p [ 32 ]</span><script type="math/tex">d [ 32 ] <span class="arithmatex"><span class="MathJax_Preview">数组表示线性基的值，</span><script type="math/tex">数组表示线性基的值，</script></span>p [ 32 ]p [ 32 ]</script></span>数组表示线性基的位置（为了便于询问，位置尽量存偏右的）</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">ask</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">for</span><span class="err">（</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">31</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="err">）</span><span class="w"></span>
@@ -4675,11 +4675,11 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <ol>
-<li>求解一般方程<span><span class="MathJax_Preview">a * x+b * y=c</span><script type="math/tex">a * x+b * y=c</script></span>的通解x和y</li>
+<li>求解一般方程<span class="arithmatex"><span class="MathJax_Preview">a * x+b * y=c</span><script type="math/tex">a * x+b * y=c</script></span>的通解x和y</li>
 </ol>
-<p>将方程转变为：<span><span class="MathJax_Preview">a * x+b * y=gcd(a, b) * c/gcd(a, b);</span><script type="math/tex">a * x+b * y=gcd(a, b) * c/gcd(a, b);</script></span></p>
-<p>最终即为：<span><span class="MathJax_Preview">a * x/(c/gcd(a, b))+b * y/(c/gcd(a, b))=gcd(a, b);</span><script type="math/tex">a * x/(c/gcd(a, b))+b * y/(c/gcd(a, b))=gcd(a, b);</script></span></p>
-<p>即把结果调整为：<span><span class="MathJax_Preview">x1=x0 * c/gcd(a, b); y1=y0 * c/gcd(a, b);</span><script type="math/tex">x1=x0 * c/gcd(a, b); y1=y0 * c/gcd(a, b);</script></span></p>
+<p>将方程转变为：<span class="arithmatex"><span class="MathJax_Preview">a * x+b * y=gcd(a, b) * c/gcd(a, b);</span><script type="math/tex">a * x+b * y=gcd(a, b) * c/gcd(a, b);</script></span></p>
+<p>最终即为：<span class="arithmatex"><span class="MathJax_Preview">a * x/(c/gcd(a, b))+b * y/(c/gcd(a, b))=gcd(a, b);</span><script type="math/tex">a * x/(c/gcd(a, b))+b * y/(c/gcd(a, b))=gcd(a, b);</script></span></p>
+<p>即把结果调整为：<span class="arithmatex"><span class="MathJax_Preview">x1=x0 * c/gcd(a, b); y1=y0 * c/gcd(a, b);</span><script type="math/tex">x1=x0 * c/gcd(a, b); y1=y0 * c/gcd(a, b);</script></span></p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">exgcd</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -4891,9 +4891,9 @@
 <p>参考博客：<a href="https://blog.csdn.net/Luoxiaobaia/article/details/107593528">https://blog.csdn.net/Luoxiaobaia/article/details/107593528</a></p>
 <blockquote>
 <p>1.球同，盒不同，不能空（隔板法）</p>
-<p>一共有n-1个空隙(总共n+1个空隙，不能空要去掉头尾=n-1) ，要插m-1个板，答案为 <span><span class="MathJax_Preview">C_{n-1}^{m-1}</span><script type="math/tex">C_{n-1}^{m-1}</script></span>​</p>
+<p>一共有n-1个空隙(总共n+1个空隙，不能空要去掉头尾=n-1) ，要插m-1个板，答案为 <span class="arithmatex"><span class="MathJax_Preview">C_{n-1}^{m-1}</span><script type="math/tex">C_{n-1}^{m-1}</script></span>​</p>
 <p>2.球同，盒不同，能空</p>
-<p>如果给每个盒子一个球，就可以把问题转化为不能空的情况了,就相当于n+m个小球放入m个盒子且不能空，答案就是 <span><span class="MathJax_Preview">C_{n+m-1}^{m-1}</span><script type="math/tex">C_{n+m-1}^{m-1}</script></span></p>
+<p>如果给每个盒子一个球，就可以把问题转化为不能空的情况了,就相当于n+m个小球放入m个盒子且不能空，答案就是 <span class="arithmatex"><span class="MathJax_Preview">C_{n+m-1}^{m-1}</span><script type="math/tex">C_{n+m-1}^{m-1}</script></span></p>
 <p>3.球不同，盒同，不能空（dp问题）</p>
 <p>dp[n][m]代表n个小球放入m个不同的盒子且不能空的方法</p>
 <p>当 i &gt;= 0 时，dp[i][i]=1 (i个小球放入i个盒子，就只能1个盒子放1个)</p>
@@ -4908,7 +4908,7 @@
 <p>5.球不同，盒不同，不能空 </p>
 <p>那就是3的情况(球不同，盒同，不允许为空)对盒子进行全排列 答案就是 m!*dp[n][m] (dp[n][m]是第二类斯特林数)</p>
 <p>6.球不同，盒不同，可以空</p>
-<p>每一个小球都有m种方法，且相互独立，答案就是<span><span class="MathJax_Preview">m^n</span><script type="math/tex">m^n</script></span></p>
+<p>每一个小球都有m种方法，且相互独立，答案就是<span class="arithmatex"><span class="MathJax_Preview">m^n</span><script type="math/tex">m^n</script></span></p>
 <p>7.球同，盒同，可以空（dp问题）</p>
 <p>dp[i][j]代表球同，盒同，可以空的放法 当 i&gt;=j 时，dp[i][j] = dp[i][j-1]+dp[i-j][j]</p>
 <p>( 我们可以在所有的盒子上放一个球dp[i-j][j]，也可以不选择这种操作，但是以后都不对其中一个盒子进行操作了，那就是dp[i][j-1] )</p>
@@ -5096,33 +5096,33 @@
 <p><a href="https://blog.csdn.net/mengxiang000000/article/details/78113980">https://blog.csdn.net/mengxiang000000/article/details/78113980</a></p>
 <p><a href="https://blog.csdn.net/bllsll/article/details/78267029">https://blog.csdn.net/bllsll/article/details/78267029</a></p>
 <p>公式推导：</p>
-<p>我们假设在求解<span><span class="MathJax_Preview">dp[i]</span><script type="math/tex">dp[i]</script></span>时，存在<span><span class="MathJax_Preview">j,k(j&gt;k)</span><script type="math/tex">j,k(j>k)</script></span>使得从<span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>转移比从<span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>转移更优，那么需要满足条件：</p>
-<p><span><span class="MathJax_Preview">dp[j]+(S[i+1]−S[j])^2+M&lt;dp[k]+(S[i+1]−S[k])^2+M</span><script type="math/tex">dp[j]+(S[i+1]−S[j])^2+M<dp[k]+(S[i+1]−S[k])^2+M</script></span></p>
+<p>我们假设在求解<span class="arithmatex"><span class="MathJax_Preview">dp[i]</span><script type="math/tex">dp[i]</script></span>时，存在<span class="arithmatex"><span class="MathJax_Preview">j,k(j&gt;k)</span><script type="math/tex">j,k(j>k)</script></span>使得从<span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>转移比从<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>转移更优，那么需要满足条件：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">dp[j]+(S[i+1]−S[j])^2+M&lt;dp[k]+(S[i+1]−S[k])^2+M</span><script type="math/tex">dp[j]+(S[i+1]−S[j])^2+M<dp[k]+(S[i+1]−S[k])^2+M</script></span></p>
 <p>展开上式</p>
-<p><span><span class="MathJax_Preview">dp[j]+S[i+1]^2−2S[i+1]S[j]+S[j]^2+M&lt;dp[k]+S[i+1]^2−2S[i+1]S[k]+S[k]^2+M</span><script type="math/tex">dp[j]+S[i+1]^2−2S[i+1]S[j]+S[j]^2+M<dp[k]+S[i+1]^2−2S[i+1]S[k]+S[k]^2+M</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">dp[j]+S[i+1]^2−2S[i+1]S[j]+S[j]^2+M&lt;dp[k]+S[i+1]^2−2S[i+1]S[k]+S[k]^2+M</span><script type="math/tex">dp[j]+S[i+1]^2−2S[i+1]S[j]+S[j]^2+M<dp[k]+S[i+1]^2−2S[i+1]S[k]+S[k]^2+M</script></span></p>
 <p>移项并消去再合并同类项得</p>
 <p>$dp[j]−dp[k]+S[j]<sup>2−S[k]</sup>2&lt;2S[i+1] (S[j]−S[k]) $</p>
 <p>把S[j]−S[k]S[j]−S[k]除过去，得到</p>
-<p><span><span class="MathJax_Preview">\frac{dp[j]−dp[k]+S[j]^2−S[k]^2}{S[j]−S[k]}&lt;2S[i+1]</span><script type="math/tex">\frac{dp[j]−dp[k]+S[j]^2−S[k]^2}{S[j]−S[k]}<2S[i+1]</script></span></p>
-<p>我们设<span><span class="MathJax_Preview">f[x]=dp[x]+S[x]^2</span><script type="math/tex">f[x]=dp[x]+S[x]^2</script></span>，就化成了</p>
-<p><span><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&lt;2S[i+1]</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}<2S[i+1]</script></span></p>
-<p>即当<span><span class="MathJax_Preview">(j&gt;k)</span><script type="math/tex">(j>k)</script></span>时，若<span><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&lt;2S[i+1]</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}<2S[i+1]</script></span>，则<span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>对更新<span><span class="MathJax_Preview">dp[i]</span><script type="math/tex">dp[i]</script></span>比<span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>更新<span><span class="MathJax_Preview">dp[i]</span><script type="math/tex">dp[i]</script></span>优。---斜率。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\frac{dp[j]−dp[k]+S[j]^2−S[k]^2}{S[j]−S[k]}&lt;2S[i+1]</span><script type="math/tex">\frac{dp[j]−dp[k]+S[j]^2−S[k]^2}{S[j]−S[k]}<2S[i+1]</script></span></p>
+<p>我们设<span class="arithmatex"><span class="MathJax_Preview">f[x]=dp[x]+S[x]^2</span><script type="math/tex">f[x]=dp[x]+S[x]^2</script></span>，就化成了</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&lt;2S[i+1]</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}<2S[i+1]</script></span></p>
+<p>即当<span class="arithmatex"><span class="MathJax_Preview">(j&gt;k)</span><script type="math/tex">(j>k)</script></span>时，若<span class="arithmatex"><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&lt;2S[i+1]</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}<2S[i+1]</script></span>，则<span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>对更新<span class="arithmatex"><span class="MathJax_Preview">dp[i]</span><script type="math/tex">dp[i]</script></span>比<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>更新<span class="arithmatex"><span class="MathJax_Preview">dp[i]</span><script type="math/tex">dp[i]</script></span>优。---斜率。</p>
 <p>当一个数的dp值求完了，它的f值也跟着确定，我们就可以在空间中绘制出点(S[i],f[i])。这个点代表已经求出dp值的一个点。</p>
 <p><img alt="img" src="http://pic.tim-wcx.ltd/img/20210825134528.png" /></p>
 <p>当我们要求解dp[t]时，如果可用的集合里存在这样三个点，位置关系如图所示：</p>
 <p>那么显然</p>
-<p><span><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&gt;\frac{f[i]−f[j]}{S[i]−S[j]}</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}>\frac{f[i]−f[j]}{S[i]−S[j]}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&gt;\frac{f[i]−f[j]}{S[i]−S[j]}</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}>\frac{f[i]−f[j]}{S[i]−S[j]}</script></span></p>
 <p>这时候他们和2S[t+1]2S[t+1]的关系有3种：</p>
-<p>·<span><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&gt;\frac{f[i]−f[j]}{S[i]−S[j]}&gt;2S[t+1]</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}>\frac{f[i]−f[j]}{S[i]−S[j]}>2S[t+1]</script></span></p>
+<p>·<span class="arithmatex"><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&gt;\frac{f[i]−f[j]}{S[i]−S[j]}&gt;2S[t+1]</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}>\frac{f[i]−f[j]}{S[i]−S[j]}>2S[t+1]</script></span></p>
 <p>那么j比i优，k比j优。</p>
-<p>·<span><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&gt;2S[t+1]&gt;\frac{f[i]−f[j]}{S[i]−S[j]}</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}>2S[t+1]>\frac{f[i]−f[j]}{S[i]−S[j]}</script></span></p>
+<p>·<span class="arithmatex"><span class="MathJax_Preview">\frac{f[j]−f[k]}{S[j]−S[k]}&gt;2S[t+1]&gt;\frac{f[i]−f[j]}{S[i]−S[j]}</span><script type="math/tex">\frac{f[j]−f[k]}{S[j]−S[k]}>2S[t+1]>\frac{f[i]−f[j]}{S[i]−S[j]}</script></span></p>
 <p>那么i比j优，k比j优。</p>
-<p>·<span><span class="MathJax_Preview">2S[t+1]&gt;\frac{f[j]−f[k]}{S[j]−S[k]}&gt;\frac{f[i]−f[j]}{S[i]−S[j]}</span><script type="math/tex">2S[t+1]>\frac{f[j]−f[k]}{S[j]−S[k]}>\frac{f[i]−f[j]}{S[i]−S[j]}</script></span></p>
+<p>·<span class="arithmatex"><span class="MathJax_Preview">2S[t+1]&gt;\frac{f[j]−f[k]}{S[j]−S[k]}&gt;\frac{f[i]−f[j]}{S[i]−S[j]}</span><script type="math/tex">2S[t+1]>\frac{f[j]−f[k]}{S[j]−S[k]}>\frac{f[i]−f[j]}{S[i]−S[j]}</script></span></p>
 <p>那么i比j优，j比k优。</p>
-<p>综上，不管什么样的<span><span class="MathJax_Preview">S[t+1]</span><script type="math/tex">S[t+1]</script></span>，从j转移都不会是最佳方案。那么用一个数据结构维护一个凸包（下凸），每加入一个点就删去一些点，使其维持凸包的形态。最优转移一定在这个凸包中。</p>
+<p>综上，不管什么样的<span class="arithmatex"><span class="MathJax_Preview">S[t+1]</span><script type="math/tex">S[t+1]</script></span>，从j转移都不会是最佳方案。那么用一个数据结构维护一个凸包（下凸），每加入一个点就删去一些点，使其维持凸包的形态。最优转移一定在这个凸包中。</p>
 <p>那么根据上述，我们可以有两个推论：</p>
-<p>1.<span><span class="MathJax_Preview">G[j，k]&lt;=S[i]</span><script type="math/tex">G[j，k]<=S[i]</script></span>，那么位子k就可以被淘汰。</p>
-<p>2.<span><span class="MathJax_Preview">G[j，k]&lt;=G[i，j]</span><script type="math/tex">G[j，k]<=G[i，j]</script></span>，那么表示j比k更优，并且i比j更优，那么位子j是可以被淘汰的。</p>
+<p>1.<span class="arithmatex"><span class="MathJax_Preview">G[j，k]&lt;=S[i]</span><script type="math/tex">G[j，k]<=S[i]</script></span>，那么位子k就可以被淘汰。</p>
+<p>2.<span class="arithmatex"><span class="MathJax_Preview">G[j，k]&lt;=G[i，j]</span><script type="math/tex">G[j，k]<=G[i，j]</script></span>，那么表示j比k更优，并且i比j更优，那么位子j是可以被淘汰的。</p>
 <p>代码：</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma GCC optimize(1)</span>
 <span class="cp">#pragma GCC optimize(2)</span>

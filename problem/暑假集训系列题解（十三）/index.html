@@ -1274,16 +1274,16 @@
 <h5 id="_2">题目链接<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
 <p><a href="http://icpc.upc.edu.cn/problem.php?cid=2934&amp;pid=7">Nuske vs Phantom Thnook</a></p>
 <h5 id="_3">题目描述<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
-<p>Nuske has a grid with N rows and M columns of squares. The rows are numbered 1 through N from top to bottom, and the columns are numbered 1 through M from left to right. Each square in the grid is painted in either blue or white. If <span><span class="MathJax_Preview">S_{i,j}</span><script type="math/tex">S_{i,j}</script></span> is 1, the square at the i-th row and j-th column is blue; if <span><span class="MathJax_Preview">S_{i,j}</span><script type="math/tex">S_{i,j}</script></span> is 0, the square is white. For every pair of two blue square a and b, there is at most one path that starts from a, repeatedly proceeds to an adjacent (side by side) blue square and finally reaches b, without traversing the same square more than once.</p>
-<p>Phantom Thnook, Nuske's eternal rival, gives Q queries to Nuske. The i-th query consists of four integers <span><span class="MathJax_Preview">x_{i,1}</span><script type="math/tex">x_{i,1}</script></span>, <span><span class="MathJax_Preview">y_{i,1}</span><script type="math/tex">y_{i,1}</script></span>, <span><span class="MathJax_Preview">x_{i,2}</span><script type="math/tex">x_{i,2}</script></span> and <span><span class="MathJax_Preview">y_{i,2}</span><script type="math/tex">y_{i,2}</script></span> and asks him the following: when the rectangular region of the grid bounded by (and including) the xi,1-th row, xi,2-th row, yi,1-th column and yi,2-th column is cut out, how many connected components consisting of blue squares there are in the region?</p>
+<p>Nuske has a grid with N rows and M columns of squares. The rows are numbered 1 through N from top to bottom, and the columns are numbered 1 through M from left to right. Each square in the grid is painted in either blue or white. If <span class="arithmatex"><span class="MathJax_Preview">S_{i,j}</span><script type="math/tex">S_{i,j}</script></span> is 1, the square at the i-th row and j-th column is blue; if <span class="arithmatex"><span class="MathJax_Preview">S_{i,j}</span><script type="math/tex">S_{i,j}</script></span> is 0, the square is white. For every pair of two blue square a and b, there is at most one path that starts from a, repeatedly proceeds to an adjacent (side by side) blue square and finally reaches b, without traversing the same square more than once.</p>
+<p>Phantom Thnook, Nuske's eternal rival, gives Q queries to Nuske. The i-th query consists of four integers <span class="arithmatex"><span class="MathJax_Preview">x_{i,1}</span><script type="math/tex">x_{i,1}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">y_{i,1}</span><script type="math/tex">y_{i,1}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">x_{i,2}</span><script type="math/tex">x_{i,2}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">y_{i,2}</span><script type="math/tex">y_{i,2}</script></span> and asks him the following: when the rectangular region of the grid bounded by (and including) the xi,1-th row, xi,2-th row, yi,1-th column and yi,2-th column is cut out, how many connected components consisting of blue squares there are in the region?</p>
 <p>Process all the queries.</p>
 <p>Constraints</p>
 <p>1≤N,M≤2000</p>
 <p>1≤Q≤200000</p>
 <p>Si,j is either 0 or 1.</p>
 <p>Si,j satisfies the condition explained in the statement.</p>
-<p>1≤<span><span class="MathJax_Preview">x_{i,1}</span><script type="math/tex">x_{i,1}</script></span>≤<span><span class="MathJax_Preview">x_{i,2}</span><script type="math/tex">x_{i,2}</script></span>≤N(1≤i≤Q)</p>
-<p>1≤<span><span class="MathJax_Preview">y_{i,1}</span><script type="math/tex">y_{i,1}</script></span>≤<span><span class="MathJax_Preview">y_{i,2}</span><script type="math/tex">y_{i,2}</script></span>≤M(1≤i≤Q)</p>
+<p>1≤<span class="arithmatex"><span class="MathJax_Preview">x_{i,1}</span><script type="math/tex">x_{i,1}</script></span>≤<span class="arithmatex"><span class="MathJax_Preview">x_{i,2}</span><script type="math/tex">x_{i,2}</script></span>≤N(1≤i≤Q)</p>
+<p>1≤<span class="arithmatex"><span class="MathJax_Preview">y_{i,1}</span><script type="math/tex">y_{i,1}</script></span>≤<span class="arithmatex"><span class="MathJax_Preview">y_{i,2}</span><script type="math/tex">y_{i,2}</script></span>≤M(1≤i≤Q)</p>
 <h5 id="_4">输入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
 <p>The input is given from Standard Input in the following format:</p>
 <p>N M Q
@@ -1373,7 +1373,7 @@ xQ,1 yQ,1 xQ,2 yQ,2</p>
 <h5 id="_12">题目描述<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
 <p>Nukes has an integer that can be represented as the bitwise OR of one or more integers between A and B (inclusive). How many possible candidates of the value of Nukes's integer there are?</p>
 <p>Constraints</p>
-<p>1≤A≤B&lt;<span><span class="MathJax_Preview">2^{60}</span><script type="math/tex">2^{60}</script></span></p>
+<p>1≤A≤B&lt;<span class="arithmatex"><span class="MathJax_Preview">2^{60}</span><script type="math/tex">2^{60}</script></span></p>
 <p>A and B are integers.</p>
 <h5 id="_13">输入<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
 <p>The input is given from Standard Input in the following format:</p>
@@ -1402,7 +1402,7 @@ xQ,1 yQ,1 xQ,2 yQ,2</p>
 <p>E：xxxxxx..1*****</p>
 <p>F：xxxxxx..111111</p>
 <p>G：xxxxxx..100111</p>
-<p>其中<span><span class="MathJax_Preview">[E,F]</span><script type="math/tex">[E,F]</script></span>可以由<span><span class="MathJax_Preview">[A,C]</span><script type="math/tex">[A,C]</script></span>和D或运算得到，<span><span class="MathJax_Preview">[D,G]</span><script type="math/tex">[D,G]</script></span>可以由<span><span class="MathJax_Preview">[D,B]</span><script type="math/tex">[D,B]</script></span>或运算得到，所以答案即为<span><span class="MathJax_Preview">[A,G]\cup[E,F]</span><script type="math/tex">[A,G]\cup[E,F]</script></span></p>
+<p>其中<span class="arithmatex"><span class="MathJax_Preview">[E,F]</span><script type="math/tex">[E,F]</script></span>可以由<span class="arithmatex"><span class="MathJax_Preview">[A,C]</span><script type="math/tex">[A,C]</script></span>和D或运算得到，<span class="arithmatex"><span class="MathJax_Preview">[D,G]</span><script type="math/tex">[D,G]</script></span>可以由<span class="arithmatex"><span class="MathJax_Preview">[D,B]</span><script type="math/tex">[D,B]</script></span>或运算得到，所以答案即为<span class="arithmatex"><span class="MathJax_Preview">[A,G]\cup[E,F]</span><script type="math/tex">[A,G]\cup[E,F]</script></span></p>
 <h5 id="_19">代码<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma GCC optimize(1)</span>
 <span class="cp">#pragma GCC optimize(2)</span>

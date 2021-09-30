@@ -326,6 +326,82 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    题目2
+  </a>
+  
+    <nav class="md-nav" aria-label="题目2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    提示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -945,6 +1021,82 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    题目2
+  </a>
+  
+    <nav class="md-nav" aria-label="题目2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    题目链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    样例输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    样例输出
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    提示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    题解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -999,11 +1151,11 @@
 <h5 id="_8">提示<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
 <p>For first test case, n = 21*31= 6, and the answer is (φ(1)*n/1+φ(2)*n/2+φ(3)*n/3+φ(6)*n/6) mod 998244353 = (6 + 3 + 4 + 2) mod 998244353 = 15.</p>
 <h5 id="_9">题解<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
-<p>题目要求求解<span><span class="MathJax_Preview">F(n)=\sum_{d|n} \varphi(d)*\frac{n}{d}</span><script type="math/tex">F(n)=\sum_{d|n} \varphi(d)*\frac{n}{d}</script></span>，由于欧拉函数和<span><span class="MathJax_Preview">\frac{n}{d}</span><script type="math/tex">\frac{n}{d}</script></span>均为积性函数，则有</p>
-<p><span><span class="MathJax_Preview">F(m*n)=F(m)*F(n)</span><script type="math/tex">F(m*n)=F(m)*F(n)</script></span></p>
-<p>即为$ F( \prod p_i^{q_i})=\prod F(p_i^{q_i}) $，则</p>
-<p><span><span class="MathJax_Preview">F(p_i^{q_i})=\sum_{d|n}\varphi(d)*\frac{n}{d}=\varphi(1)*n+\sum_{i=1}^{q} \varphi(p^i)*\frac{n}{p^i}=p_i^{q_i}+\sum _{i=1} ^{q_i}(p_i-1)*(p_i^{i-1}*\frac{p_i^{q_i}}{p_i})</span><script type="math/tex">F(p_i^{q_i})=\sum_{d|n}\varphi(d)*\frac{n}{d}=\varphi(1)*n+\sum_{i=1}^{q} \varphi(p^i)*\frac{n}{p^i}=p_i^{q_i}+\sum _{i=1} ^{q_i}(p_i-1)*(p_i^{i-1}*\frac{p_i^{q_i}}{p_i})</script></span></p>
-<p><span><span class="MathJax_Preview">=p_i^{q_i}+p_i^{q_i-1}*(p_i-1)*{q_i}=p_i^{q_i-1}*(p_i+q_i*(p_i-1))</span><script type="math/tex">=p_i^{q_i}+p_i^{q_i-1}*(p_i-1)*{q_i}=p_i^{q_i-1}*(p_i+q_i*(p_i-1))</script></span></p>
+<p>题目要求求解<span class="arithmatex"><span class="MathJax_Preview">F(n)=\sum_{d|n} \varphi(d)*\frac{n}{d}</span><script type="math/tex">F(n)=\sum_{d|n} \varphi(d)*\frac{n}{d}</script></span>，由于欧拉函数和<span class="arithmatex"><span class="MathJax_Preview">\frac{n}{d}</span><script type="math/tex">\frac{n}{d}</script></span>均为积性函数，则有</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F(m*n)=F(m)*F(n)</span><script type="math/tex">F(m*n)=F(m)*F(n)</script></span></p>
+<p>即为<span class="arithmatex"><span class="MathJax_Preview">F( \prod p_i^{q_i})=\prod F(p_i^{q_i})</span><script type="math/tex">F( \prod p_i^{q_i})=\prod F(p_i^{q_i})</script></span>，则</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F(p_i^{q_i})=\sum_{d|n}\varphi(d)*\frac{n}{d}=\varphi(1)*n+\sum_{i=1}^{q} \varphi(p^i)*\frac{n}{p^i}=p_i^{q_i}+\sum _{i=1} ^{q_i}(p_i-1)*(p_i^{i-1}*\frac{p_i^{q_i}}{p_i})</span><script type="math/tex">F(p_i^{q_i})=\sum_{d|n}\varphi(d)*\frac{n}{d}=\varphi(1)*n+\sum_{i=1}^{q} \varphi(p^i)*\frac{n}{p^i}=p_i^{q_i}+\sum _{i=1} ^{q_i}(p_i-1)*(p_i^{i-1}*\frac{p_i^{q_i}}{p_i})</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">=p_i^{q_i}+p_i^{q_i-1}*(p_i-1)*{q_i}=p_i^{q_i-1}*(p_i+q_i*(p_i-1))</span><script type="math/tex">=p_i^{q_i}+p_i^{q_i-1}*(p_i-1)*{q_i}=p_i^{q_i-1}*(p_i+q_i*(p_i-1))</script></span></p>
 <p>参考链接：</p>
 <p><a href="https://blog.csdn.net/xiongshuxian2019/article/details/109631325">https://blog.csdn.net/xiongshuxian2019/article/details/109631325</a></p>
 <p><a href="https://blog.csdn.net/consciousman/article/details/77888386">https://blog.csdn.net/consciousman/article/details/77888386</a></p>
@@ -1038,6 +1190,96 @@
 <span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld%lld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">q</span><span class="p">);</span><span class="w"></span>
 <span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ksm</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">((</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mod</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="2">题目2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<h5 id="_11">题目链接<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
+<p><a href="http://icpc.upc.edu.cn/problem.php?cid=2969&amp;pid=3">问题 D: Master of Random</a></p>
+<h5 id="_12">题目描述<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<p>Hakase provides Nano with a problem. There is a rooted tree with values on nodes. For each query,you are asked to calculate the sum of the values in the subtree. However, Nano is a rookie so she decides to guess the answer. She has known how the data generator works: it identifi es the nodes with labels from 0 to n-1 and then visits them one by one. For each i (1≤i≤n), the generator selects a node whose label is smaller than i to be its father. The pseudocode is like this:</p>
+<p>​     for i = 1 to n - 1:</p>
+<p>​       father[i] = random(0, i - 1);</p>
+<p>where random(a, b) randomly generates a uniformly distributed random integer in range [a, b].
+Knowing n and the value of the i-th node ai , Nano decides to randomly choose a subtree and sum up all of the values in the subtree as the answer. Now Hakase wants to know what the expectation of the answer is. Can you help her?</p>
+<h5 id="_13">输入<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
+<p>The first line contains an integer T (1≤T≤10) representing the number of test cases.</p>
+<p>For each test case, the fi rst line contains an integer n (1≤n≤100000), the number of the nodes in the rooted tree.</p>
+<p>The second line contains n integers a0,a1,...,<span class="arithmatex"><span class="MathJax_Preview">a_{n-1}</span><script type="math/tex">a_{n-1}</script></span> (1≤ai≤100000) represent the values of nodes.</p>
+<h5 id="_14">输出<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
+<p>It can be proven that the answer equals to an irreducible fraction p/q. For each test case, print <span class="arithmatex"><span class="MathJax_Preview">p*q^{-1}</span><script type="math/tex">p*q^{-1}</script></span> mod 998244353 in one line. <span class="arithmatex"><span class="MathJax_Preview">q^{-1}</span><script type="math/tex">q^{-1}</script></span> is the inverse of q under module number 998244353.</p>
+<h5 id="_15">样例输入<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>2
+2
+1 1
+3
+1 2 3
+</code></pre></div>
+<h5 id="_16">样例输出<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>499122178
+166374063
+</code></pre></div>
+<h5 id="_17">提示<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<p>The shape of the tree in the first test case is unique. The father of node 1 is 0. It is possible to choose node 0 or 1 with equal possibility. The sum of the subtree with 0 as the root is 2 while the sum of the subtree with 1 as the root is 1. So the expectation is (2 + 1)/2 = 3/2. The output is 3*2-1 mod 998244353 = 400122178.</p>
+<p>There are two possible shapes in the second test case, node 1’s father destines to be 0, but node 2’s father might be node 0 or node 1. Both conditions are equally possible.</p>
+<p>If node 2’s father is node 0, we randomly choose a node. The sum of the subtree with node 0 as the root is 6. The sum of the subtree with node 1 as the root is 2. The sum of the subtree with node 2 as the root is 3.</p>
+<p>If node 2’s father is node 1, we randomly choose a node. The sum of the subtree with node 0 as the root is 6. The sum of the subtree with node 1 as the root is 5. The sum of the subtree with node 2 as the root is 3.</p>
+<p>So the expectation is (6 + 2 + 3 + 6 + 5 + 3)/6 = 25/6. The output is 25*<span class="arithmatex"><span class="MathJax_Preview">6^{-1}</span><script type="math/tex">6^{-1}</script></span> mod 998244353 = 166374063.</p>
+<h5 id="_18">题解<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<p>n个点可以形成树的种类为(n-1)!，然后随机选取一个点计算子树的权值，所以总共有n!种可能。</p>
+<p>考虑每一个点对答案的贡献，即考虑每个点在所选出的子树中有多少种可能被包含。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">0: (n-1)!</span><script type="math/tex">0: (n-1)!</script></span></p>
+<p>​   0点只有选取0这个节点时才会被选择，共有(n-1)!种形态的树，所以为(n-1)!</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">1: (n-1)!+(n-1)!</span><script type="math/tex">1: (n-1)!+(n-1)!</script></span></p>
+<p>​   1点只有选取0和1这两个节点时才会被选择</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">2:(n-1)!+(n-1)!/2+(n-1)!</span><script type="math/tex">2:(n-1)!+(n-1)!/2+(n-1)!</script></span></p>
+<p>​   2点只有选取0点时和选取1点（2点不在0下面）和选取2点时才会被选择</p>
+<p>...</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">k:(n-1)!+(n-1)!/2+(n-1)!/3+....+(n-1)!/k+(n-1)!</span><script type="math/tex">k:(n-1)!+(n-1)!/2+(n-1)!/3+....+(n-1)!/k+(n-1)!</script></span></p>
+<p>对于每一个点，假设k出现的种树为<span class="arithmatex"><span class="MathJax_Preview">cnt[k]=(n-1)!+(n-1)!/2+(n-1)!/3+....+(n-1)!/k+(n-1)!</span><script type="math/tex">cnt[k]=(n-1)!+(n-1)!/2+(n-1)!/3+....+(n-1)!/k+(n-1)!</script></span>，权值为a[k]，则对答案的贡献为<span class="arithmatex"><span class="MathJax_Preview">cnt[k]*a[k]*(n!)^{-1}</span><script type="math/tex">cnt[k]*a[k]*(n!)^{-1}</script></span></p>
+<p>参考链接：</p>
+<p><a href="https://blog.csdn.net/weixin_44178736/article/details/113450079">https://blog.csdn.net/weixin_44178736/article/details/113450079</a></p>
+<h5 id="_19">代码<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ll</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">998244353</span><span class="p">;</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="n">jc</span><span class="p">[</span><span class="mi">100500</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">100500</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="nf">ksm</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">ans1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ans2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">ans1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ans2</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ans2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ans2</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">b</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ans1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">jc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">100000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">jc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jc</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">ll</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jc</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jc</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ksm</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cnt</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ksm</span><span class="p">(</span><span class="n">jc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>

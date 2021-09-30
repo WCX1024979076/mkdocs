@@ -1471,14 +1471,14 @@ cij∈"01"</p>
 <h5 id="_19">题目链接<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
 <p><a href="http://icpc.upc.edu.cn/problem.php?cid=2865&amp;pid=9">Simple Math 2</a></p>
 <h5 id="_20">题目描述<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
-<p>Given positive integers N and M, find the remainder when <span><span class="MathJax_Preview">⌊10^N/M⌋</span><script type="math/tex">⌊10^N/M⌋</script></span>​​ is divided by M.
+<p>Given positive integers N and M, find the remainder when <span class="arithmatex"><span class="MathJax_Preview">⌊10^N/M⌋</span><script type="math/tex">⌊10^N/M⌋</script></span>​​ is divided by M.
  What is ⌊x⌋?⌊x⌋ denotes the greatest integer not exceeding x. For example:
 ⌊2.5⌋=2
 ⌊3⌋=3
 ⌊9.9999999⌋=9
 ⌊100/3⌋=⌊33.33...⌋=33
 Constraints
-1≤N≤<span><span class="MathJax_Preview">10^{18}</span><script type="math/tex">10^{18}</script></span>
+1≤N≤<span class="arithmatex"><span class="MathJax_Preview">10^{18}</span><script type="math/tex">10^{18}</script></span>
 1≤M≤10000</p>
 <h5 id="_21">输入<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h5>
 <p>Input is given from Standard Input in the following format: N a1 b1 a2 b2 : aN bN</p>
@@ -1504,7 +1504,7 @@ Constraints
 <p>样例1解释：
 We have ⌊10^&frac12;⌋=5, so we should print the remainder when 5 is divided by 2, that is, 1.</p>
 <h5 id="_26">题解<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h5>
-<p><span><span class="MathJax_Preview">⌊\frac{10^N}{M}⌋ \% m =⌊\frac{10^N}{M}-k*m⌋ \% m =⌊\frac{10^N-k*m^2}{M}⌋\% m=⌊\frac{10^N \% m^2}{M}⌋\% m</span><script type="math/tex">⌊\frac{10^N}{M}⌋ \% m =⌊\frac{10^N}{M}-k*m⌋ \% m =⌊\frac{10^N-k*m^2}{M}⌋\% m=⌊\frac{10^N \% m^2}{M}⌋\% m</script></span>​​​​​​</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">⌊\frac{10^N}{M}⌋ \% m =⌊\frac{10^N}{M}-k*m⌋ \% m =⌊\frac{10^N-k*m^2}{M}⌋\% m=⌊\frac{10^N \% m^2}{M}⌋\% m</span><script type="math/tex">⌊\frac{10^N}{M}⌋ \% m =⌊\frac{10^N}{M}-k*m⌋ \% m =⌊\frac{10^N-k*m^2}{M}⌋\% m=⌊\frac{10^N \% m^2}{M}⌋\% m</script></span>​​​​​​</p>
 <p>所以，只需要利用快速幂算法计算出 $ 10 ^N \% m^2$​​ 即可</p>
 <h5 id="_27">代码<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma GCC optimize(1)</span>
