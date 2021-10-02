@@ -212,6 +212,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        组队训练赛（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
         组队训练赛（二）
       </a>
@@ -5015,6 +5029,8 @@
 <p><strong>辅助定理</strong></p>
 <p>对于任意正整数 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=n" /> ，恒有</p>
 <p><img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5Csum%5Climits_%7Bd%7Cn%7D%5Cmu%28d%29%3D%5Clfloor+%5Cdfrac%7B1%7D%7Bn%7D+%5Crfloor+%3D+%5Cleft%5C%7B+%5Cbegin%7Barray%7D%7B%7D+1+%26++%26+n+%3D+1+%5C%5C+0+%26++%26+n%3E1++%5Cend%7Barray%7D+%5Cright." /></p>
+<p>其次，莫比乌斯反演和欧拉函数的关系：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\sum_{d|n}\frac{\mu[d]}{d}=\frac{\varphi(n)}{n}</span><script type="math/tex">\sum_{d|n}\frac{\mu[d]}{d}=\frac{\varphi(n)}{n}</script></span></p>
 <p><strong>莫比乌斯反演定理</strong></p>
 <p><img alt="[公式]" src="https://www.zhihu.com/equation?tex=f%28n%29" /> 和 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=g%28n%29" /> 是定义在正整数集合上的两个函数，若</p>
 <p><img alt="[公式]" src="https://www.zhihu.com/equation?tex=f%28n%29%3D%5Csum%5Climits_%7Bd%7Cn%7Dg%28d%29" /></p>
@@ -5031,9 +5047,24 @@
 <p>2、</p>
 <p><img alt="[公式]" src="https://www.zhihu.com/equation?tex=f%28n%29%3Dn+%5C%5C+g%28n%29%3D%5Cphi%28n%29+%5C%5C+n%3D%5Csum%5Climits_%7Bd%7Cn%7D%5Cphi%28d%29" /></p>
 <p><strong>线性预处理</strong></p>
-<p>求解区间 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5B1%2Cn%5D" /> 和区间 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5B1%2Cm%5D" /> 上互质的数的个数。</p>
-<p><img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5Cbegin%7Balign%2A%7D+++%5Csum%5Climits_%7Bi%3D1%7D%5En%5Csum%5Climits_%7Bj%3D1%7D%5Em%5Bgcd%28i%2Cj%29%3D%3D1%5D++%26%3D+%5Csum%5Climits_%7Bi%3D1%7D%5En%5Csum%5Climits_%7Bj%3D1%7D%5Em+%5Csum%5Climits_%7Bd%7Cgcd%28i%2Cj%29%7D%5Cmu%28d%29++%5C%5C+%26%3D+%5Csum%5Climits_%7Bi%3D1%7D%5En%5Csum%5Climits_%7Bj%3D1%7D%5Em+%5Csum%5Climits_%7Bd%7Ci+%5C%2C+and+%5C%2Cd%7Cj%7D%5Cmu%28d%29+%5C%5C+%26%3D+%5Csum%5Climits_%7Bd%3D1%7D%5E%7Bmin%28n%2Cm%29%7D%5Cmu%28d%29%5Csum%5Climits_%7Bi%3D1%7D%5E%7B%5Clfloor+%5Cfrac%7Bn%7D%7Bd%7D+%5Crfloor%7D%5Csum%5Climits_%7Bj%3D1%7D%5E%7B%5Clfloor+%5Cfrac%7Bm%7D%7Bd%7D+%5Crfloor%7D+1+%5C%5C+%26%3D+%5Csum%5Climits_%7Bd%3D1%7D%5E%7Bmin%28n%2Cm%29%7D%5Cmu%28d%29%5Clfloor+%5Cfrac%7Bn%7D%7Bd%7D+%5Crfloor+%5Clfloor+%5Cfrac%7Bm%7D%7Bd%7D+%5Crfloor+%5Cend%7Balign%2A%7D" /></p>
-<p>这样，我们能够在 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5Cmathcal%7BO%7D%28min%28n%2Cm%29%29%E2%80%8B" /> 的时间内完成单词查询。还可以继续优化， <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5Clfloor+%5Cdfrac%7Bn%7D%7Bd%7D+%5Crfloor%E2%80%8B" /> 的值最多有 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=2%5Csqrt%7Bn%7D%E2%80%8B" /> 种， <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5Clfloor+%5Cdfrac%7Bm%7D%7Bd%7D+%5Crfloor" /> 最多有 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=2%5Csqrt%7Bm%7D%E2%80%8B" /> 种，并且相同取值对应的 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=d" /> 是一段连续的区间，所以我们可以把区间最多分成 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=2%28%5Csqrt%7Bn%7D%2B%5Csqrt%7Bm%7D%29%E2%80%8B" /> 个，在预处理出 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5Cmu%28i%29%E2%80%8B" /> 的前缀和之后，可以在 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5Cmathcal%7BO%7D%282%28%5Csqrt%7Bn%7D%2B%5Csqrt%7Bm%7D%29%29" /> 的时间复杂度完成单次查询。</p>
+<p>求解区间 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5B1%2Cn%5D" /> 和区间 <img alt="[公式]" src="https://www.zhihu.com/equation?tex=%5B1%2Cn%5D" /> 上互质的数的个数。</p>
+<p><img alt="BSM__Q_1~L_U38LRD_Q_PBO.png" src="https://i.loli.net/2021/10/01/izpnds7QXMV9N63.png" /></p>
+<p><strong>代码</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">get_mu</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">mu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span><span class="n">prim</span><span class="p">[</span><span class="o">++</span><span class="n">cnt</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">-1</span><span class="p">;}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">cnt</span><span class="o">&amp;&amp;</span><span class="n">prim</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">vis</span><span class="p">[</span><span class="n">prim</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="n">prim</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">prim</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="o">=-</span><span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <h3 id="_34">动态规划<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
 <h4 id="_35">最长上升子序列<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
 <p>如果你需要移动一样东西，显然接触或者使用磁场电场之类的可以解决。但是有没有办法进行超越距离的随心所欲的移动？
