@@ -1,0 +1,2459 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://github.tim-wcx.ltd/mkdocs/course/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.5">
+    
+    
+      
+        <title>现代密码学 - Tim-Wcx</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cdeb8541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tim-Wcx" class="md-header__button md-logo" aria-label="Tim-Wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tim-Wcx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              现代密码学
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-tabs__link">
+        ICPC题解
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../icpc/" class="md-tabs__link">
+      ICPC模板
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../question/" class="md-tabs__link">
+      ICPC题单
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="md-tabs__link md-tabs__link--active">
+        课程复习
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tim-Wcx" class="md-nav__button md-logo" aria-label="Tim-Wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tim-Wcx
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          ICPC题解
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ICPC题解" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ICPC题解
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        组队训练赛（四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        组队训练赛（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        组队训练赛（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        组队训练赛（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B9%9D%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（九）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AB%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（八）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%83%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（七）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（六）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E9%A2%98%E8%A7%A3%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训题解系列（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-08-2%E6%9C%888%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-08-2月8日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-09-2%E6%9C%889%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-09-2月9日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-12-%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%2B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B3%A8%E8%A7%A3/" class="md-nav__link">
+        2021-02-12-安卓课表客户端+服务端注解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-16-2%E6%9C%8816%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-16-2月16日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-19-2%E6%9C%8819%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-19-2月19日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-20-2%E6%9C%8820%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-20-2月20日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-22-2%E6%9C%8822%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-22-2月22日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-24-2%E6%9C%8824%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-24-2月24日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-28-2%E6%9C%8828%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-28-2月28日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-02-3%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-02-3月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-07-3%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-07-3月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-09-%E6%95%B0%E8%AE%BA/" class="md-nav__link">
+        2021-03-09-数论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-06-05-6%E6%9C%885%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-06-05-6月5日题解
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../icpc/" class="md-nav__link">
+        ICPC模板
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../question/" class="md-nav__link">
+        ICPC题单
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          课程复习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="课程复习" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          课程复习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="md-nav__link">
+        数字图像处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          现代密码学
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        现代密码学
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    古典密码体制的计算：
+  </a>
+  
+    <nav class="md-nav" aria-label="古典密码体制的计算：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    字母对照表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    仿射变换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    密钥短语密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    维吉尼亚密码 （多表代换）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hill" class="md-nav__link">
+    Hill加密 （多字母代换）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    换位密钥（综合案例）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    流密码
+  </a>
+  
+    <nav class="md-nav" aria-label="流密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    游程分布计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    序列自相关计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a1" class="md-nav__link">
+    反馈移位寄存器（输出为a1）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    线性反馈移位寄存器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    分组密码
+  </a>
+  
+    <nav class="md-nav" aria-label="分组密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#des" class="md-nav__link">
+    DES算法
+  </a>
+  
+    <nav class="md-nav" aria-label="DES算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#des_1" class="md-nav__link">
+    DES算法流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    IP变换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    轮函数F
+  </a>
+  
+    <nav class="md-nav" aria-label="轮函数F">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#er" class="md-nav__link">
+    扩展E变换（对R进行扩展变换）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sp-s" class="md-nav__link">
+    S盒和置换P运算 （S盒输出结果置换）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    子密钥生成算法
+  </a>
+  
+    <nav class="md-nav" aria-label="子密钥生成算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc-1" class="md-nav__link">
+    置换变换：PC-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsi" class="md-nav__link">
+    循环左移LSi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pc-2" class="md-nav__link">
+    置换选择 PC-2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#des_2" class="md-nav__link">
+    DES解密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea" class="md-nav__link">
+    IDEA中主要运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    轮函数
+  </a>
+  
+    <nav class="md-nav" aria-label="轮函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    轮函数数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    轮函数运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    加密顺序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea_1" class="md-nav__link">
+    IDEA算法解密
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea_2" class="md-nav__link">
+    IDEA 密钥生成算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aes" class="md-nav__link">
+    AES算法
+  </a>
+  
+    <nav class="md-nav" aria-label="AES算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aes_1" class="md-nav__link">
+    AES流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    字节代换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    解密算法
+  </a>
+  
+    <nav class="md-nav" aria-label="解密算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    字母代换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    行位移和列混合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    解密顺序（已对密钥进行变换）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    补充数学
+  </a>
+  
+    <nav class="md-nav" aria-label="补充数学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    欧拉函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsa" class="md-nav__link">
+    RSA算法
+  </a>
+  
+    <nav class="md-nav" aria-label="RSA算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabin" class="md-nav__link">
+    Rabin 公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="Rabin 公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    背包公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="背包公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elgamal" class="md-nav__link">
+    Elgamal 公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="Elgamal 公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    椭圆曲线加解密运算
+  </a>
+  
+    <nav class="md-nav" aria-label="椭圆曲线加解密运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    密钥选取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    椭圆曲线群计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    加解密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    加解密例子
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    数字签名
+  </a>
+  
+    <nav class="md-nav" aria-label="数字签名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rsa_1" class="md-nav__link">
+    RSA签名
+  </a>
+  
+    <nav class="md-nav" aria-label="RSA签名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elgamal_1" class="md-nav__link">
+    Elgamal 数字签名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    美国数字签名标准
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    俄罗斯数字签名标准
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fs" class="md-nav__link">
+    FS签名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    古典密码体制的计算：
+  </a>
+  
+    <nav class="md-nav" aria-label="古典密码体制的计算：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    字母对照表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    仿射变换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    密钥短语密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    维吉尼亚密码 （多表代换）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hill" class="md-nav__link">
+    Hill加密 （多字母代换）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    换位密钥（综合案例）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    流密码
+  </a>
+  
+    <nav class="md-nav" aria-label="流密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    游程分布计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    序列自相关计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a1" class="md-nav__link">
+    反馈移位寄存器（输出为a1）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    线性反馈移位寄存器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    分组密码
+  </a>
+  
+    <nav class="md-nav" aria-label="分组密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#des" class="md-nav__link">
+    DES算法
+  </a>
+  
+    <nav class="md-nav" aria-label="DES算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#des_1" class="md-nav__link">
+    DES算法流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    IP变换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    轮函数F
+  </a>
+  
+    <nav class="md-nav" aria-label="轮函数F">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#er" class="md-nav__link">
+    扩展E变换（对R进行扩展变换）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sp-s" class="md-nav__link">
+    S盒和置换P运算 （S盒输出结果置换）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    子密钥生成算法
+  </a>
+  
+    <nav class="md-nav" aria-label="子密钥生成算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc-1" class="md-nav__link">
+    置换变换：PC-1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsi" class="md-nav__link">
+    循环左移LSi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pc-2" class="md-nav__link">
+    置换选择 PC-2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#des_2" class="md-nav__link">
+    DES解密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea" class="md-nav__link">
+    IDEA中主要运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    轮函数
+  </a>
+  
+    <nav class="md-nav" aria-label="轮函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    轮函数数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    轮函数运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    加密顺序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea_1" class="md-nav__link">
+    IDEA算法解密
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea_2" class="md-nav__link">
+    IDEA 密钥生成算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aes" class="md-nav__link">
+    AES算法
+  </a>
+  
+    <nav class="md-nav" aria-label="AES算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aes_1" class="md-nav__link">
+    AES流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    字节代换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    解密算法
+  </a>
+  
+    <nav class="md-nav" aria-label="解密算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    字母代换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    行位移和列混合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    解密顺序（已对密钥进行变换）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    补充数学
+  </a>
+  
+    <nav class="md-nav" aria-label="补充数学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    欧拉函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsa" class="md-nav__link">
+    RSA算法
+  </a>
+  
+    <nav class="md-nav" aria-label="RSA算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabin" class="md-nav__link">
+    Rabin 公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="Rabin 公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    背包公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="背包公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elgamal" class="md-nav__link">
+    Elgamal 公钥密码体制
+  </a>
+  
+    <nav class="md-nav" aria-label="Elgamal 公钥密码体制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    加密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    解密算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    椭圆曲线加解密运算
+  </a>
+  
+    <nav class="md-nav" aria-label="椭圆曲线加解密运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    密钥选取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    椭圆曲线群计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    加解密算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    加解密例子
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    数字签名
+  </a>
+  
+    <nav class="md-nav" aria-label="数字签名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rsa_1" class="md-nav__link">
+    RSA签名
+  </a>
+  
+    <nav class="md-nav" aria-label="RSA签名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    密钥生成算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elgamal_1" class="md-nav__link">
+    Elgamal 数字签名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    美国数字签名标准
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    俄罗斯数字签名标准
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fs" class="md-nav__link">
+    FS签名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>现代密码学</h1>
+                
+                <h3 id="_1">古典密码体制的计算：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="_2">字母对照表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p><img src="https://raw.sevencdn.com/WCX1024979076/image1/master/img/image-20210516231951185.png" alt="image-20210516231951185" style="zoom: 35%;" /></p>
+<h4 id="_3">仿射变换<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>加密变换*E*<sub>k</sub><em>(*m</em>)=<em>a</em>+<em>b*m  mod  q  解密变换  *D<sub>k</sub></em>(<em>c</em>)=(<em>c</em>-<em>a</em>)**b*<sup>-1</sup>  mod <em>q</em> </p>
+<h4 id="_4">密钥短语密码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>选择一个英文短语作为密钥字或称密钥短语，如HAPPY NEW YEAR，去掉重复的字母得到HAPYNEWR。将它依次写在明文字母表的下面，而后再将字母表中未在短语中出现过的字母依次写在这个短语后面，就可以构造一个代换表，如下所示：</p>
+<p><img src="https://raw.sevencdn.com/WCX1024979076/image1/master/img/image-20210516225756011.png" alt="image-20210516225756011" style="zoom: 35%;" /></p>
+<h4 id="_5">维吉尼亚密码 （多表代换）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>设密钥k=(k[0], k[1],,…,k[d-1])属于Zqd,</p>
+<p>代换序列: p=(p[0], p[1],…,p[d-1]), p(x)=x+k[i] mod q. 明文序列: m=(m[0], m[1],…) </p>
+<p>密文序列: c=(m[0]+k[0])(m[1]+k[1])…(m[d-1]+k[d-1])</p>
+<p>​                    (m[d]+k[0])(m[d+1]+k[1])……</p>
+<p>设*q*=26, <em>d</em>=6, <em>k</em>=CIPHER=(2,8,15,7,4,17) 明文: <em>m</em>=this cryptosystem is not secure  密文: <em>c</em>=VPXZGI AXIVWP UBTTMJ PWIZIT WZT</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517174112.png" alt="img" style="zoom: 35%;" /></p>
+<h4 id="hill">Hill加密 （多字母代换）<a class="headerlink" href="#hill" title="Permanent link">&para;</a></h4>
+<p>基于矩阵的线性变换:</p>
+<p>Z26为模26的同余类集合, K是一个L*L矩阵,在Z26上可逆,即存在K<sup>-1</sup>使得: KK<sup>-1</sup> = I (在Z26上)</p>
+<p>注：明文与密文都是L维的向量  m=（m1, m2 …, mL); c=(c1,c2,…,cL); 加密：c=mK mod 26;  解密：m=cK<sup>-1</sup> mod 26;</p>
+<h4 id="_6">换位密钥（综合案例）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>明文：<em>m</em>= the simplest possible transposition ciphers  分成长度为5的组：</p>
+<p><em>m</em>= thesi | mples | tposs | iblet | ransp | ositi | oncip | hersx</p>
+<p>加密变换：将各组内字符按位置标号（0~4）实施下述置换（permutation) (Ek为正变换，Dk为逆变换)</p>
+<p><img src="https://raw.sevencdn.com/WCX1024979076/image1/master/img/image-20210516232401307.png" alt="image-20210516232300060" style="zoom: 35%;" /></p>
+<p>密钥：<em>c</em>=STIEH EMSLP STSOP EITLB SRPNA TOIIS  IOPCN SHXRE</p>
+<h3 id="_7">流密码<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/image-20210517102812683.png" alt="image-20210517102812683" style="zoom: 35%;" /></p>
+<h4 id="_8">游程分布计算<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>设*a*= (<em>a</em>[0], <em>a</em>[1],…,<em>a</em>[i],…)是一个周期为*N*的二元序列，在一个周期内连续出现的最多的符号“0”（或1）的串，称为0（或1）的一个游程。在一个游程中，0（或1）的个数称为该游程的长度。</p>
+<p>在序列 <em>k</em>={*k*i}=001110100000111100…中, 有 长为1的0游程一个; 长为4的0游程一个; 长为5的0游程一个; 长为1的1游程一个; 长为3的1游程一个; 长为4的1游程一个 </p>
+<p>注意有周期，即{*k*i}= 001110100000111100   001110100000111100 …</p>
+<h4 id="_9">序列自相关计算<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>设*a*=(<em>a*0,*a*1,…,*a</em>[N-1])和*b*=(<em>b*0,*b*1,…,*b</em>[N-1])是两个周期为*N*的二元周期序列，其相关函数定义为</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/image-20210517112507287.png" alt="image-20210517112507287" style="zoom: 50%;" /></p>
+<p>其中i+t是模N运算</p>
+<p>特别地，如果*a*=<em>b</em>，则*R*a*,<em>a</em>(<em>t)被称为自相关函数，其中当t =0，*R*a</em>,<em>a(0)被称为同相自相关函数，而当*t*不等于0， R*a</em>,<em>a</em>(<em>t</em>)被称为异相自相关函数。</p>
+<h4 id="a1">反馈移位寄存器（输出为a1）<a class="headerlink" href="#a1" title="Permanent link">&para;</a></h4>
+<p>设有限域GF(2)上的3级FSR的反馈函数为: <em>f</em>(*x*1, *x*2, *x*3)=*x*1异或*x*2异或*x*3  初始状态为*s*0=(1,0,1). 求FSR序列.</p>
+<p>解: 反馈移位寄存器序列: <em>a</em> =1011…; 周期*q*=4.</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/image-20210517113753799.png" alt="image-20210517113753799" style="zoom: 35%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/image-20210517120042178.png" alt="image-20210517120042178" style="zoom: 35%;" />        </p>
+<h4 id="_10">线性反馈移位寄存器<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>已知如图所示的3级LFSR. 特征多项式为： <em>f</em>(<em>x</em>)=1+<em>x</em><sup>2</sup>+<em>x</em><sup>3</sup>   即为 a[0]+a[2]+a[3]=0</p>
+<p>LFSR序列*a*=(<em>a</em>[0], <em>a</em>[1],…,<em>a</em>[n-1],…) 满足递推关系式:  <em>a</em>[n]=<em>a</em>[n-2]+<em>a</em>[n-3]. 如果设初始状态为: (0,0,1)  即*a*[0]=0, <em>a</em>[1]=0, <em>a</em>[2]=1,输出序列为: 0010111, 周期为7.</p>
+<h3 id="_11">分组密码<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="des">DES算法<a class="headerlink" href="#des" title="Permanent link">&para;</a></h4>
+<h5 id="des_1">DES算法流程<a class="headerlink" href="#des_1" title="Permanent link">&para;</a></h5>
+<p>分组大小: 2*w*=64  密钥大小: |<em>K</em>|=56 子密钥: |K[i]|=48 轮数: <em>h</em>=16</p>
+<p>对明文作置换*IP*后开始第1次迭代 第16次迭代后，交换左、右32bit数据，再作逆置换*IP*<sup>-1</sup>，即得密文 </p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/image-20210517124455834.png" alt="image-20210517124455834" style="zoom: 35%;" /></p>
+<h5 id="ip">IP变换<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h5>
+<p>将64位明文打乱重新排列. 设*x*=<em>x*1*x*2…*x*64，则*IP</em>(<em>x</em>)=*x*58*x*50*x*42…*x*23*x*15*x*7</p>
+<p>加密结果：10011000 00000111 00110001 11111101  10010110 01100101 11000010 10001110 </p>
+<p>初始置换IP的逆置换 将64位密文位置还原. 设*y*=<em>y*1*y*2…*y*64，则*IP-1</em>(<em>y</em>)=*y*40*y*8*y*48…*y*17*y*57*y*25</p>
+<p>解密结果：11011111 00101011 11010000 00100101 10101000 10011100 01000011 01101001</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/23453.png" alt="23453" style="zoom: 40%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/124312.png" alt="124312" style="zoom: 40%;" /></p>
+<h5 id="f">轮函数F<a class="headerlink" href="#f" title="Permanent link">&para;</a></h5>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/image-20210517170542193.png" alt="image-20210517170542193" style="zoom: 35%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/9EID%5D1N3%7BL7GWLNEJ%60LL@9V.png" alt="img" style="zoom: 35%;" /></p>
+<h6 id="er">扩展E变换（对R进行扩展变换）<a class="headerlink" href="#er" title="Permanent link">&para;</a></h6>
+<h6 id="sp-s">S盒和置换P运算 （S盒输出结果置换）<a class="headerlink" href="#sp-s" title="Permanent link">&para;</a></h6>
+<p>输入: <em>b</em>[1] <em>b</em>[2] <em>b</em>[3 ]<em>b</em>[4] <em>b</em>[5] <em>b</em>[6], 用10进制表示: </p>
+<p>(<em>i</em>)10=<em>b</em>[1]<em>b</em>[6]  (0&lt;=i&lt;=3), (<em>j</em>)10=<em>b</em>[2]<em>b</em>[3]<em>b</em>[4]<em>b</em>[5] (0&lt;=j&lt;=15)</p>
+<p>对于*S*1，输入*b*=101011, 有*i*=11=3, <em>j</em>=0101=5, 输出: <em>S*1(*b</em>)= *S*1(3,5)=9=1001.</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517171515.png" alt="img" style="zoom: 35%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517171932.png" alt="image-20210517171932281" style="zoom: 35%;" /></p>
+<h5 id="_12">子密钥生成算法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517172335.png" alt="image-20210517172335799" style="zoom: 30%;" /></p>
+<h6 id="pc-1">置换变换：PC-1<a class="headerlink" href="#pc-1" title="Permanent link">&para;</a></h6>
+<p>64位密钥*K*的第8, 16, 24,…,64位共8位是奇偶校验位, 其余56位作为密钥用.  选择*K*的第57,49,…位共28位作为密钥段*C*0;选择*K*的第63,55,…位共28位作为密钥段*D*0.</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517172505.png" alt="123" style="zoom: 35%;" /></p>
+<h6 id="lsi">循环左移LSi<a class="headerlink" href="#lsi" title="Permanent link">&para;</a></h6>
+<p>将28位的密钥段作为*C*[i], <em>D</em>[i]循环左移1或2位,左移位数由下表确定.</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517172855.png" alt="img" style="zoom: 35%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517172952.png" alt="img" style="zoom: 35%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517173054.png" alt="img" style="zoom: 35%;" /></p>
+<h6 id="pc-2">置换选择 PC-2<a class="headerlink" href="#pc-2" title="Permanent link">&para;</a></h6>
+<p>从56位密钥段*C*[i]<em>||*D[i]中选择48位作为子密钥*K</em>[i].</p>
+<h5 id="des_2">DES解密算法<a class="headerlink" href="#des_2" title="Permanent link">&para;</a></h5>
+<p>与DES加密结构相同  子密钥使用次序相反: <em>K</em>[16], <em>K</em>[15], …, <em>K</em>[2], <em>K</em>[1]  输入：密文y; 输出：明文*x*</p>
+<h5 id="idea">IDEA中主要运算<a class="headerlink" href="#idea" title="Permanent link">&para;</a></h5>
+<p>运算‘+’：两个长度为16的比特串*x*和*y*。 <em>x</em>‘+’*y*表示*x*和*y*做逐位模2加运算（逐比特异或）。</p>
+<p>运算“+”：将长度为16的比特串*x*和*y*看作是“≥0，且&lt;2<sup>16</sup>”的整数。<em>x</em>“+”*y*表示*x*和*y*做模2<sup>16</sup>加运算。</p>
+<p>运算×：  将长度为16的比特串*x*和*y*看作是“≥1，且&lt;2<sup>16</sup>+1”的整数。</p>
+<p>其中将全0串看作是2<sup>16</sup>。  <em>x</em>×*y*表示*x*和*y*做模2<sup>16</sup>+1乘运算。（注意： 2<sup>16</sup>+1 是素数）</p>
+<h5 id="_13">轮函数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
+<h6 id="_14">轮函数数据<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h6>
+<p>轮函数为*M*=<em>F</em>(<em>m</em>, <em>z</em>), 其中*m*是明文，它是长度为64的比特串；*M*是密文，它是长度为64的比特串； *z*是密钥，它是长度为96的比特串。</p>
+<p>将明文*m*分为4个子块：<em>m</em>=(<em>m*1,*m*2,*m*3,*m*4)，其中每个子块长度为16。将密文*M*分为4个子块: *M</em>=(<em>M*1,*M*2,*M*3,*M*4), 其中每个子块长度为16。将密钥*z*分为6个子块：*z</em>=(*z*1,*z*2,*z*3,*z*4,*z*5,*z*6)，其中每个子块长度为16。</p>
+<p>三种运算‘+’、“+”、×分别为前面所述。</p>
+<h6 id="_15">轮函数运算<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h6>
+<p>轮函数算法描述如下：</p>
+<p>（1）(<em>m</em>[1], <em>m</em>[2], <em>m</em>[3], <em>m</em>[4])(×,“+”,“+”,×) (<em>z</em>[1], <em>z</em>[2], <em>z</em>[3], <em>z</em>[4])=(<em>a</em>, <em>b</em>, <em>c</em>, <em>d</em>)。 （群加密）</p>
+<p>（2）(<em>a</em>‘+’<em>c</em>, <em>b</em>‘+’<em>d</em>)=(<em>e</em>, <em>f</em>)。（MA变换）</p>
+<p>（3）((<em>e</em>×<em>z</em>[5])“+”<em>f</em> )×<em>z</em>[6]=<em>u</em>，<em>u</em>“+”(<em>e</em>×<em>z</em>[5])=<em>v</em>。（MA变换）</p>
+<p>（4）(<em>a</em>, <em>b</em>, <em>c</em>, <em>d</em>)(‘+’,‘+’,‘+’,‘+’) (<em>u</em>, <em>v</em>, <em>u</em>, <em>v</em>)=(<em>w</em>[1], <em>w</em>[2], <em>w</em>[3], <em>w</em>[4])。（MA变换）</p>
+<p>（5）(<em>w</em>[1], <em>w</em>[3], <em>w</em>[2], <em>w*0[4])=(*M</em>[1], <em>M</em>[2], <em>M</em>[3], <em>M</em>[4])。 （块置换）</p>
+<h5 id="_16">加密顺序<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<p>分组密码IDEA的完整加密算法是连续8次使用轮函数，不过第8轮与前7轮有所不同。前7轮是普通轮，轮函数的运算步骤如前所述为：</p>
+<p>群加密→MA变换→块置换。</p>
+<p>第8轮是特殊轮，轮函数的运算步骤为：</p>
+<p>群加密→MA变换→群加密。</p>
+<h5 id="idea_1">IDEA算法解密<a class="headerlink" href="#idea_1" title="Permanent link">&para;</a></h5>
+<p>加解密顺序不同，只不过密钥顺序发生改变：</p>
+<p>加密密钥(q[1],q[2],q[3],q[4],q[5],q[6])则对应的解密密钥为(<em>q</em>[1]<sup>-1</sup>, -<em>q</em>[3], -<em>q</em>[2], <em>q</em>[4]<sup>-1</sup>,q[5],q[6]) （加乘法逆运算）</p>
+<h5 id="idea_2">IDEA 密钥生成算法<a class="headerlink" href="#idea_2" title="Permanent link">&para;</a></h5>
+<p>IDEA加密算法中所使用的密钥共有52个子块，即加密密钥长度为16×52=832（比特）。用户密钥实际上只有128 （比特），因此需要一个密钥扩展算法。密钥扩展算法如下。将128 比特的用户密钥分为8个子块，作为加密密钥的第一个“8个子块”；将128 比特密钥循环左移25位，再分为8个子块，作为加密密钥的第二个“8个子块”；</p>
+<h4 id="aes">AES算法<a class="headerlink" href="#aes" title="Permanent link">&para;</a></h4>
+<h5 id="aes_1">AES流程<a class="headerlink" href="#aes_1" title="Permanent link">&para;</a></h5>
+<p>AES算法模多项式 m(x)=<em>x</em><sup>8</sup>+<em>x</em><sup>4</sup>+<em>x</em><sup>3</sup>+<em>x</em>+1. 均为在GF(2<sup>8</sup>)上的运算11</p>
+<p>初始变换——密钥加</p>
+<p>第一轮： 字节替换→行移位→列混合→密钥加     第二轮： 字节替换→行移位→列混合→密钥加</p>
+<p>第三轮： 字节替换→行移位→列混合→密钥加     第四轮： 字节替换→行移位→列混合→密钥加</p>
+<p>………………………………………………………………</p>
+<p>第Nr-1轮：字节替换→行移位→列混合→密钥加  第Nr轮：  字节替换→行移位</p>
+<p>末尾变换——密钥加</p>
+<h5 id="_17">字节代换<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<p>对状态的每个字节独立进行代换，是字节的非线性变换，也称为S盒变换。设 ByteSub(<em>a*ij</em>)=<em>b*ij</em>.</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517234452.png" alt="image-20210517234451746" style="zoom: 50%;" />行位移和列混合<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517234715.png" alt="image-20210517234715584" style="zoom: 50%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517234942.png" alt="image-20210517234942412" style="zoom: 50%;" />            轮密钥加<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517235039.png" alt="image-20210517235039021" style="zoom: 50%;" /></p>
+<h5 id="_18">解密算法<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<h6 id="_19">字母代换<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h6>
+<p>先做仿射的逆变换然后再求逆<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517235236.png" alt="image-20210517235236692" style="zoom: 35%;" /></p>
+<h6 id="_20">行位移和列混合<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h6>
+<p>行位移逆回即可 列混合将状态矩阵每列的4个字节表示成一个3次多项式，再与多项式*d*(<em>x</em>)相乘. </p>
+<p><em>d</em>(<em>x</em>)=(0B)<em>x</em><sup>3</sup>+(0D)<em>x</em><sup>2</sup>+(09)<em>x</em>+(0E).<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210517235537.png" alt="image-20210517235537276" style="zoom: 35%;" /></p>
+<h6 id="_21">解密顺序（已对密钥进行变换）<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h6>
+<p>初始变换——密钥加</p>
+<p>第一轮： 字节替换→行移位→列混合→密钥加   第二轮： 字节替换→行移位→列混合→密钥加</p>
+<p>第三轮： 字节替换→行移位→列混合→密钥加   第四轮： 字节替换→行移位→列混合→密钥加</p>
+<p>………………………………………………………………</p>
+<p>第Nr-1轮：字节替换→行移位→列混合→密钥加  第Nr轮：  字节替换→行移位</p>
+<p>末尾变换——密钥加</p>
+<h3 id="_22">公钥密码体制<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<h4 id="_23">补充数学<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<h5 id="_24">欧拉函数<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h5>
+<p>(欧拉定理)对于任何互素的两个整数a和n，有  <em>a</em><sup>φ(n)</sup> ≡ 1 mod <em>n</em> 对任意的正整数k, 有 a<sup>k*φ(n)</sup> +1≡ <em>a</em> mod <em>n</em> ，</p>
+<p>欧拉函数*φ(n)*的几条性质：</p>
+<p>(1) n为素数， <em>φ(n)</em>=<em>n</em>－1;(2)若p为素数，n为正整数，则φ(p<sup>n</sup>)=(p-1)p*<sup>n-1</sup>* (3) gcd(<em>m</em>, <em>n</em>) =1, φ(<em>mn</em>)= φ(<em>m</em>) ×φ(<em>n</em>)</p>
+<p>如果*m*是使*a*<sup>m</sup> ≡ 1 mod *n*成立的最小正整数，则称它是*a*对模*n*的指数，或者称为*a*关于模*n*的乘法阶，记为Ord<sub>n</sub>a。 </p>
+<p>若Ord<sub>n</sub>a=<em>φ</em>(<em>n</em>)，则称*a*是模*n*的本原根(primitive root)，也称模*n*的乘法生成元。</p>
+<p>测试方法:令*q*1,<em>q*2,…, *q*n是*p</em>-1的素因子，对于所有的*q*1,<em>q*2,…, *q*n, 计算*a</em><sup>(<em>p</em>-1)/q</sup> (mod <em>p</em>) ，如果对某个素因子*q*，其结果为1，那么*a* 不是一个本原根。如果对所有素因子*q*，其结果都不为1 ，那么*a* 是一个本原根。 </p>
+<p>对于一个整数*b*和素数*n*的一个本原根*a*，可以找到唯一的指数*x*，使得*b* ≡ a<sup>x</sup> mod <em>n</em>，其中0≤ <em>x</em> ≤<em>n</em>-1，指数*x*称为*b*的以*a*为基数的模*n*的离散对数，求离散对数为一个困难问题</p>
+<p>中国剩余定理<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210518231738.png" alt="image-20210518231736846" style="zoom: 35%;" />二次剩余<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519000307.png" alt="image-20210519000305911" style="zoom: 100%;" /></p>
+<h4 id="rsa">RSA算法<a class="headerlink" href="#rsa" title="Permanent link">&para;</a></h4>
+<h5 id="_25">密钥生成算法<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h5>
+<p>(1) 选取两个大素数 <em>p</em>, <em>q</em></p>
+<p>(2) 计算*n*= p*q, 取φ(n)=(p-1)*(q-1)</p>
+<p>(3) 随机选取*e*: 1&lt;<em>e</em>&lt;<em>φ</em>(<em>n</em>)，与*φ*(<em>n</em>)互素</p>
+<p>(4) 根据欧几里德算法计算*e*的逆 <em>d</em>=<em>e</em><sup>-1</sup>:</p>
+<p>1&lt;<em>e</em>&lt;<em>φ</em>(<em>n</em>)，e*d = 1 mod <em>φ</em>(<em>n</em>).</p>
+<p>(5) 公钥: PK=(<em>n</em>, <em>e</em>),</p>
+<p>私钥: <em>S*K</em>=(<em>p, *q</em> , <em>d</em>).   </p>
+<h5 id="_26">加密算法<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h5>
+<p>消息m: 0&lt;=m&lt;n，密文 c=E<sub>PK</sub>(m)=m<sup>e</sup> (mod n) </p>
+<h5 id="_27">解密算法<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h5>
+<p>密文c: 0&lt;=c&lt;n，明文 m=D<sub>SK</sub>&copy;=c<sup>d</sup> (mod n) </p>
+<h4 id="rabin">Rabin 公钥密码体制<a class="headerlink" href="#rabin" title="Permanent link">&para;</a></h4>
+<h5 id="_28">密钥生成算法<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h5>
+<p>选择两个大的素数p和q，要求p和q都是4的倍数加3。 </p>
+<p>计算n=p*q。Bob的公钥是n，对外公布。 Bob的私钥是（p，q），自己私藏。</p>
+<h5 id="_29">加密算法<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h5>
+<p>将明文通过一个可逆映射为一个小于n且与n互素的正整数m,即 0&lt;m&lt;n 且 gcd (m,n)=1。</p>
+<p>Alice用Bob的公钥n，计算： c=m<sup>2</sup>(mod n)。c为密文。</p>
+<h5 id="_30">解密算法<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h5>
+<p>Bob 收到密文*c*后，用自己的私钥（<em>p</em>，<em>q</em>）计算</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519002630.png" alt="image-20210519002629696" style="zoom: 50%;" /></p>
+<h4 id="_31">背包公钥密码体制<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
+<h5 id="_32">密钥生成算法<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h5>
+<p>取n个具有超递增性的物品重量：a1，a2，a3，…，an。</p>
+<p>取正整数M，U，满足</p>
+<p>(1) M&gt;a1+a2+a3+…+an；(2) M&gt;U；(3) U*a1&gt;M；</p>
+<p>M与U互素，因此可以用辗转相除法计算出U关于(modM)的逆元U<sup>-1</sup>。</p>
+<p>计算：b1=U*a1(mod M)，b2=Ua2(mod M) ，b3=Ua3(mod M) ，…，bn=Uan(mod M) 。(不具有超递增性)</p>
+<p>此时</p>
+<p>a1=U<sup>-1</sup>b1(mod M)，a2=U<sup>-1</sup>b2(mod M)，a3=U<sup>-1</sup>b3(mod M)， …，an=U<sup>-1</sup>bn(mod M) 。</p>
+<p>{b1，b2，b3，…，bn}是公钥。</p>
+<p>{a1，a2，a3，…，an} ， M，U都是私钥。</p>
+<h5 id="_33">加密算法<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h5>
+<p>设明文m为正整数，其二进制展开式为m=(m1,m2,m3…mn)<sub>2</sub>。使用公钥{b1，b2，b3，…，bn}计算密文c ：c=m1*b1+m2b2+m3b3+…+mnbn。密文c是一个正整数。</p>
+<h5 id="_34">解密算法<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h5>
+<p>使用私钥{a1，a2，a3，…，an} ， M，U，计算变换课文C：</p>
+<p>C=U<sup>-1</sup>c(modM)</p>
+<p>=U<sup>-1</sup>(m1b1+m2b2+m3b3+…+mnbn )(modM)</p>
+<p>=m1a1+m2a2+m3a3+…+mnan(modM) </p>
+<p>=m1a1+m2a2+m3a3+…+mnan。</p>
+<h4 id="elgamal">Elgamal 公钥密码体制<a class="headerlink" href="#elgamal" title="Permanent link">&para;</a></h4>
+<p>循环群`</p>
+<p>设(G,*)是一个有限群, |G|= n, e是G的单位元. 如果存在 a属于G，使得a, a2,…, an=e互不相同,即 G={a, a2,…,an}, 则称a是G的一个本原元（生成元）. (G,*)称为循环群。</p>
+<p>有限域</p>
+<p>设p是一个素数, Zp= {0,1,2,…, p-1}. 在Zp 中, 加法与乘法按 mod (p) 进行, 则Zp称为一个有限域。</p>
+<p>GF(p)的本原元</p>
+<p>设Zp*= {1,2,…, p-1}, a属于Zp*, 如果a, a<sup>2</sup>,…, a<sup>p-1</sup> =1互不相同,即 Zp*={a, a2,…,ap-1}, 则称a是Zp的一个本原元. (Zp*, *)是一个循环群。</p>
+<h5 id="_35">密钥生成算法<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h5>
+<p>厄格玛尔(ElGamal)密码体制</p>
+<p>密钥产生: 选择素数p，整数g, x满足 0&lt;g, x&lt;p, 计算 y=g<sup>x</sup> mod p.</p>
+<p>公钥: (p, g, y)</p>
+<p>私钥: x </p>
+<h5 id="_36">加密算法<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h5>
+<p>设明文为m (0&lt;m&lt;p), 随机选取k(0&lt;k&lt;p), 计算 c1=g<sup>k</sup> mod p, c2=y<sup>k</sup>m mod p.</p>
+<p>密文: c=(c1, c2)</p>
+<h5 id="_37">解密算法<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h5>
+<p>设密文为c=(c1, c2), 则明文为 m=c2*(c1<sup>x</sup>)<sup>-1</sup> mod p.</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519005353.png" alt="image-20210519005352194" style="zoom:35%;" /></p>
+<h4 id="_38">椭圆曲线加解密运算<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
+<h5 id="_39">密钥选取<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h5>
+<p>确定公开参数(<em>p</em>, <em>a</em>, <em>b</em>, <em>n</em>, <em>g</em>)  </p>
+<p>选择一个素数*p*, 确定有限域GF(<em>p</em>) 选择*a*, <em>b*属于GF(*p</em>), 确定椭圆曲线*E*</p>
+<p>选择*E*的一个循环子群*H*, 使得| <em>H</em> |=<em>n*是一个大素数 选择*H*的一个本原元*g</em>.</p>
+<p>确定私钥: <em>x</em>  用户随机选取*x*属于{0,1,2,…,<em>n</em>-1}</p>
+<p>确定公钥: <em>y</em>= x*g.</p>
+<p>有限域上的椭圆曲线</p>
+<h5 id="_40">椭圆曲线群计算<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h5>
+<p>设p&gt;=3是素数, Fp= {0,1,…, p-1}是有限域, a, b属于p, △=4a<sup>3</sup>+27b<sup>2</sup>不等于0 mod (p), 同余方程 y<sup>2</sup>=x<sup>3</sup>+ax+b </p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519154816.png" alt="image-20210519154815918" style="zoom:46%;" /><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519154650.png" alt="image-20210519154649100" style="zoom:45%;" /></p>
+<h5 id="_41">加解密算法<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h5>
+<p>加密算法 设明文为m, 将m映射到循环群H上的点. 随机选取k属于{0,1,…,n-1} 计算:c1=kg=(x1, y1) 计算:c2 =m+ky=(x2, y2) 密文: c=(c1, c2)</p>
+<p>解密算法 设密文为c=(c1, c2), 则明文为 m=c2-xc1.</p>
+<h5 id="_42">加解密例子<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h5>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210519155122577.png" alt="image-20210519155122577" style="zoom:50%;" /></p>
+<h3 id="hash">Hash函数<a class="headerlink" href="#hash" title="Permanent link">&para;</a></h3>
+<p>lHash函数的分类</p>
+<p>单向Hash函数（one-way）给定一个Hash值*y*，如果寻找一个消息*x*，使得*y*=<em>h</em> (<em>x</em>)是计算上不可行的，则称*h*是单向Hash函数. </p>
+<p>弱抗碰撞Hash函数（weakly collision-free）  任给一个消息*x*，如果寻找另一个不同的消息*x*’，使得*h*(<em>x</em>) =<em>h</em>(<em>x</em>’)是计算上不可行的，则称*h*是弱抗碰撞Hash函数. </p>
+<p>强抗碰撞Hash函数 （strongly collision-free） 如果寻找两个不同的消息*x*和*x*’，使得*h*(<em>x</em>)=<em>h</em>(<em>x</em>’)是计算上不可行的，则称*h*是强抗碰撞Hash函数. </p>
+<h3 id="_43">数字签名<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<h4 id="rsa_1">RSA签名<a class="headerlink" href="#rsa_1" title="Permanent link">&para;</a></h4>
+<h5 id="_44">密钥生成算法<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h5>
+<p>选取两个大素数p，q，计算 n=p*q，去φ(n)=( p -1) *( q -1)。 任选整数e，满足： 0&lt; e &lt;φ(n)，且gcd(e ,φ(n))=1。</p>
+<p>用扩展Euclidean算法求e模j(n)的逆d，即  e*d=1 mod φ(n)。 签名者的公钥: { n，e}，私钥:{ p，q，d}。</p>
+<p>签名算法 设消息为x，则x的RSA签名为 y=x<sup>d</sup> mod n  验证算法当接收方收到签名(x,y)后，验证x=y<sup>e</sup> mod n</p>
+<h4 id="elgamal_1">Elgamal 数字签名<a class="headerlink" href="#elgamal_1" title="Permanent link">&para;</a></h4>
+<p>密钥生成算法 选取一个大素数p，g属于Zp*是一个本原元，p和g是系统公开参数。 任选整数x，满足：1≤x≤p-2。计算 y=g<sup>x</sup> mod p.  签名者的公钥为y，私钥为x。</p>
+<p>签名算法<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519014701.png" alt="image-20210519014700894" style="zoom: 100%;" />验证算法<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519014748.png" alt="image-20210519014748009" style="zoom: 105%;" /></p>
+<h4 id="_45">美国数字签名标准<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<p>密钥生成算法签名及验证算法</p>
+<p><img alt="image-20210519155650723" src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519155650.png" /></p>
+<h4 id="_46">俄罗斯数字签名标准<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<p>密钥生成函数签名算法及验证算法</p>
+<p><img alt="image-20210519155531829" src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519155532.png" /></p>
+<h4 id="fs">FS签名<a class="headerlink" href="#fs" title="Permanent link">&para;</a></h4>
+<p>选取两个大素数*p*、<em>q</em>，令*n*=p*q。n是公开参数，*p*和*q*是管理中心CA掌握的密钥。设*h*是一个公开的Hash函数，*k*是一个固定的正整数。</p>
+<p>管理中心CA为用户A产生*k*个公开密钥： y<sub>i</sub> (i =1,2,…,<em>k</em>) 是模*n*的平方剩余</p>
+<p>再为用户A产生*k*个私钥（保密）</p>
+<p><img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519015449.png" style="zoom: 35%;" /></p>
+<p>签名算法<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519015617.png" alt="image-20210519015617777" style="zoom: 35%;" />验证算法<img src="https://rawgithub.tim-wcx.workers.dev/WCX1024979076/image1/master/img/20210519015734.png" alt="image-20210519015734096" style="zoom: 35%;" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数字图像处理" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              数字图像处理
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
