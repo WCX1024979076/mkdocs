@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://github.tim-wcx.ltd/mkdocs/course/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.5">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cdeb8541.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -899,6 +899,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    第三章 空域增强技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    第四章 频域处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    第八章 形态学图像处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    第九章 图像编码
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -965,6 +993,34 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     第二章 数字图像基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    第三章 空域增强技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    第四章 频域处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    第八章 形态学图像处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    第九章 图像编码
   </a>
   
 </li>
@@ -1069,6 +1125,361 @@
 <p>» 将其收缩，与原来图像匹配 » 像素间隔小于原来图像像素间隔 </p>
 <p>» 从原来图像像素值提取信息赋给新图像相应像素</p>
 <p>图像内插的主要方法 最近邻内插法 双线性内插法 双三次内插法</p>
+<h3 id="_4">第三章 空域增强技术<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>空域增强基础</strong></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">𝒈(𝒙, 𝒚)= 𝑻[𝒇(𝒙, y)]</span><script type="math/tex">𝒈(𝒙, 𝒚)= 𝑻[𝒇(𝒙, y)]</script></span> 其中𝒇(𝒙, 𝒚) 是输入图像， 𝒈(𝒙, 𝒚) 是处理后图像  𝑻是在点 (𝒙, 𝒚) 邻域上定义的关于𝒇的增强操作。</p>
+<p>空域增强计算过程：-遍历图像所有像素 – 每个像素处，用T跟以(x,y)为中心的邻域进行计算 – 边缘处理：填零</p>
+<p><strong>直接灰度映射</strong></p>
+<p>将 f (x, y)中的每个像素灰度按𝑻操作直接变换以得到 g(x, y)</p>
+<p>典型方法：</p>
+<p><img alt="image.png" src="https://i.loli.net/2021/10/28/zL9XnhC4IS5ZAlJ.png" /></p>
+<ol>
+<li>对数变换 <span class="arithmatex"><span class="MathJax_Preview">s=c*log(r+1)</span><script type="math/tex">s=c*log(r+1)</script></span></li>
+<li>指数变换 <span class="arithmatex"><span class="MathJax_Preview">s=cr^{\gamma}</span><script type="math/tex">s=cr^{\gamma}</script></span></li>
+</ol>
+<p><img alt="image.png" src="https://i.loli.net/2021/10/28/D3bAGWnZ6jcPk4e.png" /></p>
+<p><strong><mark>直方图变换</mark></strong></p>
+<p>直方图（Histogram ）</p>
+<ol>
+<li>数字图像中每一灰度级，它出现的频数的统计 </li>
+<li>提供了图像像素的灰度值分布情况</li>
+</ol>
+<p>1）直方图均衡化</p>
+<p>直方图均衡化：指图像经灰度变换后，使得灰度的概率密度分布变为常 数，即均匀分布</p>
+<p>注：在该直方图中，共有8钟灰度，即L=8。</p>
+<p><img alt="image-20211028174628610" src="https://i.loli.net/2021/10/28/v5t4cL9OIXwWiTj.png" /></p>
+<p><img alt="image-20211028174648338" src="https://i.loli.net/2021/10/28/23MhdpOm4cyG8C6.png" /></p>
+<p><img alt="image-20211028174714627" src="https://i.loli.net/2021/10/28/WyKDFjrlM6gUXVb.png" /></p>
+<p><img alt="image-20211028174749539" src="https://i.loli.net/2021/10/28/OxXMdn8grkUlzWi.png" /></p>
+<p><img alt="image-20211028174814435" src="https://i.loli.net/2021/10/28/s3k8wFP5lB2vhpm.png" /></p>
+<p>2）直方图规定化</p>
+<p>通过指定的函数将原图像的灰度直方图变换成另一种分布的灰度直方图，即确定一个T函数，根据这个直方图确定一灰度级变换 T&reg;, 使由 T产生的 新图象的直方符合指定的直方图。</p>
+<p><img alt="image-20211029185001652" src="https://i.loli.net/2021/11/01/T3NkMjeKEa7zYWm.png" /></p>
+<p><img alt="image-20211029185031236" src="https://i.loli.net/2021/11/01/sWRHrtYXzgUC5GP.png" /></p>
+<p><img alt="image-20211029185100816" src="https://i.loli.net/2021/11/01/CzDRAsNV5eTFHQq.png" /></p>
+<p><img alt="image-20211029185428807" src="https://i.loli.net/2021/11/01/qsSoDXtxYJKkEyF.png" /></p>
+<p><img alt="image-20211029185544183" src="https://i.loli.net/2021/11/01/Q8ZyTMVgL3YPAdk.png" /></p>
+<p><img alt="image-20211029185559426" src="https://i.loli.net/2021/11/01/v7mHgZF9xpK8jcQ.png" /></p>
+<p>3）局部直方图处理</p>
+<p>有时需要对图像小区域细节的局部增强。解决的办法就是在图像中每一个素的邻域就是在图像中，根据灰度级分布 设计变换函数。然后利用前面介绍的技术来进行局部增强。</p>
+<p><strong><mark>线性滤波</mark></strong></p>
+<p>滤波器可分为线性滤波器和非线性滤波器，锐化和平滑。</p>
+<p>非线性滤波器作用：既消除噪声又保持细节（不模糊）</p>
+<p>常见滤波器：</p>
+<ol>
+<li>邻域平均 --线性平滑滤波器</li>
+</ol>
+<p>模版系数都是正的，保持灰度值范围（系数之和为1）</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">z=\frac{1}{M} \sum ^{M-1}_{i=0} (k_i*s_i)</span><script type="math/tex">z=\frac{1}{M} \sum ^{M-1}_{i=0} (k_i*s_i)</script></span>M的大小不同，平滑的效果也不同。</p>
+<p>模板尺寸增大时，对噪声消除效果增强，但图像变得模糊，即边缘细节减少。</p>
+<ol>
+<li>加权平均 --线性平滑滤波器</li>
+</ol>
+<p>不同位置的系数采用不同的值，一般认为：离模板中心近的像素对滤波贡献大，所以系数大； 而周围系数小。</p>
+<ol>
+<li>中值滤波器 --非线性平滑滤波器</li>
+</ol>
+<p>将模板中心与像素位置重合，读取模板下各对应像素的灰度值，将这些灰度值从小到大排成 1列，找出这些值里排在中间的 1个，将这个中间值赋给模板心位置像素。</p>
+<p>中值滤波器的消噪声效果与模板的尺寸和参与运算的像素数有关。</p>
+<p>图像中尺寸小于模板尺寸一半的过亮或过暗区域将会在滤波后会被消除掉。</p>
+<ol>
+<li>百分比滤波器 --非线性平滑滤波器</li>
+</ol>
+<p>最大值滤波器：<span class="arithmatex"><span class="MathJax_Preview">g_{max}(x,y)=max_{(s,t)∈N(x,y)}[f(s,t)]</span><script type="math/tex">g_{max}(x,y)=max_{(s,t)∈N(x,y)}[f(s,t)]</script></span></p>
+<p>最小值滤波器：<span class="arithmatex"><span class="MathJax_Preview">g_{min}(x,y)=min_{(s,t)∈N(x,y)}[f(s,t)]</span><script type="math/tex">g_{min}(x,y)=min_{(s,t)∈N(x,y)}[f(s,t)]</script></span></p>
+<p>中点滤波器：<span class="arithmatex"><span class="MathJax_Preview">g_{mid}(x,y)=\frac{1}{2}(g_{max}(x,y)+g_{min}(x,y))</span><script type="math/tex">g_{mid}(x,y)=\frac{1}{2}(g_{max}(x,y)+g_{min}(x,y))</script></span></p>
+<ol>
+<li>梯度滤波器 --非线性锐化滤波器</li>
+</ol>
+<p>各向异性，在X和Y两个方向不同。</p>
+<p>​    <img alt="image-20211029192419951" src="https://i.loli.net/2021/11/01/io4JrpXbCSMenLj.png" /></p>
+<p>梯度替代计算方法</p>
+<ol>
+<li>拉普拉斯算子，二阶导数 --非线性锐化滤波器</li>
+</ol>
+<p><img alt="image-20211029193003707" src="https://i.loli.net/2021/11/01/jw8LpaNr7nW24bB.png" /><img alt="image-20211029193029889" src="https://i.loli.net/2021/11/01/diO1QftMILaE4eZ.png" /></p>
+<p>微分算子，使用后增强了图像中灰度的突变，不级缓慢变化区域
+把原图像与 laplace laplace 图像线性组合，可以同时保持 laplace laplace laplace锐化和原图像背景。
+如果 laplace 算子中心系数为正，则用原图像加上 laplace 图像；
+如果 laplace 算子中心系数为负，则用原图像减去 laplace图像。</p>
+<p><mark><strong>局部增强</strong></mark></p>
+<p>对图像局部细节的增强处理</p>
+<p>图像的统计量：</p>
+<p>灰度平均值<span class="arithmatex"><span class="MathJax_Preview">m=\sum^{L-1}_{i=0}r_i*p(r_i)</span><script type="math/tex">m=\sum^{L-1}_{i=0}r_i*p(r_i)</script></span></p>
+<p>方差（二阶矩）<span class="arithmatex"><span class="MathJax_Preview">\mu_2(r)=\sum^{L-1}_{i=0}(r_i-m)^2p(r_i)</span><script type="math/tex">\mu_2(r)=\sum^{L-1}_{i=0}(r_i-m)^2p(r_i)</script></span></p>
+<p>r的n阶矩：<span class="arithmatex"><span class="MathJax_Preview">\mu_n(r)=\sum^{L-1}_{i=0}(r_i-m)^np(r_i)</span><script type="math/tex">\mu_n(r)=\sum^{L-1}_{i=0}(r_i-m)^np(r_i)</script></span></p>
+<p>局部增强的方法：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">g(x,y)=A(x,y)[f(x,y)-m(x,y)]+m(x,y),其中A(x,y)=\frac{k*M}{\sigma(x,y)}</span><script type="math/tex">g(x,y)=A(x,y)[f(x,y)-m(x,y)]+m(x,y),其中A(x,y)=\frac{k*M}{\sigma(x,y)}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">M为f(x,y)的均值,m(x,y)和\sigma(x,y)为以(x,y)为中心邻域内的均值和均方差值</span><script type="math/tex">M为f(x,y)的均值,m(x,y)和\sigma(x,y)为以(x,y)为中心邻域内的均值和均方差值</script></span></p>
+<p>基于局部统计的增强方法：</p>
+<p>令<span class="arithmatex"><span class="MathJax_Preview">(x,y)</span><script type="math/tex">(x,y)</script></span>为一像素坐标，<span class="arithmatex"><span class="MathJax_Preview">S_{xy}</span><script type="math/tex">S_{xy}</script></span>表示一确定大小的邻域（子图像），则<span class="arithmatex"><span class="MathJax_Preview">S_{xy}</span><script type="math/tex">S_{xy}</script></span>的平均值<span class="arithmatex"><span class="MathJax_Preview">m_{xy}</span><script type="math/tex">m_{xy}</script></span>为：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">m_{xy}=\sum_{(s,t)∈(S_{xy}))}(r_{s,t}×p(r_{s,t}))</span><script type="math/tex">m_{xy}=\sum_{(s,t)∈(S_{xy}))}(r_{s,t}×p(r_{s,t}))</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">S_{xy}</span><script type="math/tex">S_{xy}</script></span>中像素的方差为：<span class="arithmatex"><span class="MathJax_Preview">\sigma^2_{S_{xy}}=\sum^{(L-1)}_{(s,t)∈S_{xy}}\{[r_{s,t}-m_{s_{xy}}]^2×p(s_{s,t})\}</span><script type="math/tex">\sigma^2_{S_{xy}}=\sum^{(L-1)}_{(s,t)∈S_{xy}}\{[r_{s,t}-m_{s_{xy}}]^2×p(s_{s,t})\}</script></span></p>
+<p>根据亮暗和对比度来判断是否增强某一点的亮度，然后对其进行增强</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">令条件T=m_{s_{xy}}&lt;=k_0*M_G,k_0&lt;=1.0且k_1D_G&lt;=\sigma_{S_{xy}}&lt;=k_2D_G,k_1&lt;=k_2</span><script type="math/tex">令条件T=m_{s_{xy}}<=k_0*M_G,k_0<=1.0且k_1D_G<=\sigma_{S_{xy}}<=k_2D_G,k_1<=k_2</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">g(x,y)=T?E*f(x,y):f(x,y)</span><script type="math/tex">g(x,y)=T?E*f(x,y):f(x,y)</script></span></p>
+<h3 id="_5">第四章 频域处理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>傅里叶变换</strong></p>
+<p><img alt="image-20211029201816415" src="https://i.loli.net/2021/11/01/HhQM2zSKbFLNlE6.png" /></p>
+<p>时域图像是一个周期且连续的函数，频域图像和相位图像是一个非周期离散的函数。</p>
+<p>欧拉公式：<span class="arithmatex"><span class="MathJax_Preview">e^{ix}=cos(x)+i*sin(x)</span><script type="math/tex">e^{ix}=cos(x)+i*sin(x)</script></span></p>
+<p><strong>傅里叶变换的定义</strong></p>
+<p>1）一维傅里叶变换</p>
+<ol>
+<li>连续函数</li>
+</ol>
+<p>正变换<span class="arithmatex"><span class="MathJax_Preview">F\{f(x)\}=F(u)=\int^{+\infty}_{-\infty}f(x)e^{-j2*\pi ux}dx</span><script type="math/tex">F\{f(x)\}=F(u)=\int^{+\infty}_{-\infty}f(x)e^{-j2*\pi ux}dx</script></span></p>
+<p>逆（反）变换<span class="arithmatex"><span class="MathJax_Preview">f(x)=\int^{+\infty}_{-\infty}F(u)e^{j*2\pi ux}du</span><script type="math/tex">f(x)=\int^{+\infty}_{-\infty}F(u)e^{j*2\pi ux}du</script></span></p>
+<ol>
+<li>离散函数</li>
+</ol>
+<p>正变换<span class="arithmatex"><span class="MathJax_Preview">F\{f(x)\}=F(u)=\sum^{N-1}_{x=0}f(x)e^{-2j\pi ux/N}</span><script type="math/tex">F\{f(x)\}=F(u)=\sum^{N-1}_{x=0}f(x)e^{-2j\pi ux/N}</script></span></p>
+<p>逆（反）变换<span class="arithmatex"><span class="MathJax_Preview">F^{-1}\{f(x)\}=f(x)=\frac{1}{N}\sum^{N-1}_{x=0}F(u)e^{2j\pi ux}</span><script type="math/tex">F^{-1}\{f(x)\}=f(x)=\frac{1}{N}\sum^{N-1}_{x=0}F(u)e^{2j\pi ux}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">u=0,1,2,...,N-1</span><script type="math/tex">u=0,1,2,...,N-1</script></span></p>
+<p><img alt="image-20211029203529045" src="https://i.loli.net/2021/11/01/QfFlDnWAH78Lyvp.png" /></p>
+<p><img alt="image-20211029203724459" src="https://i.loli.net/2021/11/01/HWMnS6R8oObml4G.png" /></p>
+<p>2）二维傅里叶变换</p>
+<ol>
+<li>连续函数</li>
+</ol>
+<p>正变换<span class="arithmatex"><span class="MathJax_Preview">F\{f(x,y)\}=F(u,v)=\int ^{+\infty}_{-\infty}\int ^{+\infty}_{-\infty} f(x,y)e^{-j2\pi ux}dxdy</span><script type="math/tex">F\{f(x,y)\}=F(u,v)=\int ^{+\infty}_{-\infty}\int ^{+\infty}_{-\infty} f(x,y)e^{-j2\pi ux}dxdy</script></span></p>
+<p>逆（反）变换<span class="arithmatex"><span class="MathJax_Preview">F^{-1}\{f(x,y)\}=f(x,y)=\int ^{+\infty}_{-\infty}\int ^{+\infty}_{-\infty} F(u,v)e^{j2\pi ux}dudv</span><script type="math/tex">F^{-1}\{f(x,y)\}=f(x,y)=\int ^{+\infty}_{-\infty}\int ^{+\infty}_{-\infty} F(u,v)e^{j2\pi ux}dudv</script></span></p>
+<ol>
+<li>离散函数</li>
+</ol>
+<p>正变换<span class="arithmatex"><span class="MathJax_Preview">F(u,v)=\sum^{M-1}_{x=0} \sum^{N-1}_{y=0} f(x,y) e^{-j2\pi (ux/M+vy/N)}</span><script type="math/tex">F(u,v)=\sum^{M-1}_{x=0} \sum^{N-1}_{y=0} f(x,y) e^{-j2\pi (ux/M+vy/N)}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">u=0,1,2,...,M-1,v=0,1,2,...,N-1</span><script type="math/tex">u=0,1,2,...,M-1,v=0,1,2,...,N-1</script></span></p>
+<p>逆变换<span class="arithmatex"><span class="MathJax_Preview">f(x,y)=\frac{1}{MN}\sum^{M-1}_{x=0} \sum^{N-1}_{y=0} F(u,v) e^{j2\pi (ux/M+vy/N)}</span><script type="math/tex">f(x,y)=\frac{1}{MN}\sum^{M-1}_{x=0} \sum^{N-1}_{y=0} F(u,v) e^{j2\pi (ux/M+vy/N)}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">x=0,1,2,...,M-1,y=0,1,2,...,N-1</span><script type="math/tex">x=0,1,2,...,M-1,y=0,1,2,...,N-1</script></span></p>
+<p><img alt="image-20211029204821027" src="https://i.loli.net/2021/11/01/dtFfnBK7qSpuAUL.png" /></p>
+<p>3）频谱域</p>
+<p>定义：由傅立叶变换和频率变量( u, v)定义的空间</p>
+<p>性质：</p>
+<ol>
+<li>变换最慢的频率成分(u=0,v=0)对应一幅图像的平均灰度，证明为：<span class="arithmatex"><span class="MathJax_Preview">F(0,0)=\sum_{x=0}^{M-1}\sum^{N-1}_{y=0}f(x,y)</span><script type="math/tex">F(0,0)=\sum_{x=0}^{M-1}\sum^{N-1}_{y=0}f(x,y)</script></span></li>
+</ol>
+<p>即<span class="arithmatex"><span class="MathJax_Preview">F(0,0)=mean(f(x,y))*M*N</span><script type="math/tex">F(0,0)=mean(f(x,y))*M*N</script></span>，所以<span class="arithmatex"><span class="MathJax_Preview">|F(0,0)|</span><script type="math/tex">|F(0,0)|</script></span>是频谱的最大分量。</p>
+<ol>
+<li>傅里叶变换是共轭对称的，即<span class="arithmatex"><span class="MathJax_Preview">F^*(u,v)=F(-u,-v)</span><script type="math/tex">F^*(u,v)=F(-u,-v)</script></span></li>
+<li>数字图像的频谱是关于原点偶对称的，即<span class="arithmatex"><span class="MathJax_Preview">|F(u,v)|=|F(-u,-v)|</span><script type="math/tex">|F(u,v)|=|F(-u,-v)|</script></span></li>
+<li>数字图像的相位角是关于远点奇对称的，即<span class="arithmatex"><span class="MathJax_Preview">\varphi(u,v)=-\varphi(-u,-v)</span><script type="math/tex">\varphi(u,v)=-\varphi(-u,-v)</script></span></li>
+<li>平移性质</li>
+</ol>
+<p><img alt="image-20211030162712994" src="https://i.loli.net/2021/11/01/Ieh24vDdNcPpVqL.png" /></p>
+<ol>
+<li>旋转性质</li>
+</ol>
+<p><img alt="image-20211030163004975" src="https://i.loli.net/2021/11/01/OKUhVMdAqwQ5keB.png" /></p>
+<ol>
+<li>尺度定理</li>
+</ol>
+<p><img alt="image-20211030163232529" src="https://i.loli.net/2021/11/01/dpS9k3VzXyKnrA2.png" /></p>
+<ol>
+<li>周期性</li>
+</ol>
+<p><img alt="image-20211030163340686" src="https://i.loli.net/2021/11/01/xtS9heqPVYiWUkB.png" /></p>
+<h3 id="_6">第八章 形态学图像处理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>结构元</strong></p>
+<p>对每个结构元素，先要指定一个原点，它是结构元素参与 形态学运算的参考点。</p>
+<p>注意：原点可以包含在结构元素中，也可以不包含在结 构元素中（即原点并不一定要属于结构元素）</p>
+<p>对图像操作时要求结构元素是矩形阵列，通过添加最少可能的背景元素实现。</p>
+<p><strong>基本形态学操作</strong></p>
+<p>1）膨胀</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A⊕B = \{x|(Bˆ) x ∩ A ≠ \phi \},ˆ为翻转运算</span><script type="math/tex">A⊕B = \{x|(Bˆ) x ∩ A ≠ \phi \},ˆ为翻转运算</script></span></p>
+<p>先对B做==关于原点的映象==，再将其映象平移x，结果是平移后与A交集不为空的x集合。</p>
+<p>即为用B来膨胀A得到的集合是 的位移与A至少有一 个非零元素即相交时B的原点位置的集合。</p>
+<p>2）腐蚀</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A㊀B = \{x |(B)x ⊆ A \}</span><script type="math/tex">A㊀B = \{x |(B)x ⊆ A \}</script></span></p>
+<p>B移动后完全包含在A中时，B的原点位置的集合</p>
+<p>作用：</p>
+<p>原点在结构元素（B中，收缩图像。</p>
+<p>结构元素不包含原点时，可以用作填充内部空洞</p>
+<p>3）腐蚀和膨胀对偶性</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">(A㊀B)^c=A^c⊕Bˆ</span><script type="math/tex">(A㊀B)^c=A^c⊕Bˆ</script></span>，其中c为取补运算</p>
+<p><img alt="image-20211101222606865" src="https://i.loli.net/2021/11/01/6K2XBC3GanEgvtN.png" /></p>
+<p>3）开操作</p>
+<p>定义：B对A进行的开操作就是先用B对A腐蚀，然后用B 对结果进行膨胀</p>
+<p>作用：开操作断开狭窄的间断和消除细的突出物</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A⊙B=(A㊀B)⊕B</span><script type="math/tex">A⊙B=(A㊀B)⊕B</script></span></p>
+<p><img alt="image-20211101222816672" src="https://i.loli.net/2021/11/01/lDRp4HZnS8VKh92.png" /></p>
+<p>4）闭操作</p>
+<p>定义：B对A进行的闭操作就是先用B对A膨胀，然后用B 对结果进行腐蚀</p>
+<p>作用：闭操作消弥狭窄的间断和长细的鸿沟，消除小的孔洞，并 填补轮廓线中小的断裂</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A•B=(A⊕B)㊀B</span><script type="math/tex">A•B=(A⊕B)㊀B</script></span></p>
+<p><img alt="image-20211101222932908" src="https://i.loli.net/2021/11/01/PpornLj5M4ODHFq.png" /></p>
+<p>5）开和闭操作性质</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">(A•B)^c=(A^c⊙Bˆ)</span><script type="math/tex">(A•B)^c=(A^c⊙Bˆ)</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">(A⊙B)⊆A</span><script type="math/tex">(A⊙B)⊆A</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A⊆A•B</span><script type="math/tex">A⊆A•B</script></span></p>
+<p>6）击中或击不中变换</p>
+<p><img alt="image-20211101223346406" src="https://i.loli.net/2021/11/01/UAvEK4ljidfaRDL.png" /></p>
+<p><strong>基本的形态学算法</strong></p>
+<p>1）边界提取</p>
+<p>设集合A的边界表示为 β(A)，选取结构元素B，先进行B对 A腐蚀，而后用A减去腐蚀的结果。</p>
+<p>2）区域填充</p>
+<p><img alt="image-20211101223906502" src="https://i.loli.net/2021/11/01/93qxoC8fQ5lUBXw.png" /></p>
+<p>3）细化操作</p>
+<p>提取图像的主要框架</p>
+<p><img alt="image-20211101223959832" src="https://i.loli.net/2021/11/01/pdBJbz7D6cTQUmt.png" /></p>
+<p>4）联通区域提取</p>
+<p>方法：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">X_k = (X_{k−1} ⊕ B)∩A</span><script type="math/tex">X_k = (X_{k−1} ⊕ B)∩A</script></span></p>
+<p>直至<span class="arithmatex"><span class="MathJax_Preview">X_k</span><script type="math/tex">X_k</script></span>和<span class="arithmatex"><span class="MathJax_Preview">X_{k-1}</span><script type="math/tex">X_{k-1}</script></span>相同</p>
+<p>5）凸壳</p>
+<p><img alt="image-20211101224256457" src="https://i.loli.net/2021/11/01/5CvSFM38Yg1ipJq.png" /></p>
+<p><strong>基本灰度级图像扩展操作</strong></p>
+<p>1）膨胀</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">f⊕b(s,t)=max\{f(s-x,t-y)+b(x,y)|(s-x,t-y) ∈D_f;(x,y)∈ D_b \}</span><script type="math/tex">f⊕b(s,t)=max\{f(s-x,t-y)+b(x,y)|(s-x,t-y) ∈D_f;(x,y)∈ D_b \}</script></span></p>
+<p>Df和Db分别为 f 和 b 的定义域。</p>
+<p>像素都必须在定义域内，与集合交集一致</p>
+<p>膨胀操作的结果：</p>
+<p>（a）如果结构元 素的值都为正，那么输出图像会更亮 </p>
+<p>（b）暗的细节部 分的变化取决于结构元素的值和形状</p>
+<p>2）腐蚀</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">f㊀b(s,t)=min\{f(s-x,t-y)-b(x,y)|(s-x,t-y) ∈D_f;(x,y)∈ D_b \}</span><script type="math/tex">f㊀b(s,t)=min\{f(s-x,t-y)-b(x,y)|(s-x,t-y) ∈D_f;(x,y)∈ D_b \}</script></span></p>
+<p>Df和Db分别为 f 和 b 的定义域。</p>
+<p>像素都必须在定义域内，与结构元素必须完全包含在被腐蚀的 集合内一致</p>
+<p>腐蚀操作的结果： </p>
+<p>（a）如果结构元素的 值都为正，那么输出图像会更暗 </p>
+<p>（b）亮的细节部分的变化取决于结构元素的值和形状</p>
+<p>3）开操作</p>
+<p><img alt="image-20211101231415943" src="https://i.loli.net/2021/11/01/LZDlsI8teSwk6nH.png" /></p>
+<p>开操作：小的明亮细节尺寸变小，暗的效果受影响较小 </p>
+<p>闭操作：小的暗细节的尺寸缩小，明亮部分受影响较小</p>
+<p><strong>基本的灰度级形态学算法</strong></p>
+<p>1）形态学平滑</p>
+<p>先进行开操作，后进行闭操作</p>
+<p>计算公式为：<span class="arithmatex"><span class="MathJax_Preview">g=(f⊙b)•b</span><script type="math/tex">g=(f⊙b)•b</script></span></p>
+<p>2）形态学梯度</p>
+<p>开操作减闭操作</p>
+<p>计算公式为：<span class="arithmatex"><span class="MathJax_Preview">g=(f⊕b)-(f㊀b)</span><script type="math/tex">g=(f⊕b)-(f㊀b)</script></span></p>
+<p>3）帽变换</p>
+<p>用一个结构元通过开操作或闭操作从图像中删除物体。 然后差操作得到一幅仅保留已删除分量的图像。</p>
+<ol>
+<li>顶帽变换</li>
+</ol>
+<p><span class="arithmatex"><span class="MathJax_Preview">T_{hat}(f)=f-(f⊙b)</span><script type="math/tex">T_{hat}(f)=f-(f⊙b)</script></span></p>
+<p>灰度级图像f的顶帽变换是f减去其开操作</p>
+<p>顶帽变换用于得到暗背景上的亮物体（白顶帽）</p>
+<ol>
+<li>低帽变换</li>
+</ol>
+<p><span class="arithmatex"><span class="MathJax_Preview">T_{hat}(f)=(f•b)-f</span><script type="math/tex">T_{hat}(f)=(f•b)-f</script></span></p>
+<p>灰度级图像f的底帽变换是f的闭操作减去f</p>
+<p>底帽变换用于得到亮背景上的暗物体（黑底帽）</p>
+<p>帽变换的应用有校正不均匀光照影响、纹理分割和粒度测定，具体使用的是开操作，减少亮度较高的部分。</p>
+<h3 id="_7">第九章 图像编码<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>图片压缩</strong></p>
+<p>1）数据和信息</p>
+<p>数据是信息的载体</p>
+<p>同量的数据可表达不信息，同量的信息可用不数据表达</p>
+<p>2）图片压缩种类</p>
+<p>信息保存型和信息损失型</p>
+<p><mark><strong>数据冗余</strong></mark></p>
+<p>1）冗余种类</p>
+<p>冗余有两种，分别为数据表达了无用的信息和数据表达了已表达的信息。</p>
+<p>2）相对压缩冗余</p>
+<p>相对冗余公式为<span class="arithmatex"><span class="MathJax_Preview">R_D=1-\frac{1}{C_R}</span><script type="math/tex">R_D=1-\frac{1}{C_R}</script></span>，压缩率为<span class="arithmatex"><span class="MathJax_Preview">C_R=\frac{n_1}{n2}</span><script type="math/tex">C_R=\frac{n_1}{n2}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">C_R</span><script type="math/tex">C_R</script></span>在区间<span class="arithmatex"><span class="MathJax_Preview">(0,+\infty)</span><script type="math/tex">(0,+\infty)</script></span>中取值。n1和n2代表两个数据集合中的信息载体单位的数量。</p>
+<p><img alt="image-20211101162116346" src="https://i.loli.net/2021/11/01/azc9iDbdgvlmRWT.png" /></p>
+<p>3）冗余的类别</p>
+<p>编码冗余、像素相关冗余和心里视觉冗余。</p>
+<p>编码冗余和与灰度分布的概率特性有关。</p>
+<p>像素相关冗余和空间冗余，时间冗余有关。</p>
+<p>心理视觉冗余和主观感觉有关。</p>
+<p>4）编码冗余</p>
+<p>图像中灰度出现的概率：<span class="arithmatex"><span class="MathJax_Preview">p_s(s_k)=n_k/n,k=0,1,..,L-1</span><script type="math/tex">p_s(s_k)=n_k/n,k=0,1,..,L-1</script></span></p>
+<p>平均比特数：<span class="arithmatex"><span class="MathJax_Preview">L_{avg}=\sum^{L-1}_{k=0}l(s_k)p_k(s_k)</span><script type="math/tex">L_{avg}=\sum^{L-1}_{k=0}l(s_k)p_k(s_k)</script></span></p>
+<p>预期结果为用较少的比特数表示出现概率较大的灰度级，用较多的比特数表示出现概率较小的灰度级</p>
+<p>5）像素间冗余</p>
+<p>主要体现像素间相关性，自相关系数为：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A(\Delta n)=\frac{1}{N-\Delta n} \sum^{N-\Delta n-1}_{X=0}f(x,y)f(x+\Delta n,y)</span><script type="math/tex">A(\Delta n)=\frac{1}{N-\Delta n} \sum^{N-\Delta n-1}_{X=0}f(x,y)f(x+\Delta n,y)</script></span></p>
+<p>3）心里视觉冗余</p>
+<p>主要与人观察图像的方式有关，心理视觉冗余与实在的视觉信息有联系</p>
+<p><strong>图像保真度</strong></p>
+<p>描述解码图像相对于原始图像的偏离程度。</p>
+<p>1）主管保真度准则</p>
+<p>主管观测图像的质量，并对图像做出评价，例如优秀、良好、可用、刚可看、差和不能用。</p>
+<p>2）客观保真度准则</p>
+<p>用编码输入图与解码输出图的某个确定函数表示损失的信 息量， 便于计算或测量</p>
+<p><img alt="image-20211101163328473" src="https://i.loli.net/2021/11/01/iOPmXj3sdgQhwBF.png" /></p>
+<p><img alt="image-20211101163338327" src="https://i.loli.net/2021/11/01/bUdVgAsq7l6Y5n4.png" /></p>
+<p><strong>图像编码模型</strong></p>
+<p>编码模型分为两种：信息保存型和信息损失型</p>
+<p>无失真信源编码器不需要量化器</p>
+<p><strong>图像编码</strong></p>
+<p>1）信息量</p>
+<p>概率为P(E)的随机事件E的信息量为</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">l(E)=log\frac{1}{P(E)}=-logP(E)</span><script type="math/tex">l(E)=log\frac{1}{P(E)}=-logP(E)</script></span>，其中log以2为底。</p>
+<p>2）编码效率</p>
+<p>信息熵公式：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">H(u)=-\sum^J_{j=1}p(a_i)log(P(a_i))</span><script type="math/tex">H(u)=-\sum^J_{j=1}p(a_i)log(P(a_i))</script></span></p>
+<p>定义了观察到单个信源符号输出时所获得的平均信息量</p>
+<p>平均码长：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">L^*_{avg}=\sum^{J^n}_{j=1}p(a_i)*l(a_i)</span><script type="math/tex">L^*_{avg}=\sum^{J^n}_{j=1}p(a_i)*l(a_i)</script></span></p>
+<p>编码效率：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\eta=\frac{H(u)}{L^*_{avg}}*100\%</span><script type="math/tex">\eta=\frac{H(u)}{L^*_{avg}}*100\%</script></span></p>
+<p><img alt="image-20211101164249856" src="https://i.loli.net/2021/11/01/EeV7lwmc1jvstzI.png" /></p>
+<p>3）无损编码--变长编码</p>
+<ol>
+<li>哈夫曼编码</li>
+</ol>
+<p>略</p>
+<ol>
+<li>香农-法诺比那吗</li>
+</ol>
+<p>主要步骤为： </p>
+<p>(1) 将信源符号依其概率从大到小排列</p>
+<p>(2) 将信源符号分成概率和接近的两部分</p>
+<p>(3) 分别给两部分的信源符号组合赋值 </p>
+<p>(4) 如果两部分均只有一个信源符号，编码结束，否则返回(2) 继续进行</p>
+<ol>
+<li>特征</li>
+</ol>
+<p>二者均具有即时性，指对任意一个有限的码符号串，可以对每个码字 分别解码，解码时不需接收后面的所有码字。</p>
+<p>二者均具有唯一性，指对任意一个有限长的码符号串 ，只有一种分解成其各个码符号的方法。</p>
+<p>4）无损编码--位平面编码</p>
+<ol>
+<li>位平面分解</li>
+</ol>
+<p>将多灰度值图像分解成一系列二值图 对每一幅二值图再用二值压缩方法，主要包括位平面的分解和编码。</p>
+<p>位平面分解是指对每一个灰度进行量化，然后对图片进行分层，得到每一层的灰度。</p>
+<ol>
+<li>常数块编码</li>
+</ol>
+<p>常数块编码是指用专门的码字表达全是0或1的连通区域</p>
+<p>将图像分成全黑，全白或混合的m*n尺寸块。</p>
+<p>出现频率最高的类赋予 1 bit 码字0；其它两类分别赋予2 bit码字10和11＋ mn比特表示的模式。</p>
+<p>压缩：原需用mn比特表示的常数块中的像素现在只 用1 bit 来表示、</p>
+<ol>
+<li>1-D游程编码</li>
+</ol>
+<p><img alt="image-20211101165505060" src="https://i.loli.net/2021/11/01/JItD7FygcYApixH.png" /></p>
+<p>5）无损编码--无损预测编码</p>
+<p>预测编码：</p>
+<p>空域方法，消除像素间的冗余，基本思想为提取每个像素中的新信息（实际值与预测值的差）并对它 们编码。</p>
+<p>主要分为两种，有损预测编码和无损预测编码。</p>
+<p><img alt="image-20211101165817624" src="https://i.loli.net/2021/11/01/4K7gwWJUncEPtbL.png" /></p>
+<p><img alt="image-20211101165850328" src="https://i.loli.net/2021/11/01/QIkAYXRxfrvZqFu.png" /></p>
+<p><img alt="image-20211101170202832" src="https://i.loli.net/2021/11/01/JxhVzZo6K9HGcYb.png" /></p>
+<p>预测编码主要消除了像素间冗余。</p>
+<p>6）有损编码--有损预测编码</p>
+<p><img alt="image-20211101170314112" src="https://i.loli.net/2021/11/01/6Aeg8EY9jTBmasx.png" /></p>
+<p><img alt="image-20211101170320897" src="https://i.loli.net/2021/11/01/j4JQTtSydKabLIE.png" /></p>
+<p>7）有损编码--变换编码</p>
+<p>​    变换编码的作用是将空间域描述的图像信号变换到频率域，然后对变换后的系数进行编码处理。一般来说，图像在空间上具有较强的相关性，变换到频率域可以实现去相关和能量集中。</p>
+<p><img alt="image-20211101170754129" src="https://i.loli.net/2021/11/01/aERireUX5znpD4g.png" /></p>
+<p>变换选择 ：</p>
+<ol>
+<li>一个能把最多的信息集中到最少的系数上去的变换所产生的 重建均方误差最小 </li>
+<li>不同变换的信息集中能力不同 – 正弦类变换（如DFT和DCT）较优 – 非正弦类变换（如WHT: Walsh-Hadamard）</li>
+<li>实现简单 – 小波变换计算快且有局部性质（不需分解）</li>
+</ol>
+<p>DCT是较好的（综合）选择，集中能力强，并且所需计算量小。</p>
+<p><img alt="image-20211101171147246" src="https://i.loli.net/2021/11/01/R7SMFdIBCtjeak1.png" /></p>
+<p><img alt="image-20211101171202268" src="https://i.loli.net/2021/11/01/yGeVqjAtoSdzfOr.png" /></p>
+<p><img alt="image-20211101171259831" src="https://i.loli.net/2021/11/01/Ef9N4Qx1gtoYO3p.png" /></p>
+<p><img alt="image-20211101171314734" src="https://i.loli.net/2021/11/01/826r5YJ1sZkLxdS.png" /></p>
+<p><img alt="image-20211101171340904" src="https://i.loli.net/2021/11/01/hBRVG3lXFip8L9J.png" /></p>
                 
               
               
@@ -1141,10 +1552,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
       
         <script src="../../js/extra.js"></script>
       
