@@ -915,13 +915,34 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    第八章 形态学图像处理
+    第五章 频率域图像增强
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    第六章 图像恢复
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    第七章 彩色图像处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    第八章 形态学图像处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     第九章 图像编码
   </a>
   
@@ -1013,13 +1034,34 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    第八章 形态学图像处理
+    第五章 频率域图像增强
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    第六章 图像恢复
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    第七章 彩色图像处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    第八章 形态学图像处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     第九章 图像编码
   </a>
   
@@ -1266,9 +1308,11 @@
 <li>平移性质</li>
 </ol>
 <p><img alt="image-20211030162712994" src="https://i.loli.net/2021/11/01/Ieh24vDdNcPpVqL.png" /></p>
+<p><img alt="image-20211102150045637" src="https://pic.tim-wcx.ltd//img/image-20211102150045637.png" /></p>
 <ol>
 <li>旋转性质</li>
 </ol>
+<p><img alt="image-20211102150321717" src="https://pic.tim-wcx.ltd//img/image-20211102150321717.png" /></p>
 <p><img alt="image-20211030163004975" src="https://i.loli.net/2021/11/01/OKUhVMdAqwQ5keB.png" /></p>
 <ol>
 <li>尺度定理</li>
@@ -1278,7 +1322,370 @@
 <li>周期性</li>
 </ol>
 <p><img alt="image-20211030163340686" src="https://i.loli.net/2021/11/01/xtS9heqPVYiWUkB.png" /></p>
-<h3 id="_6">第八章 形态学图像处理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>应用：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">f(x)(-1)^x==F(u-\frac{M}{2})</span><script type="math/tex">f(x)(-1)^x==F(u-\frac{M}{2})</script></span></p>
+<p>证明为：</p>
+<p><img alt="image-20211102160813190" src="https://pic.tim-wcx.ltd//img/image-20211102160813190.png" /></p>
+<p>二维同样：</p>
+<p><img alt="image-20211102160830883" src="https://pic.tim-wcx.ltd//img/image-20211102160830883.png" /></p>
+<p><img alt="image-20211102160840496" src="https://pic.tim-wcx.ltd//img/image-20211102160840496.png" /></p>
+<p>4）傅里叶变换相位谱</p>
+<p>由傅立叶变换的相位构成的矩阵。</p>
+<p>相位分量是指各个正弦分量关于原点的位移的度量，决定了图像中可辨别物体定位信息。</p>
+<p>5）卷积定理</p>
+<p><img alt="image-20211102162646828" src="https://pic.tim-wcx.ltd//img/image-20211102162646828.png" /></p>
+<p><img alt="image-20211102162721979" src="https://pic.tim-wcx.ltd//img/image-20211102162721979.png" /></p>
+<p><img alt="img" src="https://pic.tim-wcx.ltd//img/~AD%5D9MFW%7B%60UG%7BA%60Z0I9O%7BLD.png" /></p>
+<p><strong>离散余弦变换</strong></p>
+<p>1）二维离散余弦变换定义</p>
+<p><img alt="image-20211102215431900" src="https://pic.tim-wcx.ltd//img/image-20211102215431900.png" /></p>
+<p><img alt="image-20211102215445787" src="https://pic.tim-wcx.ltd//img/image-20211102215445787.png" /></p>
+<p><strong>沃尔什变换</strong></p>
+<p><img alt="image-20211102215506498" src="https://pic.tim-wcx.ltd//img/image-20211102215506498.png" /></p>
+<p><img alt="image-20211102215520935" src="https://pic.tim-wcx.ltd//img/image-20211102215520935.png" /></p>
+<h3 id="_6">第五章 频率域图像增强<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>频率域增强原理</strong></p>
+<p>1）卷积以及卷积定理</p>
+<p>设函数f (x, y)与算子h(x, y)的卷积结果是g(x, y)，即 g(x, y) = h(x, y) * f (x, y)，那么根据卷积定理在频域有： G(u,v) = H(u,v)F(u,v)，其中G(u, v)，H(u, v)，F(u, v)分别是g(x, y)，h(x, y)，f (x, y)的傅立叶(或其它)变换，称H(u, v)为转移函数 G(u,v) = H(u,v)F(u,v)</p>
+<p>2）图像增强原理</p>
+<p><img alt="image-20211102163814455" src="https://pic.tim-wcx.ltd//img/image-20211102163814455.png" /></p>
+<p>其中T代表傅里叶变换</p>
+<p>3）图像增强具体实现</p>
+<p>卷积定理：<span class="arithmatex"><span class="MathJax_Preview">G(u,v)=H(u,v)F(u,v)</span><script type="math/tex">G(u,v)=H(u,v)F(u,v)</script></span></p>
+<p>增强图像：<span class="arithmatex"><span class="MathJax_Preview">g(x,y)=T^{-1}[H(u,v)F(u,v)]</span><script type="math/tex">g(x,y)=T^{-1}[H(u,v)F(u,v)]</script></span></p>
+<p>步 骤： (1) 计算图像的频域变换 (2) 在频域滤波 (3) 反变换回图像空间</p>
+<p>频域滤波: 低通，高通，同态</p>
+<p><strong>频率域平滑滤波器</strong></p>
+<p>1）平滑滤波器</p>
+<p>图像中的边缘和噪声都对应图像傅立叶变换中的高频部分 ，所以如要在频域中消弱其影响就要设法减弱这部分频率的分量。</p>
+<p>2）理想低通滤波器</p>
+<p><img alt="image-20211102164347410" src="https://pic.tim-wcx.ltd//img/image-20211102164347410.png" /></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">H(u,v)=1:0?D(u,v)&lt;D_0，其中D(u,v)=(u^2+v^2)^{1/2}</span><script type="math/tex">H(u,v)=1:0?D(u,v)<D_0，其中D(u,v)=(u^2+v^2)^{1/2}</script></span></p>
+<p>问题：模糊，振铃效应。</p>
+<p>3）巴特沃斯低通滤波器</p>
+<p>减少振铃效应，高低频率间的过渡比较光滑。</p>
+<p>阶数为n的巴特沃斯低通滤波器公式为：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">H(u,v)=\frac{1}{1+D(u,v)^{2n}}</span><script type="math/tex">H(u,v)=\frac{1}{1+D(u,v)^{2n}}</script></span></p>
+<p><img alt="image-20211102164821384" src="https://pic.tim-wcx.ltd//img/image-20211102164821384.png" /></p>
+<p>阶数对振铃现象的影响：阶数越高，越明显。</p>
+<p>当阶数趋于无穷时，巴特沃斯低通滤波变成理想低通滤波。</p>
+<p>4）应用</p>
+<p>图像由于量化不足产生虚假轮廓时常可用低通滤波进行平滑以改进图像质量。</p>
+<p>5）高斯低通滤波器</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">H(u,v)=e^{-D^2(u,v)/2D_0)^2}</span><script type="math/tex">H(u,v)=e^{-D^2(u,v)/2D_0)^2}</script></span></p>
+<p><img alt="image-20211102165137992" src="https://pic.tim-wcx.ltd//img/image-20211102165137992.png" /></p>
+<p>6）其他低通滤波器</p>
+<p><img alt="image-20211102165202610" src="https://pic.tim-wcx.ltd//img/image-20211102165202610.png" /></p>
+<p><strong>频率域锐化滤波器</strong></p>
+<p>1）理想高通滤波器</p>
+<p>形状与低通滤波器的形状正好相反</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">H(u,v)=0:1?D(u,v)&gt;D_0</span><script type="math/tex">H(u,v)=0:1?D(u,v)>D_0</script></span></p>
+<p>2）巴特沃斯高通滤波器</p>
+<p>形状与巴特沃斯低通滤波器的形状正好相反</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">H(u,v)=\frac{1}{1+[D_0/D(u,v)]^{2n}}</span><script type="math/tex">H(u,v)=\frac{1}{1+[D_0/D(u,v)]^{2n}}</script></span></p>
+<p>3）高斯高通滤波器</p>
+<p>形状与高斯低通滤波器的形状正好相反</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">H(u,v)=1-e^{-D^2(u,v)/2D_0)^2}</span><script type="math/tex">H(u,v)=1-e^{-D^2(u,v)/2D_0)^2}</script></span></p>
+<p><strong>高频强调滤波器</strong></p>
+<p>高通滤波的结果：边缘加强，光滑区域变暗</p>
+<p>高通滤波：<span class="arithmatex"><span class="MathJax_Preview">G(u,v)=H(u,v)F(u,v)</span><script type="math/tex">G(u,v)=H(u,v)F(u,v)</script></span></p>
+<p>高通强调转移函数：<span class="arithmatex"><span class="MathJax_Preview">H_c(u,v)=k×H(u,v)+c</span><script type="math/tex">H_c(u,v)=k×H(u,v)+c</script></span></p>
+<p>高频强调输出图的傅立叶变换：<span class="arithmatex"><span class="MathJax_Preview">G_c(u,v)=k×G(u,v)+c×F(u,c)</span><script type="math/tex">G_c(u,v)=k×G(u,v)+c×F(u,c)</script></span></p>
+<p>反变换为：<span class="arithmatex"><span class="MathJax_Preview">g(x,y)=k×g(x,y)+c×f(x,y)</span><script type="math/tex">g(x,y)=k×g(x,y)+c×f(x,y)</script></span></p>
+<p><strong>高频提升滤波器</strong></p>
+<ol>
+<li>用原始图减去低通图得到高通滤波器的效果。 </li>
+<li>把原始图乘以一个放大系数A再减去低通图就可构 成高频提升（high-boost）滤波器</li>
+</ol>
+<p><span class="arithmatex"><span class="MathJax_Preview">G_{HB}(u,v)=A×F(u,v)-F_L(u,v)=(A-1)F(u,v)+F_H(u,v)</span><script type="math/tex">G_{HB}(u,v)=A×F(u,v)-F_L(u,v)=(A-1)F(u,v)+F_H(u,v)</script></span></p>
+<p>A = 1 ：高通滤波器</p>
+<p>A &gt; 1 ：原始图的一部分与高通图相加，恢复了高通滤波时丢失的低频分量</p>
+<p><strong>同态滤波</strong></p>
+<p><img alt="image-20211102183122921" src="https://pic.tim-wcx.ltd//img/image-20211102183122921.png" /></p>
+<p>将明亮均衡化，使亮度和灰度均衡化。</p>
+<p><img alt="image-20211102183639110" src="https://pic.tim-wcx.ltd//img/image-20211102183639110.png" /></p>
+<p><img alt="image-20211102183725981" src="https://pic.tim-wcx.ltd//img/image-20211102183725981.png" /></p>
+<p><img alt="image-20211102183741437" src="https://pic.tim-wcx.ltd//img/image-20211102183741437.png" /></p>
+<p><strong>选择性滤波</strong></p>
+<p>分为两种：</p>
+<p>带阻滤波器&amp;带通滤波器</p>
+<p>1）带阻滤波器</p>
+<p>带阻滤波器也有三种特性。理想、巴特沃斯和高斯</p>
+<p><img alt="image-20211102183835370" src="https://pic.tim-wcx.ltd//img/image-20211102183835370.png" /></p>
+<p>2）带通滤波器</p>
+<p>带阻滤波器也有三种特性。理想、巴特沃斯和高斯</p>
+<p>3）陷波滤波器(Notch Filter)</p>
+<p>多个带阻滤波器经过平移获得。</p>
+<p><img alt="image-20211102184055630" src="https://pic.tim-wcx.ltd//img/image-20211102184055630.png" /></p>
+<p><strong>频域技术与空域技术</strong></p>
+<p>1）空间平滑滤波器 </p>
+<p>消除或减弱图像中灰度值具有较大较快变化部分的影响， 这些部分对应频域中的高频分量，所以可用频域低通滤波来实现 </p>
+<p>频域越宽，空域越窄，平滑作用越弱</p>
+<p>频域越窄，空域越宽，模糊作用越强</p>
+<p>平滑模板系数为正，且中部系数值较大</p>
+<p>2）空间锐化滤波器 </p>
+<p>消除或减弱图像中灰度值缓慢变化的部分，这些部分对应 频域中的低频分量，所以可用频域高通滤波来实现</p>
+<p>空域有正负值，模板中心系数值较大</p>
+<h3 id="_7">第六章 图像恢复<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>图像恢复vs.图像增强</strong> </p>
+<p>相同之处： 改进输入图像的视觉质量 </p>
+<p>不同之处： 不考虑图像降质的原因，只将图像中感兴趣的特征有选择地 突出（增强），而衰减其不需要的特征，改善后的图像不一定要去 逼近原图像。图像增强借助人的视觉系统特性，以取得较好的视 觉结果（不考虑退化原因） 图像恢复根据相应的退化模型和知识重建或恢复原始的图像 （考虑退化原因）</p>
+<p><strong>图像退化示例</strong></p>
+<p>图像退化指由场景得到的图像没能完全地反映场景的真 实内容，产生了失真等问题</p>
+<p>原因：透镜像差/色差、聚焦不准（失焦，限制了图像锐度）、模糊（限制频谱宽度）、噪声（是一个统计过程）、抖动（机械、电子）</p>
+<p><strong>图像退化复原过程模型</strong></p>
+<p>退化过程是一个退化函数𝑯(∙) 和一个加性噪声 𝜼 (𝒙, 𝒚) ，作用到一幅图像𝒇(𝒙, 𝒚)上，产生退化后的 图像𝒈(𝒙, 𝒚)。</p>
+<p>复原过程是给定退化图𝒈(𝒙, 𝒚)和关于退化函数𝑯(∙)的一些知识及关于加性噪声项𝜼(𝒙, 𝒚)的知识，获得 原始图像的一个估计𝒇(x,y)。</p>
+<p>退化模型：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">g(x,y)=H[f(x,y)]+\eta(x,y)=h(x,y)*f(x,y)+\eta(x,y),*为卷积</span><script type="math/tex">g(x,y)=H[f(x,y)]+\eta(x,y)=h(x,y)*f(x,y)+\eta(x,y),*为卷积</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">G(x,y)=H(x,y)F(x,y+N(x,y))</span><script type="math/tex">G(x,y)=H(x,y)F(x,y+N(x,y))</script></span></p>
+<p><strong>噪声模型</strong></p>
+<p>1）常见噪声</p>
+<ol>
+<li>热噪声：与物体的绝对温度有关。</li>
+</ol>
+<p>也称： 白噪声 （频率覆盖整个频谱） </p>
+<p>高斯噪声（幅度符合高斯分布） </p>
+<ol>
+<li>闪烁噪声：电流运动产生。 </li>
+</ol>
+<p>具有反比于频率（1/f）的频谱</p>
+<p>也称粉色噪声（在对数频率间隔内有相同的能量） </p>
+<ol>
+<li>发射噪声：高斯分布（电子运动的随机性）</li>
+</ol>
+<p>2）噪声概率密度函数</p>
+<p><img alt="image-20211102192837231" src="https://pic.tim-wcx.ltd//img/image-20211102192837231.png" /></p>
+<p><img alt="image-20211102192846812" src="https://pic.tim-wcx.ltd//img/image-20211102192846812.png" /></p>
+<p><img alt="image-20211102193007230" src="https://pic.tim-wcx.ltd//img/image-20211102193007230.png" /></p>
+<p>3）周期噪声</p>
+<p>一幅图像的周期噪声是在图像获取期间由电力或机电干扰产生的。 </p>
+<p>是一种空间相关噪声。 </p>
+<p>周期噪声（正弦）在傅里叶变换后，是位于正弦波共轭频率处的一对共轭脉冲。</p>
+<p>周期噪声参数估计：</p>
+<p>通过检验傅里叶谱来估计周期。</p>
+<p>周期噪声通常会产生频率尖峰，可以进行检测。</p>
+<p><strong>噪声参数估计</strong></p>
+<p>噪声的PDF参数</p>
+<ol>
+<li>成像系统可使用</li>
+</ol>
+<p>使用成像系统获取一组“平坦”环境图像，作为样本；即：拍摄光照均匀的纯色灰度图像</p>
+<ol>
+<li>成像系统不可使用，只有其生成图像</li>
+</ol>
+<p>从图像中，找一块合理的恒定灰度值区域，作为样本</p>
+<p><img alt="image-20211102193206593" src="https://pic.tim-wcx.ltd//img/image-20211102193206593.png" /></p>
+<p><strong>只有噪声的复原-空间滤波</strong></p>
+<p>对于周期噪声，在频域估计𝑵(𝒖, 𝒗) ，直接去掉，变换到空间域。 加性噪声，空间滤波。</p>
+<p>1）均值滤波器</p>
+<p><img alt="image-20211102193357082" src="https://pic.tim-wcx.ltd//img/image-20211102193357082.png" /></p>
+<p>2）谐波均值滤波器</p>
+<p><img alt="image-20211102193410881" src="https://pic.tim-wcx.ltd//img/image-20211102193410881.png" /></p>
+<p><img alt="image-20211102193432314" src="https://pic.tim-wcx.ltd//img/image-20211102193432314.png" /></p>
+<p>3）修正alpha均值滤波器</p>
+<p><img alt="image-20211102193508731" src="https://pic.tim-wcx.ltd//img/image-20211102193508731.png" /></p>
+<p>4）自适应滤波器 </p>
+<p>滤波器特征变化是以𝒎 × 𝒏的矩形窗口𝑺𝒙𝒚定义的滤波器区域内图像的统计特征为基础 </p>
+<p>自适应滤波器性能优于全局滤波器 </p>
+<p>计算复杂度高 </p>
+<p>5）自适应中值滤波器</p>
+<p>自适应中值滤波器 </p>
+<p>全局中值滤波，在脉冲噪声空间密度不大是，性能很好（经验：𝑷𝒂 &lt; 𝟎. 𝟐，𝑷𝒃 &lt; 𝟎. 𝟐）</p>
+<p>– 密度大，不好用</p>
+<p>– 不能处理非脉冲噪声，同时保留细节</p>
+<p>自适应中值滤波 </p>
+<p>– 自适应中值滤波可以处理更大的密度 </p>
+<p>– 自适应中值滤波能够在平滑非脉冲噪声时，保留细节</p>
+<p>自适应中值滤波器 </p>
+<p>相同： – 滤波器作用于局部区域𝑺𝒙𝒚 </p>
+<p>区别： – 自适应中值滤波根据某些条件改变𝑺𝒙𝒚的尺寸 </p>
+<p>使用： – 滤波器输出一个单值，用于代替滤波器窗口𝑺𝒙𝒚中心处像素</p>
+<p>自适应中值滤波器 </p>
+<p>符号： </p>
+<p>𝒛𝒎𝒊𝒏 = 𝑺𝒙𝒚中的最小灰度值 </p>
+<p>𝒛𝒎𝒂𝒙 = 𝑺𝒙𝒚中的最大灰度值 </p>
+<p>𝒛𝒎𝒆𝒅 = 𝑺𝒙𝒚中的灰度值中值 </p>
+<p>𝒛𝒙𝒚 =坐标 𝒙, 𝒚 处的灰度值 </p>
+<p>𝑺𝒎𝒂𝒙 = 𝑺𝒙𝒚允许的最大尺寸</p>
+<p><img alt="image-20211102193832093" src="https://pic.tim-wcx.ltd//img/image-20211102193832093.png" /></p>
+<p><strong>周期噪声消除</strong></p>
+<p>带阻滤波器 </p>
+<p>带通滤波器 （提取噪声模式）</p>
+<p>陷波滤波器</p>
+<p><strong>线性、位置不变的退化</strong></p>
+<p>1）退化模型</p>
+<p>退化模型公式：</p>
+<p>𝒈(𝒙, 𝒚) = 𝑯[𝒇(𝒙, 𝒚)] + 𝜼(𝒙, 𝒚)</p>
+<p>简化模型：</p>
+<p>𝜼(𝒙, 𝒚)=0</p>
+<p>2）退化系统H的性质</p>
+<p><img alt="image-20211102221957966" src="https://pic.tim-wcx.ltd//img/image-20211102221957966.png" /></p>
+<p><img alt="image-20211102222030592" src="https://pic.tim-wcx.ltd//img/image-20211102222030592.png" /></p>
+<p><strong>估计退化函数</strong></p>
+<ol>
+<li>图像观察估计 </li>
+</ol>
+<p>– 条件：只有退化图像，没有关于退化函数H的任何知识。 从图像本身来收集信息，即通过观察图像，进行处理 来获得退化函数信息。 </p>
+<p>方法：</p>
+<p>– 从图像中选择一小块区域，作为子图像 </p>
+<p>– 图像中物体或图像背景一部分 </p>
+<p>– 为降低噪声影响，找有很强信号的区域（高对比区域） </p>
+<p>– 手工处理子图像，去除模糊。</p>
+<p>– 计算出H(u,v)</p>
+<ol>
+<li>试验估计</li>
+</ol>
+<p>– 条件：可以获得与退化图像设备相似的系统 </p>
+<p>– 理论上：可以得到一个准确的退化估计 方法： </p>
+<p>– 通过设置系统，获得与退化图像接近的图像； </p>
+<p>– 用该系统一幅冲激成像，得到退化的冲激响应；</p>
+<div class="codehilite"><pre><span></span><code>– 冲激用一个小亮点来模拟，尽可能亮；
+</code></pre></div>
+
+<p>– 𝑯(𝒖, 𝒗)= 𝑮(𝒖,𝒗)/𝑨 </p>
+<p>​    𝑮(𝒖, 𝒗)是冲激成像图像的傅里叶变换，𝑨是冲激的傅里叶变换</p>
+<p><img alt="image-20211102222316435" src="https://pic.tim-wcx.ltd//img/image-20211102222316435.png" /></p>
+<ol>
+<li>建模估计</li>
+</ol>
+<p>从引起退化的环境条件考虑，进行估计 湍流退化模型是大气湍流物理特性的 通用形式：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">𝑯(𝒖, 𝒗)= 𝒆^{−𝒌(𝒖^𝟐+𝒗^𝟐)^{𝟓/6}}</span><script type="math/tex">𝑯(𝒖, 𝒗)= 𝒆^{−𝒌(𝒖^𝟐+𝒗^𝟐)^{𝟓/6}}</script></span></p>
+<p>其中， 𝒌是与湍流性质有关的常数 𝒌 = 𝟎. 𝟎𝟎𝟐𝟓剧烈湍流 𝒌 = 𝟎. 𝟎𝟎𝟏中等湍流 𝒌 = 𝟎. 𝟎𝟎𝟎𝟐𝟓轻微湍流</p>
+<p><strong>逆滤波 --无约束恢复</strong></p>
+<p><img alt="image-20211102222449187" src="https://pic.tim-wcx.ltd//img/image-20211102222449187.png" /></p>
+<p><img alt="image-20211102222507439" src="https://pic.tim-wcx.ltd//img/image-20211102222507439.png" /></p>
+<p><img alt="image-20211102222520831" src="https://pic.tim-wcx.ltd//img/image-20211102222520831.png" /></p>
+<p><strong>最小均方误差滤波（维纳滤波） --有约束恢复</strong></p>
+<p>了解</p>
+<p><strong>有约束最小二乘方恢复 --有约束恢复</strong></p>
+<p>了解</p>
+<h3 id="_8">第七章 彩色图像处理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><strong>彩色基础</strong></p>
+<p>1）颜色的本质</p>
+<p>不同颜色的光实质是 不同频率的电磁波 – 可见光谱的波长范围：400～700nm</p>
+<p>2）三基色</p>
+<p>大多数的颜色可以通 过红、绿、蓝三色按照 不同的比例合成产生</p>
+<p>3）色度</p>
+<p>色度 </p>
+<ol>
+<li>彩色的三种基本特性量 </li>
+</ol>
+<p>亮度： 与物体的反射率成正比 </p>
+<p>色调： 与光谱中光的波长相联系 </p>
+<p>饱和度：与一定色调光的纯度有关 </p>
+<ol>
+<li>色度：色调和饱和度合称 </li>
+</ol>
+<p>彩色可用亮度和色度共同表示</p>
+<p>4）色度图</p>
+<p><img alt="image-20211102194453537" src="https://pic.tim-wcx.ltd//img/image-20211102194453537.png" /></p>
+<p>彩色打印机是相 加色彩和相减色彩的混合的 组合，所以彩色域边界不规则。</p>
+<p>彩色转化为灰度，适合显示器和摄像机：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">Y_{709} = 0.2125R + 0.7154G + 0.0721B</span><script type="math/tex">Y_{709} = 0.2125R + 0.7154G + 0.0721B</script></span></p>
+<p><strong>彩色模型</strong></p>
+<p>为了正确有效地表达彩色信息，需要建立合适的彩色表达模型。</p>
+<p>1）彩色表达模型</p>
+<p>彩色表达模型分为两种：</p>
+<p>面向硬设备的彩色模型，诸如彩色显示器或打印机之类的硬设备，例如RGB，CMY模型等。</p>
+<p>面向视觉感知的彩色模型，以彩色处理为目的的应用，例如HSI、HSV模型等。</p>
+<p>2）RGB模型</p>
+<p>建立在笛卡儿坐标系统里，其中三 个轴分别为R，G，B，</p>
+<p>– 模型的空间是正方体，原点对应黑 色，离原点最远的顶点对应白色 </p>
+<p>– 从黑到白的灰度值分布在从原点到 离原点最远顶点间的连线上，而立方体内其余各点对应不同的颜色， 可用从原点到该点的矢量表示</p>
+<p>3）CMY模型</p>
+<p>三补色： 蓝绿(C, cyan)，品红(M, magenta)，黄(Y, yellow) </p>
+<p>– 主要用于彩色打印，这三种补色可分别由从白光中减去三种基色而得到 </p>
+<p>– 从CMY到RGB的转换为R =1−C，G =1− M，B =1−Y</p>
+<p>4）HSI模型</p>
+<p><img alt="image-20211102213531720" src="https://pic.tim-wcx.ltd//img/image-20211102213531720.png" /></p>
+<p>H：点s的H为三角形 中心点到s的矢量与R轴的夹角 </p>
+<p>S：点s的S为三角 形中心点到s的矢量长度 </p>
+<p>I：离开中间截面 向上变白；向下变黑</p>
+<p>色调和饱和度二者合并称为色度，亮度中不含有颜色信息。</p>
+<p>H 表示色调（hue） </p>
+<p>S 表示饱和度（saturation） </p>
+<p>I 表示密度（intensity，对应成像亮度和图像灰度） </p>
+<p>H和S合称色度</p>
+<p>I 分量与图像的彩色信息无关 </p>
+<p>H 和 S 分量与人感受颜色的方式紧密相连</p>
+<p><img alt="image-20211102213846506" src="https://pic.tim-wcx.ltd//img/image-20211102213846506.png" /></p>
+<p><img alt="image-20211102213950057" src="https://pic.tim-wcx.ltd//img/image-20211102213950057.png" /></p>
+<p><strong>伪彩色处理</strong></p>
+<p>人眼对彩色色比对灰度有较大的分辨能力。</p>
+<p>伪彩色(pseudocolor)处理是指对原来灰度图像中不同灰度值的区域赋予不同的颜色。</p>
+<p>典型方法 (1) 亮度切割 (2) 利用变换函数 (3) 频域滤波</p>
+<p>1）亮度切割</p>
+<p>用1个平行于图像坐标平面的平面去切割图像亮度函数，从而把亮 度函数分成2个灰度值区间。</p>
+<p><img alt="image-20211102214157565" src="https://pic.tim-wcx.ltd//img/image-20211102214157565.png" /></p>
+<p>2）从灰度到彩色的变换（映射）</p>
+<p><img alt="image-20211102214221452" src="https://pic.tim-wcx.ltd//img/image-20211102214221452.png" /></p>
+<p>3）频域滤波 </p>
+<p>对原来灰度图像中的不同频率分量（可分别借助低通，带通/带阻，高通滤波器获得）赋予不同的颜色</p>
+<p><img alt="image-20211102214324497" src="https://pic.tim-wcx.ltd//img/image-20211102214324497.png" /></p>
+<p><strong>真彩色处理</strong></p>
+<p>1）处理方法</p>
+<ol>
+<li>将一幅彩色图像看作三幅分量图像的组合体，先分别单独处理每一幅分量图像，再将结果合成一幅处理过的合成彩色图像</li>
+<li>将一幅彩色图像中的每个像素看作具有三个属性值，即属性现在为一个矢量，利用对矢量的表达方法进行处理</li>
+</ol>
+<p>2）彩色变换</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">g(x,y)=T(f(x,y))</span><script type="math/tex">g(x,y)=T(f(x,y))</script></span></p>
+<p>其中，𝒇(𝒙, 𝒚) 是彩色输入图像， 𝒈(𝒙, 𝒚) 是变换后的彩色图像， 𝑻是在 (𝒙, 𝒚) 的空间邻域上对𝒇的一个算子。</p>
+<p>分量形式：𝒔𝒊 = 𝑻𝒊(𝒓𝟏, 𝒓𝟐, ⋯ , 𝒓𝒏)，𝒊 = 𝟏, 𝟐, ⋯ , 𝒏 </p>
+<p>𝒓𝒊和𝒔𝒊是𝒇 𝒙, 𝒚 和𝒈 𝒙, 𝒚 在任何点处彩色分量变量，𝒏是彩色分量数； </p>
+<p>𝑻𝒊是对𝒓𝒊处理产生𝒔𝒊的映射函数； </p>
+<p>𝒏 = 𝟑时候，是RGB空间，𝒏 = 𝟒时候，是CMYK空间，</p>
+<p>3）彩色强度增强变换</p>
+<ol>
+<li>变换增强 </li>
+</ol>
+<p>对于彩色图像增强其强度值，即intensity 要判断颜色模型，然后处理 </p>
+<ol>
+<li>
+<p>HSI模型，I单分量进行增强的步骤</p>
+<p>(1) 将R，G，B分量图转化为H，S，I分量图</p>
+<p>(2) 利用对灰度图增强的方法增强其中的I分量 𝒔𝟑 = 𝒌𝒓𝟑 </p>
+<p>(3) 再将结果转换为R，G，B分量图 </p>
+</li>
+<li>
+<p>RGB模型，强度增强 三个分量都变换 𝒔𝒊 = 𝒌𝒓𝒊，𝒊 = 𝟏, 𝟐, 3</p>
+</li>
+</ol>
+<p>4）补色</p>
+<p>在色环上，与色调直接相对 的另一端称为补色</p>
+<ol>
+<li>
+<p>在RGB空间， 直接求补； </p>
+</li>
+<li>
+<p>在HSI空间， 没有直接方法， 只能近似。</p>
+</li>
+</ol>
+<p>5）直方图均衡化</p>
+<ol>
+<li>单独对RGB彩色图像分量进行直方图均衡</li>
+</ol>
+<p>– 产生不正确颜色 </p>
+<ol>
+<li>均匀地展开这种彩色灰度，保持彩色本色（色调） 不变 </li>
+</ol>
+<p>– 在HSI中，均衡化彩色分量I，彩色本身（色调）不变</p>
+<p>6）彩色平滑</p>
+<p>将灰度图像邻域平均扩展到彩色图像，使用向量平滑算子 对HSI模型中的I通道进行平滑，H和S通道不处理， 颜色没有变化。</p>
+<p>7）彩色锐化</p>
+<p><img alt="image-20211102215140569" src="https://pic.tim-wcx.ltd//img/image-20211102215140569.png" /></p>
+<p>8）饱和度增强</p>
+<p>– 方法：转到HSI颜色空间，对S通道进行增强 </p>
+<p>– 效果： </p>
+<p>– 增大像素饱和度会使图像色彩更鲜明 </p>
+<p>– 减小像素饱和度会使图像色彩感减少，显得平淡</p>
+<p>9）色调增强 </p>
+<p>– 方法：转换到HSI颜色空间，然后对H进行增强 </p>
+<p>效果：因为色调对应一个角度 – 微增一个常数，会使颜色在色谱上移动。</p>
+<p>– 常数较小时，会使色调变“暖”或变“冷”</p>
+<p>– 常数较大时，会使彩色图像发生剧烈变换</p>
+<h3 id="_9">第八章 形态学图像处理<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p><strong>结构元</strong></p>
 <p>对每个结构元素，先要指定一个原点，它是结构元素参与 形态学运算的参考点。</p>
 <p>注意：原点可以包含在结构元素中，也可以不包含在结 构元素中（即原点并不一定要属于结构元素）</p>
@@ -1368,7 +1775,7 @@
 <p>灰度级图像f的底帽变换是f的闭操作减去f</p>
 <p>底帽变换用于得到亮背景上的暗物体（黑底帽）</p>
 <p>帽变换的应用有校正不均匀光照影响、纹理分割和粒度测定，具体使用的是开操作，减少亮度较高的部分。</p>
-<h3 id="_7">第九章 图像编码<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_10">第九章 图像编码<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p><strong>图片压缩</strong></p>
 <p>1）数据和信息</p>
 <p>数据是信息的载体</p>
