@@ -1099,12 +1099,14 @@
 <p><strong>亮度成像模型</strong></p>
 <p>2-D亮度函数：f (x, y)=r (x, y) (注：反射成分) * i (x, y) (注：照度成分)</p>
 <p>视网膜中央的“视锥细胞视觉”和视网膜边缘的“视杆细胞视觉”，也叫做明视觉和暗视觉。</p>
+<p>锥状细胞负责感受颜色信息的。 </p>
 <p><strong>图像数字化</strong></p>
 <p>将代表图像的连续(模拟)信号转换为离散(数字)信号的过程称为图像数字化</p>
 <p>步骤：采样和量化 </p>
 <p>主要技术： 1) 成像：光信息－&gt;电信号  2) 模数转换（A/D Converter ）</p>
 <p><strong>图像采样和量化</strong></p>
-<p>采样和量化是图像获取中的两大技术</p>
+<p>采样是均匀的，量化可以均匀，可以非均匀。</p>
+<p>采样和量化是图像获取中的两大技术。</p>
 <p>空间和灰度分辨率是图像的基本属性</p>
 <p>1）采样</p>
 <p>空间坐标的离散化称为空间采样，简称采样，确定了图像的空间分辨率</p>
@@ -1166,7 +1168,10 @@
 <p>» 与原来图像具有相同的像素，像素数量是原来2.25倍 </p>
 <p>» 将其收缩，与原来图像匹配 » 像素间隔小于原来图像像素间隔 </p>
 <p>» 从原来图像像素值提取信息赋给新图像相应像素</p>
-<p>图像内插的主要方法 最近邻内插法 双线性内插法 双三次内插法</p>
+<p>图像内插的主要方法 最近邻内插法 双线性内插法 双三次内插法。</p>
+<p><strong>图像系统</strong></p>
+<p>图像处理系统具有图像输入、输出、存储和处理功能。 </p>
+<p>图像之间的四则运算，只要直接运算就行。--需对超出灰度范围的像素进行处理。</p>
 <h3 id="_4">第三章 空域增强技术<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><strong>空域增强基础</strong></p>
 <p><span class="arithmatex"><span class="MathJax_Preview">𝒈(𝒙, 𝒚)= 𝑻[𝒇(𝒙, y)]</span><script type="math/tex">𝒈(𝒙, 𝒚)= 𝑻[𝒇(𝒙, y)]</script></span> 其中𝒇(𝒙, 𝒚) 是输入图像， 𝒈(𝒙, 𝒚) 是处理后图像  𝑻是在点 (𝒙, 𝒚) 邻域上定义的关于𝒇的增强操作。</p>
@@ -1176,9 +1181,16 @@
 <p>典型方法：</p>
 <p><img alt="image.png" src="https://i.loli.net/2021/10/28/zL9XnhC4IS5ZAlJ.png" /></p>
 <ol>
-<li>对数变换 <span class="arithmatex"><span class="MathJax_Preview">s=c*log(r+1)</span><script type="math/tex">s=c*log(r+1)</script></span></li>
-<li>指数变换 <span class="arithmatex"><span class="MathJax_Preview">s=cr^{\gamma}</span><script type="math/tex">s=cr^{\gamma}</script></span></li>
+<li>
+<p>对数变换 <span class="arithmatex"><span class="MathJax_Preview">s=c*log(r+1)</span><script type="math/tex">s=c*log(r+1)</script></span></p>
+</li>
+<li>
+<p>指数变换 <span class="arithmatex"><span class="MathJax_Preview">s=cr^{\gamma}</span><script type="math/tex">s=cr^{\gamma}</script></span></p>
+</li>
 </ol>
+<p>γ&gt;1低灰度压缩，高灰度拉伸</p>
+<p>γ&lt;1低灰度拉伸，高灰度压缩</p>
+<p>γ=1就是恒等变换</p>
 <p><img alt="image.png" src="https://i.loli.net/2021/10/28/D3bAGWnZ6jcPk4e.png" /></p>
 <p><strong><mark>直方图变换</mark></strong></p>
 <p>直方图（Histogram ）</p>
@@ -1245,6 +1257,7 @@
 如果 laplace 算子中心系数为正，则用原图像加上 laplace 图像；
 如果 laplace 算子中心系数为负，则用原图像减去 laplace图像。</p>
 <p><mark><strong>局部增强</strong></mark></p>
+<p>空间域局部增强-局部选择根据实际问题要求灵活设定。</p>
 <p>对图像局部细节的增强处理</p>
 <p>图像的统计量：</p>
 <p>灰度平均值<span class="arithmatex"><span class="MathJax_Preview">m=\sum^{L-1}_{i=0}r_i*p(r_i)</span><script type="math/tex">m=\sum^{L-1}_{i=0}r_i*p(r_i)</script></span></p>
@@ -1301,12 +1314,22 @@
 <li>变换最慢的频率成分(u=0,v=0)对应一幅图像的平均灰度，证明为：<span class="arithmatex"><span class="MathJax_Preview">F(0,0)=\sum_{x=0}^{M-1}\sum^{N-1}_{y=0}f(x,y)</span><script type="math/tex">F(0,0)=\sum_{x=0}^{M-1}\sum^{N-1}_{y=0}f(x,y)</script></span></li>
 </ol>
 <p>即<span class="arithmatex"><span class="MathJax_Preview">F(0,0)=mean(f(x,y))*M*N</span><script type="math/tex">F(0,0)=mean(f(x,y))*M*N</script></span>，所以<span class="arithmatex"><span class="MathJax_Preview">|F(0,0)|</span><script type="math/tex">|F(0,0)|</script></span>是频谱的最大分量。</p>
+<p>频域有某一方向的亮线条，说明图像中与之垂直方向上有较多线条。</p>
 <ol>
-<li>傅里叶变换是共轭对称的，即<span class="arithmatex"><span class="MathJax_Preview">F^*(u,v)=F(-u,-v)</span><script type="math/tex">F^*(u,v)=F(-u,-v)</script></span></li>
-<li>数字图像的频谱是关于原点偶对称的，即<span class="arithmatex"><span class="MathJax_Preview">|F(u,v)|=|F(-u,-v)|</span><script type="math/tex">|F(u,v)|=|F(-u,-v)|</script></span></li>
-<li>数字图像的相位角是关于远点奇对称的，即<span class="arithmatex"><span class="MathJax_Preview">\varphi(u,v)=-\varphi(-u,-v)</span><script type="math/tex">\varphi(u,v)=-\varphi(-u,-v)</script></span></li>
-<li>平移性质</li>
+<li>
+<p>傅里叶变换是共轭对称的，即<span class="arithmatex"><span class="MathJax_Preview">F^*(u,v)=F(-u,-v)</span><script type="math/tex">F^*(u,v)=F(-u,-v)</script></span></p>
+</li>
+<li>
+<p>数字图像的频谱是关于原点偶对称的，即<span class="arithmatex"><span class="MathJax_Preview">|F(u,v)|=|F(-u,-v)|</span><script type="math/tex">|F(u,v)|=|F(-u,-v)|</script></span></p>
+</li>
+<li>
+<p>数字图像的相位角是关于远点奇对称的，即<span class="arithmatex"><span class="MathJax_Preview">\varphi(u,v)=-\varphi(-u,-v)</span><script type="math/tex">\varphi(u,v)=-\varphi(-u,-v)</script></span></p>
+</li>
+<li>
+<p>平移性质</p>
+</li>
 </ol>
+<p>傅立叶变换平移性质，是指当空域图像目标位置变化之后，其频谱不发生改变。</p>
 <p><img alt="image-20211030162712994" src="https://i.loli.net/2021/11/01/Ieh24vDdNcPpVqL.png" /></p>
 <p><img alt="image-20211102150045637" src="https://pic.tim-wcx.ltd//img/image-20211102150045637.png" /></p>
 <ol>
@@ -1336,6 +1359,25 @@
 <p><img alt="image-20211102162646828" src="https://pic.tim-wcx.ltd//img/image-20211102162646828.png" /></p>
 <p><img alt="image-20211102162721979" src="https://pic.tim-wcx.ltd//img/image-20211102162721979.png" /></p>
 <p><img alt="img" src="https://pic.tim-wcx.ltd//img/20211102224348.png" /></p>
+<p>6）傅里叶变换时间复杂度</p>
+<ol>
+<li>计算一维离散傅里叶变换（DFT）公式如下：</li>
+</ol>
+<p><img alt="img" src="https://images2018.cnblogs.com/blog/804824/201808/804824-20180830144604747-169398408.png" /></p>
+<p>​       其中，N表示数据长度。由上式可知，DFT的时间复杂度是O(N*N)</p>
+<ol>
+<li>
+<p>一维FFT的时间复杂度为O(N*logN)，其中N表示数据长度</p>
+</li>
+<li>
+<p>对于一个M*N的二维数据，FFT的时间复杂度为O( M*N*log(M*N) )</p>
+</li>
+</ol>
+<p>若M=N，则时间复杂度可以简化为O(N^2*logN)</p>
+<ol>
+<li>对于M维的数据（每一维长度为A，B，C，...），则FFT的时间复杂度为O( A*B*C*...* log(A*B*C*...) )</li>
+</ol>
+<p>若每一维长度相同，即A=B=C=...=N，则时间复杂度可以简化为O(N^M*logN)</p>
 <p><strong>离散余弦变换</strong></p>
 <p>1）二维离散余弦变换定义</p>
 <p><img alt="image-20211102215431900" src="https://pic.tim-wcx.ltd//img/image-20211102215431900.png" /></p>
@@ -1372,6 +1414,7 @@
 <p>4）应用</p>
 <p>图像由于量化不足产生虚假轮廓时常可用低通滤波进行平滑以改进图像质量。</p>
 <p>5）高斯低通滤波器</p>
+<p>高斯滤波器是完全不会产生振铃效应的。</p>
 <p><span class="arithmatex"><span class="MathJax_Preview">H(u,v)=e^{-D^2(u,v)/2D_0)^2}</span><script type="math/tex">H(u,v)=e^{-D^2(u,v)/2D_0)^2}</script></span></p>
 <p><img alt="image-20211102165137992" src="https://pic.tim-wcx.ltd//img/image-20211102165137992.png" /></p>
 <p>6）其他低通滤波器</p>
@@ -1415,6 +1458,7 @@
 <p>2）带通滤波器</p>
 <p>带阻滤波器也有三种特性。理想、巴特沃斯和高斯</p>
 <p>3）陷波滤波器(Notch Filter)</p>
+<p>陷波滤波器本质上是多个高通滤波器进行平移后再相乘。</p>
 <p>多个带阻滤波器经过平移获得。</p>
 <p><img alt="image-20211102184055630" src="https://pic.tim-wcx.ltd//img/image-20211102184055630.png" /></p>
 <p><strong>频域技术与空域技术</strong></p>
@@ -1454,6 +1498,8 @@
 <ol>
 <li>发射噪声：高斯分布（电子运动的随机性）</li>
 </ol>
+<p>**加性噪声**一般指热噪声、散弹噪声等，它们与信号的关系是相加，不管有没有信号，该类噪声是一直存在的。一般通信中把加性随机性看成是系统的背景噪声。</p>
+<p>**乘性噪声**一般由信道不理想引起，它们与信号的关系是相乘，信号在它在，信号不在他也就不在。乘性随机性看成系统的时变性（如衰落或者多普勒）或者非线性所造成的。</p>
 <p>2）噪声概率密度函数</p>
 <p><img alt="image-20211102192837231" src="https://pic.tim-wcx.ltd//img/image-20211102192837231.png" /></p>
 <p><img alt="image-20211102192846812" src="https://pic.tim-wcx.ltd//img/image-20211102192846812.png" /></p>
@@ -1475,9 +1521,11 @@
 <li>成像系统不可使用，只有其生成图像</li>
 </ol>
 <p>从图像中，找一块合理的恒定灰度值区域，作为样本</p>
+<p>图像噪声的概率密度函数表示，其自变量是图像灰度值。</p>
 <p><img alt="image-20211102193206593" src="https://pic.tim-wcx.ltd//img/image-20211102193206593.png" /></p>
 <p><strong>只有噪声的复原-空间滤波</strong></p>
 <p>对于周期噪声，在频域估计𝑵(𝒖, 𝒗) ，直接去掉，变换到空间域。 加性噪声，空间滤波。</p>
+<p>对于图像中的加性噪声，采用算术均值滤波、几何均值滤波、逆谐波均值滤波和谐波均值滤波去除。 </p>
 <p>1）均值滤波器</p>
 <p><img alt="image-20211102193357082" src="https://pic.tim-wcx.ltd//img/image-20211102193357082.png" /></p>
 <p>2）谐波均值滤波器</p>
@@ -1553,6 +1601,7 @@
 <p><span class="arithmatex"><span class="MathJax_Preview">𝑯(𝒖, 𝒗)= 𝒆^{−𝒌(𝒖^𝟐+𝒗^𝟐)^{𝟓/6}}</span><script type="math/tex">𝑯(𝒖, 𝒗)= 𝒆^{−𝒌(𝒖^𝟐+𝒗^𝟐)^{𝟓/6}}</script></span></p>
 <p>其中， 𝒌是与湍流性质有关的常数 𝒌 = 𝟎. 𝟎𝟎𝟐𝟓剧烈湍流 𝒌 = 𝟎. 𝟎𝟎𝟏中等湍流 𝒌 = 𝟎. 𝟎𝟎𝟎𝟐𝟓轻微湍流</p>
 <p><strong>逆滤波 --无约束恢复</strong></p>
+<p>逆滤波中，逆滤波中，按照离频谱中心的远近定义了恢复转移函数是振铃效应出现的原因。 </p>
 <p><img alt="image-20211102222449187" src="https://pic.tim-wcx.ltd//img/image-20211102222449187.png" /></p>
 <p><img alt="image-20211102222507439" src="https://pic.tim-wcx.ltd//img/image-20211102222507439.png" /></p>
 <p><img alt="image-20211102222520831" src="https://pic.tim-wcx.ltd//img/image-20211102222520831.png" /></p>
@@ -1691,6 +1740,7 @@
 <p>注意：原点可以包含在结构元素中，也可以不包含在结 构元素中（即原点并不一定要属于结构元素）</p>
 <p>对图像操作时要求结构元素是矩形阵列，通过添加最少可能的背景元素实现。</p>
 <p><strong>基本形态学操作</strong></p>
+<p>映像和位移是形态学处理中扩展的集合运算。 </p>
 <p>1）膨胀</p>
 <p><span class="arithmatex"><span class="MathJax_Preview">A⊕B = \{x|(Bˆ) x ∩ A ≠ \phi \},ˆ为翻转运算</span><script type="math/tex">A⊕B = \{x|(Bˆ) x ∩ A ≠ \phi \},ˆ为翻转运算</script></span></p>
 <p>先对B做==关于原点的映象==，再将其映象平移x，结果是平移后与A交集不为空的x集合。</p>
