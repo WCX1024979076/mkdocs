@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://github.tim-wcx.ltd/mkdocs/course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.4">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.5">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2a4617e2.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a617204b.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
@@ -40,7 +40,7 @@
       
     
     
-    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -937,6 +937,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    第三章  基本光栅图形生成技术
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -988,6 +995,13 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     第二章 计算机图形系统概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    第三章  基本光栅图形生成技术
   </a>
   
 </li>
@@ -1244,6 +1258,239 @@
 <p>主要任务是建立图形数据结构，定义、修改和输出图形</p>
 <p>具有较强的交互功能，使用方便，容易阅读，便于维护和移植</p>
 <p>OpenGL、Direct3D属于这一层次</p>
+<h3 id="_4">第三章  基本光栅图形生成技术<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>光栅图形学</strong></p>
+<ol>
+<li>图元的生成</li>
+</ol>
+<p>是指完成图元的参数表示形式到点阵表示形式的转换。通常也称扫描转换图元(Scan Converter) </p>
+<p>参数表示形式由不同种类图形的性质决定，点阵表示形式是光栅显示系统刷新时所需的表示形式。</p>
+<ol>
+<li>openGL相关函数</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">//初始化颜色</span>
+<span class="n">glClearColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span>
+<span class="c1">//清除帧缓存，并将每个像素对应单元赋为背景颜色值</span>
+<span class="n">glClear</span><span class="p">(</span><span class="w"> </span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<span class="c1">//表示结束绘图命令，使用单缓存时必须要。双缓冲时可以不要</span>
+<span class="n">glFinish</span><span class="p">();</span><span class="w"></span>
+<span class="c1">//双缓存时使用。交换缓存命令，表示当前显示帧和下帧的帧缓存交换</span>
+<span class="n">glutSwapBuffers</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>单缓存与双缓存机制</li>
+</ol>
+<p>单缓存：扫描与生成点阵串行进行</p>
+<p>双缓存：扫描与生成点阵同时（并行）进行</p>
+<p><strong>基本线画图元生成</strong></p>
+<ol>
+<li>
+<p>扫描转换直线段</p>
+</li>
+<li>
+<p>概念：求与直线段充分接近的像素集，并以此像素集替代原连续直线段在屏幕上显示。</p>
+</li>
+<li>
+<p>约束条件：</p>
+<p>屏幕坐标系是整型坐标系、像素间横向和纵向距离相等、直线段为<span class="arithmatex"><span class="MathJax_Preview">P_0(x_0,y_0)，p_1(x_1,y_1且 x_0&lt;x_1且均为整数)</span><script type="math/tex">P_0(x_0,y_0)，p_1(x_1,y_1且 x_0<x_1且均为整数)</script></span>、直线段的宽度（线宽）为1【横向或纵向像素相邻】、</p>
+<p>直线段的斜率<span class="arithmatex"><span class="MathJax_Preview">0 \leq k \leq 1</span><script type="math/tex">0 \leq k \leq 1</script></span>、相邻像素间坐标分量差为-1，0或1</p>
+</li>
+<li>
+<p>主要算法</p>
+<ol>
+<li>
+<p>直线方程法</p>
+<ol>
+<li>
+<p>基本思想</p>
+<p>根据直线的几何方程确定线段路径上的像素位置。</p>
+</li>
+<li>
+<p>方法</p>
+<p>划分区间<span class="arithmatex"><span class="MathJax_Preview">[x_0, x_1]</span><script type="math/tex">[x_0, x_1]</script></span>: <span class="arithmatex"><span class="MathJax_Preview">t_0, t_1,…, t_n,  t_{i+1}=x_{i+1}</span><script type="math/tex">t_0, t_1,…, t_n,  t_{i+1}=x_{i+1}</script></span>,  其中<span class="arithmatex"><span class="MathJax_Preview">t_{i+1}=t_i+1,t_0 = x_0,t_n=x_1</span><script type="math/tex">t_{i+1}=t_i+1,t_0 = x_0,t_n=x_1</script></span></p>
+<p>计算纵坐标y：<span class="arithmatex"><span class="MathJax_Preview">y_i = k*t_i + b</span><script type="math/tex">y_i = k*t_i + b</script></span></p>
+<p>取整：四舍五入，即<span class="arithmatex"><span class="MathJax_Preview">y_{i,r}=round(y_i)=(int)(y_i+0.5)</span><script type="math/tex">y_{i,r}=round(y_i)=(int)(y_i+0.5)</script></span></p>
+</li>
+<li>
+<p>主要运算：乘法+加法+取整+浮点运算</p>
+</li>
+</ol>
+</li>
+<li>
+<p>数值微分DDA算法、</p>
+<ol>
+<li>方法：<span class="arithmatex"><span class="MathJax_Preview">y_{i+1}=k*x_{i+1}+b=k*(x_i+1)+b=y_i+k</span><script type="math/tex">y_{i+1}=k*x_{i+1}+b=k*(x_i+1)+b=y_i+k</script></span></li>
+<li>主要运算：加法+取整+浮点运算</li>
+</ol>
+</li>
+<li>
+<p>中点算法</p>
+<ol>
+<li>
+<p>目标：消除浮点运算</p>
+</li>
+<li>
+<p>方法</p>
+<ol>
+<li>直线隐式方程</li>
+</ol>
+<p><span class="arithmatex"><span class="MathJax_Preview">F(x,y)=a*x+b*y+c=0</span><script type="math/tex">F(x,y)=a*x+b*y+c=0</script></span></p>
+<p>可根据<span class="arithmatex"><span class="MathJax_Preview">F(x,y)</span><script type="math/tex">F(x,y)</script></span>的大小来判断点是否在直线和点的关系：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F(x,y)&gt;0</span><script type="math/tex">F(x,y)>0</script></span>直线上方，<span class="arithmatex"><span class="MathJax_Preview">F(x,y)=0</span><script type="math/tex">F(x,y)=0</script></span>直线上，<span class="arithmatex"><span class="MathJax_Preview">F(x,y)&lt;0</span><script type="math/tex">F(x,y)<0</script></span>直线下方</p>
+<ol>
+<li>判断下一个像素点的坐标</li>
+</ol>
+<p>已计算出某一点的坐标<span class="arithmatex"><span class="MathJax_Preview">(x_i,y_{i,r})</span><script type="math/tex">(x_i,y_{i,r})</script></span>，则可构造判别式<span class="arithmatex"><span class="MathJax_Preview">d=F(M)=F(x_{i+1},y_{i,r}+0.5)</span><script type="math/tex">d=F(M)=F(x_{i+1},y_{i,r}+0.5)</script></span>，通过d的正负来判断下一点的坐标，若d&lt;0，则选择<span class="arithmatex"><span class="MathJax_Preview">(x_{i+1},y_{i,r}+1)</span><script type="math/tex">(x_{i+1},y_{i,r}+1)</script></span>，反之，选择<span class="arithmatex"><span class="MathJax_Preview">(x_{i+1},y_{i,r})</span><script type="math/tex">(x_{i+1},y_{i,r})</script></span>。</p>
+<ol>
+<li>
+<p>判断再下一个像素点的坐标</p>
+</li>
+<li>
+<p>若<span class="arithmatex"><span class="MathJax_Preview">d \geq 0 <span class="arithmatex"><span class="MathJax_Preview">，则取右侧像素</span><script type="math/tex">，则取右侧像素</script></span>(x_{i+1},y_{i,r})(x_{i+1},y_{i,r})</span><script type="math/tex">d \geq 0 <span class="arithmatex"><span class="MathJax_Preview">，则取右侧像素</span><script type="math/tex">，则取右侧像素</script></span>(x_{i+1},y_{i,r})(x_{i+1},y_{i,r})</script></span>，则再下一个像素<span class="arithmatex"><span class="MathJax_Preview">d=F(x_{i+2},y_{i,r}+0.5)=a*(x_i+2)+b*(y_{i,r}+0.5)+c=d+a</span><script type="math/tex">d=F(x_{i+2},y_{i,r}+0.5)=a*(x_i+2)+b*(y_{i,r}+0.5)+c=d+a</script></span></p>
+<p>此时d的增量为a</p>
+</li>
+<li>
+<p>若<span class="arithmatex"><span class="MathJax_Preview">d&lt;0</span><script type="math/tex">d<0</script></span>，则取右上侧的像素<span class="arithmatex"><span class="MathJax_Preview">(x_{i+1},y_{i,r}+1)</span><script type="math/tex">(x_{i+1},y_{i,r}+1)</script></span>，则再下一个像素</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">d=F(x_{i+2},y_{i,r}+1.5)=a*(x_i+2)+b*(y_{i,r}+1.5)+c=d+a+b</span><script type="math/tex">d=F(x_{i+2},y_{i,r}+1.5)=a*(x_i+2)+b*(y_{i,r}+1.5)+c=d+a+b</script></span></p>
+<p>此时d的增量为a+b</p>
+</li>
+<li>
+<p>d的初始值：<span class="arithmatex"><span class="MathJax_Preview">d_0=F(x_0+1, y_0+0.5)=F(x_0, y_0)+a+0.5*b</span><script type="math/tex">d_0=F(x_0+1, y_0+0.5)=F(x_0, y_0)+a+0.5*b</script></span>，因(x0, y0)在直线上，F(x0, y0)=0, 所以，<span class="arithmatex"><span class="MathJax_Preview">d_0 = a + 0.5*b</span><script type="math/tex">d_0 = a + 0.5*b</script></span></p>
+</li>
+<li>
+<p>增量d的递推公式</p>
+</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211207182412.png" alt="image-20211207182411257" style="zoom:50%;" /></p>
+<ol>
+<li>注意斜率大于1和负数的情况。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>扫描转换圆弧</p>
+</li>
+<li>
+<p>平移圆心到原点，扫描转换后再平移到原位置</p>
+</li>
+<li>
+<p>圆的八对称性：由八分之一圆弧上的点可计算其它各分段弧上的点，只需要扫描转换八分之一圆弧即可</p>
+</li>
+<li>
+<p>主要方法：方程法、中点算法和逼近法</p>
+</li>
+<li>
+<p>主要算法</p>
+<ol>
+<li>
+<p>方程法</p>
+<ol>
+<li>离散点：<span class="arithmatex"><span class="MathJax_Preview">x^2+y^2=R^2</span><script type="math/tex">x^2+y^2=R^2</script></span>，则<span class="arithmatex"><span class="MathJax_Preview">x_i,y_i=\sqrt{R^2-x_i^2}</span><script type="math/tex">x_i,y_i=\sqrt{R^2-x_i^2}</script></span>取整得到<span class="arithmatex"><span class="MathJax_Preview">(x_i,y_i)</span><script type="math/tex">(x_i,y_i)</script></span></li>
+<li>离散角度：利用参数方程：<span class="arithmatex"><span class="MathJax_Preview">x=R*cos \theta.y=R*sin\theta</span><script type="math/tex">x=R*cos \theta.y=R*sin\theta</script></span></li>
+</ol>
+</li>
+<li>
+<p>中点算法</p>
+<ol>
+<li>
+<p>圆弧的正负划分性</p>
+<p>圆弧外的点：<span class="arithmatex"><span class="MathJax_Preview">F(x,y)&gt;0</span><script type="math/tex">F(x,y)>0</script></span>；圆弧上的点：<span class="arithmatex"><span class="MathJax_Preview">F(x,y)=0</span><script type="math/tex">F(x,y)=0</script></span>；圆弧内的点：<span class="arithmatex"><span class="MathJax_Preview">F(x,y)&lt;0</span><script type="math/tex">F(x,y)<0</script></span></p>
+</li>
+<li>
+<p>八分圆的选择</p>
+<p>第一象限的八分之一圆弧中x 的变化大于 y 的变化，即圆弧上的切矢量斜率在0 ... -1间。</p>
+<p>因此可以使 x 从0 增加到 R/(21/2)，计算 y 的值。</p>
+</li>
+<li>
+<p>確定下一像素点</p>
+<p>点<span class="arithmatex"><span class="MathJax_Preview">p(x_i, y_{i,r})</span><script type="math/tex">p(x_i, y_{i,r})</script></span>下一点所取可能点间线段的中点，<span class="arithmatex"><span class="MathJax_Preview">M = (x_{i+1}, y_{i,r} - 0.5)</span><script type="math/tex">M = (x_{i+1}, y_{i,r} - 0.5)</script></span></p>
+<p>当F(M)≤0时，M在圆内，说明E距离圆弧更近，取<span class="arithmatex"><span class="MathJax_Preview">(x_{i+1},y_{i,r})</span><script type="math/tex">(x_{i+1},y_{i,r})</script></span></p>
+<p>当F(M)＞0时， M在圆外， 取<span class="arithmatex"><span class="MathJax_Preview">(x_{i+1},y_{i,r}-1)</span><script type="math/tex">(x_{i+1},y_{i,r}-1)</script></span></p>
+</li>
+<li>
+<p>构造判别式</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">d_i = F(M) = F(x_i+1, y_{i,r}-0.5) = (x_i+1)^2+(y_i-0.5)^2-R^2</span><script type="math/tex">d_i = F(M) = F(x_i+1, y_{i,r}-0.5) = (x_i+1)^2+(y_i-0.5)^2-R^2</script></span></p>
+<p>若<span class="arithmatex"><span class="MathJax_Preview">d \leq 0</span><script type="math/tex">d \leq 0</script></span>，则再下一个像素点判定式<span class="arithmatex"><span class="MathJax_Preview">d_{i+1}=F(x_i+2,y_{i,r}-0.5)=d+2x_i+3</span><script type="math/tex">d_{i+1}=F(x_i+2,y_{i,r}-0.5)=d+2x_i+3</script></span></p>
+<p>若<span class="arithmatex"><span class="MathJax_Preview">d&gt;0</span><script type="math/tex">d>0</script></span>，则再下一个像素点判定式<span class="arithmatex"><span class="MathJax_Preview">d_{i+1}=F(x_i+2,y_{i,r}-1.5)=d+(2x_i+3)+(-2y_{i,r}+2)</span><script type="math/tex">d_{i+1}=F(x_i+2,y_{i,r}-1.5)=d+(2x_i+3)+(-2y_{i,r}+2)</script></span></p>
+</li>
+<li>
+<p>d的初始值</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">d_0=F(1,R-0.5)=1.25-R</span><script type="math/tex">d_0=F(1,R-0.5)=1.25-R</script></span></p>
+</li>
+<li>
+<p>递推公式</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211207230453.png" alt="image-20211207230451615" style="zoom: 67%;" /></p>
+</li>
+<li>
+<p>消除乘法运算</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211207231025.png" alt="image-20211207231025042" style="zoom:67%;" /></p>
+</li>
+</ol>
+</li>
+<li>
+<p>逼近法</p>
+<ol>
+<li>两种方法：正内接多边形迫近法、等面积正多边形迫近法</li>
+<li>
+<p>特点：多边形边数足够多时接近圆、误差控制边数：边越多精度越高，但计算开销大、多边形的边可用直线段的中点算法来生成</p>
+</li>
+<li>
+<p>正内接多边形迫近法</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211207235645.png" alt="image-20211207235645358" style="zoom:50%;" /></p>
+<p>​   <img src="https://pic.tim-wcx.ltd//img/20211207235732.png" alt="image-20211207235732664" style="zoom:50%;" /></p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>填充图元生成</strong></p>
+<ol>
+<li>两种方法扫描转换: </li>
+</ol>
+<p>参数－&gt;点阵、填充（Filling） : 点阵－&gt;点阵</p>
+<ol>
+<li>
+<p>共享边界：左闭右开，下闭上开</p>
+</li>
+<li>
+<p>扫描转换多边形</p>
+</li>
+<li>
+<p>两种方法：逐点判断法；扫描线算法；</p>
+</li>
+<li>
+<p>多边形分类</p>
+<p>凸多边形(convex)：内角小于180度</p>
+<p>凹多边形(concave)：存在内角大于180度</p>
+<p>只考虑：简单多边形，即多边形边不自相交</p>
+</li>
+<li>
+<p>逐点判断发，即为判断每个点和多边形的内外关系--射线法</p>
+<ol>
+<li>
+<p>步骤</p>
+<p>（1）从待判别点 v 发出射线（任意方向，一般水平方向）</p>
+<p>（2）求与多边形交点个数 k</p>
+<p>（3）k 的奇偶性决定了点与多边形的内外关系 偶数：外 奇数：内</p>
+</li>
+<li>
+<p>奇异情况</p>
+<p>射线在边上：无数个点 ---判断射线是否与边同线</p>
+<p>交点为顶点：异侧：1个、同侧：0或2个</p>
+</li>
+</ol>
+</li>
+<li>
+<p>扫描线算法</p>
+<ol>
+<li></li>
+</ol>
+</li>
+</ol>
 
               
             </article>
@@ -1294,10 +1541,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.ca141e46.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6baa0517.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f8ea78.min.js"></script>
       
         <script src="../../js/extra.js"></script>
       
