@@ -944,6 +944,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    第四章 几何变换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    第五章 二维图形的显示
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1002,6 +1016,20 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     第三章  基本光栅图形生成技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    第四章 几何变换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    第五章 二维图形的显示
   </a>
   
 </li>
@@ -1771,6 +1799,236 @@
 </tr>
 </tbody>
 </table>
+<h3 id="_5">第四章 几何变换<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>齐次坐标</strong></p>
+<ol>
+<li>定义</li>
+</ol>
+<p>定义：(x，y)点对应的齐次坐标定义为<span class="arithmatex"><span class="MathJax_Preview">(x_h,y_h,h),x_h=h*x,y_h=y*h,z_h=h</span><script type="math/tex">(x_h,y_h,h),x_h=h*x,y_h=y*h,z_h=h</script></span></p>
+<p>标准其次坐标：<span class="arithmatex"><span class="MathJax_Preview">(x,y,1)</span><script type="math/tex">(x,y,1)</script></span></p>
+<div class="codehilite"><pre><span></span><code>h＝0表示无穷远点
+</code></pre></div>
+
+<p><strong>二维变换</strong></p>
+<ol>
+<li>二维变换的矩阵表示</li>
+</ol>
+<p>平移变换</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208220842.png" alt="image-20211208220841726" style="zoom:67%;" /></p>
+<p>旋转变换</p>
+<p>绕坐标原点（称为参照点，基准点）旋转角度θ （逆时针为正，顺时针为负）</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208220917.png" alt="image-20211208220917015" style="zoom:67%;" /></p>
+<p>放缩变换</p>
+<p>参照点为坐标原点</p>
+<p><img alt="image-20211208220935328" src="https://pic.tim-wcx.ltd//img/20211208220935.png" /></p>
+<p>变换具有统一表示形式的优点
+   1. 便于变换合成 连续变换时，可以先得到变换的矩阵
+   2. 便于硬件实现 只需实现矩阵乘法</p>
+<ol>
+<li>
+<p>变换的性质</p>
+</li>
+<li>
+<p>平移和旋转变换具有可加性</p>
+<p><img alt="image-20211208221103935" src="https://pic.tim-wcx.ltd//img/20211208221103.png" /></p>
+</li>
+<li>
+<p>放缩变换具有可乘性</p>
+<p><img alt="image-20211208221124482" src="https://pic.tim-wcx.ltd//img/20211208221124.png" /></p>
+</li>
+<li>
+<p>变换合成</p>
+</li>
+<li>
+<p>方法：连续变换时，先计算变换矩阵，再计算坐标</p>
+</li>
+<li>
+<p>优点：提高了对图形依次计算多次变换的运算效率、提供计算复杂变换的方法</p>
+</li>
+<li>
+<p>复合变换 矩阵乘法</p>
+</li>
+</ol>
+<p>先作用的放在变换矩阵连乘式的右端，后作用的放在连乘式的左端</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">p‘=M_n*...*M_2*M_1</span><script type="math/tex">p‘=M_n*...*M_2*M_1</script></span></p>
+<ol>
+<li>对称变换</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208222245.png" alt="image-20211208222245543" style="zoom:67%;" /></p>
+<ol>
+<li>
+<p>仿射变换</p>
+</li>
+<li>
+<p>二维线性变换的一般形式</p>
+<p><img alt="image-20211208222819070" src="https://pic.tim-wcx.ltd//img/20211208222819.png" /></p>
+</li>
+<li>
+<p>平移，旋转，放缩，对称和错切是特例</p>
+</li>
+<li>
+<p>保持平行线间的平行关系</p>
+</li>
+</ol>
+<p><strong>三维几何变换</strong></p>
+<ol>
+<li>三维齐次坐标</li>
+</ol>
+<p>(x, y, z)点对应的齐次坐标为<span class="arithmatex"><span class="MathJax_Preview">(x_h,y_h,z_h,h)</span><script type="math/tex">(x_h,y_h,z_h,h)</script></span>，标准齐次坐标<span class="arithmatex"><span class="MathJax_Preview">(x,y,z,1)</span><script type="math/tex">(x,y,z,1)</script></span></p>
+<ol>
+<li>
+<p>右手坐标系  旋转方向，当拇指与坐标轴同向时，四指所指方向为绕该轴的正旋转方向。</p>
+</li>
+<li>
+<p>平移变换 </p>
+</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208223811.png" alt="image-20211208223810648" style="zoom:67%;" /></p>
+<ol>
+<li>放缩变换</li>
+</ol>
+<p>参照点为坐标原点</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208223851.png" alt="image-20211208223851039" style="zoom: 67%;" /></p>
+<ol>
+<li>旋转变换</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208224145.png" alt="image-20211208224145147" style="zoom:80%;" />
+   3. 绕Z轴</p>
+<div class="codehilite"><pre><span></span><code>  &lt;img src=&quot;https://pic.tim-wcx.ltd//img/20211208224303.png&quot; alt=&quot;image-20211208224303864&quot; style=&quot;zoom:67%;&quot; /&gt;
+</code></pre></div>
+
+<ol>
+<li>对称变换</li>
+</ol>
+<p>关于坐标平面 xy 的对称变换</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208224351.png" alt="image-20211208224351083" style="zoom:80%;" /></p>
+<ol>
+<li>三维几何变换的一般形式</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208224502.png" alt="image-20211208224502712" style="zoom:80%;" /></p>
+<p>（1）前三行和前三列对应旋转和放缩变换</p>
+<p>（2）第四列的前三个元素对应平移变换</p>
+<p>（3）第四行前三个元素对应投影变换</p>
+<p><strong>图形对象的几何变换</strong></p>
+<ol>
+<li>
+<p>图形对象 点，线段，多边形，圆，字符</p>
+</li>
+<li>
+<p>方法</p>
+</li>
+<li>
+<p>先生成点集，再对其中的点进行变换 运算量大，变换前后存在点集不一致情况</p>
+</li>
+<li>
+<p>对几何参数变换</p>
+<p>基本图形：线段，两个端点；多边形，多个顶点；圆，圆心和半径（放缩变换要求 x 和 y 放缩倍数相同）</p>
+<p>前提：图形对象的几何性质不随坐标变换而发生变化。这种性质称为仿射不变性。</p>
+</li>
+</ol>
+<p><strong>OpenGL几何变换函数</strong></p>
+<div class="highlight"><pre><span></span><code>glTranslate{fd}(tx, ty, tz) //平移函数
+glRotate{fd}(theta, vx, vy, vz) //旋转函数
+glScale{fd}(sx, sy, sz) //放缩函数
+glLoadIdentity() //重置为单位矩阵
+glMatrixMode(GL_MODELVIEW) //模型观察矩阵
+glPushMatrix() //压栈
+glPopMatrix() //出栈
+glutInitDisplayMode (GLUT_SINGLE|GLUT_RGBA); //单缓冲
+glutInitDisplayMode (GLUT_DOUBLE|GLUT_RGBA);   //双缓冲
+glFinish();//强制之前的绘图函数执行，双缓冲可不调用
+glutSwapBuffers(); //双缓冲必须调用
+</code></pre></div>
+<p>注意：</p>
+<p>(1)系统几何变换矩阵只有1个</p>
+<p>(2)坐标采用列向量表示</p>
+<p>(3)旋转角大小用度表示，不是弧度</p>
+<p>(4)绘图时，用系统的几何变换矩阵与顶点坐标相乘得到坐标进行绘图</p>
+<p>(5)<strong>只需要连续调用变换函数，先变换的函数后调用，最后绘制该图形。</strong></p>
+<h3 id="_6">第五章 二维图形的显示<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>二维显示流水线</strong></p>
+<ol>
+<li>基本概念</li>
+<li>
+<p>裁剪窗口(Clipping Window) ：需要显示的场景区域</p>
+<p>又称为世界窗口或观察窗口，简称窗口</p>
+<p>在世界坐标系（又称用户坐标系）内定义</p>
+</li>
+<li>
+<p>视口(Viewport)：指显示设备上用来显示图形的区域</p>
+<p>又称视区，在设备（屏幕）坐标系内定义</p>
+</li>
+<li>
+<p>裁剪(Clip)：从场景中确定位于窗口内的图形</p>
+</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208231044.png" alt="image-20211208231043411" style="zoom:67%;" /></p>
+<ol>
+<li>裁剪窗口和视区的关系</li>
+<li>
+<p>改变视口位置可以在输出设备的不同位置上观察物体</p>
+</li>
+<li>
+<p>使用多个视口可以在屏幕不同的位置观察场景的不同部分</p>
+</li>
+<li>
+<p>改变窗口的尺寸达到改变视口内显示对象的多少</p>
+</li>
+<li>
+<p>改变视口（或窗口）的尺寸实现图形对象放缩</p>
+<p><img alt="image-20211208231326960" src="https://pic.tim-wcx.ltd//img/20211208231327.png" /></p>
+</li>
+<li>
+<p>二维显示变换</p>
+</li>
+</ol>
+<p>二维图形的世界坐标系到设备坐标系的映射</p>
+<p>又称为窗口到视区的变换或窗口变换</p>
+<ol>
+<li>二维图形的显示流水线</li>
+</ol>
+<p><img alt="image-20211208231610251" src="https://pic.tim-wcx.ltd//img/20211208231610.png" /></p>
+<p><strong>窗口到视区的变换</strong></p>
+<ol>
+<li>步骤</li>
+<li>在世界坐标系中，平移窗口使(xmin,  ymin)至坐标原点，变换为T (－xmin,  －ymin)</li>
+<li>放缩使窗口的大小与视区相等，变换为S(Eu/Ex, Ev/Ey)</li>
+<li>在设备坐标系中，平移使窗口与视区重合，变换为T (umin, vmin)</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208231827.png" alt="image-20211208231827345" style="zoom:67%;" /></p>
+<ol>
+<li>OpenGL视区函数</li>
+</ol>
+<p>glViewport(xvmin,yvmin,vpwidth,vpheight);</p>
+<ol>
+<li>GLU裁剪窗口函数</li>
+</ol>
+<p>gluOrtho2D(left,right,bottom,top);</p>
+<p>功能：将图形数据映射到屏幕的正交投影，在二维图形中可以看做设定x，y最大最小值。</p>
+<p>默认大小为（－1，1，－1，1）</p>
+<p><strong>裁剪</strong></p>
+<ol>
+<li>定义</li>
+</ol>
+<p>判断图形元素是否落在裁剪窗口之内并找出其位于内部的部分。</p>
+<ol>
+<li>裁剪的次序</li>
+</ol>
+<p>（1）扫描转换后裁剪：设备坐标系，点阵表示图形</p>
+<p>算法简单（判断像素是否落在视区中），所有图形都要先扫描转换，速度慢。</p>
+<p>（2）裁剪后扫描转换：世界坐标系，参数表示图形</p>
+<p>最常用，节约计算时间（先对参数表示的图形裁剪），算法复杂</p>
+<ol>
+<li>假定条件</li>
+</ol>
+<p>矩形裁剪窗口：[xmin, ymin]－[xmax, ymax]</p>
+<p>被裁剪对象：线段、多边形</p>
+<ol>
+<li>待裁剪线段和窗口的关系</li>
+</ol>
+<p>(1) 完全可见：端点位于窗口内AB</p>
+<p>(2) 显然不可见 ：端点位于同边界外侧EF</p>
+<p>(3) 线段至少有一端点在窗口之外，但非显然不可见</p>
 
               
             </article>
