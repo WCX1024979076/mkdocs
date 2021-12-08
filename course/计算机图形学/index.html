@@ -1487,10 +1487,290 @@
 <li>
 <p>扫描线算法</p>
 <ol>
-<li></li>
+<li>
+<p>目标：利用相邻像素之间的连贯性，提高算法效率</p>
+</li>
+<li>
+<p>处理对象：简单多边形 非自交多边形 （边与边之间除了顶点外无其它交点）</p>
+</li>
+<li>
+<p>步骤（对于每一条扫描线）</p>
+<ol>
+<li>计算扫描线与边的交点</li>
+<li>交点按x坐标从小到大排序</li>
+<li>交点两两配对，填充区间</li>
+</ol>
+</li>
+<li>
+<p>基本方法</p>
+<ol>
+<li>
+<p>将整个绘图窗口内扫描多边形的问题分解为一条条扫描线计算与多边形的相交区间，只要完成每条扫描线的生成就实现了多边形的扫描转换</p>
+</li>
+<li>
+<p>一条扫描线与多边形的边有偶数个交点，每2个点形成一区间，区间内的像素位于多边形内</p>
+</li>
+</ol>
+</li>
+<li>
+<p>连贯性(Coherence)</p>
+<ol>
+<li>
+<p>边的连贯性(Edge Coherence)—优化交点计算</p>
+<p>某条边与当前扫描线相交，也可能与下一条扫描线相交</p>
+</li>
+<li>
+<p>扫描线的连贯性(Scan-line Coherence) )—优化交点排序</p>
+<p>当前扫描线与各边的交点顺序与 下一条扫描线与各边的交点顺序可能相同或类似</p>
+</li>
+<li>
+<p>区间的连贯性(Span Coherence)</p>
+<p>同一区间上的像素取同一颜色属性</p>
+</li>
+</ol>
+</li>
+<li>
+<p>交点</p>
+<ol>
+<li>第一类交点：位于同一条边上的后继交点，由扫描线y＝e与多边形的交点递推计算扫描线 y＝e＋1的交点，x’＝x＋1/m</li>
+<li>第二类交点：边与扫描线的第一个交点，边的下端点即为交点。</li>
+</ol>
+</li>
+<li>
+<p>交点取整规则</p>
+<ol>
+<li>
+<p>使生成的像素全部位于多边形之内，且满足共享边界原则。</p>
+<p>（1）交点坐标不能采用“四舍五入”原则，否则会导致部分像素位于多边形之外</p>
+<p>（2）共享边界原则：左闭右开，下闭上开</p>
+</li>
+<li>
+<p>交点横坐标x为小数，即交点落于扫描线上两个相邻像素之间</p>
+<p>（a）交点位于左边上，向右取整，(int)x + 1</p>
+<p>（b）交点位于右边上，向左取整，(int)x</p>
+</li>
+<li>
+<p>交点横坐标x为整数，落在右、上边界的像素不予填充。落在左、下边界的像素需要填充。</p>
+</li>
+<li>
+<p>交点是顶点，扫描线与多边形的顶点相交时，采用上开下闭及右开左闭取交点，保证交点正确配对。</p>
+<p>检查两相邻边在扫描线的哪一侧。只要检查相交的两条边的另外两个端点的Y值，两个端点Y中值大于交点Y值的个数是0，1，2，来决定取0，1，2个交点。</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211208154212784.png" alt="image-20211208154212784" style="zoom: 67%;" /></p>
+<p>分别对应交点个数为1个、1个、2个和0个。</p>
+</li>
+<li>
+<p>水平边，不参与计算交点</p>
+</li>
+<li>
+<p>排序，利用扫描线连贯性，采用插入排序。</p>
+</li>
+<li>
+<p>交点两两配对与区间绘制，区间连续性，连续绘制区间上的像素。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>算法实现</p>
+<ol>
+<li>
+<p>边的分类表ET （Edge Table）（又称新边表NET）</p>
+<p>按照边的下端点  y  坐标，对非水平边进行分类的链表</p>
+<p>下端点 y 坐标值等于i 的边属于第i类，同类中有多条边时按x从小到大排序（x也一样时按边上端点的x值）</p>
+<p>作用：避免盲目求交；计算第二类交点坐标</p>
+<p><img alt="image-20211208155018492" src="https://pic.tim-wcx.ltd//img/20211208155018.png" /></p>
+<p>ET的结点信息：
+    ymax: 边的上端点的 y 坐标值</p>
+<p>​    x：边的下端点的 x 坐标</p>
+<p>deltax：边的斜率的倒数</p>
+<p>nextEdge: 下一条边的指针</p>
+<p>当扫描线 y = e + 1 == ymax，说明下一条扫描线与此边不相交。</p>
+</li>
+<li>
+<p>活性边表AEL(Active Edge List)</p>
+<p>存放活性边的顺序链表，且按交点 x 的值从小到大排序</p>
+<p>活性边：与当前扫描线相交的边</p>
+<p>边结构定义：与ET表中结点结构相同。</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> 
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ymax</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">deltax</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">Edge</span><span class="w"> </span><span class="o">*</span><span class="n">nextEdge</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="n">Edge</span><span class="p">;</span><span class="w"> </span>
+</code></pre></div>
+<p>AEL 的结点信息：</p>
+<p>ymax: 所交边的最大 y 值</p>
+<p>x：当前扫描线与边的交点的x坐标</p>
+<p>deltax：边的斜率的倒数</p>
+<p>nextEdge: 下一条边的指针</p>
+<p>作用：存储与当前扫描线的交点，同时快速计算下一条扫描线与多边形相交的点，且可判断边是否与下一条扫描线相交</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208155609.png" alt="image-20211208155609510" style="zoom:67%;" /></p>
+</li>
+</ol>
+<p><img alt="image-20211208155836440" src="https://pic.tim-wcx.ltd//img/20211208155836.png" /></p>
+</li>
 </ol>
 </li>
 </ol>
+<p><strong>种子填充算法</strong></p>
+<ol>
+<li>
+<p>区域：点阵表示的图形，像素集合</p>
+</li>
+<li>
+<p>表示方法：内点表示、边界表示</p>
+<ol>
+<li>
+<p>内点表示</p>
+<p>枚举出区域内部的所有像素、内部的所有像素为同一个颜色、边界像素与内部像素的颜色不同</p>
+</li>
+<li>
+<p>边界表示</p>
+<p>枚举出边界上所有的像素、边界上的所有像素为同一颜色、内部像素与边界像素的颜色不同</p>
+</li>
+<li>
+<p>区域填充算法要求区域是连通的。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>连通性</p>
+</li>
+</ol>
+<p>（1）4连通区域：区域中任意满足相似条件两点（像素）可通过上下左右四个方向互相到达</p>
+<p>（2）8连通区域：区域中任意满足相似条件两点（像素）可通过上下左右和对角线八 个方向互相到达</p>
+<ol>
+<li>
+<p>4连通区域，边界只要8连通即可，8连通区域，边界必须是4连通。</p>
+</li>
+<li>
+<p>算法实现：</p>
+</li>
+</ol>
+<p>（1）内点表示的4连通区域
+   种子s(x,y)，原色oldColor，新颜色newColor</p>
+<p>方法：先判断s(x, y)的颜色，若其值不等于oldColor，说明该像素位于区域外或已设置为填充色newColor 算法结束；</p>
+<p>否则，置像素颜色为newColor，再对其相邻的上下左右四个像素分别作为种子作上述递归处理。</p>
+<ol>
+<li>多边形扫描转换与区域填充方法比较</li>
+<li>
+<p>基本思想不同</p>
+<p>前者：顶点表示转换成点阵表示</p>
+<p>后者：只改变区域内填充颜色，没有改变表示方法</p>
+</li>
+<li>
+<p>对边界的要求不同</p>
+<p>前者：扫描线与多边形边界交点个数为偶数</p>
+<p>后者：区域封闭，防止递归填充跨界</p>
+</li>
+<li>
+<p>基本的条件不同</p>
+<p>前者：从边界顶点信息出发</p>
+<p>后者：从区域内种子点出发</p>
+</li>
+<li>
+<p>区域图像填充</p>
+</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211208162030.png" alt="image-20211208162030115" style="zoom: 80%;" /></p>
+<p><strong>字符的生成</strong></p>
+<ol>
+<li>点阵字体</li>
+</ol>
+<p>存储：（压缩与非压缩）</p>
+<p>显示：根据编码检索点阵数据，接着写帧缓存</p>
+<ol>
+<li>矢量字体</li>
+</ol>
+<p>表示：笔画用曲线（参数）表示</p>
+<p>扫描转换：参数到点阵</p>
+<p>显示：1、由编码检索；2、扫描转换；3、写帧缓存</p>
+<p>存储：空间少</p>
+<p><strong>OpenGL相关函数</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">//图元绘制</span>
+<span class="n">glBegin</span><span class="p">(</span><span class="n">type</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">glVertex</span><span class="o">*</span><span class="p">();</span><span class="w"> </span><span class="c1">//指定顶点坐标1</span>
+<span class="w">    </span><span class="n">glVertex</span><span class="o">*</span><span class="p">();</span><span class="w"> </span><span class="c1">//指定顶点坐标2</span>
+<span class="n">glEnd</span><span class="p">()</span><span class="err">；</span><span class="w"></span>
+
+<span class="c1">//点的属性</span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LINE_STIPPLE</span><span class="p">);</span><span class="w">  </span>
+<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">glColor</span><span class="p">(</span><span class="mi">3</span><span class="o">|</span><span class="mi">4</span><span class="p">)(</span><span class="n">b</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">ub</span><span class="o">|</span><span class="n">ui</span><span class="o">|</span><span class="n">us</span><span class="p">)(</span><span class="n">TYPE</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">glColor</span><span class="p">(</span><span class="mi">3</span><span class="o">|</span><span class="mi">4</span><span class="p">)(</span><span class="n">b</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">ub</span><span class="o">|</span><span class="n">ui</span><span class="o">|</span><span class="n">us</span><span class="p">)</span><span class="n">v</span><span class="p">(</span><span class="n">TYPE</span><span class="w"> </span><span class="o">*</span><span class="n">rgb</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="n">glPointSize</span><span class="err">（</span><span class="n">GLfloat</span><span class="w">  </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="c1">//点大小</span>
+
+<span class="c1">//画线</span>
+<span class="n">glBegin中的参数为</span><span class="err">：</span><span class="n">GL_LINES</span><span class="err">、</span><span class="n">GL_LINE_STRIP</span><span class="err">、</span><span class="n">GL_LINE_LOOP</span><span class="w"></span>
+<span class="n">GL_LINES</span><span class="err">：一组直线段；</span><span class="w"> </span><span class="n">GL_LINE_STRIP</span><span class="err">：折线</span><span class="w"> </span><span class="n">GL_LINE_LOOP</span><span class="err">：封闭折线</span><span class="w"></span>
+
+<span class="c1">//线的属性</span>
+<span class="n">glLineWidth</span><span class="err">（</span><span class="n">GLfloat</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="c1">//宽度</span>
+<span class="n">glLineStipple</span><span class="p">(</span><span class="n">GLint</span><span class="w"> </span><span class="n">factor</span><span class="p">,</span><span class="w"> </span><span class="n">GLushort</span><span class="w"> </span><span class="n">pattern</span><span class="p">);</span><span class="w"> </span><span class="c1">//线形</span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LINE_STIPPLE</span><span class="p">);</span><span class="w"> </span><span class="c1">//使用前需要激活</span>
+
+<span class="c1">//填充图元函数</span>
+<span class="n">glRect</span><span class="p">[</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">d</span><span class="p">]{</span><span class="n">v</span><span class="p">}()</span><span class="c1">//矩形函数</span>
+<span class="n">glBegin</span><span class="p">()</span><span class="err">中的参数</span><span class="n">GL_POLYGON</span><span class="err">、</span><span class="n">GL_TRIANGLES</span><span class="err">、</span><span class="n">GL_TRIANGLE_STRIP</span><span class="err">、</span><span class="n">GL_TRIANGLE_FAN</span><span class="w"></span>
+
+<span class="c1">//线框图与填充图</span>
+<span class="n">glPloygonMode</span><span class="p">(</span><span class="n">face</span><span class="err">，</span><span class="n">displayMode</span><span class="p">)</span><span class="w"></span>
+<span class="c1">//face：指定前后面。可选值：GL_FRONT、GL_BACK和GL_FRONT_AND_BACK【正反面一样处理】</span>
+<span class="c1">//displayMode：GL_FILL（填充）和GL_LINE（线框）</span>
+
+<span class="c1">//颜色插值模式</span>
+<span class="err">函数：</span><span class="n">glShadeModel</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="w"></span>
+<span class="nl">Mode</span><span class="p">:</span><span class="w"> </span><span class="n">GL_FLAT和GL_SMOOTH</span><span class="w"></span>
+</code></pre></div>
+<p>图元绘制 图元类型</p>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GL_POINTS</strong></td>
+<td><strong>单个顶点集</strong></td>
+</tr>
+<tr>
+<td><strong>GL_LINES</strong></td>
+<td><strong>多组双顶点线段</strong></td>
+</tr>
+<tr>
+<td><strong>GL_POLYGON</strong></td>
+<td><strong>单个简单填充凸多边形</strong></td>
+</tr>
+<tr>
+<td><strong>GL_TRIANGLES</strong></td>
+<td><strong>多组独立填充三角形</strong></td>
+</tr>
+<tr>
+<td><strong>GL_QUADS</strong></td>
+<td><strong>多组独立填充四边形</strong></td>
+</tr>
+<tr>
+<td><strong>GL_LINE_STRIP</strong></td>
+<td><strong>不闭合折线</strong></td>
+</tr>
+<tr>
+<td><strong>GL_LINE_LOOP</strong></td>
+<td><strong>闭合折线</strong></td>
+</tr>
+<tr>
+<td><strong>GL_TRIANGLE_STRIP</strong></td>
+<td><strong>线型连续填充三角形串</strong></td>
+</tr>
+<tr>
+<td><strong>GL_TRIANGLE_FAN</strong></td>
+<td><strong>扇形连续填充三角形串</strong></td>
+</tr>
+<tr>
+<td><strong>GL_QUAD_STRIP</strong></td>
+<td><strong>连续填充四边形串</strong></td>
+</tr>
+</tbody>
+</table>
 
               
             </article>
