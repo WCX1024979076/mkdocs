@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://github.tim-wcx.ltd/mkdocs/course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.5">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a617204b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
@@ -958,6 +958,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    第六章 三维图形的显示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    第八章   真实感图形生成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    第九章  曲线与曲面
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1030,6 +1051,27 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     第五章 二维图形的显示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    第六章 三维图形的显示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    第八章   真实感图形生成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    第九章  曲线与曲面
   </a>
   
 </li>
@@ -2203,19 +2245,671 @@ glutSwapBuffers(); //双缓冲必须调用
 </ol>
 <p>整个字符串完全落在窗口之内时显示，否则不显示。</p>
 <p>字符串的矩形包围盒测试。</p>
-<p><img alt="image-20211209205245978" src="https://pic.tim-wcx.ltd//img/20211209205246.png" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211209205246.png" alt="image-20211209205245978" style="zoom:80%;" /></p>
 <ol>
 <li>基于字符</li>
 </ol>
 <p>一个字符完全落在窗口之内时显示，否则不显示。</p>
 <p>字符的矩形包围盒测试。</p>
-<p><img alt="image-20211209205327287" src="https://pic.tim-wcx.ltd//img/20211209205327.png" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211209205327.png" alt="image-20211209205327287" style="zoom:80%;" /></p>
 <ol>
 <li>基于构成字符的最小元素 </li>
 </ol>
 <p>点阵字符：点裁剪</p>
 <p>矢量字符：线裁剪</p>
-<p><img alt="image-20211209205331355" src="https://pic.tim-wcx.ltd//img/20211209205331.png" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211209205331.png" alt="image-20211209205331355" style="zoom: 67%;" /></p>
+<h3 id="_7">第六章 三维图形的显示<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>三维图像简介</strong></p>
+<ol>
+<li>三维成像基本步骤</li>
+</ol>
+<p>（1）选定投影类型 —— 平行、透视</p>
+<p>（2）设置投影参数—— 拍摄方向、距离等</p>
+<p>（3）三维裁剪 ——取景</p>
+<p>（4）投影和显示——成像</p>
+<ol>
+<li>简单的三维图形显示流程图</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210160450.png" alt="image-20211210160449286" style="zoom:80%;" /></p>
+<ol>
+<li>平面几何投影分类</li>
+<li>平行投影(parallel projection)投影中心与投影平面之间的距离为无限</li>
+<li>透视投影(perspective projection)投影中心与投影平面之间的距离为有限</li>
+</ol>
+<p><img alt="image-20211210160608239" src="https://pic.tim-wcx.ltd//img/20211210160608.png" /></p>
+<ol>
+<li>
+<p>透视投影</p>
+</li>
+<li>
+<p>定义：投影中心与投影平面之间的距离为有限</p>
+</li>
+<li>
+<p>灭点（vanishing point）</p>
+<div class="codehilite"><pre><span></span><code>不平行于投影平面的平行线，经过透视投影之后收敛于一点，称为灭点。灭点的个数无限
+</code></pre></div>
+
+</li>
+<li>
+<p>主灭点:平行于坐标轴的平行线的灭点。</p>
+<p>一点透视：1个灭点</p>
+<p>两点透视：2个灭点</p>
+<p>三点透视：3个灭点</p>
+</li>
+<li>
+<p>特点</p>
+<p>产生近大远小的视觉效果，由它产生的图形深度感强，看起来更加真实。</p>
+</li>
+<li>
+<p>平行投影</p>
+</li>
+</ol>
+<p>投影中心与投影平面之间的距离为无限，是透视投影的极限状态</p>
+<ol>
+<li>正投影与斜投影</li>
+</ol>
+<p>正投影(orthogonal projection)：投影线垂直于投影平面</p>
+<p>斜投影：投影线不垂直于投影平面</p>
+<p>三视图：正视图、侧视图和俯视图，均为正投影。</p>
+<p><strong>观察坐标系</strong></p>
+<ol>
+<li>定义</li>
+</ol>
+<p>依赖于投影平面建立的三维坐标系uvn。如照相机所在的坐标系。</p>
+<ol>
+<li>观察坐标系的建立</li>
+</ol>
+<p>建立观察坐标系
+   1. 坐标原点----投影平面（如底片）上的一点，称为观察参考点VRP（View Reference Point)
+   2. n轴(VPN)----照相机镜头反方向（投影平面的法向）
+   3. v轴----标志物体的朝向，类似照相机向上的方向（观察正向VUP在投影平面上的投影）
+   4. u轴,<span class="arithmatex"><span class="MathJax_Preview">u=n \times v</span><script type="math/tex">u=n \times v</script></span></p>
+<ol>
+<li>观察坐标系中的投影参数</li>
+</ol>
+<p>简化投影变换</p>
+<p>投影平面 ---- n = 0，投影中心 ---- (0 ，0，d )</p>
+<p>投影前需要将图形坐标从世界（用户）坐标系转换到观察坐标系。</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210162034.png" alt="image-20211210162033159" style="zoom:67%;" /></p>
+<ol>
+<li>视见体</li>
+</ol>
+<p>视见体是三维裁剪窗口，确定可见空间</p>
+<p>建立步骤</p>
+<p>1 定义窗口（投影平面上）</p>
+<p>2 形成观察空间（发出射线）</p>
+<p>3 形成视见体（前后裁剪面）</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210162106.png" alt="image-20211210162105948" style="zoom:67%;" /></p>
+<ol>
+<li>
+<p>建立窗口</p>
+<p>在投影平面uv上</p>
+<p>指定参数（umin，vmin）（umax，vmax)</p>
+<p>窗口中心CW不一定落在观察参考点VRP上</p>
+<p>只有在窗口内的图形才能在视区中显示</p>
+</li>
+<li>
+<p>生成观察空间</p>
+<p>定义投影参考点PRP: Projection Reference Point</p>
+<p>作用：确定投影中心（透视投影）或投影方向（平行投影）</p>
+<p>透视投影：COP = PRP，观察空间是四棱锥。</p>
+<p>平行投影：投影方向DOP = 窗口中心CW - PRP，观察空间是四棱柱。</p>
+</li>
+<li>
+<p>形成视见体</p>
+</li>
+</ol>
+<p>视见体：定义前后裁剪面，形成有限的观察空间</p>
+<p>透视投影视见体是四棱台；平行投影视见体是长方体</p>
+<p>又称为裁剪空间</p>
+<ol>
+<li>定义一个视见体所需要的参数</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>投影类型</td>
+<td>定义投影是平行投影还是透视投影</td>
+</tr>
+<tr>
+<td>观察参考点VRP</td>
+<td>在世界坐标系中指定，为观察坐标系原点</td>
+</tr>
+<tr>
+<td>观察平面法向VPN</td>
+<td>在世界坐标系中指定，为观察坐标的n轴</td>
+</tr>
+<tr>
+<td>观察正向VUP</td>
+<td>在世界坐标系中指定，确定观察坐标系的v</td>
+</tr>
+<tr>
+<td>投影参考点PRP</td>
+<td>在观察坐标系中指定确定投影中心或投影方向</td>
+</tr>
+<tr>
+<td>前裁剪面裁距F</td>
+<td>在观察坐标系中指定，n＝F为前裁剪面</td>
+</tr>
+<tr>
+<td>后裁剪面裁距B</td>
+<td>在观察坐标系中指定，n＝B为后裁剪面</td>
+</tr>
+<tr>
+<td>窗口umin，umax、vmin、vmax</td>
+<td>在观察坐标系的uv平面上指定，确定窗口与视见体</td>
+</tr>
+</tbody>
+</table>
+<p><strong>投影变换</strong></p>
+<ol>
+<li>透视投影</li>
+</ol>
+<p>在uvn中，投影平面为n = 0，投影中心为(0，0，d )，投影变换矩阵为：</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210164300.png" alt="image-20211210164258645" style="zoom:80%;" /></p>
+<ol>
+<li>平行投影</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210164453.png" alt="image-20211210164453166" style="zoom:80%;" /></p>
+<p><strong>从世界坐标系到观察坐标系的变换</strong></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210164703.png" alt="image-20211210164703196" style="zoom:80%;" /></p>
+<p><strong>三维图形的显示流程图</strong></p>
+<p><img alt="image-20211210165004865" src="https://pic.tim-wcx.ltd//img/20211210165005.png" /></p>
+<p>模型变换: 从局部（模型）坐标系到世界坐标系的变换</p>
+<p>观察变换: 从世界坐标系到观察坐标系的变换</p>
+<p>投影变换 : 三维到二维的转换</p>
+<ol>
+<li>模型变换</li>
+</ol>
+<p>将物体从自身的模型坐标系变换到上层物体的模型坐标系（或世界坐标系）的几何变换。</p>
+<p>模型变换是构造复杂物体的方法，通过基本几何变换构造复杂物体。</p>
+<ol>
+<li>
+<p>裁剪</p>
+</li>
+<li>
+<p>先投影后裁剪</p>
+<p>优点：二维裁剪相对容易
+  缺点：需要对所有的物体进行投影变换</p>
+</li>
+<li>
+<p>先裁剪后投影</p>
+<ol>
+<li>
+<p>原因有：</p>
+<p>(1) 三维物体的表面通常被离散表示成多边形或折线，而对这类简单图元，三维裁剪同样比较简单;</p>
+<p>(2) 三维图形在显示过程中需要被消隐，消隐要有图形的深度信息，所以必须在投影之前完成 。 消隐很费时，如果在此之前裁剪（或部分裁剪）掉不可见的图形，可使需要消隐的图形减至最小。两类投影的视见体不一样，如何方便裁剪？规范化到长方体</p>
+</li>
+<li>
+<p>三维裁剪的两种方法</p>
+<p>在三维空间关于视见体裁剪，需要将齐次坐标转换为三维坐标</p>
+<p>优点：三维裁剪相对容易</p>
+<p>缺点：需要将齐次坐标转换为三维坐标</p>
+<p>直接在四维齐次坐标空间中进行裁剪</p>
+<p>优点：</p>
+<p>不需要将齐次坐标转换为三维坐标</p>
+<p>有理曲线曲面可能直接用齐次坐标来表示，对它们的裁剪只能在齐次坐标空间中进行 </p>
+<p>缺点：四维裁剪相对复杂</p>
+</li>
+</ol>
+</li>
+<li>
+<p>直线段裁剪</p>
+<ol>
+<li>
+<p>Cohen_Sutherland算法</p>
+<p>视见体是长方体，6个面分空间27个区域</p>
+<p>编码：6位，C1C2C3C4C5C6</p>
+<p>算法过程： 类似二维裁剪</p>
+</li>
+<li>
+<p>Linang_Barskey算法的直接推广 －三维投影到一维</p>
+<p>诱导窗口是3条线段的交集。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>多边形裁剪：逐面裁剪算法</p>
+<ol>
+<li>是二维多边形Sutherland_Hodgman逐边裁剪算法推广。</li>
+<li>多边形边与裁剪线裁剪扩展为多边形边与裁剪面裁剪。边与裁剪面裁剪时的输出规则与二维类似。</li>
+</ol>
+</li>
+<li>
+<p>主要运算： 求线段与平面的交点</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210165732.png" alt="image-20211210165730914" style="zoom: 80%;" /></p>
+</li>
+</ol>
+<p><strong>OpenGL相关函数</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">//建模观察模式</span>
+<span class="n">glMatrixMode</span><span class="err">（</span><span class="n">GL_MODELVIEW</span><span class="err">）</span><span class="w"></span>
+<span class="n">gluLookAt</span><span class="err">（</span><span class="n">eyex</span><span class="p">,</span><span class="w"> </span><span class="n">eyey</span><span class="p">,</span><span class="w"> </span><span class="n">eyez</span><span class="p">,</span><span class="w"> </span><span class="n">atx</span><span class="p">,</span><span class="w"> </span><span class="n">aty</span><span class="p">,</span><span class="w"> </span><span class="n">atz</span><span class="p">,</span><span class="w"> </span><span class="n">upx</span><span class="p">,</span><span class="w"> </span><span class="n">upy</span><span class="p">,</span><span class="w"> </span><span class="n">upz</span><span class="err">）</span><span class="c1">//指定观察参数</span>
+<span class="c1">//默认参数：（1）eye＝（0，0，0）（2）at＝（0，0，－1）（3）up＝（0，1，0）</span>
+
+<span class="c1">//建立投影变换矩阵，设定当前投影矩阵</span>
+<span class="n">glMatrixMode</span><span class="err">（</span><span class="n">GL_PROJECTION</span><span class="err">）</span><span class="w"></span>
+
+<span class="c1">//正（平行）投影函数</span>
+<span class="n">glOrtho</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="p">,</span><span class="w"> </span><span class="n">ymin</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span><span class="w"></span>
+<span class="err">或</span><span class="w">  </span><span class="n">glOrtho</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">形成视见体</span><span class="w"></span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">near和far为从观察坐标系原点沿负Z轴方向的距离</span><span class="w"></span>
+<span class="err">默认参数：</span><span class="n">glOrtho</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="err">是一对称规范化对称正方体</span><span class="w"></span>
+<span class="err">对二维而言，</span><span class="w"> </span><span class="n">glOrtho2D建立裁剪窗口</span><span class="w"></span>
+<span class="err">如不指定投影函数，默认正投影来显示场景</span><span class="w"></span>
+
+<span class="c1">//透视投影函数定义视见体   </span>
+<span class="n">glFrustum</span><span class="p">(</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span><span class="w"></span>
+<span class="err">定义视见体</span><span class="w"></span>
+<span class="w"> </span><span class="err">前四个参数设定投影平面上</span><span class="w"></span>
+<span class="err">裁剪窗口的坐标</span><span class="w"></span>
+<span class="err">（</span><span class="n">OpenGL投影平面为近裁剪面</span><span class="err">）</span><span class="w"></span>
+
+<span class="n">gluPerspective</span><span class="err">（</span><span class="n">fovy</span><span class="err">，</span><span class="n">aspect</span><span class="err">，</span><span class="n">near</span><span class="err">，</span><span class="n">far</span><span class="err">）</span><span class="w"></span>
+<span class="n">fovy</span><span class="err">：上下裁剪面间的夹角（</span><span class="mi">0</span><span class="err">～</span><span class="mi">180</span><span class="err">）</span><span class="w"></span>
+<span class="n">aspect</span><span class="err">：裁剪窗口纵横比（宽度</span><span class="o">/</span><span class="err">高度）</span><span class="w"></span>
+<span class="n">near</span><span class="err">：近裁剪面</span><span class="w"></span>
+<span class="n">far</span><span class="err">：远剪面</span><span class="w"></span>
+</code></pre></div>
+<h3 id="_8">第八章   真实感图形生成<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><strong>消隐技术</strong></p>
+<ol>
+<li>
+<p>定义：消除被遮挡的不可见的线或面称作消除隐藏线和隐藏面，简称为消隐。</p>
+</li>
+<li>
+<p>消隐的对象：三维物体，三维体的表示主要采用边界（多边形）表示。</p>
+</li>
+<li>
+<p>消隐结果：与观察物体有关，也与视点位置和方向有关。</p>
+</li>
+<li>
+<p>画家算法</p>
+</li>
+<li>
+<p>定义：远近排序，之后按远近顺序投影。</p>
+</li>
+<li>
+<p>问题：不能处理多边形循环遮挡和多边形相互穿透。</p>
+</li>
+<li>
+<p>Z （深度）缓冲器算法</p>
+</li>
+<li>
+<p>组成</p>
+<p>帧缓冲器 -- 保存各像素颜色值，Z 缓冲器  -- 保存各像素处物体深度值</p>
+<p>Z 缓冲器中的单元与帧缓冲器中的单元一一对应</p>
+</li>
+<li>
+<p>算法步骤</p>
+<p>(1) 先将 Z 缓冲器中个单元的初始值置为最小值。</p>
+<p>(2)多边形投影后，扫描转换写帧缓存时，当要改变某个像素的颜色值时，首先检查该像素对应当前多边形上点的深度值是否大于该像素原来的深度值（保存在该像素所对应的Z缓冲器的单元中），</p>
+<p>如果大于，说明当前多边形更靠近观察点，用它的颜色替换像素原来的颜色；同时保存深度值;</p>
+<p>否则说明在当前像素处，当前多边形被前面所绘制的多边形遮挡了，是不可见的，像素的颜色值不改变。</p>
+</li>
+<li>
+<p>特点</p>
+<p>(1) Z 缓冲器算法是所有图像空间算法中最简单的一种隐藏面消除算法。在像素级上以近物取代远物，与形体在屏幕上的出现顺序无关。</p>
+<p>(2) 优点</p>
+<p>简单稳定，利于硬件实现、不需要整个场景的几何数据
+  (3) 缺点</p>
+<p>需要一个额外的 Z 缓冲器、每个多边形占据的每个像素处都要计算深度值，计算量大</p>
+</li>
+<li>
+<p>OpenGL相关函数</p>
+<div class="highlight"><pre><span></span><code><span class="n">glClear</span><span class="p">(</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span><span class="w"> </span><span class="c1">//深度缓存初始化</span>
+<span class="err">（</span><span class="mi">1</span><span class="err">）在每显示新的一帧前清除</span><span class="w"></span>
+<span class="err">（</span><span class="mi">2</span><span class="err">）设置的默认值为</span><span class="mi">1</span><span class="w"></span>
+<span class="err">（</span><span class="mi">3</span><span class="err">）设置初始值：</span><span class="n">glClearDepth</span><span class="err">（</span><span class="n">maxDepth</span><span class="err">）</span><span class="w"></span>
+<span class="err">（</span><span class="mi">4</span><span class="err">）</span><span class="n">OpenGL允许每个像素的深度范围是0</span><span class="p">.</span><span class="mf">.1</span><span class="err">，最大值为</span><span class="mi">1</span><span class="err">为最远点，前面物体深度值小。</span><span class="w"></span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">);</span><span class="c1">//激活函数(默认为不激活）</span>
+<span class="err">深度测试比较：</span><span class="n">glDepthFunc</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="err">，</span><span class="n">mode取GL_LESS</span><span class="w"> </span><span class="err">时，深度值小（近处）的显示；取</span><span class="n">GL_GREATER</span><span class="w"> </span><span class="err">时，深度值大（远处）的显示。</span><span class="w"></span>
+</code></pre></div>
+</li>
+</ol>
+<p><strong>简单光照模型</strong></p>
+<ol>
+<li>引言</li>
+<li>光作用：反射、透射（透明物体）、被物体吸收转化为热能</li>
+<li>假设：物体不透明，即没有透射光</li>
+<li>
+<p>光种类：环境光、漫反射光和镜面反射光</p>
+</li>
+<li>
+<p>环境光</p>
+</li>
+</ol>
+<p>在物体和周围环境之间多次反射后，最终达到平衡时的一种光，又称为背景光</p>
+<p>光强（度）：空间上分布均匀，即任何位置和方向光强度一样，亮度值记为<span class="arithmatex"><span class="MathJax_Preview">I_a</span><script type="math/tex">I_a</script></span></p>
+<p>反射系数：与物体表面性质有关，决定物体表面呈现的亮度，记为<span class="arithmatex"><span class="MathJax_Preview">K_a</span><script type="math/tex">K_a</script></span></p>
+<p>光照模型方程<span class="arithmatex"><span class="MathJax_Preview">I_e = K_α*I_α</span><script type="math/tex">I_e = K_α*I_α</script></span>，<span class="arithmatex"><span class="MathJax_Preview">I_e</span><script type="math/tex">I_e</script></span>为物体表面呈现的亮度。</p>
+<p>(<span class="arithmatex"><span class="MathJax_Preview">I_a</span><script type="math/tex">I_a</script></span>可以看着是颜色的分量；<span class="arithmatex"><span class="MathJax_Preview">K_a</span><script type="math/tex">K_a</script></span> 为对应的分量反射系数）</p>
+<ol>
+<li>漫反射</li>
+<li>
+<p>点光源：向周围所有方向发射等强度的光。</p>
+</li>
+<li>
+<p>漫反射光是由物体表面的粗糙不平引起的，它均匀地向各个方向传播，与视点位置无关。</p>
+</li>
+<li>
+<p>漫反射光在空间均匀分布，反射光强 I 与入射光的入射角θ 的余弦成正比，即：<span class="arithmatex"><span class="MathJax_Preview">I_d=K_d*I_p*cos \theta</span><script type="math/tex">I_d=K_d*I_p*cos \theta</script></span></p>
+<p>其中，Kd 是漫反射系数（0～1之间的常数），与物体表面性质有关；Ip 是光源的光强；θ是入射光的入射角，即入射光与物体表面法向量之间的夹角。</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210144023.png" alt="image-20211210144022568" style="zoom:80%;" /></p>
+</li>
+<li>
+<p>向量计算</p>
+<p>设物体表面在照射点 P 处的单位法向量为N，P 到点光源的单位向量为L，则上式可表达为如下的向量形式：<span class="arithmatex"><span class="MathJax_Preview">I_d=K_d*I_p*(N\cdot L)</span><script type="math/tex">I_d=K_d*I_p*(N\cdot L)</script></span></p>
+</li>
+<li>
+<p>多个光源</p>
+<p>把各个光源的漫反射光照效果进行叠加：<span class="arithmatex"><span class="MathJax_Preview">I_d=K_d*\sum_{i=1}^mI_{pi}*(N \cdot L_i)</span><script type="math/tex">I_d=K_d*\sum_{i=1}^mI_{pi}*(N \cdot L_i)</script></span></p>
+</li>
+<li>
+<p>漫反射光和环境光相结合</p>
+</li>
+</ol>
+<p><span class="arithmatex"><span class="MathJax_Preview">I=I_e+I_d=I_α I_α+I_p I_d (L∙N)</span><script type="math/tex">I=I_e+I_d=I_α I_α+I_p I_d (L∙N)</script></span></p>
+<ol>
+<li>
+<p>镜面反射光和冯（Phong）反射模型</p>
+</li>
+<li>
+<p>高光（high light）：光滑物体表面在点光源的照射下形成一块特别亮的区域</p>
+</li>
+<li>
+<p>镜面反射（Specular Reflection）</p>
+<p>物体表面对入射光的反射</p>
+<p>遵循反射定律</p>
+<p>（1）反射光与入射光位于表面法向两侧</p>
+<p>（2）理想反射面而言：入射角＝反射角</p>
+<p>观察者在反射方向上看到反射光最强</p>
+</li>
+<li>
+<p>Phong模型</p>
+<p>计算公式：<span class="arithmatex"><span class="MathJax_Preview">I_s=I_p K_s cos ^n \alpha =I_P K_s (N \cdot R) ^n</span><script type="math/tex">I_s=I_p K_s cos ^n \alpha =I_P K_s (N \cdot R) ^n</script></span></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210145233.png" alt="image-20211210145233372" style="zoom: 67%;" /></p>
+<p>Ks是物体表面镜面反射系数，它与物体属性有关；</p>
+<p>α 是视线与反射方向的夹角；</p>
+<p>n 为镜面高光系数，用来模拟镜面反射光在空间中的汇聚程度，它是一个反映物体表面光泽度的常数；</p>
+<p>$cos^n \alpha $近似地描述了镜面反射光的空间分布。</p>
+<p>n越大，高光区域衰减越快，高光区域越小，常规取值 5-20。</p>
+</li>
+<li>
+<p>简化Phong模型</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210145723.png" alt="image-20211210145723103" style="zoom:80%;" /></p>
+</li>
+<li>
+<p>局部光照方程</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">I=I_{\alpha}+I_d+I_s=K_{\alpha}I_{\alpha}+I_p[K_d(N \cdot L)+K_s(H \cdot N) ^n]</span><script type="math/tex">I=I_{\alpha}+I_d+I_s=K_{\alpha}I_{\alpha}+I_p[K_d(N \cdot L)+K_s(H \cdot N) ^n]</script></span></p>
+<p>当光源和视点无穷远时，对表面上任意一点而言，L和V固定不变，H只需计算一次。</p>
+</li>
+<li>
+<p>产生颜色</p>
+</li>
+</ol>
+<p>前面的光照模型仅用于白光，只能产生灰度</p>
+<p>彩色模型计算</p>
+<p>选择合适模型（如RGB、HSV等），为颜色的三个分量分别建立光照方程。</p>
+<p>RGB模型</p>
+<p>光源的颜色<span class="arithmatex"><span class="MathJax_Preview">[I_{pR}, I_{pG}, I_{pB}]</span><script type="math/tex">[I_{pR}, I_{pG}, I_{pB}]</script></span>，环境光的颜色<span class="arithmatex"><span class="MathJax_Preview">[I_{aR}, I_{aG}, I_{aB}]</span><script type="math/tex">[I_{aR}, I_{aG}, I_{aB}]</script></span></p>
+<p>表面反射系数</p>
+<p>（1）环境反射： [KaR, KaG, KaB]</p>
+<p>（2）漫反射：     [KdR, KdG, KdB]</p>
+<p>（3）镜面反射： [KsR, KsG, KsB]</p>
+<p>彩色光照方程（模型） f(d)为光的衰减</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210150444.png" alt="image-20211210150443517" style="zoom:80%;" /></p>
+<ol>
+<li>多个光源</li>
+</ol>
+<p>如果场景中有m个光源，那么物体上任一点的亮度应该为m个光源的贡献之和。</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210150633.png" alt="image-20211210150633747" style="zoom:80%;" /></p>
+<p>在RGB彩色模型中，λ分别为R、G和B。</p>
+<p>​      注意：Iλ可能会超出系统允许的最大亮度值，处理方法</p>
+<p>​     （1）截去超出部分，设置为最大值</p>
+<p>​   （2）首先计算出所有亮度值，再进行变换（如缩放变换）使其落在系统规定范围之内</p>
+<ol>
+<li>OpenGL相关函数</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">glLight</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span><span class="c1">//创建光源</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">glMaterial</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">face</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span><span class="c1">//设置材质</span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">);</span><span class="w"> </span><span class="c1">//开启光源</span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">);</span><span class="w"> </span><span class="c1">//开启光源</span>
+</code></pre></div>
+<p><strong>多边形绘制方法</strong></p>
+<ol>
+<li>
+<p>当绘制多边形时入射光矢量及反射光与视线夹角不同，所以颜色不同。</p>
+</li>
+<li>
+<p>多边形均匀着色</p>
+</li>
+<li>
+<p>方法</p>
+<p>任取多边形上一点，利用光照明方程计算出它的颜色</p>
+<p>用这个颜色填充整个多边形</p>
+</li>
+<li>
+<p>适合于如下情况</p>
+<p>光源在无穷远处，L·N 相等</p>
+<p>视点在无穷远处，H·N 相等</p>
+<p>多边形是物体表面的精确表示（多边形面积足够小）</p>
+</li>
+<li>
+<p>特点</p>
+<p>优点：每个多边形只需计算一次光照明方程，速度快</p>
+<p>缺点：相邻多边形颜色过渡不光滑</p>
+</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210151126.png" alt="image-20211210151126869" style="zoom: 80%;" /></p>
+<ol>
+<li>Gouraud 着色方法（颜色插值方法）</li>
+</ol>
+<p>主要步骤</p>
+<p>（1）计算多边形的单位法向量</p>
+<p>（2）计算多边形顶点的单位法向量（共享顶点的多边形法向量的平均值）</p>
+<p>（3）利用光照明方程计算顶点颜色</p>
+<p>（4）对多边形顶点颜色进行双线性插值，获得多边形内部各点的颜色
+   1. 计算多边形单位法向量</p>
+<div class="codehilite"><pre><span></span><code>  &lt;img src=&quot;https://pic.tim-wcx.ltd//img/20211210151447.png&quot; alt=&quot;image-20211210151447383&quot; style=&quot;zoom:67%;&quot; /&gt;
+</code></pre></div>
+
+<ol>
+<li>
+<p>内部点颜色计算：双线性插值</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210151534.png" alt="image-20211210151534532" style="zoom:80%;" /></p>
+<ol>
+<li>
+<p>增量法优化</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211210151616893.png" alt="image-20211210151616893" style="zoom:80%;" /></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Phong 着色方法（法向插值着色方法）
+   方法：通过对多边形顶点法向量进行插值，获得多边形内    部各点的法向量，再利用光照方程计算各点的亮度</p>
+</li>
+</ol>
+<p>主要步骤：</p>
+<p>（1）计算多边形单位法向量</p>
+<p>（2）计算多边形顶点单位法向量（以上两步同Gouraud着色方法）</p>
+<p>（3）对多边形顶点法向量进行双线性插值，获得内部各点的法向量</p>
+<p>（4）利用光照明方程计算多边形内部各点颜色</p>
+<p>Phong插值优化同高洛德，只是将颜色插值替换为向量插值，扫描线优化同，在此省略，</p>
+<ol>
+<li>
+<p>均匀着色、Gouraud 和Phong方法比较</p>
+<p>（1）均匀着色（Flat）块状现象明显，计算开销小</p>
+<p>（2） Gouraud方法光变化过渡不连续，计算开销较大</p>
+<p>（3）Phong方法光变化过渡连续，计算开销大</p>
+</li>
+</ol>
+<p><strong>纹理映射</strong></p>
+<ol>
+<li>引言</li>
+</ol>
+<p>光照模型只能生成光滑的物体表面</p>
+<p>自然界中的物体表面具有丰富的细节，如木纹、桔子凹凸表面、沙砾路面</p>
+<p>丰富的表面细节难以用计算机图形方法生成</p>
+<p>采用将图片贴到物体表面上的方法绘制</p>
+<ol>
+<li>什么是纹理？</li>
+</ol>
+<p>是物体表面的细小结构，它可以是光滑表面的花纹、图案，即颜色纹理(2D)。</p>
+<p>纹理也可以是物体表面的三维结构</p>
+<p>纹理还可以是粗糙的表面(如桔子表面的皱纹)，称为几何纹理，是基于物体表面的微观几何形状的表面纹理。</p>
+<ol>
+<li>纹理空间：纹理图案所在空间，记为st坐标系（一般是平面）</li>
+</ol>
+<p>纹素（texel）：纹理最小单元，位置由纹理坐标（s，t）标识</p>
+<p>纹理坐标s，t：0到1间取值</p>
+<p>图像像素坐标规范化到[0…1]区间。规范化后方便使用纹理坐标。</p>
+<ol>
+<li>纹理来源</li>
+</ol>
+<p>数字图像，用二维数组表示</p>
+<p>数学公式定义纹理</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210152502.png" alt="image-20211210152502478" style="zoom:67%;" /></p>
+<ol>
+<li>
+<p>纹理映射（Texture Mapping）</p>
+</li>
+<li>
+<p>定义：将纹理图案映射到物体表面上，产生物体表面细节的过程</p>
+</li>
+<li>
+<p>颜色计算方法</p>
+<p>(1) 用表面上点对应的纹素值代替该点的漫反射系数</p>
+<p>(2) 用表面上点对应的纹素值代替该点的颜色值</p>
+</li>
+<li>
+<p>纹理坐标：确定纹理与物体表面的对应关系（纹素与顶点），变化范围[0,1]。多边形每个顶点对应一个纹素，内部点插值计算对应纹素。</p>
+</li>
+<li>
+<p>圆柱曲面纹理映射</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">P(\theta,y)=(r cos \theta,r sin \theta),-\frac{h}{2}\leq y \leq \frac{h}{2}</span><script type="math/tex">P(\theta,y)=(r cos \theta,r sin \theta),-\frac{h}{2}\leq y \leq \frac{h}{2}</script></span></p>
+<p>对应的纹理坐标：<span class="arithmatex"><span class="MathJax_Preview">s=\frac{\theta}{360},t=\frac{y+\frac{h}{2}}{h}</span><script type="math/tex">s=\frac{\theta}{360},t=\frac{y+\frac{h}{2}}{h}</script></span></p>
+</li>
+<li>
+<p>球面曲面纹理映射</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">p(\theta,\phi)=(rcos\theta cos\phi,rsin \phi,rsin\theta cos\phi)</span><script type="math/tex">p(\theta,\phi)=(rcos\theta cos\phi,rsin \phi,rsin\theta cos\phi)</script></span></p>
+<p>θ和φ变化范围分别[0,360]和[-90,90]</p>
+<p>对应的纹理坐标：<span class="arithmatex"><span class="MathJax_Preview">s=\frac{\theta }{360},t=\frac{\phi}{180}+\frac{1}{2}</span><script type="math/tex">s=\frac{\theta }{360},t=\frac{\phi}{180}+\frac{1}{2}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">s=\frac{\theta }{360},t=\frac{sin \phi }{2}+\frac{1}{2}</span><script type="math/tex">s=\frac{\theta }{360},t=\frac{sin \phi }{2}+\frac{1}{2}</script></span></p>
+</li>
+<li>
+<p>圆环面</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210153914.png" alt="image-20211210153912645" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>OpenGL函数</p>
+</li>
+<li>
+<p>简介</p>
+<p>纹理映射是一个相当复杂的过程，最基本的执行纹理映射所需的步骤。基本步骤如下：</p>
+<p>（1）定义纹理；给纹理数据</p>
+<p>（2）控制滤波；重采样方式</p>
+<p>（3）说明映射方式；</p>
+<p>（4）激活纹理；</p>
+<p>（5）绘制图形时需进行纹理映射，即给出顶点的纹理坐标和几何坐标。</p>
+<p>​          注意：纹理映射只能在RGBA方式下执行，不能运用于颜色表方式。 </p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">定义纹理</span><span class="w"></span>
+<span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">uiTexture</span><span class="p">);</span><span class="c1">// GLuint uiTexture</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">glTexImage2D</span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span>
+<span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">border</span><span class="p">,</span><span class="w"></span>
+<span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span><span class="w"></span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="err">绑定图片</span><span class="w"></span>
+<span class="n">gluBuild2DMipmaps</span><span class="w"> </span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span><span class="w"></span>
+<span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="err">控制滤波</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">glTexParameter</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span>
+<span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="err">设置纹理映射方式</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">glTexEnv</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"></span>
+<span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="err">激活纹理</span><span class="w"></span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">);</span><span class="w"></span>
+<span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="err">定义纹理坐标</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">glTexCoord</span><span class="p">{</span><span class="mi">1234</span><span class="p">}{</span><span class="n">sifd</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">TYPE</span><span class="w"> </span><span class="n">coords</span><span class="p">);</span><span class="w"> </span>
+<span class="err">注意：使用多个纹理时，需要在定义点纹理坐标之前，指定所用纹理。</span><span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p><strong>阴影</strong></p>
+<ol>
+<li>阴影（Shadow）</li>
+</ol>
+<p>光源不能直接照射到的区域</p>
+<p>特点</p>
+<p>位于阴影区域中的物体表面被位于它和光源间的物体所遮挡</p>
+<p>对光源而言，位于阴影中的物体表面即是不可见面</p>
+<p>生成算法：与消隐算法本质上一致</p>
+<ol>
+<li>具有阴影效果的光照模型</li>
+</ol>
+<p>光源对位于阴影中的点的亮度（颜色）没有贡献</p>
+<p>（1）多光源（2）颜色分量</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210154802.png" alt="image-20211210154802234" style="zoom:80%;" /></p>
+<ol>
+<li>Z缓冲器阴影算法
+     步骤</li>
+</ol>
+<p>（1）将图形变换到以光源为原点的坐标系，利用Z缓冲器消隐算法，按光线方向对图形消隐，把距光源最近的物体表面上点的深度值保存在Z缓冲器中（称为阴影缓冲器）</p>
+<p>（2）利用Z缓冲器消隐算法按视线方向对图形消隐，将得到的每个可见点变换到第 i 个光源的坐标系中，若它在光源坐标系中的深度值小于阴影缓冲器中相应单元的值，则该可见点位于阴影中（Si＝0），否则（ Si ＝1），再用光照模型计算颜色。</p>
+<p>特点：算法简单，计算量小，能处理复杂景物；</p>
+<p>缺点是每个光源需要1个Z缓冲器，需要的存储空间大</p>
+<p>提高消隐算法效率的常用方法：连贯性、包围盒技术、背面剔除、区域分割技术、物体分层表示等。</p>
+<h3 id="_9">第九章  曲线与曲面<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><strong>参数曲线基础</strong></p>
+<ol>
+<li>曲线的表示形式</li>
+</ol>
+<p>主要有：非参数表示和参数表示</p>
+<ol>
+<li>
+<p>非参数表示</p>
+<p>（1）显式表示</p>
+<p>坐标间建立函数关系</p>
+<p>不能建立多值曲线</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">y=f(x),z=g(x)</span><script type="math/tex">y=f(x),z=g(x)</script></span></p>
+<p>（2）隐式表示</p>
+<p>看做是两曲面的交</p>
+<p>可以建立多值曲线</p>
+<p>坐标计算相对较复杂</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">x^2+y^2=9,z=0</span><script type="math/tex">x^2+y^2=9,z=0</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">f(x,y,z)=0,g(x,y,z)=0</span><script type="math/tex">f(x,y,z)=0,g(x,y,z)=0</script></span></p>
+</li>
+<li>
+<p>参数表示</p>
+<p>参数方程：<span class="arithmatex"><span class="MathJax_Preview">x=x(t),y=y(t),z=z(t),t \in [a,b]</span><script type="math/tex">x=x(t),y=y(t),z=z(t),t \in [a,b]</script></span></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210180135.png" alt="image-20211210180133753" style="zoom: 80%;" /></p>
+</li>
+<li>
+<p>参数表示的优点</p>
+<p>容易确定曲线边界。由参数区间确定</p>
+<p>表示形式不变性。不依赖于坐标系的选取</p>
+<p>表示能力强。利于控制点来控制曲线形状，如后面将要学到的Bezier曲线</p>
+</li>
+<li>
+<p>参数表示的优点</p>
+<p>容易确定曲线边界。由参数区间确定</p>
+<p>表示形式不变性。不依赖于坐标系的选取</p>
+<p>表示能力强。利于控制点来控制曲线形状，如后面将要学到的Bezier曲线</p>
+</li>
+</ol>
+<p><strong>切矢量、法矢量、曲率</strong></p>
+<ol>
+<li>位置矢量</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210181523.png" alt="image-20211210181522078" style="zoom: 67%;" /></p>
+<ol>
+<li>切矢量</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210181733.png" alt="image-20211210181733142" style="zoom: 67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210182126.png" alt="image-20211210182126504" style="zoom:67%;" /></p>
 
               
             </article>
@@ -2269,7 +2963,7 @@ glutSwapBuffers(); //双缓冲必须调用
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a5f8ea78.min.js"></script>
+      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
       
         <script src="../../js/extra.js"></script>
       
