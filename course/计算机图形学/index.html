@@ -1094,6 +1094,8 @@
 <p><strong>定义</strong></p>
 <p>计算机图形学是研究通过计算机将数据转换为图形，并在专门的显示设备上显示的原理、方法和技术的学科。</p>
 <p>计算机图形学就是应用计算机技术进行图形的生成、处理和输出。</p>
+<p>计算机图形学与其他学科的关系</p>
+<p><img alt="image-20211210185332425" src="https://pic.tim-wcx.ltd//img/20211210185332.png" /></p>
 <p><strong>图形的基本要素</strong></p>
 <p>几何要素，刻画对象的轮廓、形状等。如点，线，多边形，多面体等；</p>
 <p>非几何要素，刻画对象的颜色、材质等。如颜色，纹理等。</p>
@@ -1230,12 +1232,10 @@
 <div class="codehilite"><pre><span></span><code> 都是通过单个发光元素（点，像素）来显示图形或文字。
 </code></pre></div>
 
-<ol>
+</li>
 <li>
 <p>不同点</p>
 <p>（1）LCD体积小，厚度薄，重量轻，耗能少，辐射很少。（2）CRT显示亮度高，色彩鲜艳，分辨率高。</p>
-</li>
-</ol>
 </li>
 </ol>
 <p><strong>性能指标</strong></p>
@@ -1250,7 +1250,7 @@
 <p>视频控制器：控制显示设备（有的含图形加速处理器），通过访问帧缓存来刷新屏幕</p>
 <p>显示缓冲存储器（帧缓存）：可以在内存或显示控制器中</p>
 <p><img alt="image-20211206225420561" src="https://pic.tim-wcx.ltd//img/20211206225420.png" /></p>
-<p><img src="https://pic.tim-wcx.ltd//img/20211206225721.png" alt="image-20211206225720957" style="zoom: 67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211206225721.png" alt="image-20211206225720957" style="zoom: 80%;" /></p>
 <ol>
 <li>
 <p>显示系统</p>
@@ -1648,9 +1648,9 @@
 <p>下端点 y 坐标值等于i 的边属于第i类，同类中有多条边时按x从小到大排序（x也一样时按边上端点的x值）</p>
 <p>作用：避免盲目求交；计算第二类交点坐标</p>
 <p><img alt="image-20211208155018492" src="https://pic.tim-wcx.ltd//img/20211208155018.png" /></p>
-<p>ET的结点信息：
-    ymax: 边的上端点的 y 坐标值</p>
-<p>​    x：边的下端点的 x 坐标</p>
+<p>ET的结点信息：</p>
+<p>ymax: 边的上端点的 y 坐标值</p>
+<p>x：边的下端点的 x 坐标</p>
 <p>deltax：边的斜率的倒数</p>
 <p>nextEdge: 下一条边的指针</p>
 <p>当扫描线 y = e + 1 == ymax，说明下一条扫描线与此边不相交。</p>
@@ -2727,7 +2727,7 @@ glutSwapBuffers(); //双缓冲必须调用
 <ol>
 <li>
 <p>增量法优化</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211210151616893.png" alt="image-20211210151616893" style="zoom:80%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210185029.png" alt="image-20211210151616893" style="zoom:80%;" /></p>
 </li>
 </ol>
 </li>
@@ -2901,15 +2901,189 @@ glutSwapBuffers(); //双缓冲必须调用
 </li>
 </ol>
 <p><strong>切矢量、法矢量、曲率</strong></p>
-<ol>
-<li>位置矢量</li>
-</ol>
 <p><img src="https://pic.tim-wcx.ltd//img/20211210181523.png" alt="image-20211210181522078" style="zoom: 67%;" /></p>
-<ol>
-<li>切矢量</li>
-</ol>
 <p><img src="https://pic.tim-wcx.ltd//img/20211210181733.png" alt="image-20211210181733142" style="zoom: 67%;" /></p>
 <p><img src="https://pic.tim-wcx.ltd//img/20211210182126.png" alt="image-20211210182126504" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210210313.png" alt="image-20211210210311486" style="zoom: 50%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210210455.png" alt="image-20211210210455371" style="zoom: 50%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210210558.png" alt="image-20211210210558782" style="zoom: 50%;" /></p>
+<p><strong>参数连续性</strong>
+传统的、严格的连续性
+曲线 P = P(t) 在  t＝t0   处n阶参数连续，如果它在 t0 处n阶左右导数存在，并且满足</p>
+<p><img alt="image-20211210211053205" src="https://pic.tim-wcx.ltd//img/20211210211054.png" /></p>
+<p>记为Cn（曲线n阶参数连续）</p>
+<p><strong>几何连续性</strong>、</p>
+<ol>
+<li>0阶几何连续
+   称曲线P=P( t ) 在 t=t0 处0阶几何连续，如果它在 t0 处位置连续，即</li>
+</ol>
+<p><img alt="image-20211210211126556" src="https://pic.tim-wcx.ltd//img/20211210211126.png" /></p>
+<p>记为：GC0</p>
+<ol>
+<li>1阶几何连续
+   称曲线 P=P(t) 在 t = t0 处1阶几何连续，如果它在 t0处 GC0 ，并且切矢量方向连续，即</li>
+</ol>
+<p><img alt="image-20211210211134748" src="https://pic.tim-wcx.ltd//img/20211210211134.png" /></p>
+<p>记为： GC1</p>
+<p><strong>参数多项式曲线</strong></p>
+<ol>
+<li>n次多项式曲线</li>
+</ol>
+<p><img alt="image-20211210211222199" src="https://pic.tim-wcx.ltd//img/20211210211222.png" /></p>
+<ol>
+<li>矩阵表示</li>
+</ol>
+<p><img alt="image-20211210211301783" src="https://pic.tim-wcx.ltd//img/20211210211301.png" /></p>
+<ol>
+<li>加权和形式</li>
+</ol>
+<p><img alt="image-20211210211316853" src="https://pic.tim-wcx.ltd//img/20211210211316.png" /></p>
+<ol>
+<li>缺点</li>
+</ol>
+<p>Pi  没有明显的几何意义。Pi  与曲线的关系不明确，导致曲线的形状控制困难</p>
+<ol>
+<li>基矩阵表示</li>
+</ol>
+<p>矩阵分解</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">C=G \cdot M</span><script type="math/tex">C=G \cdot M</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">P(t)=G \cdot M \cdot T, t \in [0,1]</span><script type="math/tex">P(t)=G \cdot M \cdot T, t \in [0,1]</script></span></p>
+<p>几何矩阵</p>
+<div class="codehilite"><pre><span></span><code>$G = [G_0.G_1 … G_n]$ 控制顶点 Gi
+</code></pre></div>
+
+<p>基矩阵M：MT 确定了一组基函数</p>
+<p>基矩阵决定了多项式曲线的性质</p>
+<ol>
+<li>绘制方法</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210212033.png" alt="image-20211210212033682" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210212103.png" alt="image-20211210212103557" style="zoom:67%;" /></p>
+<p><strong>Bezier基函数</strong></p>
+<ol>
+<li>定义</li>
+</ol>
+<p><img alt="image-20211210212333587" src="https://pic.tim-wcx.ltd//img/20211210212333.png" /></p>
+<ol>
+<li>性质</li>
+<li>
+<p>正性：<span class="arithmatex"><span class="MathJax_Preview">BEZ_{i,n}(t) \geq 0 ,t \in [0,1]</span><script type="math/tex">BEZ_{i,n}(t) \geq 0 ,t \in [0,1]</script></span></p>
+</li>
+<li>
+<p>权性：<span class="arithmatex"><span class="MathJax_Preview">\sum _{i=0}^n BEZ_{i,n}(t)=1,t \in [0,1 ]</span><script type="math/tex">\sum _{i=0}^n BEZ_{i,n}(t)=1,t \in [0,1 ]</script></span></p>
+</li>
+<li>
+<p>对称性：</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210212740.png" alt="image-20211210212740448" style="zoom:80%;" /></p>
+</li>
+<li>
+<p>降阶公式：</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210212811.png" alt="image-20211210212811857" style="zoom:80%;" /></p>
+</li>
+<li>
+<p>升阶公式</p>
+<p><img alt="image-20211210212841755" src="https://pic.tim-wcx.ltd//img/20211210212841.png" /></p>
+<p><img alt="image-20211210212928038" src="https://pic.tim-wcx.ltd//img/20211210212928.png" /></p>
+</li>
+</ol>
+<p><strong>BEZier曲线</strong></p>
+<ol>
+<li>定义</li>
+</ol>
+<p>如下形式的 n 次多项式称为 n 次 Bezier曲线：</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210213052.png" alt="image-20211210213052459" style="zoom:67%;" /></p>
+<p>控制顶点：Pi（i＝0，1，… ， n）</p>
+<p>控制多边形： P0P1 … Pn，曲线是控制顶点的加权和 （权是基函数的值）</p>
+<ol>
+<li>
+<p>性质</p>
+</li>
+<li>
+<p>端点性质</p>
+<p><img alt="image-20211210213208851" src="https://pic.tim-wcx.ltd//img/20211210213208.png" /></p>
+</li>
+<li>
+<p>端点切矢量</p>
+<p><img alt="image-20211210213219578" src="https://pic.tim-wcx.ltd//img/20211210213219.png" /></p>
+</li>
+<li>
+<p>导数曲线</p>
+<p><img alt="image-20211210213241360" src="https://pic.tim-wcx.ltd//img/20211210213241.png" /></p>
+</li>
+<li>
+<p>n次Bezier曲线 P(t) 的导数曲线 P’(t) 是 n－1次Bezier曲线</p>
+</li>
+<li>
+<p>仿射不变性</p>
+<p>几何性质不随坐标几何变换而变换（形状、曲率等）仿射变换不改变曲线的表示形式。</p>
+<p>对Bezier曲线的几何变换只要作用于控制顶点即可。</p>
+<p><img alt="image-20211210213330003" src="https://pic.tim-wcx.ltd//img/20211210213330.png" /></p>
+</li>
+<li>
+<p>凸包性</p>
+<p>凸集： {Pi}的凸集是指包含这些点的凸多边形</p>
+<p>凸包： {Pi}的凸包是指包含这些点的最小凸集</p>
+<p>Bezier曲线位于其控制顶点的凸包之内</p>
+</li>
+<li>
+<p>平面曲线的保型性</p>
+<p>保凸性：如果多边形是凸的，那么Bezier曲线也是凸的</p>
+<p>变差缩减性：平面内任一直线与Bezier曲线的交点个数不多于该直线与控制多边形的交点个数。说明Bezier曲线比控制多边形的波动小，更光顺</p>
+</li>
+<li>
+<p>拟局部性
+      局部性指移动控一个制顶点时，只影响曲线的局部。</p>
+</li>
+<li>
+<p>移动控制顶点Pi 时，对应参数 t＝i /n 的曲线上的点变动最大，远离 i/n 的曲线上的点变动越来越小</p>
+</li>
+<li>
+<p>一次Bezier曲线</p>
+</li>
+</ol>
+<p>n = 1时，有两个控制点 P0 和 P1 ，Bezier多项式是一次多项式：</p>
+<p><img alt="image-20211210213619482" src="https://pic.tim-wcx.ltd//img/20211210213619.png" /></p>
+<p>一次Bezier曲线是连接起点P0和终点P1的直线段</p>
+<ol>
+<li>二次Bezier曲线</li>
+</ol>
+<p>n=2时，有3个控制点P0、P1和P2，Bezier多项式是二次多项式：</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210213651.png" alt="image-20211210213651318" style="zoom: 80%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210213701.png" alt="image-20211210213701470" style="zoom:80%;" /></p>
+<ol>
+<li>三次Bezier曲线</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210213913.png" alt="image-20211210213912958" style="zoom:67%;" /></p>
+<p><strong>三次Hermite(厄密多)曲线</strong></p>
+<ol>
+<li>给定4个矢量P0, P1, R0, R1 ，称满足下列条件的三次多项式曲线 P(t) 为Hermite 曲线</li>
+</ol>
+<p><img alt="image-20211210215148897" src="https://pic.tim-wcx.ltd//img/20211210215148.png" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210215158.png" alt="image-20211210215158915" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210215334.png" alt="image-20211210215334519" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210215357.png" alt="image-20211210215357468" style="zoom:80%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210215438.png" alt="image-20211210215438272" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210215538.png" alt="image-20211210215538778" style="zoom:80%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210215607.png" alt="image-20211210215607674" style="zoom:67%;" /></p>
+<p><strong>Bezier曲线的离散生成算法</strong></p>
+<ol>
+<li>Horner算法</li>
+</ol>
+<p>只适宜低次Bezier曲线（如三次Bezier曲线）</p>
+<ol>
+<li>de  Casteljau(德 · 卡斯特里奥)算法</li>
+</ol>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210214312.png" alt="image-20211210214312228" style="zoom:80%;" /></p>
+<p>可用Bezier降阶公式证明</p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210220825.png" alt="image-20211210220824688" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210220850.png" alt="image-20211210220850059" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210220904.png" alt="image-20211210220904054" style="zoom:67%;" /></p>
+<p><img src="https://pic.tim-wcx.ltd//img/20211210220911.png" alt="image-20211210220911475" style="zoom:67%;" /></p>
+<p><strong>Bezier曲面</strong></p>
+<p>定义：利用两组正交的 Bezier 曲线逼近由控制点网格描述的曲面</p>
+<p><img alt="image-20211210221059058" src="https://pic.tim-wcx.ltd//img/20211210221059.png" /></p>
+<p>其中 pj, k 是给定的 (m+1)×(n+1) 个控制点的位置</p>
+<p>Bezier 曲面与 Bezier 曲线有相同的性质</p>
 
               
             </article>
