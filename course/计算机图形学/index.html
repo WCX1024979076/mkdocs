@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://github.tim-wcx.ltd/mkdocs/course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cd566b2a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -1660,7 +1660,7 @@
 <p>存放活性边的顺序链表，且按交点 x 的值从小到大排序</p>
 <p>活性边：与当前扫描线相交的边</p>
 <p>边结构定义：与ET表中结点结构相同。</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> 
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ymax</span><span class="p">;</span><span class="w"></span>
 <span class="w">     </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">deltax</span><span class="p">;</span><span class="w"></span>
@@ -1770,7 +1770,7 @@
 
 <span class="c1">//画线</span>
 <span class="n">glBegin中的参数为</span><span class="err">：</span><span class="n">GL_LINES</span><span class="err">、</span><span class="n">GL_LINE_STRIP</span><span class="err">、</span><span class="n">GL_LINE_LOOP</span><span class="w"></span>
-<span class="n">GL_LINES</span><span class="err">：一组直线段；</span><span class="w"> </span><span class="n">GL_LINE_STRIP</span><span class="err">：折线</span><span class="w"> </span><span class="n">GL_LINE_LOOP</span><span class="err">：封闭折线</span><span class="w"></span>
+<span class="n">GL_LINES</span><span class="err">：</span><span class="n">一组直线段</span><span class="err">；</span><span class="w"> </span><span class="n">GL_LINE_STRIP</span><span class="err">：</span><span class="n">折线</span><span class="w"> </span><span class="n">GL_LINE_LOOP</span><span class="err">：</span><span class="n">封闭折线</span><span class="w"></span>
 
 <span class="c1">//线的属性</span>
 <span class="n">glLineWidth</span><span class="err">（</span><span class="n">GLfloat</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="c1">//宽度</span>
@@ -1779,7 +1779,7 @@
 
 <span class="c1">//填充图元函数</span>
 <span class="n">glRect</span><span class="p">[</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">d</span><span class="p">]{</span><span class="n">v</span><span class="p">}()</span><span class="c1">//矩形函数</span>
-<span class="n">glBegin</span><span class="p">()</span><span class="err">中的参数</span><span class="n">GL_POLYGON</span><span class="err">、</span><span class="n">GL_TRIANGLES</span><span class="err">、</span><span class="n">GL_TRIANGLE_STRIP</span><span class="err">、</span><span class="n">GL_TRIANGLE_FAN</span><span class="w"></span>
+<span class="n">glBegin</span><span class="p">()</span><span class="n">中的参数GL_POLYGON</span><span class="err">、</span><span class="n">GL_TRIANGLES</span><span class="err">、</span><span class="n">GL_TRIANGLE_STRIP</span><span class="err">、</span><span class="n">GL_TRIANGLE_FAN</span><span class="w"></span>
 
 <span class="c1">//线框图与填充图</span>
 <span class="n">glPloygonMode</span><span class="p">(</span><span class="n">face</span><span class="err">，</span><span class="n">displayMode</span><span class="p">)</span><span class="w"></span>
@@ -1787,7 +1787,7 @@
 <span class="c1">//displayMode：GL_FILL（填充）和GL_LINE（线框）</span>
 
 <span class="c1">//颜色插值模式</span>
-<span class="err">函数：</span><span class="n">glShadeModel</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="w"></span>
+<span class="n">函数</span><span class="err">：</span><span class="n">glShadeModel</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="w"></span>
 <span class="nl">Mode</span><span class="p">:</span><span class="w"> </span><span class="n">GL_FLAT和GL_SMOOTH</span><span class="w"></span>
 </code></pre></div>
 <p>图元绘制 图元类型</p>
@@ -2497,25 +2497,25 @@ glutSwapBuffers(); //双缓冲必须调用
 
 <span class="c1">//正（平行）投影函数</span>
 <span class="n">glOrtho</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="p">,</span><span class="w"> </span><span class="n">ymin</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span><span class="w"></span>
-<span class="err">或</span><span class="w">  </span><span class="n">glOrtho</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span><span class="w"></span>
-<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">形成视见体</span><span class="w"></span>
+<span class="n">或</span><span class="w">  </span><span class="n">glOrtho</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">形成视见体</span><span class="w"></span>
 <span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">near和far为从观察坐标系原点沿负Z轴方向的距离</span><span class="w"></span>
-<span class="err">默认参数：</span><span class="n">glOrtho</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="err">是一对称规范化对称正方体</span><span class="w"></span>
-<span class="err">对二维而言，</span><span class="w"> </span><span class="n">glOrtho2D建立裁剪窗口</span><span class="w"></span>
-<span class="err">如不指定投影函数，默认正投影来显示场景</span><span class="w"></span>
+<span class="n">默认参数</span><span class="err">：</span><span class="n">glOrtho</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="n">是一对称规范化对称正方体</span><span class="w"></span>
+<span class="n">对二维而言</span><span class="err">，</span><span class="w"> </span><span class="n">glOrtho2D建立裁剪窗口</span><span class="w"></span>
+<span class="n">如不指定投影函数</span><span class="err">，</span><span class="n">默认正投影来显示场景</span><span class="w"></span>
 
 <span class="c1">//透视投影函数定义视见体   </span>
 <span class="n">glFrustum</span><span class="p">(</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span><span class="w"></span>
-<span class="err">定义视见体</span><span class="w"></span>
-<span class="w"> </span><span class="err">前四个参数设定投影平面上</span><span class="w"></span>
-<span class="err">裁剪窗口的坐标</span><span class="w"></span>
+<span class="n">定义视见体</span><span class="w"></span>
+<span class="w"> </span><span class="n">前四个参数设定投影平面上</span><span class="w"></span>
+<span class="n">裁剪窗口的坐标</span><span class="w"></span>
 <span class="err">（</span><span class="n">OpenGL投影平面为近裁剪面</span><span class="err">）</span><span class="w"></span>
 
 <span class="n">gluPerspective</span><span class="err">（</span><span class="n">fovy</span><span class="err">，</span><span class="n">aspect</span><span class="err">，</span><span class="n">near</span><span class="err">，</span><span class="n">far</span><span class="err">）</span><span class="w"></span>
-<span class="n">fovy</span><span class="err">：上下裁剪面间的夹角（</span><span class="mi">0</span><span class="err">～</span><span class="mi">180</span><span class="err">）</span><span class="w"></span>
-<span class="n">aspect</span><span class="err">：裁剪窗口纵横比（宽度</span><span class="o">/</span><span class="err">高度）</span><span class="w"></span>
-<span class="n">near</span><span class="err">：近裁剪面</span><span class="w"></span>
-<span class="n">far</span><span class="err">：远剪面</span><span class="w"></span>
+<span class="n">fovy</span><span class="err">：</span><span class="n">上下裁剪面间的夹角</span><span class="err">（</span><span class="mi">0</span><span class="err">～</span><span class="mi">180</span><span class="err">）</span><span class="w"></span>
+<span class="n">aspect</span><span class="err">：</span><span class="n">裁剪窗口纵横比</span><span class="err">（</span><span class="n">宽度</span><span class="o">/</span><span class="n">高度</span><span class="err">）</span><span class="w"></span>
+<span class="n">near</span><span class="err">：</span><span class="n">近裁剪面</span><span class="w"></span>
+<span class="n">far</span><span class="err">：</span><span class="n">远剪面</span><span class="w"></span>
 </code></pre></div>
 <h3 id="_8">第八章   真实感图形生成<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p><strong>消隐技术</strong></p>
@@ -2564,12 +2564,12 @@ glutSwapBuffers(); //双缓冲必须调用
 <li>
 <p>OpenGL相关函数</p>
 <div class="highlight"><pre><span></span><code><span class="n">glClear</span><span class="p">(</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span><span class="w"> </span><span class="c1">//深度缓存初始化</span>
-<span class="err">（</span><span class="mi">1</span><span class="err">）在每显示新的一帧前清除</span><span class="w"></span>
-<span class="err">（</span><span class="mi">2</span><span class="err">）设置的默认值为</span><span class="mi">1</span><span class="w"></span>
-<span class="err">（</span><span class="mi">3</span><span class="err">）设置初始值：</span><span class="n">glClearDepth</span><span class="err">（</span><span class="n">maxDepth</span><span class="err">）</span><span class="w"></span>
-<span class="err">（</span><span class="mi">4</span><span class="err">）</span><span class="n">OpenGL允许每个像素的深度范围是0</span><span class="p">.</span><span class="mf">.1</span><span class="err">，最大值为</span><span class="mi">1</span><span class="err">为最远点，前面物体深度值小。</span><span class="w"></span>
+<span class="err">（</span><span class="mi">1</span><span class="err">）</span><span class="n">在每显示新的一帧前清除</span><span class="w"></span>
+<span class="err">（</span><span class="mi">2</span><span class="err">）</span><span class="n">设置的默认值为1</span><span class="w"></span>
+<span class="err">（</span><span class="mi">3</span><span class="err">）</span><span class="n">设置初始值</span><span class="err">：</span><span class="n">glClearDepth</span><span class="err">（</span><span class="n">maxDepth</span><span class="err">）</span><span class="w"></span>
+<span class="err">（</span><span class="mi">4</span><span class="err">）</span><span class="n">OpenGL允许每个像素的深度范围是0</span><span class="p">.</span><span class="mf">.1</span><span class="err">，</span><span class="n">最大值为1为最远点</span><span class="err">，</span><span class="n">前面物体深度值小</span><span class="err">。</span><span class="w"></span>
 <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">);</span><span class="c1">//激活函数(默认为不激活）</span>
-<span class="err">深度测试比较：</span><span class="n">glDepthFunc</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="err">，</span><span class="n">mode取GL_LESS</span><span class="w"> </span><span class="err">时，深度值小（近处）的显示；取</span><span class="n">GL_GREATER</span><span class="w"> </span><span class="err">时，深度值大（远处）的显示。</span><span class="w"></span>
+<span class="n">深度测试比较</span><span class="err">：</span><span class="n">glDepthFunc</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="err">，</span><span class="n">mode取GL_LESS</span><span class="w"> </span><span class="n">时</span><span class="err">，</span><span class="n">深度值小</span><span class="err">（</span><span class="n">近处</span><span class="err">）</span><span class="n">的显示</span><span class="err">；</span><span class="n">取GL_GREATER</span><span class="w"> </span><span class="n">时</span><span class="err">，</span><span class="n">深度值大</span><span class="err">（</span><span class="n">远处</span><span class="err">）</span><span class="n">的显示</span><span class="err">。</span><span class="w"></span>
 </code></pre></div>
 </li>
 </ol>
@@ -2821,22 +2821,22 @@ glutSwapBuffers(); //双缓冲必须调用
 <p>​          注意：纹理映射只能在RGBA方式下执行，不能运用于颜色表方式。 </p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">定义纹理</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">定义纹理</span><span class="w"></span>
 <span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">uiTexture</span><span class="p">);</span><span class="c1">// GLuint uiTexture</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">glTexImage2D</span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span>
 <span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">border</span><span class="p">,</span><span class="w"></span>
 <span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span><span class="w"></span>
-<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="err">绑定图片</span><span class="w"></span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">绑定图片</span><span class="w"></span>
 <span class="n">gluBuild2DMipmaps</span><span class="w"> </span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span><span class="w"></span>
-<span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="err">控制滤波</span><span class="w"></span>
+<span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="n">控制滤波</span><span class="w"></span>
 <span class="kt">void</span><span class="w"> </span><span class="n">glTexParameter</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span>
-<span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="err">设置纹理映射方式</span><span class="w"></span>
+<span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="n">设置纹理映射方式</span><span class="w"></span>
 <span class="kt">void</span><span class="w"> </span><span class="n">glTexEnv</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"></span>
-<span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="err">激活纹理</span><span class="w"></span>
+<span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="n">激活纹理</span><span class="w"></span>
 <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">);</span><span class="w"></span>
-<span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="err">定义纹理坐标</span><span class="w"></span>
+<span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="n">定义纹理坐标</span><span class="w"></span>
 <span class="kt">void</span><span class="w"> </span><span class="n">glTexCoord</span><span class="p">{</span><span class="mi">1234</span><span class="p">}{</span><span class="n">sifd</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">TYPE</span><span class="w"> </span><span class="n">coords</span><span class="p">);</span><span class="w"> </span>
-<span class="err">注意：使用多个纹理时，需要在定义点纹理坐标之前，指定所用纹理。</span><span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"></span>
+<span class="n">注意</span><span class="err">：</span><span class="n">使用多个纹理时</span><span class="err">，</span><span class="n">需要在定义点纹理坐标之前</span><span class="err">，</span><span class="n">指定所用纹理</span><span class="err">。</span><span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <p><strong>阴影</strong></p>
 <ol>
@@ -3134,10 +3134,10 @@ glutSwapBuffers(); //双缓冲必须调用
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
+      <script src="../../assets/javascripts/bundle.01de222e.min.js"></script>
       
         <script src="../../js/extra.js"></script>
       
