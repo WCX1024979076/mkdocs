@@ -1859,7 +1859,7 @@
 <p><img alt="P0口结构" src="https://img.tim-wcx.ltd/i/2022/06/07/629f3b307d160.png" /></p>
 <p><img alt="P1口结构" src="https://img.tim-wcx.ltd/i/2022/06/07/629f3b418eafb.png" /></p>
 <h4 id="51_1">51子系列单片机的存储器配置<a class="headerlink" href="#51_1" title="Permanent link">&para;</a></h4>
-<p>8051存储器地址空间：</p>
+<p>1、8051存储器地址空间</p>
 <ol>
 <li>
 <p>片内、片外统一编址的程序存贮器ROM：64KB，地址：0000～0FFFFH；</p>
@@ -1877,7 +1877,7 @@
 <p>MOV指令访问</p>
 </li>
 </ol>
-<p>ROM芯片</p>
+<p>2、ROM芯片</p>
 <p>用途： 用于存放编好的程序和表格常数。</p>
 <table>
 <thead>
@@ -1925,9 +1925,610 @@
 </tr>
 </tbody>
 </table>
-<p>RAM芯片</p>
+<p>3、RAM芯片</p>
 <p>用途：用于存放运算的中间结果、数据暂存和缓冲、标志位等。</p>
 <p>分类：片内RAM： 256字节；地址从0000～00FFH；片外RAM： 64K字节；地址从0000～FFFFH。</p>
+<p>片内RAM：高128单元80H~0FFH SFR</p>
+<p>​                   低128单元00H~7FH 真正的RAM</p>
+<p><img alt="内部RAM" src="https://img.tim-wcx.ltd/i/2022/06/08/62a01f2d26aa5.png" /></p>
+<p>3.1 低128单元：</p>
+<p>1）存储器区：四组寄存器，每组8个寄存单元（8位），各组都以R0、R1、R2、R3、R4、R5、R6、R7作寄存单元编号。寄存器常用于存放操作数及中间结果等，由于它们的功能及使用不作预先规定因此称之为通用寄存器，有时也叫工作寄存器、四组通用寄存器占据内部RAM的00H～1FH单元地址。</p>
+<p>在任一时刻，CPU只能使用其中的一组寄存器，并且把正在使用的那组寄存器称之为当前寄存器组。到底是那一组由程序状态字寄存器PSW中RS0、RS1位的状态组合来决定。</p>
+<p>R0～R7寄存器与内部RAM的地址对应</p>
+<table>
+<thead>
+<tr>
+<th>通用寄存器  名称</th>
+<th>地  址</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第0组</td>
+<td>第1组</td>
+<td>第2组</td>
+<td>第3组</td>
+<td></td>
+</tr>
+<tr>
+<td>R0</td>
+<td>00H</td>
+<td>08H</td>
+<td>10H</td>
+<td>18H</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>01H</td>
+<td>09H</td>
+<td>11H</td>
+<td>19H</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>02H</td>
+<td>0AH</td>
+<td>12H</td>
+<td>1AH</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>03H</td>
+<td>0BH</td>
+<td>13H</td>
+<td>1BH</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>04H</td>
+<td>0CH</td>
+<td>14H</td>
+<td>1CH</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>05H</td>
+<td>0DH</td>
+<td>15H</td>
+<td>1DH</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>06H</td>
+<td>0EH</td>
+<td>16H</td>
+<td>1EH</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>07H</td>
+<td>0FH</td>
+<td>17H</td>
+<td>1FH</td>
+</tr>
+</tbody>
+</table>
+<p>2） 位寻址区：</p>
+<p>地址：20H～2FH单元，共128位。</p>
+<p>位地址：00H～7FH。</p>
+<p>性质：既可作为一般RAM单元使用进行字节操作，也可以对单元中的每一位进行位操作，因此把该区称之为位寻址区。</p>
+<p>3） 用户RAM区：</p>
+<p>单元地址为30H～7FH，主要的数据缓冲区。</p>
+<p>把堆栈开辟在此区。</p>
+<p>3.2 高128单元：</p>
+<p>特殊功能寄存器区、专用寄存器区 简称SFR。</p>
+<p>单元地址：80H～FFH。</p>
+<p>（1）累加器A或ACC（Accumulator）<mark>0E0H</mark></p>
+<p>8位寄存器，是最常用的专用寄存器</p>
+<p>大部分单操作数指令的操作数就取自ACC，许多双操作数指令中的一个操作数也取自累加器。</p>
+<p>（2） B寄存器 <mark>0F0H</mark></p>
+<p>8位寄存器，主要用于乘除运算。如 MUL   AB</p>
+<p>B寄存器也可作为一般数据寄存器使用。如MOV  B, #20H</p>
+<p>（3） 数据指针（DPTR）16位寄存器</p>
+<p>MCS-51中唯一的一个16位寄存器。</p>
+<p>DPH：DPTR高位字节 <mark>83H</mark></p>
+<p>DPL：DPTR低位字节 <mark>82H</mark></p>
+<p>作用：通常在访问外部RAM时作地址指针使用, 由于外部数据存储器的寻址范围64KB。</p>
+<p>DPTR既可按16位寄存器使用，也可以按两个8位寄存器分开使用。如： </p>
+<p>MOV   DPTR， #1234H  &lt;==&gt; MOV    DPH， #12H；MOV   DPL，  #34H</p>
+<p>（4）程序计数器PC（Program Counter）</p>
+<p>PC：16位的计数器。</p>
+<p>其内容为将要执行的指令地址，寻址范围达64KB。  </p>
+<p>有自动加 1功能，从而实现程序的顺序执行、 但PC没有地址，是不可寻址的、因此无法对它进行读写。但可以通过转移、调用、返回等指令改变其内容，以实现程序的转移。</p>
+<p>（5）I/O端口P0～P3==（80H，90H，A0H，B0H）==</p>
+<p>P0～P3为四个8位特殊功能寄存器，分别是四个并行I/O端口的锁存器。它们都有字节地址，每一个口锁存器还有位地址，所以当每一条I/O线独立地用作输入或输出时，数据可以锁存；作输入时，数据可以缓冲。</p>
+<p>当I/O端口某一位用于输入信号时，对应的锁存器必须先置“1”。RST初始化为FFH</p>
+<p>（6）程序状态字PSW（Program Status Word） <mark>0D0H</mark></p>
+<p>8位寄存器，用于寄存程序运行的状态信息。</p>
+<p>其中：有些位状态是根据程序执行结果，由硬件自动设置的而有些位状态则使用软件方法设定．</p>
+<table>
+<thead>
+<tr>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th align="center">D3</th>
+<th>D2</th>
+<th>D1</th>
+<th>D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CY</td>
+<td>AC</td>
+<td>F0</td>
+<td>RS1</td>
+<td align="center">RS0</td>
+<td>OV</td>
+<td>...</td>
+<td>P</td>
+</tr>
+<tr>
+<td>进位标志位</td>
+<td>辅助进位标志位</td>
+<td>用户标志位</td>
+<td>寄存器组选择位</td>
+<td align="center">寄存器组选择位</td>
+<td>溢出标志位</td>
+<td>外部中断0请求中断标志位</td>
+<td>奇偶标志位</td>
+</tr>
+<tr>
+<td>有进位/借位，CY=1，否则，CY=0</td>
+<td>低4位向高4位的进位或借位。有AC=1，否则AC=0。</td>
+<td>需要时用软件方法置位或复位，用以控制程序的转向。</td>
+<td></td>
+<td align="center"></td>
+<td>8位带符号数字加减运算结果是否超出运算范围。8位有符号数字表示的范围：－128～＋127。OV＝0，运算正确，即无溢出产生。在乘法运算中，OV＝1，表示乘积超过255；在除法运算中，OV＝1，表示除数为0，除法不能进行。</td>
+<td>IE1=1，INT0有中断产生(硬件控制)</td>
+<td>表明累加器A中1个个数的奇偶性，奇1偶0（串行输入输出的第9位）</td>
+</tr>
+</tbody>
+</table>
+<p>（7）PCON 电源控制  <mark>87H</mark></p>
+<table>
+<thead>
+<tr>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th>D3</th>
+<th>D2</th>
+<th>D1</th>
+<th align="center">D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMOD</td>
+<td>(SMOD0)</td>
+<td>(LVDF)</td>
+<td>(P0F)</td>
+<td>GF1</td>
+<td>GF0</td>
+<td>PD</td>
+<td align="center">IDL</td>
+</tr>
+<tr>
+<td>与串口通信有关</td>
+<td>单片机特有</td>
+<td>单片机特有</td>
+<td>单片机特有</td>
+<td>通用工作标志位，用户可以自由使用。</td>
+<td>通用工作标志位，用户可以自由使用。</td>
+<td>掉电模式设定位。</td>
+<td align="center">空闲模式设定位。</td>
+</tr>
+<tr>
+<td>SMOD=0; 串口方式1，2，3时，波特率正常。SMOD=1; 串口方式1，2，3时，波特率加倍。</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+<td>PD=0 单片机处于正常工作状态。PD=1 单片机进入掉电(Power Down)模式，可由外部中断或硬件复位模式唤醒，进入掉电模式后，外部晶振停振，CPU、定时器、串行口全部停止工作，只有外部中断工作。</td>
+<td align="center">IDL=0 单片机处于正常工作状态。IDL=1 单片机进入空闲(Idle)模式，除CPU不工作外，其余仍继续工作，在空闲模式下可由任一个中断或硬件复位唤醒。</td>
+</tr>
+</tbody>
+</table>
+<p>（7）TCON 时钟控制  <mark>88H</mark></p>
+<table>
+<thead>
+<tr>
+<th>D7</th>
+<th>D6</th>
+<th align="center">D5</th>
+<th>D4</th>
+<th>D3</th>
+<th>D2</th>
+<th>D1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TF1</td>
+<td>TR1</td>
+<td align="center">TF0</td>
+<td>TR0</td>
+<td>IE1</td>
+<td>IT1</td>
+<td>IE0</td>
+</tr>
+<tr>
+<td>T1溢出标志位</td>
+<td>定时计数器1控制位</td>
+<td align="center">T0溢出标志位</td>
+<td>定时计数器0控制位</td>
+<td>外部中断INT1请求中断标志位</td>
+<td>外部中断INT1触发方式控制位</td>
+<td>外部中断0请求中断标志位</td>
+</tr>
+<tr>
+<td>TF1=1表示T1有中断产生（硬件控制）</td>
+<td>TR1=1表示T1开始运行</td>
+<td align="center">TF0=1表示T0有中断产生（硬件控制）</td>
+<td>TR0=1表示T0开始运行</td>
+<td>IE1=1，INT1有中断产生（硬件控制）</td>
+<td>IT1=1时，INT1为跳变沿触发方式</td>
+<td>IE1=1，INT0有中断产生(硬件控制)</td>
+</tr>
+</tbody>
+</table>
+<p>（8）定时器TMOD  <mark>89H</mark></p>
+<table>
+<thead>
+<tr>
+<th>定时器1</th>
+<th></th>
+<th align="center"></th>
+<th></th>
+<th>定时器0</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>6</td>
+<td align="center"><em>5</em></td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>GATE</td>
+<td>C/T</td>
+<td align="center">M1</td>
+<td>M0</td>
+<td>GATE</td>
+<td>C/T</td>
+<td>M1</td>
+<td>M0</td>
+</tr>
+<tr>
+<td>门控制</td>
+<td>C/T=0，定时器模式。C/T=1，计数器模式。</td>
+<td align="center">用来选择定时计/计数器的工作方式</td>
+<td>用来选择定时计/计数器的工作方式</td>
+<td>门控制</td>
+<td>C/T=0，定时器模式。C/T=1，计数器模式。</td>
+<td>用来选择定时计/计数器的工作方式</td>
+<td>用来选择定时计/计数器的工作方式</td>
+</tr>
+</tbody>
+</table>
+<p>（9）总中断允许IE  <mark>0A8H</mark></p>
+<table>
+<thead>
+<tr>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th align="center">D3</th>
+<th>D2</th>
+<th>D1</th>
+<th>D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EA</td>
+<td>-</td>
+<td>-</td>
+<td>ES</td>
+<td align="center">ET1</td>
+<td>EX1</td>
+<td>ET0</td>
+<td>EX0</td>
+</tr>
+<tr>
+<td>总允许位</td>
+<td></td>
+<td></td>
+<td>串行口中断允许位</td>
+<td align="center">定时器T1溢出中断允许位</td>
+<td>外部中断1允许位</td>
+<td>定时器T0溢出中断允许位</td>
+<td>外部中断 INT0允许位</td>
+</tr>
+<tr>
+<td>EA=1，CPU开放中断</td>
+<td></td>
+<td></td>
+<td>ES=1，允许串行口中断</td>
+<td align="center">ET1=1，允许T1中断</td>
+<td>EX1=1，允许外部中断1中断</td>
+<td>ET0=1，允许T0中断</td>
+<td>EX0=1，允许外部中断0中断</td>
+</tr>
+</tbody>
+</table>
+<p>（9）串行控制位SCON <mark>98H</mark></p>
+<table>
+<thead>
+<tr>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th align="center">D3</th>
+<th>D2</th>
+<th>D1</th>
+<th>D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SM0</td>
+<td>SM1</td>
+<td>SM2</td>
+<td>REN</td>
+<td align="center">TB8</td>
+<td>RB8</td>
+<td>T1</td>
+<td>R1</td>
+</tr>
+<tr>
+<td>工作方式选择位</td>
+<td>工作方式选择位</td>
+<td>多机通信控制位，主要用于方式2和方式3。</td>
+<td>允许串行接收位。</td>
+<td align="center">在方式2或方式3中，是发送数据的第九位，可以用软件规定其作用。</td>
+<td>在方式2或方式3中，是接收到数据的第九位，作为奇偶校验位或地址帧/数据帧的标志位。在方式1时，若SM2=0，则RB8是接收到的停止位。</td>
+<td>串行口发送中断请求标志位</td>
+<td>串行口接收中断请求标志位</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td align="center"></td>
+<td></td>
+<td>当发送完一帧串行数据后，由硬件置1，在转向中断服务程序后，用软件清0。</td>
+<td>当接收完一帧串行数据后，由硬件置1；在转向中断服务程序后，用软件清0。</td>
+</tr>
+</tbody>
+</table>
+<p>（10）定时器/计数器/串行数据</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>地址</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TH1</strong></td>
+<td>8DH</td>
+<td>定时器/计数器1（高8位）</td>
+</tr>
+<tr>
+<td><strong>TH0</strong></td>
+<td>8CH</td>
+<td>定时器/计数器1（低8位）</td>
+</tr>
+<tr>
+<td><strong>TL1</strong></td>
+<td>8BH</td>
+<td>定时器/计数器0（高8位）</td>
+</tr>
+<tr>
+<td><strong>TL0</strong></td>
+<td>8AH</td>
+<td>定时器/计数器0（低8位）</td>
+</tr>
+<tr>
+<td><strong>SBUF</strong></td>
+<td>99H</td>
+<td>串行口锁存器（两个，写和读）</td>
+</tr>
+</tbody>
+</table>
+<p>（11）中断优先级控制寄存器IP <mark>0B8H</mark></p>
+<table>
+<thead>
+<tr>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th align="center">D3</th>
+<th>D2</th>
+<th>D1</th>
+<th>D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+<td>PS</td>
+<td align="center">PT1</td>
+<td>PX1</td>
+<td>PT0</td>
+<td>PX0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>串行中断优先级设定位</td>
+<td align="center">定时中断1优先级设定位</td>
+<td>外部中断l优先级设定位</td>
+<td>定时中断0优先级设定位</td>
+<td>外部中断0优先级设定位</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>X =0,  优先级为低；X=1, 优先级为高。</td>
+<td align="center">X =0,  优先级为低；X=1, 优先级为高。</td>
+<td>X =0,  优先级为低；X=1, 优先级为高。</td>
+<td>X =0,  优先级为低；X=1, 优先级为高。</td>
+<td>X =0,  优先级为低；X=1, 优先级为高。</td>
+</tr>
+</tbody>
+</table>
+<p>（12）堆栈指针SP <mark>81H</mark></p>
+<p>堆栈：只允许在其一端进行数据插入和数据删除操作的线性表。RST初始化为07H。</p>
+<p>（13）汇总</p>
+<table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>地址</strong></th>
+<th><strong>功能介绍</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B</strong></td>
+<td>F0H</td>
+<td>B寄存器</td>
+</tr>
+<tr>
+<td><strong>ACC</strong></td>
+<td>E0H</td>
+<td>累加器</td>
+</tr>
+<tr>
+<td><strong>PSW</strong></td>
+<td>D0H</td>
+<td>程序状态字</td>
+</tr>
+<tr>
+<td><strong>IP</strong></td>
+<td>B8H</td>
+<td>中断优先级控制寄存器</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td>B0H</td>
+<td>P3口锁存器</td>
+</tr>
+<tr>
+<td><strong>IE</strong></td>
+<td>A8H</td>
+<td>中断允许控制寄存器</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>A0H</td>
+<td>P2口锁存器</td>
+</tr>
+<tr>
+<td><strong>SBUF</strong></td>
+<td>99H</td>
+<td>串行口锁存器</td>
+</tr>
+<tr>
+<td><strong>SCON</strong></td>
+<td>98H</td>
+<td>串行口控制寄存器</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>90H</td>
+<td>P1口锁存器</td>
+</tr>
+<tr>
+<td><strong>TH1</strong></td>
+<td>8DH</td>
+<td>定时器/计数器1（高8位）</td>
+</tr>
+<tr>
+<td><strong>TH0</strong></td>
+<td>8CH</td>
+<td>定时器/计数器1（低8位）</td>
+</tr>
+<tr>
+<td><strong>TL1</strong></td>
+<td>8BH</td>
+<td>定时器/计数器0（高8位）</td>
+</tr>
+<tr>
+<td><strong>TL0</strong></td>
+<td>8AH</td>
+<td>定时器/计数器0（低8位）</td>
+</tr>
+<tr>
+<td><strong>TMOD</strong></td>
+<td>89H</td>
+<td>定时器/计数器方式控制寄存器</td>
+</tr>
+<tr>
+<td><strong>TCON</strong></td>
+<td>88H</td>
+<td>定时器/计数器控制寄存器</td>
+</tr>
+<tr>
+<td><strong>DPH</strong></td>
+<td>83H</td>
+<td>数据地址指针（高8位）</td>
+</tr>
+<tr>
+<td><strong>DPL</strong></td>
+<td>82H</td>
+<td>数据地址指针（低8位）</td>
+</tr>
+<tr>
+<td><strong>SP</strong></td>
+<td>81H</td>
+<td>堆栈指针</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td>80H</td>
+<td>P0口锁存器</td>
+</tr>
+<tr>
+<td><strong>PCON</strong></td>
+<td>87H</td>
+<td>电源控制寄存器</td>
+</tr>
+<tr>
+<td>&gt; 注：SFR可以位寻址的要求为地址以0或8结尾。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
               
             </article>
