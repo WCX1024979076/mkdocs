@@ -1042,6 +1042,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    并行输入/输出端口结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    时钟电路与CPU时序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    复位电路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1816,6 +1844,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    并行输入/输出端口结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    时钟电路与CPU时序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    复位电路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1852,12 +1908,10 @@
 <p>​   T1：定时器/计数器1计数输入线</p>
 <p>​   WE：外部RAM写信号</p>
 <p>​   RD：外部RAM读信号</p>
-<p>​   P0：地址/数据总线，准双向IO</p>
-<p>​   P1：准双向IO</p>
-<p>​   P2：地址总线，准双向IO</p>
-<p>​   P3：控制总线，准双向IO</p>
-<p><img alt="P0口结构" src="https://img.tim-wcx.ltd/i/2022/06/07/629f3b307d160.png" /></p>
-<p><img alt="P1口结构" src="https://img.tim-wcx.ltd/i/2022/06/07/629f3b418eafb.png" /></p>
+<p>​   P0：地址/数据总线，<strong>准双向IO</strong></p>
+<p>​   P1：<strong>准双向IO</strong></p>
+<p>​   P2：地址总线，<strong>准双向IO</strong></p>
+<p>​   P3：控制总线，<strong>准双向IO</strong></p>
 <h4 id="51_1">51子系列单片机的存储器配置<a class="headerlink" href="#51_1" title="Permanent link">&para;</a></h4>
 <p>1、8051存储器地址空间</p>
 <ol>
@@ -2407,6 +2461,20 @@
 </table>
 <p>（12）堆栈指针SP <mark>81H</mark></p>
 <p>堆栈：只允许在其一端进行数据插入和数据删除操作的线性表。RST初始化为07H。</p>
+<p>堆栈是为子程序调用和中断操作而设立的。</p>
+<p>堆栈的功能：保护断点和保护现场，保护断点：  PC，保护现场：寄存器中的内容。</p>
+<p>传送数据方式：入栈：PUSH 出栈：POP。堆栈操作的最大特点：“后进先出”。</p>
+<p>堆栈要求：具有足够的容量（或者说足够的堆栈深度）。</p>
+<p>堆栈开辟：</p>
+<p>1）外堆栈：在主存储器中开辟堆栈．例如8080，Z80等早期的微型机。主要优点是堆栈容量大。但外堆栈的操作速度较慢。</p>
+<p>2）内堆栈：在CPU芯片内部存储器中开辟。MCS－51的堆栈就是开辟在内部RAM中。
+点是操作速度快，但堆栈容量有限。</p>
+<p>堆栈使用方式：</p>
+<p>1)：自动方式：（保护断点） </p>
+<p>在调用子程序或中断时，返回地址（断点）自动进栈。程序返回时，断点再自动弹回PC.</p>
+<p>操作的特点：堆栈操作无需用户干预--  自动方式。</p>
+<p>2)：指令方式（保护现场）</p>
+<p>进栈指令:  PUSH出栈指令:  POP。</p>
 <p>（13）汇总</p>
 <table>
 <thead>
@@ -2529,6 +2597,136 @@
 </tr>
 </tbody>
 </table>
+<h4 id="_2">并行输入/输出端口结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>1、P0口</p>
+<p>I/O口应用时：“控制”=0；数据/地址时：“控制”=1。</p>
+<p>用作输入口时，需先给P0.x口输出高电平。MOV  P0， #0FFH</p>
+<p><img alt="P0口结构" src="https://img.tim-wcx.ltd/i/2022/06/07/629f3b307d160.png" /></p>
+<p>2、P1口</p>
+<p>当用作输入时，必须先输出1；P1口为准双向口；外接电路一般采用共阳极。</p>
+<p><img alt="P1口结构" src="https://img.tim-wcx.ltd/i/2022/06/07/629f3b418eafb.png" /></p>
+<h4 id="cpu">时钟电路与CPU时序<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h4>
+<p>时钟电路：用于产生单片机工作所需要的时钟信号；</p>
+<p>时序：指令执行中各信号之间的相互关系。</p>
+<p>1、时钟电路
+(1) 内部时钟方式</p>
+<p>​   芯片内部的高增益反向放大器和在引脚XTAL1和XTAL2两端跨接晶体振荡器和微调电容，就构成了一个稳定的自激振荡器，其发出的脉冲直接输入单片机的内部时钟电路。</p>
+<p>(2)  外部时钟方式</p>
+<p>​   HMOS和CHMOS型单片机的外部时钟电路</p>
+<p>​   HMOS XTAL2--OUT时钟源 XTAL1---地</p>
+<p>​   CHMOS XTAL2--悬空 XTAL1--OUT时钟源</p>
+<p>2、CPU时序</p>
+<p>MCS-51的时序定时单位共有4个，从小到大依次是：拍节，状态、机器周期、指令周期。</p>
+<p>(1) 拍节与状态</p>
+<p>拍节（P）：振荡脉冲的周期，又称振荡周期。</p>
+<p>状态（S）:  时钟信号的周期，又称时钟周期。</p>
+<p>关系：振荡频率＝2倍时钟频率</p>
+<p>​            时钟周期＝2倍振荡周期，</p>
+<p>即  1S=2P（拍节1（P1），拍节2（P2））。</p>
+<p>(2) 机器周期</p>
+<p>机器周期: 指CPU访问存储器一次所需要的时间。例如取指令，读存储器、写存储器等。</p>
+<p>MCS-51的一个机器周期包括12个振荡周期（12P）＝6S</p>
+<p>即6个状态：S1～S6。</p>
+<p>而每个状态又分为两拍，称为P1和P2。</p>
+<p>因此，一个机器周期中的12个振荡周期表示为S1P1、S1P2、S2P1……、S6P2。</p>
+<p>(3) 指令周期</p>
+<p>定义： 执行一条指令所需要的时间称之为指令周期。</p>
+<p>最大的时序定时单位，无固定值。</p>
+<p>指令不同，指令周期不同。</p>
+<p>MCS-51的指令包含一、二、四个机器周期。</p>
+<p>例如: 外接晶振频率fOSC为12 MHz时, MCS—51单片机的4个时间周期值为: </p>
+<p>​            振荡周期  P=1/fosc＝1/12 μs; </p>
+<p>​            状态周期  S=2P＝&#8537; μs; </p>
+<p>​            机器周期  =6S＝12P＝1 μs;</p>
+<p>​            指令周期  =1、2、4 μs。</p>
+<p>3、典型指令的时序</p>
+<p>根据指令代码所占的字节不同：单字节、双字节、三字节。</p>
+<p>根据指令执行时间的不同：单机器周期、双机器周期四机器周期。</p>
+<p>执行指令的两个阶段：取指令和执行指令。</p>
+<p>ALE：地址锁存允许信号，每有效一次对应单片机进行的一次读指令操作， 取指有效时间：S1P2和S2P1，S4P2和S5P1。ALE出现频率为振荡脉冲频率的&#8537;。S1P2和S2P1为访问存储器取指、S4P2和S5P1为访问存储器执行读或写操作数。</p>
+<h4 id="_3">复位电路<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>1、复位： 单片机的初始化操作。</p>
+<p>复位的功能：</p>
+<p>（1） 进入系统的正常初始化； （PC）＝0000H， 单片机从0000H单元执行程序；</p>
+<p>（2） 使系统摆脱困境。</p>
+<p>复位信号要求：</p>
+<p>高电平； 应持续24个振荡周期（即两个机器周期以上）。</p>
+<table>
+<thead>
+<tr>
+<th><strong>SFR名称</strong></th>
+<th><strong>初始状态</strong></th>
+<th><strong>SFR名称</strong></th>
+<th><strong>初始状态</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ACC</strong></td>
+<td><strong>00H</strong></td>
+<td><strong>TMOD</strong></td>
+<td><strong>00H</strong></td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td><strong>00H</strong></td>
+<td><strong>TCON</strong></td>
+<td><strong>00H</strong></td>
+</tr>
+<tr>
+<td><strong>PSW</strong></td>
+<td><strong>00H</strong></td>
+<td><strong>TH0</strong></td>
+<td><strong>00H</strong></td>
+</tr>
+<tr>
+<td><strong>SP</strong></td>
+<td><strong>07H</strong></td>
+<td><strong>TL0</strong></td>
+<td><strong>00H</strong></td>
+</tr>
+<tr>
+<td><strong>DPL</strong></td>
+<td><strong>00H</strong></td>
+<td><strong>TH1</strong></td>
+<td><strong>00H</strong></td>
+</tr>
+<tr>
+<td><strong>DPH</strong></td>
+<td><strong>00H</strong></td>
+<td><strong>TL1</strong></td>
+<td><strong>00H</strong></td>
+</tr>
+<tr>
+<td><strong>P0~P3</strong></td>
+<td><strong>FFH</strong></td>
+<td><strong>SBUF</strong></td>
+<td><strong>不确定</strong></td>
+</tr>
+<tr>
+<td><strong>IP</strong></td>
+<td><strong>XXX00000B</strong></td>
+<td><strong>SCON</strong></td>
+<td><strong>00H</strong></td>
+</tr>
+<tr>
+<td><strong>IE</strong></td>
+<td><strong>0XX00000B</strong></td>
+<td><strong>PCON</strong></td>
+<td><strong>0XXX0000B</strong></td>
+</tr>
+</tbody>
+</table>
+<p>2、掉电保护方式</p>
+<p>数据转存：数据转存是通过中断服务程序完成的，即通常所说的“掉电中断” 。</p>
+<p>接通备用电源：备用电源由单片机的RST/VPD引脚接入，要求系统中具有备用电源与电源电压的自动切换电路 。 </p>
+<p>3、低功耗工作方式 （由PCON中的PD和IDL控制）</p>
+<p>空闲模式(待机模式) 掉电保护模式(休眠模式)</p>
+<h4 id="_4">小结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>8051单片机由8位微处理器、128B数据存储器、4KB掩膜程序存储器、4个8位并行I/O口、1个串行口、2个16位的定时/计数器以及特殊功能器等构成。</p>
+<p>4个8位并行I/O口是P0、P1、P2和P3口。P1口是唯一的单功能口，仅能作通用的数据I/O口使用，P0、P2和P3口均有第二功能。</p>
+<p>8051单片机的时钟电路有内部时钟和外部时钟二种方式。晶振周期(拍节)、时钟周期(状态)、机器周期和指令周期是单片机的基本时序单位。</p>
+<p>复位操作使单片机进入初始化状态。复位操作有上电自动复位和按键手动复位两种方式。复位后，程序计数器PC为0，P0～P3为0FFH，SP为07H，SBUF不定，IP、IE和PCON的有效位为0，其余特殊功能寄存器的状态均为0。</p>
 
               
             </article>
