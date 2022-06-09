@@ -1121,6 +1121,61 @@
     第三章   进程同步
   </a>
   
+    <nav class="md-nav" aria-label="第三章   进程同步">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1 临界资源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2 信号量机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3 经典同步问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4 管程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_2" class="md-nav__link">
+    5 进程间通信
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    6 小结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7 参考
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1999,6 +2054,61 @@
     第三章   进程同步
   </a>
   
+    <nav class="md-nav" aria-label="第三章   进程同步">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1 临界资源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2 信号量机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3 经典同步问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4 管程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_2" class="md-nav__link">
+    5 进程间通信
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    6 小结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7 参考
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2407,8 +2517,393 @@ sysenter 都可以完成从用户态到内核态的切换</p>
 <p>进程存在的标志是（进程控制块PCB）。</p>
 </blockquote>
 <h3 id="_5">第三章   进程同步<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>为什么需要同步机制？</p>
+<p>1、为什么需要同步机制？</p>
 <p>因为现代操作系统既要支持多进程（多线程）的并发执行，又要保证并发执行的程序结果是可再现的。</p>
+<p>2、在多道程序环境下，进程之间可能存在两种关系：</p>
+<p>1.资源共享 2.相互合作</p>
+<p>进程同步的任务就是：</p>
+<p>1.在资源共享的情况下：保证诸进程以互斥的方式访问临界资源—必须以互斥方  式访问的共享资源；</p>
+<p>2.在相互合作的关系中：进程同步的主要任务是保证相互合作的诸进程在执行次序上协调，（有些教材把这种功能称做“同步”）。相互合作的进程可能同时存在资源共享的关系。</p>
+<h4 id="1_2">1 临界资源<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h4>
+<p>1、临界资源的定义</p>
+<p>临界资源：以互斥方式访问的共享资源叫做临界资源。</p>
+<p>临界区：每个进程中访问临界资源的那段代码称为临界区。</p>
+<p>进入区：检查是否可以进入临界区并对临界区“加锁”的代码。</p>
+<p>退出区：释放临界区访问权的代码。、</p>
+<div class="highlight"><pre><span></span><code><span class="n">P</span><span class="w"></span>
+<span class="err">｛…</span><span class="w"> </span><span class="err">…</span><span class="w"></span>
+<span class="w">    </span><span class="n">进入区</span><span class="w"></span>
+<span class="w">    </span><span class="n">CS</span><span class="w"></span>
+<span class="w">    </span><span class="n">退出区</span><span class="w"></span>
+<span class="w">    </span><span class="err">…</span><span class="w"> </span><span class="err">…</span><span class="w"></span>
+<span class="err">｝</span><span class="w"></span>
+</code></pre></div>
+<p>2、同步机制应遵循的准则 </p>
+<p>控制临界资源访问权的控制算法在设计上应遵循的原则 :</p>
+<p>1.空闲让进 2. 忙则等待 3. 有限等待 4. 让权等待</p>
+<h4 id="2_2">2 信号量机制<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<p>​   在信号量机制中，用某种类型的变量-信号量的取值来表示资源的使用状况，或某种事件是否发生，以此为基础实现进程的同步。我们将介绍整型信号量机制、记录型信号量机制、AND型信号量机制。</p>
+<p>1、整型信号量</p>
+<p>​   整型信号量是表示共享资源状态且只能由特殊操作改变的整型量。（其值好比信号灯的颜色）</p>
+<p>​   信号量是一种数据结构（可以是整型数、整型数组、链表、记录型变量（结构体））。信号量的值与相应资源的使用情况有关。信号量的值仅由P、V操作改变。</p>
+<p>​   思路：定义一个整型变量，用整型变量值标记资源使用情况：如整型量&gt;0,说明有可用资源；整型量≤0说明资源忙，进程必须等待。对于一次只允许一个进程访问的CS，可定义一个用于互斥的整型信号量，并被初始化为1。</p>
+<p>​   整型信号量的wait和signal操作</p>
+<p>​   wait(s)和signal(s)是原子操作（最基本、最小的、中间不允许插入任何中断的操作。要执行就要执行完），只要信号量s≤0就不断测试，不满足让权等待。</p>
+<div class="highlight"><pre><span></span><code><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">integer</span><span class="p">;</span><span class="w">      </span><span class="c1">//s为整型信号量</span>
+<span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">){</span><span class="w">            </span><span class="c1">//用于申请资源</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">s</span><span class="err">≤</span><span class="mi">0</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">no</span><span class="o">-</span><span class="n">op</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">){</span><span class="w">          </span><span class="c1">//用于释放资源</span>
+<span class="w">    </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>整型信号量应用举例：</p>
+<p>用整型信号量实现进程互斥</p>
+<p>思路：为必须互斥访问的CS定义一个互斥信号量mutex，初始值为1。然后，将CS放在wait(mutex)和signal(mutex)之间，当CS可访问时，wait(mutex)才能正常结束使进程进入临界区。</p>
+<p>伪代码：</p>
+<div class="highlight"><pre><span></span><code><span class="nl">P1</span><span class="p">:</span><span class="w"></span>
+<span class="p">{</span><span class="w">   </span><span class="err">…</span><span class="w"></span>
+<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="err">…</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="nl">P2</span><span class="p">:</span><span class="w"></span>
+<span class="p">{</span><span class="w">   </span><span class="err">…</span><span class="w"></span>
+<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="err">…</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>用整型信号量实现进程协调</p>
+<p>有p1和p2两个进程，要求p2必须在p1结束后执行，为此可设置一个信号量s，初始值置为0，同步代码如下：</p>
+<div class="highlight"><pre><span></span><code>parbegin
+  begin p1; signal(s); end
+  begin wait(s); p2; end
+parend
+</code></pre></div>
+<p>对整型信号量机制的总结</p>
+<p>①整型信号量的值只能由wait和signal操作改变</p>
+<p>②==wait和signal 两个操作中对信号量的访问是不能被中断的。==（为什么？）</p>
+<p>③原子操作可以通过关中断来实现。（为什么对临界资源的访问不简单地通过关中断来实现？）</p>
+<p>④整型信号量机制的实例:Linux中的自旋锁SpinLock</p>
+<p>⑤不同的资源对应不同的信号量，并不是系统中所有的资源用同一个信号量表示。</p>
+<p>2、记录型信号量</p>
+<p>（1）记录型信号量的数据类型 </p>
+<div class="highlight"><pre><span></span><code><span class="n">Type</span><span class="w">  </span><span class="n">semaphore</span><span class="o">=</span><span class="n">record</span><span class="w"></span>
+<span class="nl">value</span><span class="p">:</span><span class="n">integer</span><span class="w">        </span><span class="c1">//资源数量</span>
+<span class="nl">L</span><span class="p">:</span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">process</span><span class="w">   </span><span class="c1">//阻塞队列</span>
+<span class="n">end</span><span class="p">.</span><span class="w"></span>
+</code></pre></div>
+<p>（2）记录型信号量的wait(s)和signal（s）操作</p>
+<div class="highlight"><pre><span></span><code><span class="n">procedure</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span><span class="w"></span>
+<span class="w">        </span><span class="n">begin</span><span class="w"></span>
+<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w">  </span>
+<span class="w">                </span><span class="n">block</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">L</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">end</span><span class="p">.</span><span class="w"></span>
+
+<span class="n">procedure</span><span class="w"> </span><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span><span class="w"></span>
+<span class="w">        </span><span class="n">begin</span><span class="w"></span>
+<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w">  </span>
+<span class="w">                </span><span class="n">wakeup</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">L</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">end</span><span class="p">.</span><span class="w"></span>
+</code></pre></div>
+<p>（3）利用记录型信号量实现互斥</p>
+<div class="highlight"><pre><span></span><code><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span><span class="w">  </span>
+<span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="n">begin</span><span class="w">                </span>
+<span class="w">   </span><span class="n">repeat</span><span class="w"></span>
+<span class="w">       </span><span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">critical</span><span class="w"> </span><span class="n">section</span><span class="w"></span>
+<span class="w">       </span><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="n">remainder</span><span class="w"> </span><span class="n">section</span><span class="w"></span>
+<span class="w">    </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="n">end</span><span class="w"></span>
+</code></pre></div>
+<p>(4)利用记录型信号量实现“协调”的应用举例</p>
+<p>输入进程：从外存读取数据并将数据放入内存缓冲区。</p>
+<p>计算进程：从内存缓冲区取数据并对数据进行处理。</p>
+<p>输入进程和计算进程共用内存缓冲区，缓冲区最多能容纳2个数据。要求：缓冲区满时，输入进程阻塞；缓冲区空时计算进程阻塞。</p>
+<p>试采用记录型信号量机制实现输入进程与计算进程的同步。</p>
+<div class="highlight"><pre><span></span><code><span class="n">解</span><span class="err">：</span><span class="n">设置两个信号量</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">empty</span><span class="err">、</span><span class="n">full</span><span class="o">:</span><span class="n">semaphore</span><span class="err">。</span><span class="w"></span>
+<span class="w">   </span><span class="n">初始</span><span class="err">：</span><span class="w">        </span><span class="n">empty</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">full</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<span class="n">输入进程</span><span class="err">：</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">从外存读数据</span><span class="err">；</span><span class="w"></span>
+<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">).</span><span class="w"></span>
+<span class="w">    </span><span class="n">往缓冲区中放数据</span><span class="w"></span>
+<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">计算进程</span><span class="err">：</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="err">；</span><span class="w"></span>
+<span class="w">    </span><span class="n">从缓冲读取数据</span><span class="err">；</span><span class="w"></span>
+<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">处理数据</span><span class="err">；</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="3_1">3 经典同步问题<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<p>1、生产者-消费者问题</p>
+<p>(1)问题描述</p>
+<p>生产者进程生产产品，并将产品提供给消费者进程消费。为使生产者进程和消费者进程能并发执行，在它们之间设置了一个具有n个缓冲区的缓冲池，生产者进程可以将它所生产的产品放入一个缓冲区中，消费者进程可以从一个缓冲区中取得一个产品消费。任意两个进程必须以互斥的方式访问公共缓冲池。当缓冲池空时，消费者进程必须等待；当缓冲池装满产品时，生产者进程必须等待。</p>
+<p>(2) 需要解决的问题</p>
+<p>①==对缓冲池的互斥访问。==</p>
+<p>②对生产者进程、消费者进程的“协调”，即：有产品时才能消费，无产品时，必须先生产后消费；有空间时才能生产，空间满时，必须先消费再生产。</p>
+<p>(3)信号量的设置</p>
+<p>①一个互斥信号量，<mark>mutex用于实现对公共缓冲池的互斥访问，初值为1。</mark></p>
+<p>②两个同步信号量，分别表示可用资源数。</p>
+<p>​     empty：表示空缓冲区数,初值为n</p>
+<p>​     full： 表示装有产品的缓冲区数，初值为0，(一个缓冲区中放一个产品）</p>
+<p>(4)同步程序</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nl">Producer</span><span class="p">:</span><span class="w">                               </span>
+<span class="w"> </span><span class="n">begin</span><span class="w">                                  </span>
+<span class="w">   </span><span class="n">repeat</span><span class="w">                                 </span>
+<span class="w">   </span><span class="err">…</span><span class="w">                                     </span>
+<span class="w">   </span><span class="n">produce</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextp</span><span class="p">;</span><span class="w">                    </span>
+<span class="w">   </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span><span class="w">                             </span>
+<span class="w">   </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w">                              </span>
+<span class="w">   </span><span class="n">buffer</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="o">:=</span><span class="n">nextp</span><span class="p">;</span><span class="w">                        </span>
+<span class="w">   </span><span class="nl">in</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="n">in</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">mod</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">   </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w">                            </span>
+<span class="w">   </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="err">；</span><span class="w"></span>
+<span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span>
+<span class="w"> </span><span class="n">end</span><span class="w">       </span>
+
+<span class="w"> </span><span class="nl">Consumer</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">begin</span><span class="w"></span>
+<span class="w">     </span><span class="n">repeat</span><span class="w"></span>
+<span class="w">     </span><span class="err">…</span><span class="w"></span>
+<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="nl">nextc</span><span class="p">:</span><span class="o">=</span><span class="n">buffer</span><span class="p">(</span><span class="n">out</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="nl">out</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">mod</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="err">；</span><span class="w"></span>
+<span class="w">     </span><span class="n">consume</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextc</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
+<span class="w">     </span><span class="n">end</span><span class="w"></span>
+</code></pre></div>
+<p>(5)说明</p>
+<p>①wait 和signal操作成对出现</p>
+<p>②wait操作的顺序不能颠倒</p>
+<p>③对具有相互合作关系的进程，提供解决问题的模型</p>
+<p>2、习题：</p>
+<p>TODO</p>
+<p>某系统有同属一个进程的两个线程P和Q，共享一个数据区B，假设B区空间足够大。线程P负责周期性检测工作场所的温度，将所测结果送入数据区B。线程Q则每次从数据区B取出一个最新的检测数据进行处理。如果B区中没有检测数据，则线程Q阻塞等待。请回答下列问题：</p>
+<p>（1）数据区B应采用什么样的数据结构？栈</p>
+<p>（2）用记录型信号量机制实现进程P与Q之间的同步关系。（说明信号量的作用及初值）</p>
+<div class="highlight"><pre><span></span><code><span class="n">解</span><span class="err">：</span><span class="n">设置两个信号量</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">empty</span><span class="p">,</span><span class="n">mutex</span><span class="o">:</span><span class="n">semaphore</span><span class="err">。</span><span class="w"></span>
+<span class="w">   </span><span class="n">初始</span><span class="err">：</span><span class="w">        </span><span class="n">empty</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">mutex</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="n">P进程</span><span class="err">：</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">从外存读数据</span><span class="err">；</span><span class="w"></span>
+<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">Q进程</span><span class="err">：</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">从缓冲读取数据</span><span class="err">；</span><span class="w"></span>
+<span class="w">    </span><span class="n">处理数据</span><span class="err">；</span><span class="w"></span>
+<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>3、 读者-写者问题</p>
+<p>(1)问题描述</p>
+<p>D是多个进程共享的数据区，允许多个进程同时读D区中的数据；允许一个进程往D区写数据，有一个进程在D区中执行写操作时，不能有其它任何进程在D区中执行读或写操作。</p>
+<p>(2)信号量的设置</p>
+<p>①全局量readcount 用于对进入共享区的读进程计数。</p>
+<p>②rmutex用于对多个进程共享的变量readcount的互斥访问。</p>
+<p>③wmutex用于实现读/写互斥、写/写互斥。</p>
+<p>(3)同步程序</p>
+<div class="highlight"><pre><span></span><code>解：设置两个信号量 var rmutex,wmutex:semaphore。
+   初始：        rmutex.value=1,wmutex.value=1
+   变量：var readcount.
+   初始：readcount=0
+读进程：
+{
+    wait(rmutex)
+    if(readcount==0)
+        wait(wmutex);
+    readcount++;
+    signal(rmutex)
+    读数据
+    wait(rmutex)
+    readcount--;
+    if(readcount==0)
+        signal(wmutex);
+    signal(rmutex)
+}
+写进程：
+{
+    wait(wmutex);
+    写数据
+    signal(wmutex);
+}
+</code></pre></div>
+<h4 id="4_2">4 管程<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h4>
+<p>信号量机制的缺陷：每个访问临界资源的进程都必须自备同步操作wait(s)和signal(s)。这就使大量的同步操作分散在各个进程中，这不仅给系统的管理带来麻烦，而且还会因同步操作的使用不当而导致系统出错,因此引入了“管程”的解决方案。</p>
+<p>1、管程的定义</p>
+<p>管程是描述共享资源的数据结构和在数据结构上的共享资源管理程序的集合。</p>
+<p>2、对管程的说明</p>
+<p>①管程是可供程序员调用的软件包，一个管程是一个由过程、变量等组成的一个集合，它们组成一个特殊的模块或软件包。进程可以在任何需要的时候调用管程中的过程，但它们不能在管程外的过程中直接访问管程内的变量。 </p>
+<p>②每次只有一个进程调用管程执行，任一时刻管程中只能有一个活跃进程。若多个进程同时调用一个管程中的过程，只有一个进程得以进入管程，继续运行，其它进程需要等待。 </p>
+<p>③管程是一种编程语言的构件，所以编译器知道它们很特殊，并可以采用与其他过程调用不同的方法来处理它们。典型的，当一个进程调用管程中的过程时，前几条指令将检查在管程中是否有其他的活跃进程，如果有，调用进程将挂起，直到另一个进程离开管程，如果没有，则调用进程进入管程。</p>
+<p>如果P唤醒Q，可能有两种不同的处理方案：</p>
+<p>P继续在管程中执行，Q等待；P等待，让Q先执行管程中的代码。</p>
+<p>3、条件变量</p>
+<p>为了进行并发处理，管程必须包含同步工具,例如：假设一个进程调用了管程，并且当它在管程中时必须被阻塞，直到满足某些条件。这就需要一种机制，使得该进程不仅被阻塞而且能释放这个进程，以便某些别的进程可以进入。以后当条件满足并且管程再次可用时，需要恢复该进程并允许它在阻塞点重新进入管程。管程通过使用条件变量提供同步的支持，这些条件变量包含在管程中，并且只有在管程中才能被访问。</p>
+<p>一个管程过程，可以用在某条件变量上执行wait操作，将调用的进程阻塞并插入该条件的阻塞队列 ，也可以用在条件变量上执行signal操作，唤醒在该条件上阻塞的进程。</p>
+<p>4、管程的应用</p>
+<p>（1）利用管程解决生产者-消费者问题</p>
+<div class="highlight"><pre><span></span><code><span class="n">type</span><span class="w"> </span><span class="n">PC</span><span class="o">=</span><span class="n">monitor</span><span class="w"></span>
+<span class="n">condition</span><span class="w"> </span><span class="n">full</span><span class="p">,</span><span class="w"> </span><span class="n">empty</span><span class="p">;</span><span class="w"></span>
+<span class="n">integer</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"></span>
+<span class="n">procedure</span><span class="w"> </span><span class="nf">enter</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">begin</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="n">N</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">enter</span><span class="err">–</span><span class="n">item</span><span class="p">;</span><span class="w"></span>
+<span class="w">           </span><span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">           </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">//唤醒因为队列空而阻塞的进程</span>
+<span class="w">       </span><span class="n">end</span><span class="w"></span>
+
+<span class="n">procedure</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">begin</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">remove</span><span class="err">–</span><span class="n">item</span><span class="p">;</span><span class="w"></span>
+<span class="w">           </span><span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">           </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="w"> </span><span class="c1">//唤醒因为队列满而阻塞的进程</span>
+<span class="w">       </span><span class="n">end</span><span class="w"></span>
+<span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">end</span><span class="w"> </span><span class="n">monitor</span><span class="p">;</span><span class="w"></span>
+
+<span class="nl">Producer</span><span class="p">:</span><span class="w"></span>
+<span class="n">begin</span><span class="w"></span>
+<span class="w">     </span><span class="n">repeat</span><span class="w"></span>
+<span class="w">     </span><span class="n">produce</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextp</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">PC</span><span class="p">.</span><span class="n">enter</span><span class="p">(</span><span class="n">item</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="n">end</span><span class="w"></span>
+
+<span class="w"> </span><span class="nl">Consumer</span><span class="p">:</span><span class="w"></span>
+<span class="w"> </span><span class="n">begin</span><span class="w"></span>
+<span class="w">     </span><span class="n">repeat</span><span class="w"></span>
+<span class="w">     </span><span class="n">PC</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">consume</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextc</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="n">end</span><span class="w"></span>
+</code></pre></div>
+<p>（2）利用管程解决哲学家进餐问题</p>
+<p>问题描述</p>
+<p>有五个哲学家围坐在一个圆桌旁，每两人之间放一只筷子，每个哲学家的行为是思考，感到饥饿，然后用餐。为了能够进餐，每个哲学家必须拿到两只筷子，并且每个人只能直接从自己的左边或右边去取筷子。</p>
+<p>代码</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">dining</span><span class="o">-</span><span class="n">philosophers</span><span class="o">=</span><span class="n">monitor</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">state</span><span class="o">:</span><span class="n">array</span><span class="p">[</span><span class="mf">0..4</span><span class="p">]</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="p">(</span><span class="n">thinking</span><span class="p">,</span><span class="n">hungry</span><span class="p">,</span><span class="n">eating</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">self</span><span class="o">:</span><span class="n">array</span><span class="w"> </span><span class="p">[</span><span class="mf">0..4</span><span class="p">]</span><span class="w">  </span><span class="n">of</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">begin</span><span class="w"></span>
+<span class="w">            </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">hungry</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="err">≠</span><span class="n">eating</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">end</span><span class="p">;</span><span class="w">    </span>
+
+<span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">begin</span><span class="w"></span>
+<span class="w">         </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">thinking</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">end</span><span class="w"></span>
+
+<span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">k</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span><span class="n">begin</span><span class="w"></span>
+<span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">4</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="err">≠</span><span class="n">eating</span><span class="w"></span>
+<span class="w">               </span><span class="n">and</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">hungry</span><span class="w"></span>
+<span class="w">               </span><span class="n">and</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="err">≠</span><span class="n">eating</span><span class="w"></span>
+<span class="w">           </span><span class="n">then</span><span class="w"> </span><span class="n">begin</span><span class="w"></span>
+<span class="w">               </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">eating</span><span class="w"></span>
+<span class="w">               </span><span class="n">self</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">signal</span><span class="p">;</span><span class="w"></span>
+<span class="w">           </span><span class="n">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">end</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">begin</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">:=</span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">               </span><span class="k">do</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">thinking</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">end</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">philosopher</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">think</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">eat</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">             </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="5_2">5 进程间通信<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20220609162852242" src="https://img.tim-wcx.ltd/i/2022/06/09/62a1af475bba0.png" /></p>
+<h4 id="6_1">6 小结<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h4>
+<p>1、实现进程互斥的基本原理是什么?</p>
+<p>记录性信号量机制:在记录性信号机制里面有S .value，记录的是资源的信号的量，通过去验证每次这个值是否大于0，来判断是否让进程来使用此资源，但是，一旦这个值 s.value=1就允许一个进程访问该资源。从而实现了进程的互斥。这种机制用于各个进程对一个资源的共享。</p>
+<p>AND型信号的机制:将一个进程中运行过程中的所有需要的资源，都一次性全部分配给进程。待进程使用完成后，在一并的去释放。这是好几个进程对好几个共享资源的一个实现的方法。</p>
+<p>管程机制:利用共享数据结构抽想的表示系统的共享资源。把对该共享数据的操作定义为一组过程。进程对共享资源的操作，就是这组过程对共享数据的一个操作。</p>
+<p>进程互斥的目的是使进程以互斥的方式访问临界资源，只要能使进程以互斥的方式进入临界区就能够保证进程对临界资源的互斥访问。所以，可以通过在临界区前加进入区代码，在临界区后面加退出区代码来实现进程的互斥。</p>
+<p>临界区是每个进程中访问临界资源的那段代码。进入区是检查是否可以进入临界区并对临界区“加锁”的代码。退出区是释放临界区访问权的代码。</p>
+<p>2、进程同步机制的任务是什么？</p>
+<p>进程同步的主要任务是对多个相关进程在执行次序上进行协调,以使并发执行的诸进程之间能有效地共享资源和相互合作,从而使程序的执行具有可再现性。</p>
+<p>3、为什么在生产者-消费者问题中wait操作的顺序不能颠倒？</p>
+<p>如果生产者和消费者进程都先通过执行等待(互斥)申请公共缓冲池的互斥访问权，然后通过申请资源信号量申请空缓冲区或装满产品的缓冲区，当缓冲池满时，若生产者进程先申请到公共缓冲池的互斥访问权，然后申请空缓冲区，因缓冲池中没有空缓冲区，生产者进程阻塞。消费者进程因无法申请到公共缓冲池的互斥访问权，也会被阻塞.生产者进程等待消费者进程释放空缓冲区，消费者进程等待生产者进程释放公共缓冲池的互斥访问权，进程因互相等待对方释放资源而处于不能执行的僵持状态.</p>
+<p>4、为什么对10个不同的临界资源(counter1-counter10)不能只用一个互斥信号量﹖(理解)</p>
+<p>若用一个互斥信号量实现对多个临界资源的互斥访问，则会造成资源的浪费，一个进程申请一个资源时，会同时占用其不需要的资源，则其他进程不能访问被锁住却并没有被使用的资源。</p>
+<p>故10个不同的临界资源不能只用一个互斥信号量。</p>
+<p>5、三个进程P1、P2、P3互斥使用一个包含N（N &gt; 0）个单元的缓冲区。P1每次用produce()生成一个正整数并用put()送入缓冲区某一空单元中；P2每次用getodd()从该缓冲区中取出一个奇数并用countodd()统计奇数个数；P3每次用geteven()从该缓冲区中取出一个偶数并用counteven()统计偶数个数。请用信号量机制实现这三个进程的同步与互斥活动，并说明所定义信号量的含义。要求用伪代码描述。 </p>
+<p>采用记录型信号量来实现，伪代码如下。</p>
+<div class="highlight"><pre><span></span><code>解：设置两个信号量 var mutex,empty,odd,even:semaphore。
+   初始：        mutex.value=1,empty=N,odd=0,even=0
+P1进程：
+{
+    wait(empty)
+    wait(mutex)
+    num = produce()
+    signal(mutex)
+    if(num%2==0)
+        signal(even)
+    else
+        signal(odd)
+}
+P2进程：
+{
+    wait(odd)
+    wait(mutex)
+    getodd()
+    countodd()
+    signal(mutex)
+    signal(empty)
+}
+P3进程：
+{
+    wait(even)
+    wait(mutex)
+    geteven()
+    counteven()
+    signal(mutex)
+    signal(empty)
+}
+</code></pre></div>
+<h4 id="7">7 参考<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
+<p><a href="https://blog.csdn.net/Auris/article/details/107415378">Linux内核自旋锁(spinlock)使用与源码分析</a></p>
+<p><a href="https://blog.csdn.net/weixin_42260102/article/details/100527437">操作系统第三章：进程同步和互斥</a></p>
 
               
             </article>
