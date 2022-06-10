@@ -1116,6 +1116,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-mcs-51" class="md-nav__link">
+    第5章   MCS-51的汇编语言程序设计
+  </a>
+  
+    <nav class="md-nav" aria-label="第5章   MCS-51的汇编语言程序设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    查表指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    散转指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    子程序结构：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1950,6 +1984,40 @@
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     指令系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mcs-51" class="md-nav__link">
+    第5章   MCS-51的汇编语言程序设计
+  </a>
+  
+    <nav class="md-nav" aria-label="第5章   MCS-51的汇编语言程序设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    查表指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    散转指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    子程序结构：
   </a>
   
 </li>
@@ -3006,6 +3074,44 @@ DA  A;  A == #27H
 <p>注：CJNE可配合JC和JNC使用判断正负。</p>
 </blockquote>
 <p>两个寻址位间不能实现直接传送。</p>
+<h3 id="5-mcs-51">第5章   MCS-51的汇编语言程序设计<a class="headerlink" href="#5-mcs-51" title="Permanent link">&para;</a></h3>
+<p>汇编语言程序共有四种结构形式：顺序结构、循环结构、分支结构和子程序结构。</p>
+<h4 id="_9">查表指令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>     ORG 0
+     MOV    A，30H     
+     MOV DPTR，#TAB      ；地址修正
+     MOVC A，@A+DPTR     
+     MOV 31H，A          ；双字节指令
+TAB：DB 3FH，06H，5BH，4FH，66H；字形代码表
+     DB 6DH，7DH，07H，7FH，6FH 
+     END
+</code></pre></div>
+<blockquote>
+<p>注：JBC指令</p>
+<p>JBC bit NEXT</p>
+<p>单片机指令，检测某个位是否为1，若为1，则清零，并跳转到NEXT，若为零，则执行下一条语句。</p>
+</blockquote>
+<h4 id="_10">散转指令<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>JMP  @A+DPTR</p>
+<div class="highlight"><pre><span></span><code>        MOV DPTR，#TAB
+        JMP @A+DPTR
+        NOP
+TAB：    AJMP      ADDM      ；散转表
+        AJMP      SUBM
+        AJMP      MULM
+        AJMP      DIVM 
+</code></pre></div>
+<p>在使用JMP  @A+DPTR构成多分支程序时的注意事项：</p>
+<p>① 由于A是8位寄存器，如果分支程序的个数大于128，则地址修正值大于256。为了获得正确的地址，需对数据指针的高8位DPH进行修正。</p>
+<p>② 散转点数不得超过256，这是由A的容量确定的。</p>
+<p>③ AJMP指令的跳转范围为2KB，这就限制了各分支程序的入口地址和转移表首地址TAB位于同一个2KB的空间范围内。为了克服这种局限，可以采用LJMP指令。</p>
+<h4 id="_11">子程序结构：<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>指令： RET或RETI。</p>
+<p>注意事项：</p>
+<p>（1）子程序有自己的名字;</p>
+<p>（2）保护现场和恢复现场；</p>
+<p>（3）正确地传递参数；</p>
+<p>（4）子程序和主程序是相对的两个概念。</p>
 
               
             </article>
