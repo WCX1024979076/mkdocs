@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://github.tim-wcx.ltd/mkdocs/course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
     
     
       
@@ -1377,6 +1377,68 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    4 磁盘空间的管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_3" class="md-nav__link">
+    5 题目
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    第九章 设备管理
+  </a>
+  
+    <nav class="md-nav" aria-label="第九章 设备管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-io" class="md-nav__link">
+    1 I/O系统的组成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-io" class="md-nav__link">
+    2 I/O控制方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_6" class="md-nav__link">
+    3 缓冲管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    4 设备分配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-io" class="md-nav__link">
+    5 I/O软件原理
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2510,6 +2572,68 @@
           <li class="md-nav__item">
   <a href="#3_5" class="md-nav__link">
     3 文件系统的按名访问
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    4 磁盘空间的管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_3" class="md-nav__link">
+    5 题目
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    第九章 设备管理
+  </a>
+  
+    <nav class="md-nav" aria-label="第九章 设备管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-io" class="md-nav__link">
+    1 I/O系统的组成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-io" class="md-nav__link">
+    2 I/O控制方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_6" class="md-nav__link">
+    3 缓冲管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    4 设备分配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-io" class="md-nav__link">
+    5 I/O软件原理
   </a>
   
 </li>
@@ -4070,7 +4194,7 @@ P3进程：
 <p>目录结合FAT表</p>
 <p><img alt="image-20220610213036088" src="https://img.tim-wcx.ltd/i/2022/06/10/62a3477ca3d7e.png" /></p>
 <p>（3）FAT12</p>
-<p>FAT12采用12位文件分配表，磁盘块大小为2KB，则FAT12可以管理的磁盘容量是8M。2KB×4K（个）（212个磁盘块）=8MB</p>
+<p>FAT12采用12位文件分配表，磁盘块大小为2KB，则FAT12可以管理的磁盘容量是8M。2KB×4K（个）（2^12个磁盘块）=8MB</p>
 <p>FAT12文件系统的文件名：只能是8.3格式的文件名。</p>
 <blockquote>
 <p>说明：文件系统以簇（磁盘块）为单位为文件分配存储空间</p>
@@ -4095,6 +4219,201 @@ P3进程：
 <p>i节点</p>
 <p>给每个文件赋予一张称为i节点的小型表其中列出了文件属性和各数据块在磁盘上的地址，对于大文件，由于包含的磁盘块数很多，可以在i节点中存放一次间接地址，或二次间接地址，或三次间接地址。UNIX中使用这种分配方案。</p>
 <p><img alt="image-20220610214320911" src="https://img.tim-wcx.ltd/i/2022/06/10/62a34a7957e72.png" /></p>
+<h4 id="4_6">4 磁盘空间的管理<a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h4>
+<p>1、磁盘空间管理</p>
+<p>文件通常存放在磁盘上，所以空间的管理是系统设计者要考虑的一个重要问题。</p>
+<p>文件的存放有两个策略：连续存放和不连续地分块存放。连续存放存在一个缺陷，当文件扩大时，可能需要移动文件，而在磁盘上移动文件是很慢的。所以几乎所有的文件系统都把文件分割成固定大小的块来存储。各块不必相邻。 </p>
+<p>2、块（簇）大小</p>
+<p>给文件分配块太大，浪费磁盘空间。块太小，查找一个文件多次寻道,浪费时间。一般选择的块大小为2n个连续的扇区。若扇区大小为512个字节，磁盘块的大小选定为4KB，则文件系统读写8个连续的扇区，并把它们看成不可分割的单元。 </p>
+<p>现在的磁盘扇区大小有的是1KB、4KB不一定是512字节。</p>
+<p>3、记录空闲块</p>
+<p>空白磁盘块的链接表</p>
+<p>用一些空白磁盘块存放空闲磁盘块块号。一个磁盘块存放尽可能多的空闲盘块号，并专门留出最后几个字节存放指向下一个存放空闲盘块号的磁盘块的指针 。</p>
+<p>用n位位图表示磁盘块使用情况</p>
+<p>磁盘被划分成n块，用n位位图表示磁盘块使用情况,每一位代表一个盘块，比如用：位的值为0表示磁盘空闲，位的值为1表示磁盘已分配。</p>
+<p>4、虚拟文件系统(VFS)</p>
+<p>虚拟文件系统（Virtual Filesystem）也可以称之为虚拟文件系统转换（Virtual Filesystem Switch）或VFS，是一个内核软件层，用来处理与Unix标准文件系统相关的所有系统调用,能为各种文件系统提供一个通用的接口。</p>
+<h4 id="5_3">5 题目<a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h4>
+<p>1、举例说明文件系统是如何实现文件的按名存取的。</p>
+<p>答:在类Unix操作系统中目录文件中存有子目录文件和用户文件的文件名和i结点号，先以文件名为索引在目录文件中找到文件的i结点号，根据i结点号可以找到该文件的i结点，其中包含了文件的属性和地址信息。</p>
+<p>2、举例说明文件系统所能管理的文件大小是由什么决定？</p>
+<p>例如:FAT12采用12位文件分配表，簇块大小是连续的四个扇区，可以管理的磁盘容量是8M=4个扇区*512B*2^12。</p>
+<p>3、“打开"操作。用户要使用存放在存储介质上的文件前，必需提出“打开"要求。系统在接到用户的“打开"要求后，找到该用户的文件，在文件目录中找到与用户的需求相符合的目录项,取出文件存放的物理地址。如果是索引文件，还要将这个文件的索引表也调入到主存中，这样，后继的读操作能够很快地进行。</p>
+<blockquote>
+<p>注：</p>
+<p>什么是扇区？</p>
+<p>盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）</p>
+<p>什么是磁盘块？</p>
+<p>操作系统与磁盘之间交流的最小单位就是磁盘块，它是一个虚拟的概念。是对于操作系统（软件）来说有意义的概念。</p>
+<p>由于扇区的数量比较小，数目众多在寻址时比较困难，所以操作系统就将相邻的扇区组合在一起，形成一个块，再对块进行整体的操作。</p>
+<p>操作系统忽略对底层物理存储结构的设计。通过虚拟出来磁盘块的概念，在系统中认为块是最小的单位。</p>
+<p>磁盘的读写基本单位是什么？</p>
+<p>读写基本单位是扇区。磁盘的原理，物理实现，磁盘控制器是按照扇区这个单位读取等操作数据的。此题问磁盘的读写，和操作系统没有关系，千万不要联系到操作系统层面去了。</p>
+<p>磁盘块与扇区的大小关系</p>
+<p>既然磁盘块是一个虚拟概念。是操作系统自己＂杜撰＂的。软件的概念，不是真实的。所以大小由操作系统决定，操作系统可以配置一个块多大。一个块大小=一个扇区大小*2的n次方。N是可以修改的。</p>
+<p>块与页的关系</p>
+<p>操作系统经常与内存和硬盘这两种存储设备进行通信，类似于“块”的概念，都需要一种虚拟的基本单位。所以，与内存操作，是虚拟一个页的概念来作为最小单位。与硬盘打交道，就是以块为最小单位。</p>
+</blockquote>
+<h3 id="_11">第九章 设备管理<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="1-io">1 I/O系统的组成<a class="headerlink" href="#1-io" title="Permanent link">&para;</a></h4>
+<p>1、I/O系统的结构</p>
+<p>（1）微机I/O系统 （总线型I/O系统结构）</p>
+<p><img alt="image-20220611220641168" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4a17610b7e.png" /></p>
+<p>（2）主机I/O系统（具有通道的I/O系统结构）</p>
+<p><img alt="image-20220611220710807" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4a18f88ae2.png" /></p>
+<p>2、I/O设备的分类</p>
+<p>(1)按传输的速率分类</p>
+<p>①低速设备：键盘鼠标，几个字节-几百字节/秒</p>
+<p>②中速设备：打印机，数千~数十千字节/秒</p>
+<p>③高速设备：磁带机、磁盘机、光盘机 几十万~几兆/秒</p>
+<p>(2)按信息交换的单位分类
+   ①块设备：数据的存取以数据块为单位，如磁盘。块设备在块中保存信息，块的大小通常是固定的，并且一次只传送一块，通常可以通过块号访问数据。
+   ②字符设备：传送字节流，没有使用块结构。终端、打印机、通信端口、鼠标等都是字符设备。</p>
+<p>(3)按设备的共享属性分类</p>
+<p>①独占设备 ②共享设备 ③虚拟设备</p>
+<p>3、设备控制器</p>
+<p>I/O逻辑</p>
+<p>一个控制器可以对应多个外设、一个通道可以对应多个控制器</p>
+<p><img alt="image-20220611220843782" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4a1ed9ff32.png" /></p>
+<p>I/O通道</p>
+<p>I/O通道是一种特殊的处理机，它具有执行I/O指令的能力，并通过执行通道程序来控制I/O操作。简单说，通道是大型主机系统中专门用于I/O的专用计算机。 </p>
+<h4 id="2-io">2 I/O控制方式<a class="headerlink" href="#2-io" title="Permanent link">&para;</a></h4>
+<p>1、I/O控制的发展</p>
+<p>程序I/O方式
+     ↓
+中断驱动方式
+     ↓
+DMA控制器（使传输以字节为单位变成以数据块为单位。）
+     ↓
+通道（使I/O的组织和数据的传送，都能独立进行，无需CPU干预。）</p>
+<p>2、轮询控制方式</p>
+<p>主机在试图发送I/O控制命令之前先反复检测设备控制器状态寄存器的忙/闲标志位，若设备忙，则主机继续检测该标志位，直到该标志位为“空闲”，然后发送I/O指令。</p>
+<p>3、中断控制方式</p>
+<p>与轮询控制方式相比，中断驱动I/O控制方式可以极大地提高CPU的利用率。</p>
+<p>4、DMA控制方式</p>
+<p><img alt="image-20220611221121035" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4a28e1421e.png" /></p>
+<p>(1)没有使用DMA时从磁盘读数的过程</p>
+<p>①首先控制器从设备完整地读出一块数据放入数据寄存器中。</p>
+<p>②计算该块数据的检验和以保证读取正确。</p>
+<p>③控制器发中断信号，CPU开始从控制器的设备寄存器中将数据读入内存。</p>
+<p>在这种方式下,每传送一个或多个字节,CPU就要处理一次中断,把数据从控制器的数据缓存送入内存。</p>
+<p>(2)DMA控制方式</p>
+<p>CPU发送I/O指令--命令写入CR寄存器--内存起始地址写入MAR--I/O字节数写入DC--将I/O设备地址送I/O控制逻辑--启动DMA</p>
+<p>(3)DMA控制从磁盘读数的过程</p>
+<p><img alt="image-20220611221503655" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4a36c43e25.png" /></p>
+<h4 id="3_6">3 缓冲管理<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h4>
+<p>1、缓冲的引入</p>
+<p>在数据到达和数据离去的速度不一致的地方都可以引入缓冲。</p>
+<p>2、单缓冲的工作</p>
+<p><img alt="image-20220611221921139" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4a469c0117.png" /></p>
+<p>2、双缓冲的工作</p>
+<p><img alt="image-20220611221917437" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4a46852de4.png" /></p>
+<p>3、循环缓冲</p>
+<p>见课本252页</p>
+<p>(1)引入循环缓冲的理由</p>
+<p>(2)循环缓冲的组成</p>
+<p>(3)缓冲区的使用</p>
+<p>(4)进程同步</p>
+<p>4、缓冲池</p>
+<p>见课本252页</p>
+<p>(1)缓冲池的组成</p>
+<p>(2)Getbuf过程和Putbuf过程</p>
+<p>(3)缓冲区的工作方式</p>
+<h4 id="4_7">4 设备分配<a class="headerlink" href="#4_7" title="Permanent link">&para;</a></h4>
+<p>1、设备分配中的数据结构</p>
+<p>在进行设备分配时所需的数据结构有：</p>
+<p>(1)设备控制表</p>
+<p>(2)控制器控制表</p>
+<p>(3)通道控制表</p>
+<p>(4)系统设备表</p>
+<p>(1)设备控制表DCT</p>
+<p>①设备类型</p>
+<p>②设备标识符</p>
+<p>③设备状态：等待/不等待，忙 、闲</p>
+<p>④指向控制器表的指针</p>
+<p>⑤重复执行的次数或时间 </p>
+<p>(2)控制器控制表COCT</p>
+<p>①控制器标示符</p>
+<p>②控制器状态</p>
+<p>③与控制器相连接的通道表指针</p>
+<p>④控制器队列的队首指针  </p>
+<p>(3)通道控制表CHCT</p>
+<p>①通道标示符</p>
+<p>②通道状态</p>
+<p>③与通道连接的控制器表首址</p>
+<p>④通道队列的队首指针</p>
+<p>(4)系统设备表SDT</p>
+<p><img alt="image-20220611225301360" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4ac51aad25.png" /></p>
+<p>(5)设备分配与数据结构</p>
+<p><img alt="image-20220611230103523" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4ae32b6319.png" /></p>
+<p>2、设备分配时应考虑的若干因素</p>
+<p>(1)设备的固有属性</p>
+<p>①独占设备</p>
+<p>②共享设备</p>
+<p>③虚拟设备</p>
+<p>(2)设备分配算法</p>
+<p>①先来先服务</p>
+<p>②优先级高者优先</p>
+<p>(3)设备分配中的安全性</p>
+<p>①安全分配方式</p>
+<p>②不安全分配方式</p>
+<p>3、设备独立性</p>
+<p>(1)设备独立性的概念</p>
+<p>设备独立性也称设备无关性，其基本含义是： 应用程序独立于具体使用的物理设备</p>
+<p>(2)实现设备独立性带来的好处</p>
+<p>①用户程序与物理的外围设备无关，系统增减或变更外围设备时不需要修改应用程序。</p>
+<p>②易于处理输入输出设备的故障。</p>
+<p>逻辑设备表：为了实现设备的独立性，系统必须能够将应用程序中所使用的逻辑设备名映射为物理设备名。可以使  用逻辑设备表实现该映射功能。</p>
+<p>4、独占设备的分配程序</p>
+<p>对于具有I/O通道的系统，在进程提出I/O请求后，系统的设备分配程序可按下述步骤依次进行设备分配：</p>
+<p>(1)分配设备  (2)分配控制器  (3)分配通道</p>
+<p>5、SPOOLing的概念</p>
+<p>在多道程序环境下，利用一道程序来模拟脱机输入时的外围控制机的功能，把低速I/O设备上的数据传送到高速磁盘上；再利用另一道程序来模拟脱机输出时外围控制机的功能，把数据从磁盘传送到低速输出设备上。这种在联机情况下实现的同时外围操作称为Spooling(Simultaneous Periheral Operations On-Line)。</p>
+<p>1）SPOOLing系统的组成</p>
+<p><img alt="image-20220611231037198" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4b071529d7.png" /></p>
+<p>2）利用SPOOLing技术实现共享打印机</p>
+<p>当用户进程提出打印请求时，SPOOling系统先为用户做两件事：</p>
+<p>第一步：由输出进程在输出井中为之申请一空闲盘块区，并将要打印的数据送入其中。</p>
+<p>第二步：输出进程再为用户申请、并填写一张用户请求打印表，将该表挂到请求打印队列上。当打印机空闲时，出进程完成以下动作。</p>
+<p>①从请求打印队列队首取一张请求打印表。</p>
+<p>②将打印数据从输出井送打印机缓冲区(输出缓冲区)。</p>
+<p>③打印。</p>
+<p>④若打印完转第①步，取下一个打印请求表。</p>
+<p>3）SPOOLing的特点</p>
+<p>①提高I/O速度</p>
+<p>②将独占设备改造为共享设备</p>
+<p>③实现了虚拟设备功能</p>
+<h4 id="5-io">5 I/O软件原理<a class="headerlink" href="#5-io" title="Permanent link">&para;</a></h4>
+<p>1、设备管理软件的层次结构</p>
+<p><img alt="image-20220611231349337" src="https://img.tim-wcx.ltd/i/2022/06/11/62a4b130c833f.png" /></p>
+<p>2、中断处理程序</p>
+<p>I/O中断处理程序的作用是将发出I/O请求而被阻塞的进程唤醒。用户进程在发出I/O请求后，由于等待I/O而被阻塞。CPU转去执行其它任务，当I/O任务完成，控制器向CPU发中断请求信号，CPU转去执行中断处理程序，由中断处理程序唤醒被阻塞的用户进程。</p>
+<p>3、设备驱动程序</p>
+<p>设备驱动程序是I/O进程与设备控制器之间的通信程序。其主要任务是接收上层软件发来的抽象要求，再把它转换成具体要求后发送给设备控制器，启动设备去执行。此外，它也将由设备控制器发来的信号传送给上层软件。设备驱动程序中包括了所有与设备相关的代码,是数据结构与函数的集合。每个设备驱动程序只处理一种设备，或者一类紧密相关的设备。只有驱动程序才知道某类设备控制器有多少个寄存器及它们的用途。</p>
+<p>1）设备驱动程序的工作流程</p>
+<p>驱动程序接收CPU的I/O命令--将接收到的抽象I/O命令转化为设备控制器能执行的命令序列--向控制器的寄存器发送这些命令序列</p>
+<p>2）磁盘驱动程序</p>
+<p>当有一个读第N块磁盘的请求时，磁盘驱动程序要完成以下的工作：</p>
+<p>①计算出所请求块的物理地址。</p>
+<p>②检查驱动器电机是否在运转。</p>
+<p>③检查磁头臂是否定位在正确的柱面。</p>
+<p>④确定需要哪些控制器命令及命令的执行次序。</p>
+<p>⑤向设备控制器的设备控制寄存器中写入命令。</p>
+<p>⑥阻塞进程，I/O完成后向上层软件传送数据并唤醒进程。 </p>
+<p>4、磁盘管理</p>
+<p>1）磁盘调度</p>
+<p>磁盘调度算法用来从磁盘请求队列中选择一个当前访问磁盘的任务。</p>
+<p>(1) FCFS调度</p>
+<p>(2) SSTF调度</p>
+<p>(3) SCAN</p>
+<p>(4) C-SCAN</p>
+<p>(5) NStepSCAN和FSCAN算法</p>
+<p>提高磁盘I/O速度的方法</p>
+<p>（1）提前读</p>
+<p>（2）延迟写</p>
+<p>（3）优化物理块的布局</p>
+<p>（4）虚拟磁盘</p>
+<p>（5）磁盘高速缓存</p>
 
               
             </article>
@@ -4162,7 +4481,7 @@ P3进程：
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f758a944.min.js"></script>
