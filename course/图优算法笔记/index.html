@@ -1,0 +1,2445 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.tim-wcx.ltd/mkdocs/course/%E5%9B%BE%E4%BC%98%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">
+      
+      
+        <link rel="prev" href="../../question/">
+      
+      
+        <link rel="next" href="../%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>图优算法笔记 - Tim-Wcx</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Blue-Grey" data-md-color-accent="Pink">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Tim-Wcx" class="md-header__button md-logo" aria-label="Tim-Wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 9V1.5h-3V9h-3V1.5h-3V9h-3V1.5H4.65V9H3v1.5h18V9h-1.5m0 4.5h-3V21h-3v-7.5h-3V21h-3v-7.5H4.65V21H3v1.5h18V21h-1.5v-7.5Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tim-Wcx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              图优算法笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-tabs__link">
+        ICPC题解
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../icpc/%E4%B8%AA%E4%BA%BA%E6%A8%A1%E6%9D%BF/" class="md-tabs__link">
+        ICPC模板
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../question/" class="md-tabs__link">
+      ICPC题单
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        课程复习
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../csdn/2020-08-01/" class="md-tabs__link">
+        csdn导出
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../plan/" class="md-tabs__link">
+        个人计划
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        关于
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tim-Wcx" class="md-nav__button md-logo" aria-label="Tim-Wcx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 9V1.5h-3V9h-3V1.5h-3V9h-3V1.5H4.65V9H3v1.5h18V9h-1.5m0 4.5h-3V21h-3v-7.5h-3V21h-3v-7.5H4.65V21H3v1.5h18V21h-1.5v-7.5Z"/></svg>
+
+    </a>
+    Tim-Wcx
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          ICPC题解
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          ICPC题解
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        组队训练赛（四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        组队训练赛（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        组队训练赛（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83%E8%B5%9B%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        组队训练赛（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%8D%81%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（十）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B9%9D%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（九）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AB%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（八）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%83%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（七）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%85%AD%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（六）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%94%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（五）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E5%9B%9B%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（四）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%89%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（三）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/" class="md-nav__link">
+        暑假集训系列题解（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E9%A2%98%E8%A7%A3%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        暑假集训题解系列（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-02-2%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-02-2月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-07-2%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-07-2月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-08-2%E6%9C%888%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-08-2月8日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-09-2%E6%9C%889%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-09-2月9日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-12-%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%2B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B3%A8%E8%A7%A3/" class="md-nav__link">
+        2021-02-12-安卓课表客户端+服务端注解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-16-2%E6%9C%8816%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-16-2月16日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-19-2%E6%9C%8819%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-19-2月19日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-20-2%E6%9C%8820%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-20-2月20日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-22-2%E6%9C%8822%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-22-2月22日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-24-2%E6%9C%8824%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-24-2月24日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-02-28-2%E6%9C%8828%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-02-28-2月28日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-02-3%E6%9C%882%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-02-3月2日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-07-3%E6%9C%887%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-03-07-3月7日题解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-03-09-%E6%95%B0%E8%AE%BA/" class="md-nav__link">
+        2021-03-09-数论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problem/2021-06-05-6%E6%9C%885%E6%97%A5%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        2021-06-05-6月5日题解
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          ICPC模板
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          ICPC模板
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../icpc/%E4%B8%AA%E4%BA%BA%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        个人模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../icpc/kuangbin%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        kuangbin模板
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../question/" class="md-nav__link">
+        ICPC题单
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          课程复习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          课程复习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        图优算法笔记
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="md-nav__link">
+        数字图像处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/" class="md-nav__link">
+        现代密码学
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="md-nav__link">
+        软件工程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="md-nav__link">
+        计算机图形学
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        计算机操作系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8D%95%E7%89%87%E6%9C%BA/" class="md-nav__link">
+        单片机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PDF%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/" class="md-nav__link">
+        PDF划词翻译
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          csdn导出
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          csdn导出
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-01/" class="md-nav__link">
+        2020-08-01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-02%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="md-nav__link">
+        2020-08-02线段树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-03/" class="md-nav__link">
+        2020-08-03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-04/" class="md-nav__link">
+        2020-08-04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-05/" class="md-nav__link">
+        2020-08-05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-06%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="md-nav__link">
+        2020-08-06线段树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-07/" class="md-nav__link">
+        2020-08-07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-08/" class="md-nav__link">
+        2020-08-08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-09/" class="md-nav__link">
+        2020-08-09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-10/" class="md-nav__link">
+        2020-08-10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-11/" class="md-nav__link">
+        2020-08-11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-12%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        2020-08-12欧拉函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-13/" class="md-nav__link">
+        2020-08-13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-14/" class="md-nav__link">
+        2020-08-14
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-16%E6%A0%91%E5%BD%A2DP%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E5%89%8D%E7%BC%80%E5%92%8C/" class="md-nav__link">
+        2020-08-16树形DP等差数列前缀和
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-17/" class="md-nav__link">
+        2020-08-17
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-18/" class="md-nav__link">
+        2020-08-18
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-19/" class="md-nav__link">
+        2020-08-19
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-20/" class="md-nav__link">
+        2020-08-20
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-08-21/" class="md-nav__link">
+        2020-08-21
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-05%E5%88%92%E5%88%86%E6%A0%91%E6%B1%82%E6%9F%90%E4%B8%80%E5%8C%BA%E9%97%B4%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" class="md-nav__link">
+        2020-09-05划分树求某一区间的中位数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-07/" class="md-nav__link">
+        2020-09-07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-08%E4%BA%8C%E5%88%86%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="md-nav__link">
+        2020-09-08二分最小生成树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-08%E6%95%B0%E4%BD%8DDP%E4%BA%8C%E5%88%86/" class="md-nav__link">
+        2020-09-08数位DP二分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-09%E6%95%B0%E4%BD%8DDP/" class="md-nav__link">
+        2020-09-09数位DP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-11%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E6%9C%80%E5%A4%A7%E5%80%BC/" class="md-nav__link">
+        2020-09-11树状数组求最大值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-12%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        2020-09-12字符串哈希
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-12/" class="md-nav__link">
+        2020-09-12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-21%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        2020-09-21凸包算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-23%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        2020-09-23树状数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-09-26%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        2020-09-26最小费用最大流问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-10-04%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%89%AB%E6%8F%8F%E7%BA%BF/" class="md-nav__link">
+        2020-10-04线段树扫描线
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-10-05/" class="md-nav__link">
+        2020-10-05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-10-07%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/" class="md-nav__link">
+        2020-10-07并查集启发式合并
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-10-15dsuontree/" class="md-nav__link">
+        2020-10-15dsuontree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-11-23/" class="md-nav__link">
+        2020-11-23
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-12-02/" class="md-nav__link">
+        2020-12-02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2020-7-31/" class="md-nav__link">
+        2020-7-31
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2021-02-02/" class="md-nav__link">
+        2021-02-02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/2021-02-24/" class="md-nav__link">
+        2021-02-24
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/Beyond_compare4_30%E5%A4%A9%E8%AF%95%E7%94%A8%E8%BF%87%E6%9C%9F/" class="md-nav__link">
+        Beyondcompare430天试用过期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/GitHub%E5%8D%9A%E5%AE%A2/" class="md-nav__link">
+        GitHub博客
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/%E4%BA%8C%E5%88%86%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        二分二分查找模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/%E5%BC%82%E6%88%96%E6%B1%82%E5%92%8C%E5%BC%8F/" class="md-nav__link">
+        异或求和式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        求组合数的方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9/" class="md-nav__link">
+        求逆序对
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/%E7%AE%80%E4%BB%8B%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%B7%E5%AE%9A%E7%90%86/" class="md-nav__link">
+        简介扩展欧几里德定理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csdn/%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+        链表
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          个人计划
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          个人计划
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plan/" class="md-nav__link">
+        安排
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          关于
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          关于
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">图优算法笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>动态图的流式处理实践：概念、模型和系统<ul>
+<li>图相关背景知识<ul>
+<li>图模型：边集、点集、边权、度</li>
+<li>图的表示：邻接表、邻接矩阵、边列表和稀疏压缩行(CSR算法)</li>
+<li>图的访问：图的查询和更新</li>
+</ul>
+</li>
+<li>相关概念澄清<ul>
+<li>动态图和流图的应用<ul>
+<li>流图、动态图和时间演化图<ul>
+<li>“动态”是指代正在修改的图数据集、“流"是指传入图访问或更新的形式、“批处理”是指一次摄取一定数量的图更新。</li>
+</ul>
+</li>
+<li>图形数据库和NoSQL 存储</li>
+<li>历史图处理</li>
+<li>时间图算法</li>
+<li>通用数据流和流系统</li>
+</ul>
+</li>
+<li>动态图和流图的理论<ul>
+<li>流图算法<ul>
+<li>流图算法中，从一空白的图开始，在每个算法步骤中，将新的边插入到图中，或者删除现有的边。</li>
+<li>通过空间复杂度、更新时间、查询时间、计算结构属性的准确性和预处理时间来对算法进行评估。</li>
+<li>目标是开发最小化不同参数值的算法，特别关注最小化图形数据结构的存储。</li>
+<li>虽然空间复杂性是主要关注点，但大量的工作致力于优化 流传输算法的运行时间 ，特别是 处理边缘更新的时间以及恢复最终解的时间。</li>
+<li>实用设置中的适用性当对保留处理后的图形所允许的 最大空间有严格限制并且需要非常快速地更新每条边 时，可以使用流式处理算法。</li>
+<li>这些算法中的大多数都预先假设了某些结构图的属性，最常见的是顶点数n。</li>
+</ul>
+</li>
+<li>草图算法和动态图形流<ul>
+<li>HYPERLOGLOG 来对图进行压缩，用压缩后的图的连通性、割点割边和最短路等属性来近似原有图的属性。</li>
+</ul>
+</li>
+<li>动态图算法<ul>
+<li>在边插入和删除下近似感兴趣的输入图的组合属性（例如连通性、最短路径距离、切割、光谱属性）；尽量减少进行图形更新的时间。</li>
+<li>并行动态图算法<ul>
+<li>一个图是通过批量更新来修改的。批处理大小通常是n 的函数，例如log n 或√n。每个批中的更新可以并行地应用于一个图。</li>
+<li>使用批处理的动机有两个：将并行性纳入摄取更新；降低每次更新的成本。</li>
+<li>MPC（大规模并行计算）动态算法：结合MapReduce 等分布式动态框架和并行批处理动态图算法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>框架分类标准<ul>
+<li>获取更新、维护历史数据、动态图展示、增量更新、编程API和模型</li>
+<li>动态图表示的框架结构<ul>
+<li>基本图的表示：AL、EL、CSR 和AM 基本图形表示方法与一些其他基于树的数据表示（用于加速动态查询）</li>
+<li>区块划分和区块间联系：通过结合CSR 和AL 的方式，既保留了AL 便于修改的优点，又保留了CSR 局部性较好的优点。</li>
+<li>支持的顶点和边数据类型：边权和点权、边更新时间戳。</li>
+<li>索引结构：增加相关查询索引来加快图结构、数据和历史相关数据的查询。</li>
+</ul>
+</li>
+<li>图存储架构和突变<ul>
+<li>并发查询和更改<ul>
+<li>粗粒度同步：快照技术，更新和查询通过在图数据的两个不同副本(快照) 上执行而相互隔离；在某些时候，这些快照被合并在一起。写时复制、墓碑机制；分批接收更新并且赋予ID 进行排序。</li>
+<li>细粒度同步：更新一到达就被合并到主数据集中，通常与查询交织，使用基于细粒度锁或原子操作的同步协议。差分数据流设计操作的是带有时间戳和增量值的键值对集合。它将动态数据视为输入集合的添加或删除，并使用逻辑时间跟踪它们的演变。</li>
+</ul>
+</li>
+<li>图查询和图更新可能非并发执行，而是交替执行，这种类型的体系结构可以实现高比率的更新消化，无需考虑图一致性。</li>
+<li>事务支持：能够隔离并发访问并从潜在故障中正确恢复的工作单元，并非所有系统都支持ACID（原子性、一致性、隔离性和持久性）事务管理。</li>
+</ul>
+</li>
+<li>历史数据维护框架<ul>
+<li>存储历史快照，通过保存快照本身或者维护对图的更改来保存历史数据；保存快照的方式存储开销较大，维护对图的更改会导致构建耗时较高。</li>
+<li>历史图更新可视化，快照模式、滑动窗口模式和边缘衰减模型，pf (e) = f(t − t(e)) 非递减衰减函数。</li>
+</ul>
+</li>
+<li>增量计算架构<ul>
+<li>流式框架采用一种称为“增量更改”的方法，以加快图形算法的收敛速度。</li>
+<li>增量变化背后的关键观察是，后续的图表更新不一定会导致派生的页面排名值发生大的变化。</li>
+<li>离线模式的增量修改是通过重新计算更新分析结果；在线模式的增量修改则是跟踪修改值之间的依赖关系（即时），并使用这些依赖关系从值受到影响的点开始简单地调整必须更新的值，而无需重新启动计算。<ul>
+<li>这里类似于kickstat图修建算法，通过在边插入时计算依赖关系；在删除边时查找依赖关系并进行更新，直至图收敛。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>编程支持的API 和模式<ul>
+<li>图更新API 包括基本功能（边的插入）、复杂功能（合并两张图）、特定更新时发生的触发事件的API 和访问操作等待中的图更新。</li>
+<li>图分析API 是用于在维护的图之上运行图计算的函数，包括控制图的算法如PageRank、处理图形快照、控制在过去的快照之上运行的此类计算和增量处理的相关API 与模型。</li>
+</ul>
+</li>
+<li>框架的一般特征<ul>
+<li>图数据的存储位置内存/显存</li>
+<li>分布式</li>
+<li>目标硬件架构CPUs/GPUs</li>
+<li>通用系统/图形分析专用系统</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>框架分析<ul>
+<li>图存储架构和突变<ul>
+<li>大多数框架采用快照机制，墓碑机制、写时复制等技术</li>
+<li>某些框架采用细粒度锁机制，这导致仅在精细读取方面支持更新和读取查询的交错，不能在全局查询过程中并行摄入更新。</li>
+<li>更新调度策略，系统使用通过专门调度程序增强的细粒度同步，该调度程序操纵应用传入更新的顺序和时间以最大化吞吐量和最小化延迟。</li>
+<li>更新的摄取与查询信息的传输重叠，例如通过PCIe。</li>
+<li>只有少数框架支持ACID 事务，性能和高读取速率高于系统健壮性。</li>
+</ul>
+</li>
+<li>历史数据维护框架<ul>
+<li>Tegra 采用分布式快照索引技术将保存快照和维护图更改结合起来使用，优化性能，无需存储从开始到某一时刻的快照。</li>
+<li>STINGER 或ZipG 等系统支持维护图突变的时间戳，这有助于在选定的时间点上获得图状态，无相应的API。</li>
+<li>保留过去快照的系统通常采用一些额外的形式来跨快照重用图形结构，以减少内存开销。</li>
+<li>GraphTau 和Tegra 系统支持滑动窗口模型，这些系统可以保存快照并且获得快照之间的差异。</li>
+<li>Kineograph 唯一支持更新可见性指数衰减模型的系统。</li>
+</ul>
+</li>
+<li>图表示的框架结构<ul>
+<li>CSR+EL：EL 用于存储历史数据。</li>
+<li>AL：图更新灵活性，但局部性较差。</li>
+<li>CSR 分块：局部性和更新时间进行权衡；块越小，更新图就越容易，但同时遍历顶点邻域需要更多的随机内存访问。较大的块可以改善遍历的局部性，但需要更多时间来更新图形结构。</li>
+<li>少数框架采用基于树的图存储方式，例如PMA。</li>
+<li>在更通用的基础设施之上构造的框架使用底层系统提供的表示；框架由通用处理系统或数据库利用的数据表示。</li>
+<li>索引结构，基于CSR 的框架的标准设计等。</li>
+<li>流式框架与图数据库不同，它更多地关注图结构，而不是丰富的附加数据。</li>
+</ul>
+</li>
+<li>增量计算体系结构分析<ul>
+<li>近半数的框架提供增量更改的支持，并且大多数是基于离线模式，通过一定机制来确定那些顶点需要重新计算来更新分析结果，以反映最近的图突变。</li>
+<li>Tegra 为过去快照合并进行增量计算，来保存和分析历史数据。</li>
+<li>有一些系统是在线模式。例如GraphBolt 和KickStarter 都跟踪正在计算的顶点值与边修改之间的关系。在许多图形算法中，顶点值只是从一个单一的传入边中选择的。改进版本：DZiG、GraphInc 和RisGraph。</li>
+<li>几乎所有支持增量变化的系统都关注于单调图算法，即计算属性(例如顶点距离) 一致地增加或减少的算法。GraphBolt、DZiG 和Tegra 也涵盖了非单调算法。如信念传播、协同训练期望最大化或协同过滤。</li>
+</ul>
+</li>
+<li>提供的编程API 和模型的分析<ul>
+<li>图更新<ul>
+<li>所有图框架均支持一简单API 来完成对图的基本操作，例如添加和删除边。</li>
+<li>Concerto 编程触发事件，事件在某些特定的图形修改后自动发生。</li>
+<li>DeltaGraph 合并不同图形的函数。</li>
+<li>GraphOne 支持访问和分析仍在等待被摄取到主图形结构中的更新，可用于预处理/分析。</li>
+</ul>
+</li>
+<li>图分析<ul>
+<li>大部分框架不支持动态的图分析，其他图框架提供处理主快照的相关API 函数，大多利用现有的编程模型例如BSP。</li>
+<li>Tegra 也提供了用于在这些快照上运行分析的api，需要用户指定特定过去的快照。</li>
+<li>部分框架提供增量处理的相关API，主要包括识别那些顶点需要重新计算并筛选出的顶点进行重新计算聚合。</li>
+<li>Tegra 两个函数，diff 和expand，前一个返回前后快照的差值，后者对子图进行1 邻域扩展。</li>
+<li>补充BSP 相关概念：计算、同步、交换，重复上述三个过程，减少竞争。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>支持的图形更新类型<ul>
+<li>边的插入与删除，顶点的插入与删除；给定顶点与其相邻边一起被移除。</li>
+</ul>
+</li>
+<li>分布式设计<ul>
+<li>流框架依赖于底层分布式来支持更大的数据集以及增加吞吐量。</li>
+</ul>
+</li>
+<li>计算和存储比较<ul>
+<li>不同框架关注点可能不同，例如计算和存储。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>框架的选择和讨论<ul>
+<li>大体浏览了一遍，暂未做笔记</li>
+</ul>
+</li>
+<li>参考链接<ul>
+<li><a href="" title="https://zhuanlan.zhihu.com/p/420274577">Ligra: 轻量级单机共享内存图处理框架</a></li>
+<li><a href="" title="https://zhuanlan.zhihu.com/p/137561088">PageRank 算法详解</a></li>
+<li><a href="" title="https://blog.csdn.net/gary101818/article/details/124208393">PageRank 算法详解</a></li>
+<li><a href="" title="https://zhuanlan.zhihu.com/p/342942385">Compressed Sparse Row（CSR）——稀疏矩阵的存储格式</a></li>
+<li><a href="" title="https://zhuanlan.zhihu.com/p/369981005">Count-min Sketch 算法</a></li>
+<li><a href="" title="https://blog.csdn.net/tongkongyu/article/details/124842847">布隆过滤器详解</a></li>
+<li><a href="" title="https://www.yuque.com/abser/aboutme/nfx0a4">HyperLogLog</a></li>
+<li><a href="" title="https://blog.csdn.net/dengjili/article/details/82468576/">事务ACID 理解</a></li>
+<li><a href="" title="https://www.bilibili.com/video/av885528716/?vd_source=3e25a283da1fbdac4ed7aef3afb50c93">BSP（批量同步并行执行）的基本知识：并行算法的编程方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>KickStarter：通过修剪近似对流图进行快速准确的计算<ul>
+<li>KickStarter算法是一种图修剪算法，主要要实现的是在动态图删除边时快速完成对图边权点权的收敛计算，由于图在删除边时点权会较多点的点权受到影响，如果为了计算精确结果而对所有点权进行计算则时间复杂度较高；为此提出了KickStarter算法，KickStarter算法通过动态跟踪图插入边并动态更新点权依赖关系，在删除边时只需要查询相关依赖被破坏的点并计算即可，从而达到降低时间复杂度的效果。</li>
+<li>kcikstarter主要利用了单调性原理来减少边删除后更新点权的计算次数。</li>
+<li>KickStarter支持两种修剪方法。第一种方法使用标记机制识别可能受边缘删除影响的顶点集，该标记机制还利用算法洞察力。 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-953906-674555.jpg" /></li>
+<li>在第二种方法中，KickStarter在计算发生时在线跟踪顶点之间的动态相关性（即，哪个顶点的值对给定顶点的值的计算有贡献）。 寻找安全的近似值（消除循环，寻找不包含在闭包依赖中传入边，维护等级）；何时停止（一旦为顶点找到安全值，KickStarter 就会检查该值是否会破坏单调性） <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-29429-329466.jpg" /> <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-345525-76664.jpg" /></li>
+</ul>
+</li>
+<li>GraphOne：用于实时分析进化图的数据存储<ul>
+<li>批分析和流分析执行不同类型的数据访问，即前者访问整个图，而后者侧重于时间窗口内的数据。</li>
+<li><img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-130802-96495.jpg" /></li>
+<li>边缘日志以边缘列表格式保留最新更新，旨在加速数据摄取。同时，邻接存储以邻接列表格式保存旧数据的快照，这些快照会定期从边缘日志中移动，并针对批处理和流分析进行了优化。</li>
+<li>GRAPHONE 使用边日志的时间特性强制数据排序，并在邻接存储中保持每个顶点的边到达顺序不变。然后，双版本控制技术利用边缘列表格式的细粒度版本控制和邻接列表格式的粗粒度版本控制来创建实时版本。</li>
+<li>两种优化技术，缓存行大小的内存分配和幂律图的高度顶点的特殊处理，以减少版本化邻接存储的内存需求。</li>
+<li>支持两种类型的 GraphView：(1) 静态视图提供最新数据的实时版本控制，用于批量分析； (2) 流视图支持具有最新更新的流分析。这些视图在两个粒度级别提供数据更新的可见性以进行分析，其中边缘日志用于在边缘级别提供它，而邻接存储以粗粒度的更新提供相同的信息。</li>
+<li>使用边缘列表格式创建细粒度快照。图形分析和查询在执行期间需要最新数据的不可变快照。边缘列表格式为细粒度快照创建提供了自然支持，而无需创建物理快照，因为它具有时间特性，因为跟踪快照只是记住边缘列表中的偏移量。同时，邻接列表格式通过其粗粒度快照功能 [54, 26] 用于补充边列表。</li>
+<li>在混合存储中同时使用边缘列表和邻接列表。边缘列表格式保留了数据到达顺序并为快速更新提供了良好的支持，因为每次更新都简单地附加到列表的末尾。另一方面，邻接表保留了源顶点索引的顶点的所有邻居，这为图形分析提供了高效的数据访问。因此，它允许 GRAPHONE 实现高性能图形计算，同时支持细粒度更新。</li>
+</ul>
+</li>
+<li>GraphBolt：流图的依赖驱动同步处理<ul>
+<li>算法示意图，需要维护历史值和依赖关系网 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-280065-560166.jpg" /></li>
+<li>增量算法旨在通过重用图结构发生变化之前计算的结果来最小化冗余计算。</li>
+<li>虽然增量处理使系统响应更快，但直接重用中间值通常会导致算法产生不正确的结果。此外，这些不正确的结果成为执行后续增量处理的基础，这会导致随着时间的推移越来越不准确。</li>
+<li>GraphIn 和 KickStarter 等解决方案增量转换中间结果，首先使它们与更新的图形一致，然后使用转换后的结果计算最终答案。此类转换通常基于 单调收敛 （路径长度或组件 ID）等算法属性，这使得它们适用于图算法的选定子类（例如，单调）</li>
+<li>BSP语义，即批量同步并行 ；BSP包含三个阶段：计算，同步和交换。</li>
+<li>差分数据流 [25] 通过差异（或更改）反映流中变化的影响来增量处理广义流。它的优势在于它的微分运算符可以捕获并直接计算差异，并且足够通用以支持任何迭代增量计算。</li>
+<li>水平修剪是通过在某些迭代后直接停止对聚合值的跟踪来实现的。</li>
+<li>垂直修剪在顶点级别进行操作，并且通过不保存已稳定的聚合值来执行。</li>
+</ul>
+</li>
+<li>STINGER：流图的高性能数据结构<ul>
+<li>数据结构基于块的链表。通过添加额外的顶点和边块，顶点和边的数量可以随时间增长。顶点和边都有类型，一个顶点可以有多种类型的入射边。</li>
+<li>入射到给定顶点的边存储在边块的链表中。边表示为相邻顶点 ID、类型、权重和两个时间戳的元组；给定块中的所有边都具有相同的边类型；该块包含元数据，例如最低和最高时间戳以及块内有效边缘的高水位线。</li>
+<li>边缘类型数组 (ETA) 是指向给定类型的所有边缘块的二级索引。在边缘并行的连接组件等算法中，这种访问数据结构的附加模式允许在并行 for 循环中探索所有边缘块。/ STINGER 提供了边缘类型数组（ETA）索引数据结构。 ETA 包含指向具有给定类型边缘的所有块的指针，以加速在特定边缘类型上运行的算法。</li>
+<li>STINGER 必须能够响应新的和更新的边缘。提供了并行插入、删除、递增和接触边缘的功能；可以查询图的入度和出度，以及图中顶点和边的总数。</li>
+<li>通过批处理、细粒度锁来并行处理，加快处理速度。</li>
+<li>DISTINGER是STINGER的分布式版本；cuSTINGER扩展了CUDA GPU的STINGER。</li>
+<li>STINGER官方文档： <a href="" title="http://www.stingergraph.com/index.php?id=documentation">http://www.stingergraph.com/index.php?id=documentation</a></li>
+</ul>
+</li>
+<li>Tornado：一个对不断变化的数据进行实时迭代分析的系统<ul>
+<li>怀疑下列公式打错了， ​​​​​​ <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-834234-724052.jpg" /></li>
+<li>在主循环中，我们不断收集传入数据并在当前时刻近似计算结果。令 ∆Si 为第 i 次迭代中收集的输入， ​​​​​​​​​​​​​​​ 为第 i 次迭代中的近似值，则我们有 ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ ，其中 g 是近似函数。 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-591774-219950.jpg" /></li>
+<li>随机梯度下降 (SGD) 通过使用观察实例的无偏采样来近似梯度，从而避免了昂贵的梯度计算。无偏抽样通常通过随机抽样来完成。</li>
+<li>迭代模型 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-550843-653158.jpg" /></li>
+<li><a href="" title="https://zhuanlan.zhihu.com/p/53482103">分布式快照算法: Chandy-Lamport 算法</a></li>
+</ul>
+</li>
+<li>使用压缩纯函数树的低延迟图流<ul>
+<li>C Tree <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-111995-321179.jpg" /></li>
+<li>图一是普通的图、图二为边树、图三为CTree优化的边树。 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-499952-418145.jpg" /></li>
+</ul>
+</li>
+<li>控制有状态流图处理的内存占用（主要对GraphBolt进行优化）<ul>
+<li>无状态迭代模型 &amp; 有状态迭代模型 ( KickStarter(只保留一次中间状态), GraphBolt(保留从开始到结束的中间状态))</li>
+<li>选择性有状态迭代模型<ul>
+<li>只选择其中一部分顶点来记录其中间状态（跟踪顶点和未跟踪顶点），减少内存开销。</li>
+<li>跟踪排名最高的前 k 个顶点的中间状态，利用大顶堆维护。</li>
+<li>应该跟踪多少个顶点？k是跟踪状态的顶点数、state_size是中间顶点状态的大小、mem_budget是可用内存容量、base_size是其他消耗的内存系统中的数据结构 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-361647-796076.jpg" /></li>
+<li>优化布局，未跟踪顶点和跟踪顶点分别单独存储 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-131157-723042.jpg" /></li>
+<li>如果目标顶点未被跟踪，则旧值（来自图突变之前）和新值（由图突变产生）都沿着边传播。</li>
+<li>对于跟踪的顶点，中间状态随着迭代处理的进行而逐步细化。而对于未跟踪的顶点，随着处理通过迭代进行（类似于从头开始计算，没有中间状态），单个向量被维护以保存它们的最新值。在每次迭代中，跨边传播的值基于目标顶点是被跟踪还是未被跟踪，如图 6b 所示。如果跟踪目标顶点，则值的差异将沿着其传入边传播，类似于传统的依赖驱动增量处理。</li>
+<li>根据目标顶点是被跟踪（突出显示）还是未被跟踪传播的值。未跟踪的顶点接收旧值和新值，而跟踪的顶点直接接收值的差异 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-526470-373272.jpg" /></li>
+</ul>
+</li>
+<li>最小状态迭代模型<ul>
+<li>专门针对某些算法进行增量处理，例如PageRank等，此类算法可以根据顶点的传入值变化直接计算给定顶点的传出值变化（新颖的分布式更新属性）。</li>
+<li>针对某些图形算法的增量处理来积极消除中间状态的跟踪。</li>
+<li>⊕是将传入值组合到顶点的聚合函数，S是将源值转换为聚合的函数，A是使用聚合结果 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-293479-646193.jpg" /></li>
+<li>分布式更新属性指出顶点值的计算可以作为子计算分布在其传入邻居的值上；γ 和 α 是从 A 派生的函数 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-712500-222382.jpg" /></li>
+<li>在每次迭代时不计算中间状态的情况下传播差异，但这些差异需要以某些基础为基础。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RisGraph：一个用于进化图的实时流系统，以百万次操作/秒的速度支持亚毫秒级每次更新分析（主要对KickStarter进行优化）<ul>
+<li>本地化数据访问<ul>
+<li>本地化数据访问背后的基本原理是增量计算只需要访问部分顶点，但不正确的数据结构将需要部分计算来访问整个图。系统应该使用适当的数据结构来避免不必要的操作。</li>
+<li>稀疏数组和密集数组、位图，使用稀疏数组跟踪活动顶点和更新结果，以消除扫描所有顶点的冗余开销</li>
+<li>边并行和点并行策略，普遍结论 点并行优于边并行，局部性更好 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-748-575772.jpg" /></li>
+<li>索引邻接列表 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-90438-168912.jpg" /></li>
+</ul>
+</li>
+<li>并行处理更新<ul>
+<li>一种特定于域的并发控制机制，以低开销支持多个更新之间的并行性，从而提高吞吐量。它利用增量模型和中间数据结构在处理它们之前识别非冲突更新。</li>
+<li>不改变任何结果的更新命名为安全更新。相应地，不安全的更新会修改结果或依赖树。</li>
+<li>三种安全状态<ul>
+<li>(1) ins_vertex(v) 或 del_vertex(v) 对于任何顶点𝑣。该操作仅在𝑣为孤立顶点时有效（用户在删除𝑣之前必须先删除与𝑣相关的所有边），因此不会影响单调算法的结果[77]。</li>
+<li>(2) del_edge(e) for 𝑒 ∉ 𝐸𝑇 ，比如边⟨𝑣2，𝑣3⟩。这些删除不会修改依赖树，因此不会改变任何结果。相反，删除⟨𝑣1、𝑣2⟩或⟨𝑣1、𝑣3⟩将分别使𝑣2或𝑣3的状态无效。</li>
+<li>(3) ins_edge(e) for 𝑒 = ⟨𝑣𝑠 , 𝑣𝑡 ⟩ 当 need_upd(vt, vt.data, gen_next(e, vs.data)) 为假时。以边插入⟨𝑣0，𝑣2⟩为例，我们首先从源𝑣0和新边𝑒计算出目标𝑣2的新结果。如果 𝑒 不能产生比 𝑣2 的当前结果更好的结果，则插入是安全的。</li>
+</ul>
+</li>
+<li>RisGraph 将更新分为安全 (S)、不安全 (U) 和下一纪元 (N)。不安全更新后，同一会话中的所有更新都是下一纪元更新，这意味着它们应该在下一个纪元中重新分类，因为任何不安全操作都可能修改结果并更改其背后更新的分类。 RisGraph 并行处理多个安全更新，利用更新间并行性。</li>
+<li>如果某些会话持续产生安全更新，RisGraph 将使不安全的更新处于饥饿状态，RisGraph 的调度器控制每个 epoch 的大小，并尽可能满足用户期望的尾部延迟。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ligra：用于共享内存的轻量级图形处理框架<ul>
+<li>EDGEMAP 和 VERTEXMAP 函数</li>
+</ul>
+</li>
+<li>使用动态图神经网络的动态网络的基础和建模：一项调查</li>
+<li>GraphBolt代码阅读<ul>
+<li>GraphBolt相关函数<ul>
+<li>GraphBolt 框架的一个关键设计决策是确保应用程序代码保持对 GraphBolt 内部微妙之处的无视，同时仍然提供快速性能。</li>
+<li>因此，应用程序代码只需要使用以下函数来表达其计算。</li>
+<li>AggregateValue 和 VertexValue 初始化：<ul>
+<li>initializeAggregationValue()</li>
+<li>initializeVertexValue()</li>
+<li>aggregationValueIdentity()<ul>
+<li>返回聚合值的标识值。 对于求和，标识值为 0。对于求积，标识值为 1。</li>
+</ul>
+</li>
+<li>vertexValueIdentity()<ul>
+<li>返回顶点值的标识值。 对于求和，标识值为 0。对于求积，标识值为 1。</li>
+</ul>
+</li>
+<li>GraphBolt 以聚合值的形式存储每个顶点的信息。 因此，首先，用户应该确定算法的聚合值和顶点值。 例如在 PageRank 中，顶点值是其 pagerank (PR)，聚合值是其所有 inNeighbors 的 (PR[u]/out_Degree[u]) 值之和。</li>
+</ul>
+</li>
+<li>为给定的迭代激活顶点/计算顶点：<ul>
+<li>forceActivateVertexForIteration()<ul>
+<li>用于确定在给定迭代中是否应强制顶点处于活动状态。 例如，在 PageRank 中，所有顶点在第一次迭代中都应该处于活动状态。 在 CF (ALS) 中，在第一次迭代中，所有 partition2 顶点都应该处于活动状态，在第二次迭代中，所有 partition1 顶点都应该处于活动状态</li>
+</ul>
+</li>
+<li>forceComputeVertexForIteration()<ul>
+<li>默认情况下，所有从其 inNeighbor 接收到一些变化的顶点都将计算它的值。 对于某些算法，我们需要计算顶点的值，而不管该顶点是否在该次迭代中收到任何更改。 此函数用于在给定迭代中强制计算顶点。</li>
+</ul>
+</li>
+<li>shouldUseDelta()<ul>
+<li>通常，对于第一次迭代，顶点将整个值传播到它的 outNeighbor。 例如，此函数应为 iter=1 返回 false，并为其他迭代返回 true。 对于 CF，我们有 2 个分区。 因此，函数应该为 iter=1 或 iter=2 返回 true。 使用此函数自定义何时应执行基于增量的增量计算</li>
+</ul>
+</li>
+<li>在迭代图算法中，在给定的迭代 i 中，一组顶点会将一些值推送到它们的 outNeighbors。 这些是该迭代的活动顶点。 收到这些值的 outNeighbors 将计算它们的更新值。 提供以下函数以强制顶点在给定迭代中处于活动状态/计算状态。 例如，在 Label Propagation 中，所有顶点都应在每次迭代中计算它们的值，而不管它们是否在该迭代中从其 inNeighbors 接收到任何新更改（请参阅 apps/LabelPropagation.C）。</li>
+</ul>
+</li>
+<li>添加到聚合或从聚合中删除：<ul>
+<li>addToAggregation()</li>
+<li>addToAggregationAtomic()</li>
+<li>removeFromAggregation()</li>
+<li>removeFromAggregationAtomic()</li>
+<li>这些是用于向聚合值添加值或从聚合值中删除某些值的函数。 对于 sum，它只是简单地从传递的聚合值中添加和减去值。 请注意，addToAggregationAtomic() 和 removeFromAggregationAtomic() 将由多个线程在同一聚合值上调用。 因此，应该使用 CAS 以原子方式执行更新。</li>
+</ul>
+</li>
+<li>边缘功能：<ul>
+<li>sourceChangeInContribution()<ul>
+<li>对于边 (u,v)，边函数分 3 个步骤执行：(1) 源顶点贡献的变化，它处理特定于该源顶点的计算，(2) edgeFunction 合并了特定的计算 到那条边，以及 (3) 使用 addToAggregationAtomic 将边 (u, v) 的最终 change_in_contribution 聚合到 v 的 aggregate_value 中。</li>
+<li>对于顶点 u，给定它在当前迭代和先前迭代中的值，计算 change_in_contribution。 对于 PageRank 中的顶点 v，相同的值 (PR[v]/out_degree[v]) 必须被推送到它的所有 outNeighbors。 在基于增量的计算的情况下，它推出 (PR_curr[v] -PR_prev[v])/out_degree[v]。 注意：change_in_contribution 可以直接就地更新。 更新 u_change_in_contribution 不需要 LOCKS/CAS</li>
+</ul>
+</li>
+<li>edgeFunction()<ul>
+<li>对于顶点 u，给定其在当前迭代中的值及其计算的 change_in_contribution，更新给定边 (u, v) 的 change_in_contribution。 例如，在Label Propagation中，(u, v)的edge_data乘以每个factor的change_in_contribution。 如果来自 u 的值不应包含在 v 的聚合值中，则返回 false。否则返回 true。 注意：对 change_in_contribution 的更改应该到位。 更新 u_change_in_contribution 不需要 LOCKS/CAS</li>
+</ul>
+</li>
+<li>edgeFunctionDelta()</li>
+<li>边缘操作分为 3 个阶段：<ul>
+<li>确定源贡献 - 此处执行仅依赖于源值的给定顶点的计算。 例如，在 PageRank 中，顶点 u 将值 PR[u]/out_degree[u] 添加到其所有 outNeighbors 的聚合值。 由于 PR[u]/out_degree[u] 的计算对于处理 u 的所有 outEdges 是常见的，我们可以只计算一次这个值（源顶点的贡献）并对所有 outEdges 执行加法。</li>
+<li>根据边数据转换贡献 - 在此步骤中，源顶点贡献由边属性转换。 例如在加权页面排名中，贡献将乘以边缘权重。</li>
+<li>使用 addToAggregationAtomic() 聚合对聚合值的贡献。</li>
+<li>请注意，这些函数不需要 CAS 或锁。 在复杂聚合的情况下，必须定义一个额外的 edgeFunctionDelta()。 有关这些函数的更多详细信息，请参阅 apps/GraphBoltEngine.h、apps/GraphBoltEngine_complex.h。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>顶点计算函数并确定计算结束：<ul>
+<li>computeFunction()</li>
+<li>notDelZero()</li>
+<li>给定一个聚合值，computeFunction() 计算对应于该聚合值的顶点值。 为了确定收敛条件，使用 notDelZero() 来确定顶点的值与其之前的值相比是否发生了显着变化。 这两个函数都不需要 CAS 或锁，因为它们将以顶点并行方式调用。</li>
+</ul>
+</li>
+<li>确定边缘更新如何影响源/目标：<ul>
+<li>hasSourceChangedByUpdate()<ul>
+<li>对于给定的边添加 (u, v)，定义它如何影响第一次迭代中的源顶点。 activateInCurrentIteration 定义源顶点是否在第一次迭代中处于活动状态。 例如，在 PageRank 中，如果 u 的 out_degree 发生了变化，那么推送到其所有 outNeighbors 的 u 的值也会发生变化。 因此，如果更新图中的 out_degree(u) 不等于其在先前版本图中的 out_degree，则返回 true。 否则，返回假。 注意：确保将给定图形版本所需的相关信息（用于算法/应用程序）存储在 global_info 对象中。 示例：必须为给定图形存储所有顶点的出度。 forceComputeInCurrentIteration 定义源顶点是否必须在第一次迭代中重新计算。 例如，在 COEM 中，如果顶点的 inWeights 总和发生变化，则应在第一次迭代中为该顶点调用 computeFuntion()。</li>
+</ul>
+</li>
+<li>hasDestinationChangedByUpdate()<ul>
+<li>对于给定的边添加 (u, v)，定义目标顶点是否已更改。 activateInCurrentIteration 定义目标顶点是否在第一次迭代中处于活动状态。 注意：确保将给定图形版本所需的相关信息（用于算法/应用程序）存储在 global_info 对象中。 示例：必须为给定图形存储所有顶点的出度。 forceComputeInCurrentIteration 定义是否必须在第一次迭代中重新计算目标顶点。</li>
+</ul>
+</li>
+<li>这些函数用于定义边更新如何影响源和目标顶点，即是否应在第一次迭代中激活顶点或重新计算其值（使用 computeFuntion()）。 例如，在 PageRank 中，如果一个顶点的 out_degree 发生变化，那么它将在第一次迭代中处于活动状态。 而在 COEM 中，如果一个顶点的 inWeights 之和发生变化，那么它的值应该在第一次迭代中计算。</li>
+</ul>
+</li>
+<li>计算函数<ul>
+<li>compute()</li>
+<li>这是应用程序的起点。 GraphBolt 引擎在此处使用所需的配置进行初始化并启动。</li>
+<li>除了这些功能之外，该算法还需要定义一个 Info 类，其中包含该应用程序所需的所有全局变量/常量。 它应该实现以下功能：</li>
+<li>copy()</li>
+<li>processUpdates()</li>
+<li>cleanup()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>KickStarter相关函数<ul>
+<li>KickStarter 引擎用于流式传输基于路径的/单调图算法，如 SSSP、BFS 等。</li>
+<li>与GraphBolt引擎类似，KickStarter引擎也提供了表达算法的函数。</li>
+<li>顶点值初始化：<ul>
+<li>initializeVertexValue()</li>
+</ul>
+</li>
+<li>为第一次迭代激活顶点/计算顶点：<ul>
+<li>frontierVertex()</li>
+</ul>
+</li>
+<li>与 GraphBolt 引擎不同，我们只需要知道哪些顶点在第一次迭代中处于活动状态。</li>
+<li>边缘功能：<ul>
+<li>edgeFunction()</li>
+<li>对于边 (u, v)，根据 u 的值计算 v 的值。 如果来自 u 的值不应用于更新 v 的值，则返回 false。否则返回 true。</li>
+</ul>
+</li>
+<li>传播：<ul>
+<li>shouldPropagate ()</li>
+<li>shouldPropagate 条件用于确定顶点的单调性是否保持给定的 2 个值，具体取决于算法。</li>
+</ul>
+</li>
+<li>计算函数<ul>
+<li>compute()</li>
+<li>应用程序的起点。 KickStarter 引擎在此处使用所需的配置进行初始化并启动。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>传统增量计算模型<ul>
+<li>复制，复制上一次迭代的顶点值、聚合值和增量</li>
+<li>如果为第一次迭代则计算所有活跃点的聚合值</li>
+<li>根据上次迭代的 顶点活跃情况 和 聚合值更新状况 判断是否需要聚合值更新是否要加入到最终更新 EdgeFunction</li>
+<li>将聚合值更新加入到顶点并根据顶点值前后变化情况判断是否加入下一次活跃顶点并计算相应聚合值用于下次计算</li>
+<li>判断活跃点集是否为空和最大迭代上限判断是否要退出迭代</li>
+</ul>
+</li>
+<li>相关输入输出函数<ul>
+<li>-s ：指示使用对称（无向）图的可选参数。</li>
+<li>-streamPath：输入流文件或管道的路径（有关输入格式的更多信息，请参见第 2.4 节）。</li>
+<li>-numberOfUpdateBatches ：可选参数，用于指定要进行的边缘更新的数量。 默认值为 1。</li>
+<li>-nEdges：给定更新批次中要处理的边缘操作数。</li>
+<li>-outputFile ：用于打印给定算法输出的可选参数。</li>
+<li>输入图形文件路径（有关输入格式的更多信息，请参见第 2.4 节）。</li>
+</ul>
+</li>
+<li>输入输出文件格式<ul>
+<li>SNAP 边表格式和AdjacencyGraph邻接格式</li>
+<li>SNAP 边表格式</li>
+<li>由一系列边组成</li>
+<li>AdjacencyGraph格式</li>
+<li>AdjacencyGraph</li>
+<li>顶点个数</li>
+<li>边个数</li>
+<li>边偏移量</li>
+<li>对应边</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tegra：进化图的高效临时分析<ul>
+<li>实体扩展增量计算<ul>
+<li>虚线圆圈表示重新计算的顶点，双圆圈表示需要出现在子图中以计算正确答案但不重新计算状态的顶点。 <img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-236756-164294.jpg" /></li>
+<li>四个阶段<ul>
+<li>初始执行<ul>
+<li>当算法第一次执行时，ICE 存储顶点（和边，如果算法要求它）作为图中的属性。在每次迭代结束时，图表的快照都会添加到时光倒流中。 ID 是使用图的唯一 ID、算法标识符和迭代次数的组合生成的。</li>
+</ul>
+</li>
+<li>引导<ul>
+<li>当要在新的快照上执行计算时，ICE 需要引导增量计算。直观地，必须在引导程序中参与计算的子图由图的更新以及受更新影响的实体组成。</li>
+<li>例如，应包括任何新添加或更改的顶点。类似地，边修改将导致源和/或目标顶点被包括在计算中。</li>
+<li>然而，受影响的实体本身并不足以确保结果的正确性。这是因为在图并行执行中，图实体的状态取决于其邻居的集体输入。因此，ICE 还必须包括受影响实体的一跳邻居，因此自举子图由受影响实体及其一跳邻居组成。 ICE 为此目的使用扩展 API。</li>
+</ul>
+</li>
+<li>迭代<ul>
+<li>在每次迭代中，ICE 都需要找到正确的子图来执行计算。 ICE 利用了这样一个事实，即图并行抽象的性质限制了迭代中更新的传播距离。直观地，在任何迭代中可能具有不同状态的图实体将包含在 ICE 已经从上次迭代开始执行计算的子图中。</li>
+<li>在初始引导程序之后，ICE 可以通过检查前一次迭代对子图的更改（使用 diff）并扩展到受影响实体的单跳邻域（使用 expand）来在给定迭代中找到新子图。</li>
+<li>对于没有重新计算状态的顶点/边，ICE 只是从时光倒流中复制状态（使用合并）。</li>
+</ul>
+</li>
+<li>终止<ul>
+<li>与初始执行相比，对图形的修改可能会导致更多（或更少）的迭代次数。与普通的图并行计算不同，ICE 不一定会在子图收敛时停止。如果在初始执行的延时中存储了更多迭代，ICE 需要检查是否必须复制图中未更改的部分。反之，如果子图还没有收敛，没有更多对应的迭代，ICE就需要继续。为此，它只需从该点切换到正常（非增量）计算。</li>
+<li>ICE 仅在子图收敛时收敛，并且没有实体需要从时光倒流中存储的快照复制其状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>优化<ul>
+<li>ICE 的设计让我们克服了这种低效率。由于 ICE 在每次迭代中生成与完全重新执行相同的中间状态，因此它可以在任何时候切换到完全重新执行；在迭代边界处（即，在执行期间的迭代开始处），训练一个简单的随机森林分类器来预测，在迭代开始时，与继续增量执行相比，从该点切换到完全重新执行是否会更快。</li>
+<li>参与计算的顶点数、活动顶点的平均度数、活动分区数、生成的消息数每个顶点、每个顶点接收到的消息数、通过网络传输的数据量以及完成迭代所需的时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>优化方案<ul>
+<li>tegra 增量计算 &amp; graphbolt增量计算 &amp; 从头开始 三者的一个自动切换</li>
+<li>graphbolt做优化的那篇关于减少内存开销的论文，里面提到的两种优化方法也可以做，你实现出来以后也可以加个切换优化什么的</li>
+<li>graphbolt那个切换论文里面说的是因为记录的中间结果进行了剪枝，分为水平的和垂直的两种，比如水平的是只记录了前k次迭代的中间结果，对于第k次迭代之后的由于没有中间结果所以无法增量计算，因此就会切换到从头算，但这个过程需要注意的是如何保证切换时活跃点集的正确性</li>
+<li>tegra的增量计算方法就是说和graphbolt一样，也要记录每一次迭代的中间结果，但是它的增量计算方法不是在历史结果上进行修正，而是说对于不受更新影响的顶点的中间结果就直接copy，而受影响的那些顶点就采用传统的计算方法（就是基于上一轮迭代的值来算当前迭代的值）</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
