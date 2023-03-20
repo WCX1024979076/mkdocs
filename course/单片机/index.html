@@ -61,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
   
     
     
@@ -116,7 +116,7 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -3711,22 +3711,22 @@
 <p>一个源程序只能有一个END命令。</p>
 <p>4.3 DB（Define Byte）  定义数据字节命令</p>
 <p>功能：用于从指定的地址单元开始，在程序存储器中定义字节数据。    </p>
-<div class="highlight"><pre><span></span><code>ORG  8100H
-TAB： DB     0C0H,  0F9H,  0A4H,  0B0H
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ORG  8100H
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>TAB： DB     0C0H,  0F9H,  0A4H,  0B0H
+</span></code></pre></div>
 <p>4.4 DW（Define Word） 定义数据字命令</p>
 <p>功能：用于从指定地址开始，在程序存储器单元中定义16位的数据字。</p>
 <p>存放规则：高8位在前（低地址），低8位在后（高地址）。</p>
-<div class="highlight"><pre><span></span><code>ORG  1100H
-DATA2:  DW     3478H, 10H, -1
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ORG  1100H
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>DATA2:  DW     3478H, 10H, -1
+</span></code></pre></div>
 <p>注意：DB和DW定义的数表，数的个数不得超过80个。如果数据的数目较多时，可使用多个定义命令。在 MCS-51程序设计应用中，常以DB定义数据，以DW定义地址。</p>
 <p>4.5 DS（Define Storage）  定义存储区命令</p>
 <p>功能：用于从指定地址开始，保留指定数目的字节单元为存储区，供程序运行使用。汇编时对这些单元不赋值。</p>
 <p>格式：         [标号：]      DS      16位数表</p>
-<div class="highlight"><pre><span></span><code>ORG   8100H
-DS    08H
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ORG   8100H
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DS    08H
+</span></code></pre></div>
 <p>注意：对MSC-51单片机来说，DB、DW、DS命令只能对程序存储器使用，不能对数据存储器使用。</p>
 <p>4.6 EQU（Equate）  赋值命令</p>
 <p>功能：用于给字符名称赋予一个特定值。赋值以后，其值在整个过程中有效。</p>
@@ -3836,10 +3836,10 @@ DS    08H
 <p>乘除法运算影响PSW的状态。</p>
 <p>2.5 十进制调整指令：</p>
 <p>DA      A</p>
-<div class="highlight"><pre><span></span><code>MOV A, #48H
-ADD A, #79H
-DA  A;  A == #27H
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>MOV A, #48H
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ADD A, #79H
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>DA  A;  A == #27H
+</span></code></pre></div>
 <p>一个十进制数用四位二进制编码表示，即二进制编码的==十进制数==，简称BCD码。</p>
 <p>BCD码的修正（了解）</p>
 <p>(1) 如果任何两个对应位BCD数相加的结果向高一位无进位时，若得到的结果小于或等于 9，则该位不需修正；若得到的结果大于 9 且小于 16 位，则该位进行加 6 修正。      </p>
@@ -3866,15 +3866,15 @@ DA  A;  A == #27H
 <h3 id="5-mcs-51">第5章   MCS-51的汇编语言程序设计<a class="headerlink" href="#5-mcs-51" title="Permanent link">&para;</a></h3>
 <p>汇编语言程序共有四种结构形式：顺序结构、循环结构、分支结构和子程序结构。</p>
 <h4 id="_9">查表指令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>     ORG 0
-     MOV    A，30H     
-     MOV DPTR，#TAB      ；地址修正
-     MOVC A，@A+DPTR     
-     MOV 31H，A          ；双字节指令
-TAB：DB 3FH，06H，5BH，4FH，66H；字形代码表
-     DB 6DH，7DH，07H，7FH，6FH 
-     END
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>     ORG 0
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>     MOV    A，30H     
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>     MOV DPTR，#TAB      ；地址修正
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>     MOVC A，@A+DPTR     
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>     MOV 31H，A          ；双字节指令
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>TAB：DB 3FH，06H，5BH，4FH，66H；字形代码表
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>     DB 6DH，7DH，07H，7FH，6FH 
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     END
+</span></code></pre></div>
 <blockquote>
 <p>注：JBC指令</p>
 <p>JBC bit NEXT</p>
@@ -3882,14 +3882,14 @@ TAB：DB 3FH，06H，5BH，4FH，66H；字形代码表
 </blockquote>
 <h4 id="_10">散转指令<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <p>JMP  @A+DPTR</p>
-<div class="highlight"><pre><span></span><code>        MOV DPTR，#TAB
-        JMP @A+DPTR
-        NOP
-TAB：    AJMP      ADDM      ；散转表
-        AJMP      SUBM
-        AJMP      MULM
-        AJMP      DIVM 
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>        MOV DPTR，#TAB
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        JMP @A+DPTR
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        NOP
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>TAB：    AJMP      ADDM      ；散转表
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        AJMP      SUBM
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        AJMP      MULM
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        AJMP      DIVM 
+</span></code></pre></div>
 <p>在使用JMP  @A+DPTR构成多分支程序时的注意事项：</p>
 <p>① 由于A是8位寄存器，如果分支程序的个数大于128，则地址修正值大于256。为了获得正确的地址，需对数据指针的高8位DPH进行修正。</p>
 <p>② 散转点数不得超过256，这是由A的容量确定的。</p>
@@ -4154,12 +4154,12 @@ TAB：    AJMP      ADDM      ；散转表
 <p>（2）I/O口的操作</p>
 <p>在单片机中把I/O接口中的寄存器与外部RAM中的存储单元同等对待。</p>
 <p>对I/O端口的操作采用与外部RAM操作相同的指令用MOVX，即：     </p>
-<div class="highlight"><pre><span></span><code>MOVX  @DPTR,  A ；I/O口输出指令
-MOVX  @Ri,  A 
-
-MOVX  A, @DPTR  ；I/O口输入指令
-MOVX  A, @Ri 
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>MOVX  @DPTR,  A ；I/O口输出指令
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>MOVX  @Ri,  A 
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>MOVX  A, @DPTR  ；I/O口输入指令
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>MOVX  A, @Ri 
+</span></code></pre></div>
 <h4 id="io_2">简单I/O接口的扩展方法<a class="headerlink" href="#io_2" title="Permanent link">&para;</a></h4>
 <p>MCS-51系列单片机并行I/O接口的扩展方法灵活多样，但大致可以分为采用不可编程芯片和采用可编程并行接口芯片进行扩展两类。</p>
 <p>不可编程的芯片：有74LS244、74LS245、74LS273、74LS373、74LS367、74LS377、CD4014、CD4094等；</p>

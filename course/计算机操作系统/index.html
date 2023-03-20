@@ -61,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
   
     
     
@@ -116,7 +116,7 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -3378,14 +3378,14 @@ sysenter 都可以完成从用户态到内核态的切换</p>
 <p>临界区：每个进程中访问临界资源的那段代码称为临界区。</p>
 <p>进入区：检查是否可以进入临界区并对临界区“加锁”的代码。</p>
 <p>退出区：释放临界区访问权的代码。、</p>
-<div class="highlight"><pre><span></span><code><span class="n">P</span>
-<span class="err">｛…</span><span class="w"> </span><span class="err">…</span>
-<span class="w">    </span><span class="n">进入区</span>
-<span class="w">    </span><span class="n">CS</span>
-<span class="w">    </span><span class="n">退出区</span>
-<span class="w">    </span><span class="err">…</span><span class="w"> </span><span class="err">…</span>
-<span class="err">｝</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">P</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">｛…</span><span class="w"> </span><span class="err">…</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">进入区</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">CS</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">退出区</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="err">…</span><span class="w"> </span><span class="err">…</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">｝</span>
+</span></code></pre></div>
 <p>2、同步机制应遵循的准则 </p>
 <p>控制临界资源访问权的控制算法在设计上应遵循的原则 :</p>
 <p>1.空闲让进 2. 忙则等待 3. 有限等待 4. 让权等待</p>
@@ -3397,42 +3397,42 @@ sysenter 都可以完成从用户态到内核态的切换</p>
 <p>​   思路：定义一个整型变量，用整型变量值标记资源使用情况：如整型量&gt;0,说明有可用资源；整型量≤0说明资源忙，进程必须等待。对于一次只允许一个进程访问的CS，可定义一个用于互斥的整型信号量，并被初始化为1。</p>
 <p>​   整型信号量的wait和signal操作</p>
 <p>​   wait(s)和signal(s)是原子操作（最基本、最小的、中间不允许插入任何中断的操作。要执行就要执行完），只要信号量s≤0就不断测试，不满足让权等待。</p>
-<div class="highlight"><pre><span></span><code><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">integer</span><span class="p">;</span><span class="w">      </span><span class="c1">//s为整型信号量</span>
-<span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">){</span><span class="w">            </span><span class="c1">//用于申请资源</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">s</span><span class="err">≤</span><span class="mi">0</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">no</span><span class="o">-</span><span class="n">op</span><span class="p">;</span>
-<span class="w">    </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="mi">-1</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">){</span><span class="w">          </span><span class="c1">//用于释放资源</span>
-<span class="w">    </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">integer</span><span class="p">;</span><span class="w">      </span><span class="c1">//s为整型信号量</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">){</span><span class="w">            </span><span class="c1">//用于申请资源</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">s</span><span class="err">≤</span><span class="mi">0</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">no</span><span class="o">-</span><span class="n">op</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">){</span><span class="w">          </span><span class="c1">//用于释放资源</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>整型信号量应用举例：</p>
 <p>用整型信号量实现进程互斥</p>
 <p>思路：为必须互斥访问的CS定义一个互斥信号量mutex，初始值为1。然后，将CS放在wait(mutex)和signal(mutex)之间，当CS可访问时，wait(mutex)才能正常结束使进程进入临界区。</p>
 <p>伪代码：</p>
-<div class="highlight"><pre><span></span><code><span class="nl">P1</span><span class="p">:</span>
-<span class="p">{</span><span class="w">   </span><span class="err">…</span>
-<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="w">     </span><span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="w">     </span><span class="err">…</span>
-<span class="p">}</span>
-<span class="nl">P2</span><span class="p">:</span>
-<span class="p">{</span><span class="w">   </span><span class="err">…</span>
-<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="w">     </span><span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="w">     </span><span class="err">…</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nl">P1</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span><span class="w">   </span><span class="err">…</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">     </span><span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">     </span><span class="err">…</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nl">P2</span><span class="p">:</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">{</span><span class="w">   </span><span class="err">…</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">     </span><span class="n">counter</span><span class="o">=</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">     </span><span class="err">…</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>用整型信号量实现进程协调</p>
 <p>有p1和p2两个进程，要求p2必须在p1结束后执行，为此可设置一个信号量s，初始值置为0，同步代码如下：</p>
-<div class="highlight"><pre><span></span><code>parbegin
-  begin p1; signal(s); end
-  begin wait(s); p2; end
-parend
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>parbegin
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  begin p1; signal(s); end
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  begin wait(s); p2; end
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>parend
+</span></code></pre></div>
 <p>对整型信号量机制的总结</p>
 <p>①整型信号量的值只能由wait和signal操作改变</p>
 <p>②==wait和signal 两个操作中对信号量的访问是不能被中断的。==（为什么？）</p>
@@ -3441,62 +3441,62 @@ parend
 <p>⑤不同的资源对应不同的信号量，并不是系统中所有的资源用同一个信号量表示。</p>
 <p>2、记录型信号量</p>
 <p>（1）记录型信号量的数据类型 </p>
-<div class="highlight"><pre><span></span><code><span class="n">Type</span><span class="w">  </span><span class="n">semaphore</span><span class="o">=</span><span class="n">record</span>
-<span class="nl">value</span><span class="p">:</span><span class="n">integer</span><span class="w">        </span><span class="c1">//资源数量</span>
-<span class="nl">L</span><span class="p">:</span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">process</span><span class="w">   </span><span class="c1">//阻塞队列</span>
-<span class="n">end</span><span class="p">.</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Type</span><span class="w">  </span><span class="n">semaphore</span><span class="o">=</span><span class="n">record</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nl">value</span><span class="p">:</span><span class="n">integer</span><span class="w">        </span><span class="c1">//资源数量</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nl">L</span><span class="p">:</span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">process</span><span class="w">   </span><span class="c1">//阻塞队列</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">end</span><span class="p">.</span>
+</span></code></pre></div>
 <p>（2）记录型信号量的wait(s)和signal（s）操作</p>
-<div class="highlight"><pre><span></span><code><span class="n">procedure</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span>
-<span class="w">        </span><span class="n">begin</span>
-<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="mi">-1</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w">  </span>
-<span class="w">                </span><span class="n">block</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">L</span><span class="p">)</span>
-<span class="w">        </span><span class="n">end</span><span class="p">.</span>
-
-<span class="n">procedure</span><span class="w"> </span><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span>
-<span class="w">        </span><span class="n">begin</span>
-<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w">  </span>
-<span class="w">                </span><span class="n">wakeup</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">L</span><span class="p">)</span>
-<span class="w">        </span><span class="n">end</span><span class="p">.</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">procedure</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="n">begin</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w">  </span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                </span><span class="n">block</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">L</span><span class="p">)</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">end</span><span class="p">.</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">procedure</span><span class="w"> </span><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="n">begin</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w">  </span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">                </span><span class="n">wakeup</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">L</span><span class="p">)</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="n">end</span><span class="p">.</span>
+</span></code></pre></div>
 <p>（3）利用记录型信号量实现互斥</p>
-<div class="highlight"><pre><span></span><code><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span><span class="w">  </span>
-<span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">begin</span><span class="w">                </span>
-<span class="w">   </span><span class="n">repeat</span>
-<span class="w">       </span><span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-<span class="w">          </span><span class="n">critical</span><span class="w"> </span><span class="n">section</span>
-<span class="w">       </span><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="w">       </span><span class="n">remainder</span><span class="w"> </span><span class="n">section</span>
-<span class="w">    </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="n">end</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">var</span><span class="w"> </span><span class="n">s</span><span class="o">:</span><span class="n">semaphore</span><span class="w">  </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">begin</span><span class="w">                </span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">   </span><span class="n">repeat</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">       </span><span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">          </span><span class="n">critical</span><span class="w"> </span><span class="n">section</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">       </span><span class="n">signal</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">       </span><span class="n">remainder</span><span class="w"> </span><span class="n">section</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">end</span>
+</span></code></pre></div>
 <p>(4)利用记录型信号量实现“协调”的应用举例</p>
 <p>输入进程：从外存读取数据并将数据放入内存缓冲区。</p>
 <p>计算进程：从内存缓冲区取数据并对数据进行处理。</p>
 <p>输入进程和计算进程共用内存缓冲区，缓冲区最多能容纳2个数据。要求：缓冲区满时，输入进程阻塞；缓冲区空时计算进程阻塞。</p>
 <p>试采用记录型信号量机制实现输入进程与计算进程的同步。</p>
-<div class="highlight"><pre><span></span><code><span class="n">解</span><span class="err">：</span><span class="n">设置两个信号量</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">empty</span><span class="err">、</span><span class="n">full</span><span class="o">:</span><span class="n">semaphore</span><span class="err">。</span>
-<span class="w">   </span><span class="n">初始</span><span class="err">：</span><span class="w">        </span><span class="n">empty</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">full</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">输入进程</span><span class="err">：</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">从外存读数据</span><span class="err">；</span>
-<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">).</span>
-<span class="w">    </span><span class="n">往缓冲区中放数据</span>
-<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="n">计算进程</span><span class="err">：</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="err">；</span>
-<span class="w">    </span><span class="n">从缓冲读取数据</span><span class="err">；</span>
-<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
-<span class="w">    </span><span class="n">处理数据</span><span class="err">；</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">解</span><span class="err">：</span><span class="n">设置两个信号量</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">empty</span><span class="err">、</span><span class="n">full</span><span class="o">:</span><span class="n">semaphore</span><span class="err">。</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">   </span><span class="n">初始</span><span class="err">：</span><span class="w">        </span><span class="n">empty</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">full</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">输入进程</span><span class="err">：</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">{</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">从外存读数据</span><span class="err">；</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">).</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="n">往缓冲区中放数据</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">计算进程</span><span class="err">：</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">{</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="err">；</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="n">从缓冲读取数据</span><span class="err">；</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="n">处理数据</span><span class="err">；</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">}</span>
+</span></code></pre></div>
 <h4 id="3_1">3 经典同步问题<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
 <p>1、生产者-消费者问题</p>
 <p>(1)问题描述</p>
@@ -3510,34 +3510,34 @@ parend
 <p>​     empty：表示空缓冲区数,初值为n</p>
 <p>​     full： 表示装有产品的缓冲区数，初值为0，(一个缓冲区中放一个产品）</p>
 <p>(4)同步程序</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nl">Producer</span><span class="p">:</span><span class="w">                               </span>
-<span class="w"> </span><span class="n">begin</span><span class="w">                                  </span>
-<span class="w">   </span><span class="n">repeat</span><span class="w">                                 </span>
-<span class="w">   </span><span class="err">…</span><span class="w">                                     </span>
-<span class="w">   </span><span class="n">produce</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextp</span><span class="p">;</span><span class="w">                    </span>
-<span class="w">   </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span><span class="w">                             </span>
-<span class="w">   </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w">                              </span>
-<span class="w">   </span><span class="n">buffer</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="o">:=</span><span class="n">nextp</span><span class="p">;</span><span class="w">                        </span>
-<span class="w">   </span><span class="nl">in</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="n">in</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">mod</span><span class="w"> </span><span class="n">n</span>
-<span class="w">   </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w">                            </span>
-<span class="w">   </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="err">；</span>
-<span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span>
-<span class="w"> </span><span class="n">end</span><span class="w">       </span>
-
-<span class="w"> </span><span class="nl">Consumer</span><span class="p">:</span>
-<span class="w">  </span><span class="n">begin</span>
-<span class="w">     </span><span class="n">repeat</span>
-<span class="w">     </span><span class="err">…</span>
-<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
-<span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="w">     </span><span class="nl">nextc</span><span class="p">:</span><span class="o">=</span><span class="n">buffer</span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
-<span class="w">     </span><span class="nl">out</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">mod</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-<span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="err">；</span>
-<span class="w">     </span><span class="n">consume</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextc</span><span class="p">;</span>
-<span class="w">     </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
-<span class="w">     </span><span class="n">end</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w"> </span><span class="nl">Producer</span><span class="p">:</span><span class="w">                               </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w"> </span><span class="n">begin</span><span class="w">                                  </span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">   </span><span class="n">repeat</span><span class="w">                                 </span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">   </span><span class="err">…</span><span class="w">                                     </span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">   </span><span class="n">produce</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextp</span><span class="p">;</span><span class="w">                    </span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">   </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span><span class="w">                             </span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">   </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w">                              </span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">   </span><span class="n">buffer</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="o">:=</span><span class="n">nextp</span><span class="p">;</span><span class="w">                        </span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">   </span><span class="nl">in</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="n">in</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">mod</span><span class="w"> </span><span class="n">n</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">   </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w">                            </span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">   </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="err">；</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w"> </span><span class="n">end</span><span class="w">       </span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w"> </span><span class="nl">Consumer</span><span class="p">:</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="n">begin</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">     </span><span class="n">repeat</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">     </span><span class="err">…</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">     </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">     </span><span class="nl">nextc</span><span class="p">:</span><span class="o">=</span><span class="n">buffer</span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">     </span><span class="nl">out</span><span class="p">:</span><span class="o">=</span><span class="p">(</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">mod</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">     </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="err">；</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">     </span><span class="n">consume</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextc</span><span class="p">;</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">     </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">     </span><span class="n">end</span>
+</span></code></pre></div>
 <p>(5)说明</p>
 <p>①wait 和signal操作成对出现</p>
 <p>②wait操作的顺序不能颠倒</p>
@@ -3547,24 +3547,24 @@ parend
 <p>某系统有同属一个进程的两个线程P和Q，共享一个数据区B，假设B区空间足够大。线程P负责周期性检测工作场所的温度，将所测结果送入数据区B。线程Q则每次从数据区B取出一个最新的检测数据进行处理。如果B区中没有检测数据，则线程Q阻塞等待。请回答下列问题：</p>
 <p>（1）数据区B应采用什么样的数据结构？栈</p>
 <p>（2）用记录型信号量机制实现进程P与Q之间的同步关系。（说明信号量的作用及初值）</p>
-<div class="highlight"><pre><span></span><code><span class="n">解</span><span class="err">：</span><span class="n">设置两个信号量</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">empty</span><span class="p">,</span><span class="n">mutex</span><span class="o">:</span><span class="n">semaphore</span><span class="err">。</span>
-<span class="w">   </span><span class="n">初始</span><span class="err">：</span><span class="w">        </span><span class="n">empty</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">mutex</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">P进程</span><span class="err">：</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
-<span class="w">    </span><span class="n">从外存读数据</span><span class="err">；</span>
-<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
-<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="n">Q进程</span><span class="err">：</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
-<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
-<span class="w">    </span><span class="n">从缓冲读取数据</span><span class="err">；</span>
-<span class="w">    </span><span class="n">处理数据</span><span class="err">；</span>
-<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">解</span><span class="err">：</span><span class="n">设置两个信号量</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">empty</span><span class="p">,</span><span class="n">mutex</span><span class="o">:</span><span class="n">semaphore</span><span class="err">。</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">   </span><span class="n">初始</span><span class="err">：</span><span class="w">        </span><span class="n">empty</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">mutex</span><span class="p">.</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">P进程</span><span class="err">：</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="n">从外存读数据</span><span class="err">；</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">}</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">Q进程</span><span class="err">：</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">{</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="n">从缓冲读取数据</span><span class="err">；</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="n">处理数据</span><span class="err">；</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">)</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>3、 读者-写者问题</p>
 <p>(1)问题描述</p>
 <p>D是多个进程共享的数据区，允许多个进程同时读D区中的数据；允许一个进程往D区写数据，有一个进程在D区中执行写操作时，不能有其它任何进程在D区中执行读或写操作。</p>
@@ -3573,31 +3573,31 @@ parend
 <p>②rmutex用于对多个进程共享的变量readcount的互斥访问。</p>
 <p>③wmutex用于实现读/写互斥、写/写互斥。</p>
 <p>(3)同步程序</p>
-<div class="highlight"><pre><span></span><code>解：设置两个信号量 var rmutex,wmutex:semaphore。
-   初始：        rmutex.value=1,wmutex.value=1
-   变量：var readcount.
-   初始：readcount=0
-读进程：
-{
-    wait(rmutex)
-    if(readcount==0)
-        wait(wmutex);
-    readcount++;
-    signal(rmutex)
-    读数据
-    wait(rmutex)
-    readcount--;
-    if(readcount==0)
-        signal(wmutex);
-    signal(rmutex)
-}
-写进程：
-{
-    wait(wmutex);
-    写数据
-    signal(wmutex);
-}
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>解：设置两个信号量 var rmutex,wmutex:semaphore。
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>   初始：        rmutex.value=1,wmutex.value=1
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>   变量：var readcount.
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>   初始：readcount=0
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>读进程：
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>{
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    wait(rmutex)
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    if(readcount==0)
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        wait(wmutex);
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    readcount++;
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    signal(rmutex)
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    读数据
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    wait(rmutex)
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    readcount--;
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    if(readcount==0)
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>        signal(wmutex);
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    signal(rmutex)
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>}
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>写进程：
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>{
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    wait(wmutex);
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    写数据
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>    signal(wmutex);
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>}
+</span></code></pre></div>
 <h4 id="4_2">4 管程<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h4>
 <p>信号量机制的缺陷：每个访问临界资源的进程都必须自备同步操作wait(s)和signal(s)。这就使大量的同步操作分散在各个进程中，这不仅给系统的管理带来麻烦，而且还会因同步操作的使用不当而导致系统出错,因此引入了“管程”的解决方案。</p>
 <p>1、管程的定义</p>
@@ -3613,92 +3613,92 @@ parend
 <p>一个管程过程，可以用在某条件变量上执行wait操作，将调用的进程阻塞并插入该条件的阻塞队列 ，也可以用在条件变量上执行signal操作，唤醒在该条件上阻塞的进程。</p>
 <p>4、管程的应用</p>
 <p>（1）利用管程解决生产者-消费者问题</p>
-<div class="highlight"><pre><span></span><code><span class="n">type</span><span class="w"> </span><span class="n">PC</span><span class="o">=</span><span class="n">monitor</span>
-<span class="n">condition</span><span class="w"> </span><span class="n">full</span><span class="p">,</span><span class="w"> </span><span class="n">empty</span><span class="p">;</span>
-<span class="n">integer</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
-<span class="n">procedure</span><span class="w"> </span><span class="nf">enter</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-<span class="w">      </span><span class="n">begin</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="n">N</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
-<span class="w">           </span><span class="n">enter</span><span class="err">–</span><span class="n">item</span><span class="p">;</span>
-<span class="w">           </span><span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-<span class="w">           </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">//唤醒因为队列空而阻塞的进程</span>
-<span class="w">       </span><span class="n">end</span>
-
-<span class="n">procedure</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-<span class="w">      </span><span class="n">begin</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
-<span class="w">           </span><span class="n">remove</span><span class="err">–</span><span class="n">item</span><span class="p">;</span>
-<span class="w">           </span><span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="mi">-1</span><span class="p">;</span>
-<span class="w">           </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="w"> </span><span class="c1">//唤醒因为队列满而阻塞的进程</span>
-<span class="w">       </span><span class="n">end</span>
-<span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="n">end</span><span class="w"> </span><span class="n">monitor</span><span class="p">;</span>
-
-<span class="nl">Producer</span><span class="p">:</span>
-<span class="n">begin</span>
-<span class="w">     </span><span class="n">repeat</span>
-<span class="w">     </span><span class="n">produce</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextp</span><span class="p">;</span>
-<span class="w">     </span><span class="n">PC</span><span class="p">.</span><span class="n">enter</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-<span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w"> </span><span class="n">end</span>
-
-<span class="w"> </span><span class="nl">Consumer</span><span class="p">:</span>
-<span class="w"> </span><span class="n">begin</span>
-<span class="w">     </span><span class="n">repeat</span>
-<span class="w">     </span><span class="n">PC</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-<span class="w">     </span><span class="n">consume</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextc</span><span class="p">;</span>
-<span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w"> </span><span class="n">end</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">type</span><span class="w"> </span><span class="n">PC</span><span class="o">=</span><span class="n">monitor</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">condition</span><span class="w"> </span><span class="n">full</span><span class="p">,</span><span class="w"> </span><span class="n">empty</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">integer</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">procedure</span><span class="w"> </span><span class="nf">enter</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">      </span><span class="n">begin</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="n">N</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">           </span><span class="n">enter</span><span class="err">–</span><span class="n">item</span><span class="p">;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">           </span><span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">           </span><span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">//唤醒因为队列空而阻塞的进程</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">       </span><span class="n">end</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">procedure</span><span class="w"> </span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">      </span><span class="n">begin</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">           </span><span class="n">remove</span><span class="err">–</span><span class="n">item</span><span class="p">;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">           </span><span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">           </span><span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">)</span><span class="w"> </span><span class="c1">//唤醒因为队列满而阻塞的进程</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">       </span><span class="n">end</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="n">end</span><span class="w"> </span><span class="n">monitor</span><span class="p">;</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="nl">Producer</span><span class="p">:</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="n">begin</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">     </span><span class="n">repeat</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">     </span><span class="n">produce</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextp</span><span class="p">;</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">     </span><span class="n">PC</span><span class="p">.</span><span class="n">enter</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w"> </span><span class="n">end</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w"> </span><span class="nl">Consumer</span><span class="p">:</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="w"> </span><span class="n">begin</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">     </span><span class="n">repeat</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">     </span><span class="n">PC</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">     </span><span class="n">consume</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">nextc</span><span class="p">;</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w"> </span><span class="n">end</span>
+</span></code></pre></div>
 <p>（2）利用管程解决哲学家进餐问题</p>
 <p>问题描述</p>
 <p>有五个哲学家围坐在一个圆桌旁，每两人之间放一只筷子，每个哲学家的行为是思考，感到饥饿，然后用餐。为了能够进餐，每个哲学家必须拿到两只筷子，并且每个人只能直接从自己的左边或右边去取筷子。</p>
 <p>代码</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">dining</span><span class="o">-</span><span class="n">philosophers</span><span class="o">=</span><span class="n">monitor</span>
-<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">state</span><span class="o">:</span><span class="n">array</span><span class="p">[</span><span class="mf">0..4</span><span class="p">]</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="p">(</span><span class="n">thinking</span><span class="p">,</span><span class="n">hungry</span><span class="p">,</span><span class="n">eating</span><span class="p">);</span>
-<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">self</span><span class="o">:</span><span class="n">array</span><span class="w"> </span><span class="p">[</span><span class="mf">0..4</span><span class="p">]</span><span class="w">  </span><span class="n">of</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
-
-<span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span>
-<span class="w">        </span><span class="n">begin</span>
-<span class="w">            </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">hungry</span><span class="p">;</span>
-<span class="w">            </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="err">≠</span><span class="n">eating</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span>
-<span class="w">      </span><span class="n">end</span><span class="p">;</span><span class="w">    </span>
-
-<span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span>
-<span class="w">     </span><span class="n">begin</span>
-<span class="w">         </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">thinking</span><span class="p">;</span>
-<span class="w">         </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
-<span class="w">         </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
-<span class="w">     </span><span class="n">end</span>
-
-<span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">k</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span>
-<span class="w">       </span><span class="n">begin</span>
-<span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">4</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="err">≠</span><span class="n">eating</span>
-<span class="w">               </span><span class="n">and</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">hungry</span>
-<span class="w">               </span><span class="n">and</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="err">≠</span><span class="n">eating</span>
-<span class="w">           </span><span class="n">then</span><span class="w"> </span><span class="n">begin</span>
-<span class="w">               </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">eating</span>
-<span class="w">               </span><span class="n">self</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">signal</span><span class="p">;</span>
-<span class="w">           </span><span class="n">end</span>
-<span class="w">        </span><span class="n">end</span>
-
-<span class="w">        </span><span class="n">begin</span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">:=</span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">4</span>
-<span class="w">               </span><span class="k">do</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">thinking</span><span class="p">;</span>
-<span class="w">        </span><span class="n">end</span>
-
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">philosopher</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
-<span class="w">       </span><span class="p">{</span>
-<span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-<span class="w">           </span><span class="p">{</span>
-<span class="w">                </span><span class="n">think</span><span class="p">();</span>
-<span class="w">                </span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-<span class="w">                </span><span class="n">eat</span><span class="p">();</span>
-<span class="w">                </span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-<span class="w">             </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">dining</span><span class="o">-</span><span class="n">philosophers</span><span class="o">=</span><span class="n">monitor</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">state</span><span class="o">:</span><span class="n">array</span><span class="p">[</span><span class="mf">0..4</span><span class="p">]</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="p">(</span><span class="n">thinking</span><span class="p">,</span><span class="n">hungry</span><span class="p">,</span><span class="n">eating</span><span class="p">);</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">self</span><span class="o">:</span><span class="n">array</span><span class="w"> </span><span class="p">[</span><span class="mf">0..4</span><span class="p">]</span><span class="w">  </span><span class="n">of</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="n">begin</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">            </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">hungry</span><span class="p">;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">            </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="err">≠</span><span class="n">eating</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="n">end</span><span class="p">;</span><span class="w">    </span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">     </span><span class="n">begin</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">         </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">thinking</span><span class="p">;</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">         </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">         </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">     </span><span class="n">end</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">     </span><span class="n">procedure</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">k</span><span class="o">:</span><span class="mf">0..4</span><span class="p">);</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">       </span><span class="n">begin</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">4</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="err">≠</span><span class="n">eating</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">               </span><span class="n">and</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">hungry</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">               </span><span class="n">and</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="err">≠</span><span class="n">eating</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">           </span><span class="n">then</span><span class="w"> </span><span class="n">begin</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">               </span><span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">eating</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">               </span><span class="n">self</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">signal</span><span class="p">;</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">           </span><span class="n">end</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">        </span><span class="n">end</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">        </span><span class="n">begin</span>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="o">:=</span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">4</span>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">               </span><span class="k">do</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">thinking</span><span class="p">;</span>
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">        </span><span class="n">end</span>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">philosopher</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a><span class="w">       </span><span class="p">{</span>
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a><span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a><span class="w">           </span><span class="p">{</span>
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a><span class="w">                </span><span class="n">think</span><span class="p">();</span>
+</span><span id="__span-12-40"><a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a><span class="w">                </span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-12-41"><a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a><span class="w">                </span><span class="n">eat</span><span class="p">();</span>
+</span><span id="__span-12-42"><a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a><span class="w">                </span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-12-43"><a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a><span class="w">             </span><span class="p">}</span>
+</span><span id="__span-12-44"><a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a><span class="w">        </span><span class="p">}</span>
+</span></code></pre></div>
 <h4 id="5_2">5 进程间通信<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h4>
 <p><img alt="image-20220609162852242" src="https://pic.tim-wcx.ltd/2022/06/09/62a1af475bba0.png" /></p>
 <h4 id="6_2">6 小结<a class="headerlink" href="#6_2" title="Permanent link">&para;</a></h4>
@@ -3717,38 +3717,38 @@ parend
 <p>故10个不同的临界资源不能只用一个互斥信号量。</p>
 <p>5、三个进程P1、P2、P3互斥使用一个包含N（N &gt; 0）个单元的缓冲区。P1每次用produce()生成一个正整数并用put()送入缓冲区某一空单元中；P2每次用getodd()从该缓冲区中取出一个奇数并用countodd()统计奇数个数；P3每次用geteven()从该缓冲区中取出一个偶数并用counteven()统计偶数个数。请用信号量机制实现这三个进程的同步与互斥活动，并说明所定义信号量的含义。要求用伪代码描述。 </p>
 <p>采用记录型信号量来实现，伪代码如下。</p>
-<div class="highlight"><pre><span></span><code>解：设置两个信号量 var mutex,empty,odd,even:semaphore。
-   初始：        mutex.value=1,empty=N,odd=0,even=0
-P1进程：
-{
-    wait(empty)
-    wait(mutex)
-    num = produce()
-    signal(mutex)
-    if(num%2==0)
-        signal(even)
-    else
-        signal(odd)
-}
-P2进程：
-{
-    wait(odd)
-    wait(mutex)
-    getodd()
-    countodd()
-    signal(mutex)
-    signal(empty)
-}
-P3进程：
-{
-    wait(even)
-    wait(mutex)
-    geteven()
-    counteven()
-    signal(mutex)
-    signal(empty)
-}
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>解：设置两个信号量 var mutex,empty,odd,even:semaphore。
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>   初始：        mutex.value=1,empty=N,odd=0,even=0
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>P1进程：
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>{
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    wait(empty)
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    wait(mutex)
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    num = produce()
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    signal(mutex)
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    if(num%2==0)
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>        signal(even)
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    else
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>        signal(odd)
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>}
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>P2进程：
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>{
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>    wait(odd)
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>    wait(mutex)
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>    getodd()
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>    countodd()
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>    signal(mutex)
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>    signal(empty)
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>}
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>P3进程：
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>{
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>    wait(even)
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>    wait(mutex)
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>    geteven()
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>    counteven()
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>    signal(mutex)
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>    signal(empty)
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>}
+</span></code></pre></div>
 <h4 id="7">7 参考<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
 <p><a href="https://blog.csdn.net/Auris/article/details/107415378">Linux内核自旋锁(spinlock)使用与源码分析</a></p>
 <p><a href="https://blog.csdn.net/weixin_42260102/article/details/100527437">操作系统第三章：进程同步和互斥</a></p>
@@ -3757,27 +3757,27 @@ P3进程：
 <p>进程互斥的目的是使进程以互斥的方式访问临界资源，只要能使进程以互斥的方式进入临界区就能够保证进程对 临界资源的互斥访问。所以，可以通过在临界区前加进入区代码，在临界区后加退出区代码来实现进程的互斥。
 进入区检查是否可以进入临界区并对临界区“加锁 ” 。退出区释放临界区访问权。</p>
 <p>2、写出记录型信号量wait操作和signal操作的算法描述（说明信号量的数据结构）</p>
-<div class="highlight"><pre><span></span><code>Type  semaphore=record
-                 Value:integer          资源数量
-                 L:list of process       阻塞队列
-           end
-
-procedure wait(s)
-  var s:semaphore
-   begin
-      s.value:=s.value-1;
-      if s.value&lt;0 then  
-            block(s.L)
-end.
-
-procedure signal(s)
-  var s:semaphore
-   begin
-      s.value:=s.value+1;
-      if s.value&lt;=0 then  
-            wakeup(s.L)
-end.
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Type  semaphore=record
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>                 Value:integer          资源数量
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>                 L:list of process       阻塞队列
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>           end
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>procedure wait(s)
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>  var s:semaphore
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>   begin
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>      s.value:=s.value-1;
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>      if s.value&lt;0 then  
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>            block(s.L)
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>end.
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>procedure signal(s)
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>  var s:semaphore
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>   begin
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>      s.value:=s.value+1;
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>      if s.value&lt;=0 then  
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>            wakeup(s.L)
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>end.
+</span></code></pre></div>
 <h3 id="_6">第四章 进程调度<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>调度算法是指：根据系统的资源分配策略所规定的资源分配算法 。本章介绍作业调度算法和进程调度算法。</p>
 <p>作业调度：从后备作业队列的多个作业中选择一个作业进入内存的算法</p>
@@ -4111,13 +4111,13 @@ end.
 <p>2、分区式分配</p>
 <p>2.1 固定分区分配</p>
 <p><img alt="image-20220610154121954" src="https://pic.tim-wcx.ltd/2022/06/10/62a2f5a2890d8.png" /></p>
-<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w">  </span><span class="c1">//分区编号</span>
-<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="c1">//分区大小</span>
-<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span><span class="w">  </span><span class="c1">//分区起始地址   </span>
-<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="p">;</span><span class="c1">//分区状态，</span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">mem_block</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="err">；</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w">  </span><span class="c1">//分区编号</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="c1">//分区大小</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span><span class="w">  </span><span class="c1">//分区起始地址   </span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="p">;</span><span class="c1">//分区状态，</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">mem_block</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="err">；</span>
+</span></code></pre></div>
 <p>固定分区的特点：</p>
 <p>1、管理简单 2、内存利用率低</p>
 <p>2.2 动态分区分配</p>

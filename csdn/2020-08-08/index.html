@@ -61,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
   
     
     
@@ -116,7 +116,7 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -2187,119 +2187,119 @@
 【样例3】
 2 3 1</p>
 <p>拓扑排序，枚举并判断两两之间的次序，然后再跑一遍拓扑排序即可。</p>
-<p><div class="highlight"><pre><span></span><code>/**
- *
- * ━━━━━━━━━神兽出没━━━━━━━━━
- *
- *　　　　　　　　┏┓　　　┏┓+ +
- *　　　　　　　┏┛┻━━━┛┻┓ + +
- *　　　　　　　┃　　　　　　　┃ 　
- *　　　　　　　┃　　　━　　　┃ ++ + + +
- *　　　　　　 ████━████ ┃+
- *　　　　　　　┃　　　　　　　┃ +
- *　　　　　　　┃　　　┻　　　┃
- *　　　　　　　┃　　　　　　　┃ + +
- *　　　　　　　┗━┓　　　┏━┛
- *　　　　　　　　　┃　　　┃　　　　　　　　　　　
- *　　　　　　　　　┃　　　┃ + + + +
- *　　　　　　　　　┃　　　┃　　　　Code is far away from bug with the animal protecting　　　　　　　
- *　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无bug　　
- *　　　　　　　　　┃　　　┃
- *　　　　　　　　　┃　　　┃　　+　　　　　　　　　
- *　　　　　　　　　┃　 　　┗━━━┓ + +
- *　　　　　　　　　┃ 　　　　　　　┣┓
- *　　　　　　　　　┃ 　　　　　　　┏┛
- *　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
- *　　　　　　　　　　┃┫┫　┃┫┫
- *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
- *
- * ━━━━━━━━━感觉萌萌哒━━━━━━━━━
- */
-#include &lt;iostream&gt;
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
-struct node
-{
-    int x1,x2,y1,y2;
-};
-node a[5050]= {0};
-vector&lt;int&gt;w[5050];
-int in[5050]= {0};
-int pd(int x,int y)
-{
-    int min1=max(a[x].x1,a[y].x1),max1=min(a[x].x2,a[y].x2);
-    if(min1&gt;max1)
-        return 0;
-    double kx=(a[x].y1-a[x].y2)*1.0/(a[x].x1-a[x].x2);
-    if(a[x].x1==a[x].x2)
-        kx=0;
-    double ky=(a[y].y1-a[y].y2)*1.0/(a[y].x1-a[y].x2);
-    if(a[y].x1==a[y].x2)
-        ky=0;
-    double x1=a[x].y1+kx*1.0*(min1-a[x].x1);
-    double x2=a[x].y1+kx*1.0*(max1-a[x].x1);
-    double y1=a[y].y1+ky*1.0*(min1-a[y].x1);
-    double y2=a[y].y1+ky*1.0*(max1-a[y].x1);
-    if(min(x1,x2)&gt;min(y1,y2)||max(x1,x2)&gt;max(y1,y2))
-        return 1;
-    else
-        return 0;
-}
-int main()
-{
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=1; i&lt;=n; i++)
-    {
-        scanf(&quot;%d%d%d%d&quot;,&amp;a[i].x1,&amp;a[i].y1,&amp;a[i].x2,&amp;a[i].y2);
-        if(a[i].x1&gt;a[i].x2)
-        {
-            swap(a[i].x1,a[i].x2);
-            swap(a[i].y1,a[i].y2);
-        }
-    }
-    for(int i=1; i&lt;=n; i++)
-    {
-        for(int j=1; j&lt;=n; j++)
-        {
-            if(i==j)
-                continue;
-            if(pd(i,j))
-            {
-                w[j].push_back(i);
-                in[i]++;
-            }
-        }
-    }
-    priority_queue&lt;int,vector&lt;int&gt;,less&lt;int&gt; &gt;w1;
-    queue&lt;int&gt;ans;
-    for(int i=1; i&lt;=n; i++)
-    {
-        if(in[i]==0)
-            w1.push(i);
-    }
-    while(!w1.empty())
-    {
-        int x=w1.top();
-        w1.pop();
-        ans.push(x);
-        for(int i=0; i&lt;w[x].size(); i++)
-        {
-            in[w[x][i]]--;
-            if(in[w[x][i]]==0)
-            {
-                w1.push(w[x][i]);
-            }
-        }
-    }
-    while(!ans.empty())
-    {
-        printf(&quot;%d &quot;,ans.front());
-        ans.pop();
-    }
-    return 0;
-}
-</code></pre></div>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/**
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> *
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> * ━━━━━━━━━神兽出没━━━━━━━━━
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> *
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> *　　　　　　　　┏┓　　　┏┓+ +
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> *　　　　　　　┏┛┻━━━┛┻┓ + +
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> *　　　　　　　┃　　　　　　　┃ 　
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> *　　　　　　　┃　　　━　　　┃ ++ + + +
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> *　　　　　　 ████━████ ┃+
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> *　　　　　　　┃　　　　　　　┃ +
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a> *　　　　　　　┃　　　┻　　　┃
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a> *　　　　　　　┃　　　　　　　┃ + +
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a> *　　　　　　　┗━┓　　　┏━┛
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> *　　　　　　　　　┃　　　┃　　　　　　　　　　　
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> *　　　　　　　　　┃　　　┃ + + + +
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a> *　　　　　　　　　┃　　　┃　　　　Code is far away from bug with the animal protecting　　　　　　　
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a> *　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无bug　　
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a> *　　　　　　　　　┃　　　┃
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a> *　　　　　　　　　┃　　　┃　　+　　　　　　　　　
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a> *　　　　　　　　　┃　 　　┗━━━┓ + +
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a> *　　　　　　　　　┃ 　　　　　　　┣┓
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a> *　　　　　　　　　┃ 　　　　　　　┏┛
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a> *　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a> *　　　　　　　　　　┃┫┫　┃┫┫
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a> *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a> *
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a> * ━━━━━━━━━感觉萌萌哒━━━━━━━━━
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a> */
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>#include &lt;iostream&gt;
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>#include &lt;bits/stdc++.h&gt;
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>using namespace std;
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>struct node
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>{
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    int x1,x2,y1,y2;
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>};
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>node a[5050]= {0};
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>vector&lt;int&gt;w[5050];
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>int in[5050]= {0};
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>int pd(int x,int y)
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>{
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    int min1=max(a[x].x1,a[y].x1),max1=min(a[x].x2,a[y].x2);
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    if(min1&gt;max1)
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>        return 0;
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    double kx=(a[x].y1-a[x].y2)*1.0/(a[x].x1-a[x].x2);
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    if(a[x].x1==a[x].x2)
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>        kx=0;
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>    double ky=(a[y].y1-a[y].y2)*1.0/(a[y].x1-a[y].x2);
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    if(a[y].x1==a[y].x2)
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>        ky=0;
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    double x1=a[x].y1+kx*1.0*(min1-a[x].x1);
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>    double x2=a[x].y1+kx*1.0*(max1-a[x].x1);
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>    double y1=a[y].y1+ky*1.0*(min1-a[y].x1);
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>    double y2=a[y].y1+ky*1.0*(max1-a[y].x1);
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>    if(min(x1,x2)&gt;min(y1,y2)||max(x1,x2)&gt;max(y1,y2))
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>        return 1;
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    else
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>        return 0;
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>}
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>int main()
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>{
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>    int n;
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>    scanf(&quot;%d&quot;,&amp;n);
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>    for(int i=1; i&lt;=n; i++)
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>    {
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>        scanf(&quot;%d%d%d%d&quot;,&amp;a[i].x1,&amp;a[i].y1,&amp;a[i].x2,&amp;a[i].y2);
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>        if(a[i].x1&gt;a[i].x2)
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>        {
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>            swap(a[i].x1,a[i].x2);
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>            swap(a[i].y1,a[i].y2);
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>        }
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>    }
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>    for(int i=1; i&lt;=n; i++)
+</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>    {
+</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a>        for(int j=1; j&lt;=n; j++)
+</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a>        {
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a>            if(i==j)
+</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a>                continue;
+</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a>            if(pd(i,j))
+</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a>            {
+</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a>                w[j].push_back(i);
+</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>                in[i]++;
+</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a>            }
+</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a>        }
+</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a>    }
+</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a>    priority_queue&lt;int,vector&lt;int&gt;,less&lt;int&gt; &gt;w1;
+</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a>    queue&lt;int&gt;ans;
+</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a>    for(int i=1; i&lt;=n; i++)
+</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a>    {
+</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a>        if(in[i]==0)
+</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a>            w1.push(i);
+</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a>    }
+</span><span id="__span-0-92"><a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a>    while(!w1.empty())
+</span><span id="__span-0-93"><a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a>    {
+</span><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a>        int x=w1.top();
+</span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a>        w1.pop();
+</span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a>        ans.push(x);
+</span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a>        for(int i=0; i&lt;w[x].size(); i++)
+</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a>        {
+</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a>            in[w[x][i]]--;
+</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a>            if(in[w[x][i]]==0)
+</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a>            {
+</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a>                w1.push(w[x][i]);
+</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a>            }
+</span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a>        }
+</span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a>    }
+</span><span id="__span-0-106"><a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a>    while(!ans.empty())
+</span><span id="__span-0-107"><a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a>    {
+</span><span id="__span-0-108"><a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a>        printf(&quot;%d &quot;,ans.front());
+</span><span id="__span-0-109"><a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a>        ans.pop();
+</span><span id="__span-0-110"><a id="__codelineno-0-110" name="__codelineno-0-110" href="#__codelineno-0-110"></a>    }
+</span><span id="__span-0-111"><a id="__codelineno-0-111" name="__codelineno-0-111" href="#__codelineno-0-111"></a>    return 0;
+</span><span id="__span-0-112"><a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a>}
+</span></code></pre></div>
 <a href="http://icpc.upc.edu.cn/problem.php?id=14850">http://icpc.upc.edu.cn/problem.php?id=14850</a></p>
 <h5 id="_7">题目<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
 <p>14850: 奖金</p>
@@ -2312,99 +2312,99 @@ int main()
 <h5 id="_10">输出<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
 <p>若无法找到合法方案，则输出“Poor Xed”；否则输出一个数表示最少总奖金。</p>
 <h5 id="_11">样例输入<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>2 1
-1 2
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>2 1
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1 2
+</span></code></pre></div>
 <h5 id="_12">样例输出<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>201
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>201
+</span></code></pre></div>
 <h5 id="_13">提示<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
 <p>80％的数据满足n&lt;=1000，m&lt;=2000；
 100％的数据满足n&lt;=10000，m&lt;=20000。</p>
 <p>拓扑排序
-<div class="highlight"><pre><span></span><code>/**
- *
- * ━━━━━━━━━神兽出没━━━━━━━━━
- *
- *　　　　　　　　┏┓　　　┏┓+ +
- *　　　　　　　┏┛┻━━━┛┻┓ + +
- *　　　　　　　┃　　　　　　　┃ 　
- *　　　　　　　┃　　　━　　　┃ ++ + + +
- *　　　　　　 ████━████ ┃+
- *　　　　　　　┃　　　　　　　┃ +
- *　　　　　　　┃　　　┻　　　┃
- *　　　　　　　┃　　　　　　　┃ + +
- *　　　　　　　┗━┓　　　┏━┛
- *　　　　　　　　　┃　　　┃　　　　　　　　　　　
- *　　　　　　　　　┃　　　┃ + + + +
- *　　　　　　　　　┃　　　┃　　　　Code is far away from bug with the animal protecting　　　　　　　
- *　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无bug　　
- *　　　　　　　　　┃　　　┃
- *　　　　　　　　　┃　　　┃　　+　　　　　　　　　
- *　　　　　　　　　┃　 　　┗━━━┓ + +
- *　　　　　　　　　┃ 　　　　　　　┣┓
- *　　　　　　　　　┃ 　　　　　　　┏┛
- *　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
- *　　　　　　　　　　┃┫┫　┃┫┫
- *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
- *
- * ━━━━━━━━━感觉萌萌哒━━━━━━━━━
- */
-#include &lt;iostream&gt;
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-vector&lt;int&gt;w[105050];
-int in[105050]= {0};
-int ans[100500]={0};
-struct node
-{
-    int x,y;
-};
-int main()
-{
-    int n,m,a,b;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1; i&lt;=m; i++)
-    {
-        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
-        w[b].push_back(a);
-        in[a]++;
-    }
-    queue&lt;node&gt;w1;
-    for(int i=1; i&lt;=n; i++)
-    {
-        if(in[i]==0)
-            w1.push(node{i,100}),ans[i]=100;
-    }
-    ll sum=0;
-    while(!w1.empty())
-    {
-        node p=w1.front();
-        w1.pop();
-        for(int i=0; i&lt;w[p.x].size(); i++)
-        {
-            in[w[p.x][i]]--;
-            ans[w[p.x][i]]=max(ans[w[p.x][i]],p.y+1);
-            if(in[w[p.x][i]]==0)
-            {
-                w1.push(node{w[p.x][i],ans[w[p.x][i]]});
-            }
-        }
-    }
-    for(int i=1;i&lt;=n;i++)
-    {
-        if(in[i]!=0)  ///判环
-        {
-            printf(&quot;Poor Xed\n&quot;);
-            return 0;
-        }
-        sum+=ans[i];
-    }
-    printf(&quot;%lld\n&quot;,sum);
-    return 0;
-}
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/**
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> *
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> * ━━━━━━━━━神兽出没━━━━━━━━━
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> *
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> *　　　　　　　　┏┓　　　┏┓+ +
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a> *　　　　　　　┏┛┻━━━┛┻┓ + +
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a> *　　　　　　　┃　　　　　　　┃ 　
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a> *　　　　　　　┃　　　━　　　┃ ++ + + +
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a> *　　　　　　 ████━████ ┃+
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a> *　　　　　　　┃　　　　　　　┃ +
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a> *　　　　　　　┃　　　┻　　　┃
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a> *　　　　　　　┃　　　　　　　┃ + +
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a> *　　　　　　　┗━┓　　　┏━┛
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a> *　　　　　　　　　┃　　　┃　　　　　　　　　　　
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a> *　　　　　　　　　┃　　　┃ + + + +
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a> *　　　　　　　　　┃　　　┃　　　　Code is far away from bug with the animal protecting　　　　　　　
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a> *　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无bug　　
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a> *　　　　　　　　　┃　　　┃
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a> *　　　　　　　　　┃　　　┃　　+　　　　　　　　　
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a> *　　　　　　　　　┃　 　　┗━━━┓ + +
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a> *　　　　　　　　　┃ 　　　　　　　┣┓
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a> *　　　　　　　　　┃ 　　　　　　　┏┛
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a> *　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a> *　　　　　　　　　　┃┫┫　┃┫┫
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a> *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a> *
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a> * ━━━━━━━━━感觉萌萌哒━━━━━━━━━
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a> */
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>#include &lt;iostream&gt;
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>#include &lt;bits/stdc++.h&gt;
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>using namespace std;
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>typedef long long ll;
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>vector&lt;int&gt;w[105050];
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>int in[105050]= {0};
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>int ans[100500]={0};
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>struct node
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>{
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>    int x,y;
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>};
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>int main()
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>{
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    int n,m,a,b;
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    for(int i=1; i&lt;=m; i++)
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    {
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>        w[b].push_back(a);
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>        in[a]++;
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>    }
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    queue&lt;node&gt;w1;
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>    for(int i=1; i&lt;=n; i++)
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>    {
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        if(in[i]==0)
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>            w1.push(node{i,100}),ans[i]=100;
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>    }
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>    ll sum=0;
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>    while(!w1.empty())
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>    {
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>        node p=w1.front();
+</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>        w1.pop();
+</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>        for(int i=0; i&lt;w[p.x].size(); i++)
+</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>        {
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>            in[w[p.x][i]]--;
+</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>            ans[w[p.x][i]]=max(ans[w[p.x][i]],p.y+1);
+</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>            if(in[w[p.x][i]]==0)
+</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>            {
+</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>                w1.push(node{w[p.x][i],ans[w[p.x][i]]});
+</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>            }
+</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>        }
+</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>    }
+</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>    for(int i=1;i&lt;=n;i++)
+</span><span id="__span-3-72"><a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>    {
+</span><span id="__span-3-73"><a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>        if(in[i]!=0)  ///判环
+</span><span id="__span-3-74"><a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>        {
+</span><span id="__span-3-75"><a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>            printf(&quot;Poor Xed\n&quot;);
+</span><span id="__span-3-76"><a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>            return 0;
+</span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>        }
+</span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>        sum+=ans[i];
+</span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>    }
+</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>    printf(&quot;%lld\n&quot;,sum);
+</span><span id="__span-3-81"><a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>    return 0;
+</span><span id="__span-3-82"><a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>}
+</span></code></pre></div></p>
 
 
 

@@ -61,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
   
     
     
@@ -116,7 +116,7 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -2332,15 +2332,15 @@
 <ol>
 <li>openGL相关函数</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="c1">//初始化颜色</span>
-<span class="n">glClearColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span>
-<span class="c1">//清除帧缓存，并将每个像素对应单元赋为背景颜色值</span>
-<span class="n">glClear</span><span class="p">(</span><span class="w"> </span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
-<span class="c1">//表示结束绘图命令，使用单缓存时必须要。双缓冲时可以不要</span>
-<span class="n">glFinish</span><span class="p">();</span>
-<span class="c1">//双缓存时使用。交换缓存命令，表示当前显示帧和下帧的帧缓存交换</span>
-<span class="n">glutSwapBuffers</span><span class="p">();</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">//初始化颜色</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">glClearColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">//清除帧缓存，并将每个像素对应单元赋为背景颜色值</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">glClear</span><span class="p">(</span><span class="w"> </span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">//表示结束绘图命令，使用单缓存时必须要。双缓冲时可以不要</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">glFinish</span><span class="p">();</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">//双缓存时使用。交换缓存命令，表示当前显示帧和下帧的帧缓存交换</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">glutSwapBuffers</span><span class="p">();</span>
+</span></code></pre></div>
 <ol>
 <li>单缓存与双缓存机制</li>
 </ol>
@@ -2654,13 +2654,13 @@
 <p>存放活性边的顺序链表，且按交点 x 的值从小到大排序</p>
 <p>活性边：与当前扫描线相交的边</p>
 <p>边结构定义：与ET表中结点结构相同。</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ymax</span><span class="p">;</span>
-<span class="w">     </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">deltax</span><span class="p">;</span>
-<span class="w">     </span><span class="n">Edge</span><span class="w"> </span><span class="o">*</span><span class="n">nextEdge</span><span class="p">;</span>
-<span class="w"> </span><span class="p">}</span><span class="n">Edge</span><span class="p">;</span><span class="w"> </span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ymax</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">     </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">deltax</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">     </span><span class="n">Edge</span><span class="w"> </span><span class="o">*</span><span class="n">nextEdge</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w"> </span><span class="p">}</span><span class="n">Edge</span><span class="p">;</span><span class="w"> </span>
+</span></code></pre></div>
 <p>AEL 的结点信息：</p>
 <p>ymax: 所交边的最大 y 值</p>
 <p>x：当前扫描线与边的交点的x坐标</p>
@@ -2750,40 +2750,40 @@
 <p>显示：1、由编码检索；2、扫描转换；3、写帧缓存</p>
 <p>存储：空间少</p>
 <p><strong>OpenGL相关函数</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1">//图元绘制</span>
-<span class="n">glBegin</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
-<span class="w">    </span><span class="n">glVertex</span><span class="o">*</span><span class="p">();</span><span class="w"> </span><span class="c1">//指定顶点坐标1</span>
-<span class="w">    </span><span class="n">glVertex</span><span class="o">*</span><span class="p">();</span><span class="w"> </span><span class="c1">//指定顶点坐标2</span>
-<span class="n">glEnd</span><span class="p">()</span><span class="err">；</span>
-
-<span class="c1">//点的属性</span>
-<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LINE_STIPPLE</span><span class="p">);</span><span class="w">  </span>
-<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">glColor</span><span class="p">(</span><span class="mi">3</span><span class="o">|</span><span class="mi">4</span><span class="p">)(</span><span class="n">b</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">ub</span><span class="o">|</span><span class="n">ui</span><span class="o">|</span><span class="n">us</span><span class="p">)(</span><span class="n">TYPE</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">)</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">glColor</span><span class="p">(</span><span class="mi">3</span><span class="o">|</span><span class="mi">4</span><span class="p">)(</span><span class="n">b</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">ub</span><span class="o">|</span><span class="n">ui</span><span class="o">|</span><span class="n">us</span><span class="p">)</span><span class="n">v</span><span class="p">(</span><span class="n">TYPE</span><span class="w"> </span><span class="o">*</span><span class="n">rgb</span><span class="w"> </span><span class="p">)</span>
-<span class="n">glPointSize</span><span class="err">（</span><span class="n">GLfloat</span><span class="w">  </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="c1">//点大小</span>
-
-<span class="c1">//画线</span>
-<span class="n">glBegin中的参数为</span><span class="err">：</span><span class="n">GL_LINES</span><span class="err">、</span><span class="n">GL_LINE_STRIP</span><span class="err">、</span><span class="n">GL_LINE_LOOP</span>
-<span class="n">GL_LINES</span><span class="err">：</span><span class="n">一组直线段</span><span class="err">；</span><span class="w"> </span><span class="n">GL_LINE_STRIP</span><span class="err">：</span><span class="n">折线</span><span class="w"> </span><span class="n">GL_LINE_LOOP</span><span class="err">：</span><span class="n">封闭折线</span>
-
-<span class="c1">//线的属性</span>
-<span class="n">glLineWidth</span><span class="err">（</span><span class="n">GLfloat</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="c1">//宽度</span>
-<span class="n">glLineStipple</span><span class="p">(</span><span class="n">GLint</span><span class="w"> </span><span class="n">factor</span><span class="p">,</span><span class="w"> </span><span class="n">GLushort</span><span class="w"> </span><span class="n">pattern</span><span class="p">);</span><span class="w"> </span><span class="c1">//线形</span>
-<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LINE_STIPPLE</span><span class="p">);</span><span class="w"> </span><span class="c1">//使用前需要激活</span>
-
-<span class="c1">//填充图元函数</span>
-<span class="n">glRect</span><span class="p">[</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">d</span><span class="p">]{</span><span class="n">v</span><span class="p">}()</span><span class="c1">//矩形函数</span>
-<span class="n">glBegin</span><span class="p">()</span><span class="n">中的参数GL_POLYGON</span><span class="err">、</span><span class="n">GL_TRIANGLES</span><span class="err">、</span><span class="n">GL_TRIANGLE_STRIP</span><span class="err">、</span><span class="n">GL_TRIANGLE_FAN</span>
-
-<span class="c1">//线框图与填充图</span>
-<span class="n">glPloygonMode</span><span class="p">(</span><span class="n">face</span><span class="err">，</span><span class="n">displayMode</span><span class="p">)</span>
-<span class="c1">//face：指定前后面。可选值：GL_FRONT、GL_BACK和GL_FRONT_AND_BACK【正反面一样处理】</span>
-<span class="c1">//displayMode：GL_FILL（填充）和GL_LINE（线框）</span>
-
-<span class="c1">//颜色插值模式</span>
-<span class="n">函数</span><span class="err">：</span><span class="n">glShadeModel</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
-<span class="nl">Mode</span><span class="p">:</span><span class="w"> </span><span class="n">GL_FLAT和GL_SMOOTH</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//图元绘制</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">glBegin</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">glVertex</span><span class="o">*</span><span class="p">();</span><span class="w"> </span><span class="c1">//指定顶点坐标1</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">glVertex</span><span class="o">*</span><span class="p">();</span><span class="w"> </span><span class="c1">//指定顶点坐标2</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">glEnd</span><span class="p">()</span><span class="err">；</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">//点的属性</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LINE_STIPPLE</span><span class="p">);</span><span class="w">  </span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">glColor</span><span class="p">(</span><span class="mi">3</span><span class="o">|</span><span class="mi">4</span><span class="p">)(</span><span class="n">b</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">ub</span><span class="o">|</span><span class="n">ui</span><span class="o">|</span><span class="n">us</span><span class="p">)(</span><span class="n">TYPE</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">glColor</span><span class="p">(</span><span class="mi">3</span><span class="o">|</span><span class="mi">4</span><span class="p">)(</span><span class="n">b</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">ub</span><span class="o">|</span><span class="n">ui</span><span class="o">|</span><span class="n">us</span><span class="p">)</span><span class="n">v</span><span class="p">(</span><span class="n">TYPE</span><span class="w"> </span><span class="o">*</span><span class="n">rgb</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">glPointSize</span><span class="err">（</span><span class="n">GLfloat</span><span class="w">  </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="c1">//点大小</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1">//画线</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">glBegin中的参数为</span><span class="err">：</span><span class="n">GL_LINES</span><span class="err">、</span><span class="n">GL_LINE_STRIP</span><span class="err">、</span><span class="n">GL_LINE_LOOP</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">GL_LINES</span><span class="err">：</span><span class="n">一组直线段</span><span class="err">；</span><span class="w"> </span><span class="n">GL_LINE_STRIP</span><span class="err">：</span><span class="n">折线</span><span class="w"> </span><span class="n">GL_LINE_LOOP</span><span class="err">：</span><span class="n">封闭折线</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1">//线的属性</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">glLineWidth</span><span class="err">（</span><span class="n">GLfloat</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="c1">//宽度</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">glLineStipple</span><span class="p">(</span><span class="n">GLint</span><span class="w"> </span><span class="n">factor</span><span class="p">,</span><span class="w"> </span><span class="n">GLushort</span><span class="w"> </span><span class="n">pattern</span><span class="p">);</span><span class="w"> </span><span class="c1">//线形</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LINE_STIPPLE</span><span class="p">);</span><span class="w"> </span><span class="c1">//使用前需要激活</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1">//填充图元函数</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">glRect</span><span class="p">[</span><span class="n">i</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">d</span><span class="p">]{</span><span class="n">v</span><span class="p">}()</span><span class="c1">//矩形函数</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="n">glBegin</span><span class="p">()</span><span class="n">中的参数GL_POLYGON</span><span class="err">、</span><span class="n">GL_TRIANGLES</span><span class="err">、</span><span class="n">GL_TRIANGLE_STRIP</span><span class="err">、</span><span class="n">GL_TRIANGLE_FAN</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="c1">//线框图与填充图</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="n">glPloygonMode</span><span class="p">(</span><span class="n">face</span><span class="err">，</span><span class="n">displayMode</span><span class="p">)</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="c1">//face：指定前后面。可选值：GL_FRONT、GL_BACK和GL_FRONT_AND_BACK【正反面一样处理】</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="c1">//displayMode：GL_FILL（填充）和GL_LINE（线框）</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="c1">//颜色插值模式</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="n">函数</span><span class="err">：</span><span class="n">glShadeModel</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="nl">Mode</span><span class="p">:</span><span class="w"> </span><span class="n">GL_FLAT和GL_SMOOTH</span>
+</span></code></pre></div>
 <p>图元绘制 图元类型</p>
 <table>
 <thead>
@@ -2963,18 +2963,18 @@
 </li>
 </ol>
 <p><strong>OpenGL几何变换函数</strong></p>
-<div class="highlight"><pre><span></span><code>glTranslate{fd}(tx, ty, tz) //平移函数
-glRotate{fd}(theta, vx, vy, vz) //旋转函数
-glScale{fd}(sx, sy, sz) //放缩函数
-glLoadIdentity() //重置为单位矩阵
-glMatrixMode(GL_MODELVIEW) //模型观察矩阵
-glPushMatrix() //压栈
-glPopMatrix() //出栈
-glutInitDisplayMode (GLUT_SINGLE|GLUT_RGBA); //单缓冲
-glutInitDisplayMode (GLUT_DOUBLE|GLUT_RGBA);   //双缓冲
-glFinish();//强制之前的绘图函数执行，双缓冲可不调用
-glutSwapBuffers(); //双缓冲必须调用
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>glTranslate{fd}(tx, ty, tz) //平移函数
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>glRotate{fd}(theta, vx, vy, vz) //旋转函数
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>glScale{fd}(sx, sy, sz) //放缩函数
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>glLoadIdentity() //重置为单位矩阵
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>glMatrixMode(GL_MODELVIEW) //模型观察矩阵
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>glPushMatrix() //压栈
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>glPopMatrix() //出栈
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>glutInitDisplayMode (GLUT_SINGLE|GLUT_RGBA); //单缓冲
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>glutInitDisplayMode (GLUT_DOUBLE|GLUT_RGBA);   //双缓冲
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>glFinish();//强制之前的绘图函数执行，双缓冲可不调用
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>glutSwapBuffers(); //双缓冲必须调用
+</span></code></pre></div>
 <p>注意：</p>
 <p>(1)系统几何变换矩阵只有1个</p>
 <p>(2)坐标采用列向量表示</p>
@@ -3481,36 +3481,36 @@ glutSwapBuffers(); //双缓冲必须调用
 </li>
 </ol>
 <p><strong>OpenGL相关函数</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1">//建模观察模式</span>
-<span class="n">glMatrixMode</span><span class="err">（</span><span class="n">GL_MODELVIEW</span><span class="err">）</span>
-<span class="n">gluLookAt</span><span class="err">（</span><span class="n">eyex</span><span class="p">,</span><span class="w"> </span><span class="n">eyey</span><span class="p">,</span><span class="w"> </span><span class="n">eyez</span><span class="p">,</span><span class="w"> </span><span class="n">atx</span><span class="p">,</span><span class="w"> </span><span class="n">aty</span><span class="p">,</span><span class="w"> </span><span class="n">atz</span><span class="p">,</span><span class="w"> </span><span class="n">upx</span><span class="p">,</span><span class="w"> </span><span class="n">upy</span><span class="p">,</span><span class="w"> </span><span class="n">upz</span><span class="err">）</span><span class="c1">//指定观察参数</span>
-<span class="c1">//默认参数：（1）eye＝（0，0，0）（2）at＝（0，0，－1）（3）up＝（0，1，0）</span>
-
-<span class="c1">//建立投影变换矩阵，设定当前投影矩阵</span>
-<span class="n">glMatrixMode</span><span class="err">（</span><span class="n">GL_PROJECTION</span><span class="err">）</span>
-
-<span class="c1">//正（平行）投影函数</span>
-<span class="n">glOrtho</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="p">,</span><span class="w"> </span><span class="n">ymin</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span>
-<span class="n">或</span><span class="w">  </span><span class="n">glOrtho</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">形成视见体</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">near和far为从观察坐标系原点沿负Z轴方向的距离</span>
-<span class="n">默认参数</span><span class="err">：</span><span class="n">glOrtho</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="n">是一对称规范化对称正方体</span>
-<span class="n">对二维而言</span><span class="err">，</span><span class="w"> </span><span class="n">glOrtho2D建立裁剪窗口</span>
-<span class="n">如不指定投影函数</span><span class="err">，</span><span class="n">默认正投影来显示场景</span>
-
-<span class="c1">//透视投影函数定义视见体   </span>
-<span class="n">glFrustum</span><span class="p">(</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span>
-<span class="n">定义视见体</span>
-<span class="w"> </span><span class="n">前四个参数设定投影平面上</span>
-<span class="n">裁剪窗口的坐标</span>
-<span class="err">（</span><span class="n">OpenGL投影平面为近裁剪面</span><span class="err">）</span>
-
-<span class="n">gluPerspective</span><span class="err">（</span><span class="n">fovy</span><span class="err">，</span><span class="n">aspect</span><span class="err">，</span><span class="n">near</span><span class="err">，</span><span class="n">far</span><span class="err">）</span>
-<span class="n">fovy</span><span class="err">：</span><span class="n">上下裁剪面间的夹角</span><span class="err">（</span><span class="mi">0</span><span class="err">～</span><span class="mi">180</span><span class="err">）</span>
-<span class="n">aspect</span><span class="err">：</span><span class="n">裁剪窗口纵横比</span><span class="err">（</span><span class="n">宽度</span><span class="o">/</span><span class="n">高度</span><span class="err">）</span>
-<span class="n">near</span><span class="err">：</span><span class="n">近裁剪面</span>
-<span class="n">far</span><span class="err">：</span><span class="n">远剪面</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">//建模观察模式</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">glMatrixMode</span><span class="err">（</span><span class="n">GL_MODELVIEW</span><span class="err">）</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">gluLookAt</span><span class="err">（</span><span class="n">eyex</span><span class="p">,</span><span class="w"> </span><span class="n">eyey</span><span class="p">,</span><span class="w"> </span><span class="n">eyez</span><span class="p">,</span><span class="w"> </span><span class="n">atx</span><span class="p">,</span><span class="w"> </span><span class="n">aty</span><span class="p">,</span><span class="w"> </span><span class="n">atz</span><span class="p">,</span><span class="w"> </span><span class="n">upx</span><span class="p">,</span><span class="w"> </span><span class="n">upy</span><span class="p">,</span><span class="w"> </span><span class="n">upz</span><span class="err">）</span><span class="c1">//指定观察参数</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">//默认参数：（1）eye＝（0，0，0）（2）at＝（0，0，－1）（3）up＝（0，1，0）</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">//建立投影变换矩阵，设定当前投影矩阵</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">glMatrixMode</span><span class="err">（</span><span class="n">GL_PROJECTION</span><span class="err">）</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">//正（平行）投影函数</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">glOrtho</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="p">,</span><span class="w"> </span><span class="n">ymin</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">或</span><span class="w">  </span><span class="n">glOrtho</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">形成视见体</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">near和far为从观察坐标系原点沿负Z轴方向的距离</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">默认参数</span><span class="err">：</span><span class="n">glOrtho</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="n">是一对称规范化对称正方体</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">对二维而言</span><span class="err">，</span><span class="w"> </span><span class="n">glOrtho2D建立裁剪窗口</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">如不指定投影函数</span><span class="err">，</span><span class="n">默认正投影来显示场景</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c1">//透视投影函数定义视见体   </span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="n">glFrustum</span><span class="p">(</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">far</span><span class="p">)</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="n">定义视见体</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w"> </span><span class="n">前四个参数设定投影平面上</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="n">裁剪窗口的坐标</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="err">（</span><span class="n">OpenGL投影平面为近裁剪面</span><span class="err">）</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="n">gluPerspective</span><span class="err">（</span><span class="n">fovy</span><span class="err">，</span><span class="n">aspect</span><span class="err">，</span><span class="n">near</span><span class="err">，</span><span class="n">far</span><span class="err">）</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="n">fovy</span><span class="err">：</span><span class="n">上下裁剪面间的夹角</span><span class="err">（</span><span class="mi">0</span><span class="err">～</span><span class="mi">180</span><span class="err">）</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="n">aspect</span><span class="err">：</span><span class="n">裁剪窗口纵横比</span><span class="err">（</span><span class="n">宽度</span><span class="o">/</span><span class="n">高度</span><span class="err">）</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="n">near</span><span class="err">：</span><span class="n">近裁剪面</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="n">far</span><span class="err">：</span><span class="n">远剪面</span>
+</span></code></pre></div>
 <h3 id="_8">第八章   真实感图形生成<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p><strong>消隐技术</strong></p>
 <ol>
@@ -3557,14 +3557,14 @@ glutSwapBuffers(); //双缓冲必须调用
 </li>
 <li>
 <p>OpenGL相关函数</p>
-<div class="highlight"><pre><span></span><code><span class="n">glClear</span><span class="p">(</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span><span class="w"> </span><span class="c1">//深度缓存初始化</span>
-<span class="err">（</span><span class="mi">1</span><span class="err">）</span><span class="n">在每显示新的一帧前清除</span>
-<span class="err">（</span><span class="mi">2</span><span class="err">）</span><span class="n">设置的默认值为1</span>
-<span class="err">（</span><span class="mi">3</span><span class="err">）</span><span class="n">设置初始值</span><span class="err">：</span><span class="n">glClearDepth</span><span class="err">（</span><span class="n">maxDepth</span><span class="err">）</span>
-<span class="err">（</span><span class="mi">4</span><span class="err">）</span><span class="n">OpenGL允许每个像素的深度范围是0</span><span class="p">.</span><span class="mf">.1</span><span class="err">，</span><span class="n">最大值为1为最远点</span><span class="err">，</span><span class="n">前面物体深度值小</span><span class="err">。</span>
-<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">);</span><span class="c1">//激活函数(默认为不激活）</span>
-<span class="n">深度测试比较</span><span class="err">：</span><span class="n">glDepthFunc</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="err">，</span><span class="n">mode取GL_LESS</span><span class="w"> </span><span class="n">时</span><span class="err">，</span><span class="n">深度值小</span><span class="err">（</span><span class="n">近处</span><span class="err">）</span><span class="n">的显示</span><span class="err">；</span><span class="n">取GL_GREATER</span><span class="w"> </span><span class="n">时</span><span class="err">，</span><span class="n">深度值大</span><span class="err">（</span><span class="n">远处</span><span class="err">）</span><span class="n">的显示</span><span class="err">。</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">glClear</span><span class="p">(</span><span class="w"> </span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span><span class="w"> </span><span class="c1">//深度缓存初始化</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">（</span><span class="mi">1</span><span class="err">）</span><span class="n">在每显示新的一帧前清除</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="err">（</span><span class="mi">2</span><span class="err">）</span><span class="n">设置的默认值为1</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="err">（</span><span class="mi">3</span><span class="err">）</span><span class="n">设置初始值</span><span class="err">：</span><span class="n">glClearDepth</span><span class="err">（</span><span class="n">maxDepth</span><span class="err">）</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="err">（</span><span class="mi">4</span><span class="err">）</span><span class="n">OpenGL允许每个像素的深度范围是0</span><span class="p">.</span><span class="mf">.1</span><span class="err">，</span><span class="n">最大值为1为最远点</span><span class="err">，</span><span class="n">前面物体深度值小</span><span class="err">。</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">);</span><span class="c1">//激活函数(默认为不激活）</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">深度测试比较</span><span class="err">：</span><span class="n">glDepthFunc</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="err">，</span><span class="n">mode取GL_LESS</span><span class="w"> </span><span class="n">时</span><span class="err">，</span><span class="n">深度值小</span><span class="err">（</span><span class="n">近处</span><span class="err">）</span><span class="n">的显示</span><span class="err">；</span><span class="n">取GL_GREATER</span><span class="w"> </span><span class="n">时</span><span class="err">，</span><span class="n">深度值大</span><span class="err">（</span><span class="n">远处</span><span class="err">）</span><span class="n">的显示</span><span class="err">。</span>
+</span></code></pre></div>
 </li>
 </ol>
 <p><strong>简单光照模型</strong></p>
@@ -3671,11 +3671,11 @@ glutSwapBuffers(); //双缓冲必须调用
 <ol>
 <li>OpenGL相关函数</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">glLight</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span><span class="c1">//创建光源</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">glMaterial</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">face</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span><span class="c1">//设置材质</span>
-<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">);</span><span class="w"> </span><span class="c1">//开启光源</span>
-<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">);</span><span class="w"> </span><span class="c1">//开启光源</span>
-</code></pre></div>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">glLight</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span><span class="c1">//创建光源</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">glMaterial</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">face</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span><span class="c1">//设置材质</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHTING</span><span class="p">);</span><span class="w"> </span><span class="c1">//开启光源</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">);</span><span class="w"> </span><span class="c1">//开启光源</span>
+</span></code></pre></div>
 <p><strong>多边形绘制方法</strong></p>
 <ol>
 <li>
@@ -3815,23 +3815,23 @@ glutSwapBuffers(); //双缓冲必须调用
 <p>​          注意：纹理映射只能在RGBA方式下执行，不能运用于颜色表方式。 </p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">定义纹理</span>
-<span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">uiTexture</span><span class="p">);</span><span class="c1">// GLuint uiTexture</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">glTexImage2D</span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span>
-<span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">border</span><span class="p">,</span>
-<span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">绑定图片</span>
-<span class="n">gluBuild2DMipmaps</span><span class="w"> </span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="n">控制滤波</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">glTexParameter</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span>
-<span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="n">设置纹理映射方式</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">glTexEnv</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span>
-<span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="n">激活纹理</span>
-<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">);</span>
-<span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="n">定义纹理坐标</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">glTexCoord</span><span class="p">{</span><span class="mi">1234</span><span class="p">}{</span><span class="n">sifd</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">TYPE</span><span class="w"> </span><span class="n">coords</span><span class="p">);</span><span class="w"> </span>
-<span class="n">注意</span><span class="err">：</span><span class="n">使用多个纹理时</span><span class="err">，</span><span class="n">需要在定义点纹理坐标之前</span><span class="err">，</span><span class="n">指定所用纹理</span><span class="err">。</span><span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">定义纹理</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">uiTexture</span><span class="p">);</span><span class="c1">// GLuint uiTexture</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">glTexImage2D</span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLint</span><span class="w"> </span><span class="n">border</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">绑定图片</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">gluBuild2DMipmaps</span><span class="w"> </span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">Glint</span><span class="w"> </span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="n">GLsizei</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w">  </span><span class="n">glsizei</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">GLvoid</span><span class="w"> </span><span class="o">*</span><span class="n">pixels</span><span class="p">);</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="n">控制滤波</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="kt">void</span><span class="w"> </span><span class="n">glTexParameter</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="n">设置纹理映射方式</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="kt">void</span><span class="w"> </span><span class="n">glTexEnv</span><span class="p">{</span><span class="k">if</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">GLenum</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="n">TYPE</span><span class="w"> </span><span class="n">param</span><span class="p">);</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="n">激活纹理</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">);</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="n">定义纹理坐标</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="kt">void</span><span class="w"> </span><span class="n">glTexCoord</span><span class="p">{</span><span class="mi">1234</span><span class="p">}{</span><span class="n">sifd</span><span class="p">}[</span><span class="n">v</span><span class="p">](</span><span class="n">TYPE</span><span class="w"> </span><span class="n">coords</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">注意</span><span class="err">：</span><span class="n">使用多个纹理时</span><span class="err">，</span><span class="n">需要在定义点纹理坐标之前</span><span class="err">，</span><span class="n">指定所用纹理</span><span class="err">。</span><span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+</span></code></pre></div>
 <p><strong>阴影</strong></p>
 <ol>
 <li>阴影（Shadow）</li>

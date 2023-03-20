@@ -61,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
   
     
     
@@ -116,7 +116,7 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
@@ -2064,11 +2064,11 @@ KZB: 作弊（做 B）啊</p>
 <h5 id="_3">输出<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
 <p>一个数，即监控不会看到的学生人数。</p>
 <h5 id="_4">样例输入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>6
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>6
+</span></code></pre></div>
 <h5 id="_5">样例输出<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>14
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>14
+</span></code></pre></div>
 <h5 id="_6">提示<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
 <p>样例解释:当n=6时，坐在(3,5)上的同学会被坐在(2,3)上的同学挡住，以此类推。
 <img alt="在这里插入图片描述" src="https://imgconvert.csdnimg.cn/aHR0cDovL2ljcGMudXBjLmVkdS5jbi91cGxvYWQvaW1hZ2UvMjAyMDA1MjkvMjAyMDA1MjkwODI2MjdfNDMxMzEuanBn?x-oss-process=image/format,png#pic_center" /></p>
@@ -2077,52 +2077,52 @@ KZB: 作弊（做 B）啊</p>
 图为n为5时的解释，标注为1的是监控能够发现的
 欧拉函数简介：
 <a href="https://zhuanlan.zhihu.com/p/42748145">https://zhuanlan.zhihu.com/p/42748145</a>
-<div class="highlight"><pre><span></span><code>#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-ll n, ans, pr[200507], ph[200507], cnt ;
-bool vis[200507] ;
-
-int main()  //结合了欧拉筛法
-{
-    ph[1] = 1 ;
-    scanf(&quot;%lld&quot;, &amp;n );
-    if(n==1||n==2)
-    {
-        cout&lt;&lt;0&lt;&lt;endl;
-        return 0;
-    }
-    for(ll  i = 2 ; i&lt;=n-1; ++ i )  //分解质因数和初始化
-    {
-        if(!vis[i])
-        {
-            cnt ++ ;
-            pr[cnt] = i ;
-            ph[i] = i - 1 ;
-        }
-        for(ll j = 1 ; j &lt;=cnt&amp;&amp;i*pr[j]&lt;=n-1;++ j )  //欧拉筛法
-        {
-            vis[ i * pr[j] ] = 1 ;
-            if( i % pr[j] == 0 )
-            {
-                ph[ pr[j] * i ] = ph[i] * pr[j] ;
-                break;
-            }
-            else
-                ph [ pr[j] * i] = ph[i] * (pr[j] - 1 );
-        }
-    }
-    for(ll i = 2 ; i &lt;= n-1 ; ++ i )
-        ans += ph[i];//累加结果
-    ans=ans*2+4;
-    ans=n*n-ans;
-    cout&lt;&lt;ans&lt;&lt;endl;
-    return 0;
-}
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#include &lt;iostream&gt;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>#include &lt;cstdio&gt;
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>#include &lt;cstring&gt;
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>#include &lt;cmath&gt;
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>using namespace std;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>typedef long long ll;
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>ll n, ans, pr[200507], ph[200507], cnt ;
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>bool vis[200507] ;
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>int main()  //结合了欧拉筛法
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>{
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    ph[1] = 1 ;
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    scanf(&quot;%lld&quot;, &amp;n );
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    if(n==1||n==2)
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    {
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        cout&lt;&lt;0&lt;&lt;endl;
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        return 0;
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    }
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    for(ll  i = 2 ; i&lt;=n-1; ++ i )  //分解质因数和初始化
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    {
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        if(!vis[i])
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        {
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>            cnt ++ ;
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>            pr[cnt] = i ;
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>            ph[i] = i - 1 ;
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        }
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>        for(ll j = 1 ; j &lt;=cnt&amp;&amp;i*pr[j]&lt;=n-1;++ j )  //欧拉筛法
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>        {
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>            vis[ i * pr[j] ] = 1 ;
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>            if( i % pr[j] == 0 )
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>            {
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>                ph[ pr[j] * i ] = ph[i] * pr[j] ;
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>                break;
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>            }
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>            else
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>                ph [ pr[j] * i] = ph[i] * (pr[j] - 1 );
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>        }
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>    }
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>    for(ll i = 2 ; i &lt;= n-1 ; ++ i )
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>        ans += ph[i];//累加结果
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    ans=ans*2+4;
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>    ans=n*n-ans;
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>    cout&lt;&lt;ans&lt;&lt;endl;
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>    return 0;
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>}
+</span></code></pre></div></p>
 
 
 
