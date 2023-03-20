@@ -2331,19 +2331,35 @@
 <li>-numberOfUpdateBatches ：可选参数，用于指定要进行的边缘更新的数量。 默认值为 1。</li>
 <li>-nEdges：给定更新批次中要处理的边缘操作数。</li>
 <li>-outputFile ：用于打印给定算法输出的可选参数。</li>
-<li>输入图形文件路径（有关输入格式的更多信息，请参见第 2.4 节）。</li>
+<li>输入图形文件路径</li>
 </ul>
 </li>
 <li>输入输出文件格式<ul>
 <li>SNAP 边表格式和AdjacencyGraph邻接格式</li>
-<li>SNAP 边表格式</li>
-<li>由一系列边组成</li>
-<li>AdjacencyGraph格式</li>
+<li>SNAP 边表格式：由一系列边组成</li>
+<li>AdjacencyGraph格式<ul>
 <li>AdjacencyGraph</li>
 <li>顶点个数</li>
 <li>边个数</li>
 <li>边偏移量</li>
 <li>对应边</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>流输入文件应该在单独的行上进行边缘操作（添加/删除）。 边缘操作的格式应为<code>[d/a] source destination</code>，其中<code>d</code>表示边缘删除，<code>a</code>表示边缘添加。 </li>
+<li>边缘操作可以使用 tools/generators/streamGenerator.C 通过管道流式传输。 它接受以下命令行参数：<ul>
+<li>-edgeOperationsFile：包含上述格式的边缘操作的输入文件。</li>
+<li>-outputPipe ：边缘流式传输到的输出管道的路径。</li>
+</ul>
+</li>
+<li>带权重的图 SNAP和AdjacencyGraph相同，SNAP在边后面附有边权，AdjacencyGraph在对应边后面增加对应权值</li>
+<li>流摄取器 FIFO 由 -streamPath 指定。 可以将边沿操作写入该 FIFO。 -nEdges 指定可以在单个批次中传递给 GraphBolt 引擎的边操作的最大数量。 GraphBolt 引擎将继续从流摄取器接收边缘批次，直到流关闭（当 FIFO 不再有写入器时）或超过 -numberOfBatches 时。 如果FIFO的写端没有打开，GraphBolt引擎（也就是读端）会阻塞等待，直到打开。</li>
+<li>有一些可选标志可以影响行为并确定传递给命令行参数 -streamPath 的边缘操作的有效性：<ul>
+<li>-fixedBatchSize：可选标志，以确保严格遵守批量大小。 如果 FIFO 不包含足够的边缘，摄取器将阻塞，直到它接收到由 -nEdges 指定的足够边缘或直到流关闭。</li>
+<li>-enforceEdgeValidity：可选标志，以确保批处理中的所有边操作都有效。 例如，只有当要删除的边存在于图中时，边删除操作才有效。 在简单图的情况下（如下所述），仅当图中当前不存在该边时，边添加操作才有效。 在计算批处理中的边数时，无效边将被丢弃并且不包括在内。</li>
+<li>-simple：用于确保输入图保持简单图（即没有重复边）的可选标志。 检查输入图以删除所有重复边。 批处理中不允许重复边，并且检查边添加以确保要添加的边在图中尚不存在。</li>
+<li>-debug：可选标志，用于打印被确定为无效的边缘。</li>
 </ul>
 </li>
 </ul>
