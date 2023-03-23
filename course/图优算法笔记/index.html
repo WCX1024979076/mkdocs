@@ -2310,6 +2310,21 @@
 <li>cleanup()</li>
 </ul>
 </li>
+<li>frontier_curr &amp; changed 的前后变化<ul>
+<li>frontier_curr初始化为false，changed数组初始化为false</li>
+<li>hasSourceChangedByUpdate判断前后度是否变化来对于frontier_curr进行初始化</li>
+<li>如果frontier_curr[source]和frontier_curr[destination]为激活则changed[source]值为true</li>
+<li>激活顶点向邻居发送增量更新，同时如果edgefunction为true则置changed数组为true，强制其在本轮迭代中计算顶点值</li>
+<li>清空frontier_curr并根据changed数组进行聚合值收集并修改顶点值</li>
+<li>判断是否要在下一次迭代中必须激活更新front_curr数组</li>
+<li>判断前后权值变化是否超过阈值判断是否要激活front_curr数组</li>
+<li>遍历增加的边和删除的边重复更新changed数组</li>
+</ul>
+</li>
+<li>vertex_value_old_curr、vertex_value_old_prev 一点更新时疑惑？<ul>
+<li><img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-280065-560166.jpg" /></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>KickStarter相关函数<ul>
