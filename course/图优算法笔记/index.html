@@ -2188,6 +2188,10 @@
 <li>
 <p>控制有状态流图处理的内存占用（主要对GraphBolt进行优化）</p>
 <ul>
+<li>在每次迭代中与顶点相关的值方面的中间状态。每个中间值由聚合值（增量合并差异）和顶点值（计算输出差异）组成。<ul>
+<li><img alt="image-20230328102803715" src="https://pic.tim-wcx.ltd/img/image-20230328102803715.png" /></li>
+</ul>
+</li>
 <li>无状态迭代模型 &amp; 有状态迭代模型 ( KickStarter(只保留一次中间状态), GraphBolt(保留从开始到结束的中间状态))</li>
 <li>选择性有状态迭代模型<ul>
 <li>只选择其中一部分顶点来记录其中间状态（跟踪顶点和未跟踪顶点），减少内存开销。</li>
@@ -2521,48 +2525,60 @@
 </ul>
 </li>
 <li>
-<p>可行的优化方案</p>
+<p>优化方案</p>
 <ul>
+<li>可行的优化方案</li>
 <li>tegra 增量计算 &amp; graphbolt增量计算 &amp; 从头开始 三者的一个自动切换</li>
 <li>graphbolt做优化的那篇关于减少内存开销的论文，里面提到的两种优化方法也可以做，你实现出来以后也可以加个切换优化什么的</li>
 <li>graphbolt那个切换论文里面说的是因为记录的中间结果进行了剪枝，分为水平的和垂直的两种，比如水平的是只记录了前k次迭代的中间结果，对于第k次迭代之后的由于没有中间结果所以无法增量计算，因此就会切换到从头算，但这个过程需要注意的是如何保证切换时活跃点集的正确性</li>
 <li>tegra的增量计算方法就是说和graphbolt一样，也要记录每一次迭代的中间结果，但是它的增量计算方法不是在历史结果上进行修正，而是说对于不受更新影响的顶点的中间结果就直接copy，而受影响的那些顶点就采用传统的计算方法（就是基于上一轮迭代的值来算当前迭代的值）</li>
-</ul>
-</li>
-<li>
-<p>Tegra &amp; GraphBolt &amp; Tradtional 算法对比</p>
-<ul>
-<li>Tegra<ul>
+<li>论文IncGraph An Improved Distributed Incremental Graph Computing Model and Framework Based on Spark GraphX提出了四种内存策略MF、MP、MV和ME四种记忆策略，用于增量计算中信息传递量，目前还在学习，读了一遍没读懂。</li>
+<li>Tegra &amp; GraphBolt &amp; Tradtional 算法对比<ul>
+<li>Tegra</li>
 <li><img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-236756-164294.jpg" /></li>
 <li>初始化，对base图进行传统从零开始计算并存储相关历史值和聚合值</li>
 <li>当发生边的插入和删除时将顶点进行激活并对比一跳邻居的值是否发生变化并增大活跃点集</li>
 <li>未发生变化的值拷贝历史值</li>
 <li>当没有边发生变化后达到收敛状态</li>
-</ul>
-</li>
-<li>GraphBolt<ul>
+<li>GraphBolt</li>
 <li><img alt="图片" src="https://pic.tim-wcx.ltd/img/图优算法笔记-幕布图片-280065-560166.jpg" /></li>
 <li>初始化，对base图进行传统从零开始计算并存储相关历史值和聚合值</li>
 <li>当发生边的插入和删除时将顶点进行激活修改聚合值</li>
 <li>未发生变化的值拷贝历史值</li>
+<li>传统从零开始计算</li>
+<li>计算流程<ul>
+<li>1、根据front_curr和聚合值信息来传播更新</li>
+<li>2、目标顶点接收更新并根据聚合值信息来更新自己的顶点权值</li>
+<li>3、根据目标顶点变化情况是否超过一定阈值来判断是否要在下一次激活</li>
 </ul>
 </li>
-<li>Tradtional<ul>
 <li>从零开始计算，所有顶点均为活跃点集并计算</li>
+<li>两者主要对比</li>
+<li>GraphBolt的增量计算更新主要和历史数据进行对比，即根据历史数据前后的变化移除错误的数据并更正为正确的数据。</li>
+<li>传统的增量计算只根据本次迭代和上次迭代权值变更情况进行更新传播。</li>
+<li>这个重要吗？增量计算迭代的次数和传统计算迭代次数应该相同？顶点的收敛快慢？对部分顶点采用Tegra的从零开始计算，对部分顶点采用GraphBolt来进行计算？二者快慢比较？阿巴阿巴</li>
+<li>两者切换的标准</li>
+<li>活跃点集数目</li>
+<li>活动点集的平均度数</li>
+<li>完成迭代所需的时间</li>
+<li>每次迭代的变化情况？</li>
+<li>GraphBolt给出的解决方案为比较单次迭代时间，通过估算传统增量计算单次迭代的时间和当前增量计算的时间来做决定是否切换。</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>
-<p>关于并行的优化方案</p>
-<ul>
+<li>关于并行的优化方案<ul>
 <li>什么是并行和串行？</li>
+<li>并行性优化，目前GraphBolt的计算是基于BSP同步运算的，能否改用其他并行计算或者细粒度锁方案，降低同步所需时间。</li>
 </ul>
 </li>
-<li>
-<p>关于拓扑排序的解决方案？</p>
-<ul>
+<li>关于拓扑排序的解决方案？</li>
 <li>拓扑排序允许并行运行</li>
+<li>关于内存优化的解决方案？</li>
+<li>减少跟踪点的数目</li>
+<li>内存优化：借鉴Controlling Memory Footprint of Stateful Streaming Graph Processing论文中的只跟踪部分顶点的思想来做优化。</li>
+<li>IncGraph 优化解决方案<ul>
+<li>论文IncGraph An Improved Distributed Incremental Graph Computing Model and Framework Based on Spark GraphX提出了四种内存策略MF、MP、MV和ME四种记忆策略，用于增量计算中信息传递量，目前还在学习，读了一遍没读懂。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
