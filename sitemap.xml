@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://github.tim-wcx.ltd/mkdocs/course/make/</loc>
+         <lastmod>2023-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://github.tim-wcx.ltd/mkdocs/course/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
          <lastmod>2023-05-05</lastmod>
          <changefreq>daily</changefreq>
