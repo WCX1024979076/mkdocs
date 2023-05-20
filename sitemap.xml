@@ -21,11 +21,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://notes.tim-wcx.ltd/about/_coverpage/</loc>
-         <lastmod>2023-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://notes.tim-wcx.ltd/about/_sidebar/</loc>
          <lastmod>2023-05-20</lastmod>
          <changefreq>daily</changefreq>
@@ -42,11 +37,6 @@
     </url>
     <url>
          <loc>https://notes.tim-wcx.ltd/course/RT_Smart%E4%B8%ADminizip%E7%A7%BB%E6%A4%8D%E8%AE%B0%E5%BD%95/</loc>
-         <lastmod>2023-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://notes.tim-wcx.ltd/course/_coverpage/</loc>
          <lastmod>2023-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -316,11 +306,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://notes.tim-wcx.ltd/csdn/_coverpage/</loc>
-         <lastmod>2023-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://notes.tim-wcx.ltd/csdn/_sidebar/</loc>
          <lastmod>2023-05-20</lastmod>
          <changefreq>daily</changefreq>
@@ -361,11 +346,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://notes.tim-wcx.ltd/icpc/_coverpage/</loc>
-         <lastmod>2023-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://notes.tim-wcx.ltd/icpc/_sidebar/</loc>
          <lastmod>2023-05-20</lastmod>
          <changefreq>daily</changefreq>
@@ -382,11 +362,6 @@
     </url>
     <url>
          <loc>https://notes.tim-wcx.ltd/plan/</loc>
-         <lastmod>2023-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://notes.tim-wcx.ltd/plan/_coverpage/</loc>
          <lastmod>2023-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -472,11 +447,6 @@
     </url>
     <url>
          <loc>https://notes.tim-wcx.ltd/problem/2021-06-05-6%E6%9C%885%E6%97%A5%E9%A2%98%E8%A7%A3/</loc>
-         <lastmod>2023-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://notes.tim-wcx.ltd/problem/_coverpage/</loc>
          <lastmod>2023-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -582,11 +552,6 @@
     </url>
     <url>
          <loc>https://notes.tim-wcx.ltd/question/</loc>
-         <lastmod>2023-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://notes.tim-wcx.ltd/question/_coverpage/</loc>
          <lastmod>2023-05-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
