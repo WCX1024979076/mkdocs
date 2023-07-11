@@ -17,7 +17,7 @@
         <link rel="next" href="../about/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
@@ -1984,7 +1984,7 @@
 
 
 <h1 id="_1">安排列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h3 id="_2">待完成<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h2 id="_2">待完成<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>1、PLCT实习生</p>
 <p><del>BL808 SPI+LCD的调试？</del></p>
 <p><del>BL808 HW_TIMER的实现？</del></p>
@@ -1996,10 +1996,10 @@
 <p>开源之夏的申请，ESP32 申请成功，三个任务：</p>
 <ul>
 <li>
-<p>使用<code>scons</code>编译而非<code>cmake</code>，进行重构</p>
+<p>使用<code>scons</code>编译而非<code>cmake</code>，进行重构；有点难度，不知从哪里下手，或许该放手一搏，但是<code>sdkconfig</code>不知道该如何配置；另外为啥需要<code>FreeRTOS</code>的中间转接层？直接使用<code>RTthread</code>不可以吗？</p>
 </li>
 <li>
-<p>实现WIFI驱动</p>
+<p>实现WIFI驱动 太他妈难了，<code>ESP-IDF</code>这边提供了<code>LWIP</code>库，<code>RtThread</code>这边提供了<code>LWIP</code>库，看来必须进行<code>REMAKE</code>了。。。。。脑壳疼</p>
 </li>
 <li>
 <p>实现BLE驱动</p>
@@ -2011,20 +2011,25 @@
 <p>原版GraphBolt和现版GraphBolt区别？</p>
 <p>读中文论文，学习思路？</p>
 <p><strong>改进Lp算法的Tegra准确度问题？</strong></p>
-<p>3、活塞气举系统</p>
-<p><del>整理一份Word文档，关于梯度下降法</del></p>
-<p><del><a href="https://blog.csdn.net/qq_35240204/article/details/106864745">https://blog.csdn.net/qq_35240204/article/details/106864745</a></del></p>
-<p><del><a href="https://blog.csdn.net/weixin_42018112/article/details/88096070">https://blog.csdn.net/weixin_42018112/article/details/88096070</a></del></p>
-<p>登陆界面</p>
-<p><del><a href="https://ubuntu.tim-wcx.ltd/oil/">https://ubuntu.tim-wcx.ltd/oil/</a></del></p>
-<p><del><a href="https://ubuntu.tim-wcx.ltd/oil_new">https://ubuntu.tim-wcx.ltd/oil_new</a></del></p>
-<p>4、外出旅游计划安排</p>
+<p>用机器学习算法预测<code>t1</code>和<code>t2</code>，效果？脑阔好疼，感觉工作毫无意义？</p>
+<p>3、外出旅游计划安排</p>
 <p>下半年去四川游玩</p>
 <p>六月份去南京游玩 / 研究生入学</p>
-<h3 id="_3">暂缓<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>4、C#图书管理系统</p>
+<p><del>要修复的问题</del></p>
+<ul>
+<li>
+<p><del>汇文数据库的Ping连接测试</del></p>
+</li>
+<li>
+<p><del>IO控制和休眠实现</del></p>
+</li>
+</ul>
+<p>软著材料编写</p>
+<h2 id="_3">暂缓<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>1、一生一芯的进一步优化 </p>
 <p>减少寄存器数目</p>
-<h3 id="_4">已完成<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h2 id="_4">已完成<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><del>1、系统结构实验 1月6日之前 提前 采用超标量处理器设计</del></p>
 <p><del><a href="http://xzc.cn/wMYSERYGAE">http://xzc.cn/wMYSERYGAE</a></del></p>
 <p><del>2、系统结构考试</del></p>
@@ -2045,18 +2050,8 @@
 <p><del>修改毕设开题报告</del></p>
 <p><del>完成两篇外文文献的翻译</del></p>
 <p><del>8、提醒班级省网优秀毕业生报备</del></p>
-<p><del>9、C#图书管理系统</del></p>
-<p><del>要修复的问题</del></p>
-<ul>
-<li>
-<p><del>汇文数据库的Ping连接测试</del></p>
-</li>
-<li>
-<p><del>IO控制和休眠实现</del></p>
-</li>
-</ul>
-<p><del>10、本周完成成人教育论文的评价</del></p>
-<p><del>11、本科毕业设计</del></p>
+<p><del>9、本周完成成人教育论文的评价</del></p>
+<p><del>19、本科毕业设计</del></p>
 <p><del>准备毕业设计答辩PPT？</del></p>
 <p><del>准备优秀毕业设计申请书？</del></p>
 <p><del>继续优化GraphBolt &amp; Tegra 提升性能？</del></p>
@@ -2107,8 +2102,15 @@
 <p><del>中期检查？</del></p>
 <p><del>校级中期检查？</del></p>
 <p><del>继续阅读GraphBolt源代码</del></p>
-<p><del>12、本科毕业</del></p>
+<p><del>11、本科毕业</del></p>
 <p><del>本科毕业总感觉该写点什么，石油大学真的让人又爱又恨，唉，总之祝母校人才济济，桃李满天下吧。我也该开启研究生新征程了，多少有点迷茫，唉。另外济青六日游个人感觉良好，感谢三位一路上的陪伴，祝前程似锦，一切顺利！！！</del></p>
+<p><del>12、活塞气举系统</del></p>
+<p><del>整理一份Word文档，关于梯度下降法</del></p>
+<p><del><a href="https://blog.csdn.net/qq_35240204/article/details/106864745">https://blog.csdn.net/qq_35240204/article/details/106864745</a></del></p>
+<p><del><a href="https://blog.csdn.net/weixin_42018112/article/details/88096070">https://blog.csdn.net/weixin_42018112/article/details/88096070</a></del></p>
+<p><del>登陆界面</del></p>
+<p><del><a href="https://ubuntu.tim-wcx.ltd/oil/">https://ubuntu.tim-wcx.ltd/oil/</a></del></p>
+<p><del><a href="https://ubuntu.tim-wcx.ltd/oil_new">https://ubuntu.tim-wcx.ltd/oil_new</a></del></p>
 
 
 
@@ -2189,10 +2191,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
           <script src="../js/extra.js"></script>
