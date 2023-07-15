@@ -1996,36 +1996,28 @@
 <p>开源之夏的申请，ESP32 申请成功，三个任务：</p>
 <ul>
 <li>
-<p>使用<code>scons</code>编译而非<code>cmake</code>，进行重构；有点难度，不知从哪里下手，或许该放手一搏，但是<code>sdkconfig</code>不知道该如何配置；另外为啥需要<code>FreeRTOS</code>的中间转接层？直接使用<code>RTthread</code>不可以吗？</p>
+<p><del>使用<code>scons</code>编译而非<code>cmake</code>，进行重构；找到链接脚本错误并尝试解决中。。。 重构成功，成功解决了bin生成问题和链接脚本问题</del></p>
 </li>
 <li>
-<p>实现WIFI驱动 太他妈难了，<code>ESP-IDF</code>这边提供了<code>LWIP</code>库，<code>RtThread</code>这边提供了<code>LWIP</code>库，看来必须进行<code>REMAKE</code>了。。。。。脑壳疼</p>
+<p>实现WIFI驱动 太他妈难了，<code>ESP-IDF</code>这边提供了<code>LWIP</code>库，<code>RtThread</code>这边提供了<code>LWIP</code>库，尝试对<code>ESP-IDF</code>中<code>esp-wifi</code>库进行重构</p>
 </li>
 <li>
 <p>实现BLE驱动</p>
 </li>
 </ul>
+<p>完成阶段1任务提交PR，是否要更改描述以及研究如何分离出<code>esptools.py</code>生成<code>bin</code>的逻辑？</p>
 <p>2、图优部分</p>
-<p>HPC论文提上日程？DDL 7月7日？</p>
-<p>GraphBolt和Tegra的进一步结合优化？</p>
-<p>原版GraphBolt和现版GraphBolt区别？</p>
 <p>读中文论文，学习思路？</p>
-<p><strong>改进Lp算法的Tegra准确度问题？</strong></p>
-<p>用机器学习算法预测<code>t1</code>和<code>t2</code>，效果？脑阔好疼，感觉工作毫无意义？</p>
+<p>阅读<code>To Push or To Pull.pdf</code>论文</p>
+<p>目前Tegra性能存在一些问题，猜测是<code>source_change_in_contrbution</code>导致的性能下降</p>
+<p><del>GraphBolt和Tegra的进一步结合优化？</del></p>
+<p><del>原版GraphBolt和现版GraphBolt区别？</del></p>
+<p><del>HPC论文提上日程？DDL 7月7日？废了</del></p>
+<p><del>改进Lp算法的Tegra准确度问题？已改进</del></p>
+<p><del>用机器学习算法预测<code>t1</code>和<code>t2</code>，效果？脑阔好疼，感觉工作毫无意义？<strong>确实没有意义</strong></del></p>
 <p>3、外出旅游计划安排</p>
 <p>下半年去四川游玩</p>
 <p>六月份去南京游玩 / 研究生入学</p>
-<p>4、C#图书管理系统</p>
-<p><del>要修复的问题</del></p>
-<ul>
-<li>
-<p><del>汇文数据库的Ping连接测试</del></p>
-</li>
-<li>
-<p><del>IO控制和休眠实现</del></p>
-</li>
-</ul>
-<p>软著材料编写</p>
 <h2 id="_3">暂缓<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>1、一生一芯的进一步优化 </p>
 <p>减少寄存器数目</p>
@@ -2051,7 +2043,7 @@
 <p><del>完成两篇外文文献的翻译</del></p>
 <p><del>8、提醒班级省网优秀毕业生报备</del></p>
 <p><del>9、本周完成成人教育论文的评价</del></p>
-<p><del>19、本科毕业设计</del></p>
+<p><del>10、本科毕业设计</del></p>
 <p><del>准备毕业设计答辩PPT？</del></p>
 <p><del>准备优秀毕业设计申请书？</del></p>
 <p><del>继续优化GraphBolt &amp; Tegra 提升性能？</del></p>
@@ -2111,6 +2103,17 @@
 <p><del>登陆界面</del></p>
 <p><del><a href="https://ubuntu.tim-wcx.ltd/oil/">https://ubuntu.tim-wcx.ltd/oil/</a></del></p>
 <p><del><a href="https://ubuntu.tim-wcx.ltd/oil_new">https://ubuntu.tim-wcx.ltd/oil_new</a></del></p>
+<p><del>13、C#图书管理系统</del></p>
+<p><del>要修复的问题</del></p>
+<ul>
+<li>
+<p><del>汇文数据库的Ping连接测试</del></p>
+</li>
+<li>
+<p><del>IO控制和休眠实现</del></p>
+</li>
+</ul>
+<p><del>软著材料编写</del></p>
 
 
 
