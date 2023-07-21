@@ -2036,18 +2036,18 @@
 </ul>
 <p>提交PR：</p>
 <p><a href="https://github.com/RT-Thread/rt-thread/pull/7821">https://github.com/RT-Thread/rt-thread/pull/7821</a></p>
-<p><a href="https://github.com/RT-Thread-packages/FreeRTOS-Wrapper/pull/36">https://github.com/RT-Thread-packages/FreeRTOS-Wrapper/pull/36</a></p>
 <p><a href="https://github.com/RT-Thread-packages/esp-idf/pull/10">https://github.com/RT-Thread-packages/esp-idf/pull/10</a></p>
-<p><a href="https://github.com/RT-Thread/packages/pull/1635">https://github.com/RT-Thread/packages/pull/1635</a></p>
 <p>2、图优部分</p>
 <p>读中文论文，学习思路？</p>
 <p>阅读<code>To Push or To Pull.pdf</code>论文，大体读了一遍，没读懂</p>
 <p>目前Tegra性能存在一些问题，猜测是<code>source_change_in_contrbution</code>导致的性能下降；不是由于活跃点集挂钩，必须激活一部分顶点来进行<code>Pull</code>，感觉可以切换优化？</p>
+<p>实现<code>SSSP</code>算法和<code>BFS</code>算法，<code>GraphBolt</code>能计算<code>SSSP</code>吗？我觉得不太可能吧，<code>SSSP</code>是取最小值<code>min</code>？<code>BFS</code>是取最小值层数<code>depth</code>；<code>SSSP</code>和<code>BFS</code>的连通性该如何解决？两种单调类算法<code>push</code>用小顶堆实现也不是不可以，每个顶点都开一个小顶堆，小顶堆的开销大概是<code>O(|E|)</code>；对于<code>pull</code>而言无需这么做，只需识别出受影响的顶点并且进行重计算即可。理论上可行，再想想。刚刚想了一下，需要每次迭代每个顶点都需要维护一个小顶堆，开销大概为O(T*|E|)。</p>
+<p><del>优化<code>Tegra</code>算法，添加<code>has_source_chang</code>和<code>force_active</code></del></p>
 <p><del>GraphBolt和Tegra的进一步结合优化？</del></p>
 <p><del>原版GraphBolt和现版GraphBolt区别？</del></p>
 <p><del>HPC论文提上日程？DDL 7月7日？废了</del></p>
 <p><del>改进Lp算法的Tegra准确度问题？已改进</del></p>
-<p><del>用机器学习算法预测<code>t1</code>和<code>t2</code>，效果？脑阔好疼，感觉工作毫无意义？<strong>确实没有意义</strong></del></p>
+<p><del>用机器学习算法预测<code>t1</code>和<code>t2</code></del></p>
 <p>3、外出旅游计划安排</p>
 <p>下半年去四川游玩</p>
 <p>六月份去南京游玩 / 研究生入学</p>
