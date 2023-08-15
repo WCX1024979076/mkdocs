@@ -17,7 +17,7 @@
         <link rel="next" href="../PDF%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2965,7 +2965,7 @@
 <th>D6</th>
 <th>D5</th>
 <th>D4</th>
-<th align="center">D3</th>
+<th style="text-align: center;">D3</th>
 <th>D2</th>
 <th>D1</th>
 <th>D0</th>
@@ -2977,7 +2977,7 @@
 <td>AC</td>
 <td>F0</td>
 <td>RS1</td>
-<td align="center">RS0</td>
+<td style="text-align: center;">RS0</td>
 <td>OV</td>
 <td>...</td>
 <td>P</td>
@@ -2987,7 +2987,7 @@
 <td>辅助进位标志位</td>
 <td>用户标志位</td>
 <td>寄存器组选择位</td>
-<td align="center">寄存器组选择位</td>
+<td style="text-align: center;">寄存器组选择位</td>
 <td>溢出标志位</td>
 <td></td>
 <td>奇偶标志位</td>
@@ -2997,7 +2997,7 @@
 <td>低4位向高4位的进位或借位。有AC=1，否则AC=0。</td>
 <td>需要时用软件方法置位或复位，用以控制程序的转向。</td>
 <td></td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td>8位带符号数字加减运算结果是否超出运算范围。8位有符号数字表示的范围：－128～＋127。OV＝0，运算正确，即无溢出产生。在乘法运算中，OV＝1，表示乘积超过255；在除法运算中，OV＝1，表示除数为0，除法不能进行。</td>
 <td></td>
 <td>表明累加器A中1个个数的奇偶性，奇1偶0（串行输入输出的第9位）</td>
@@ -3015,7 +3015,7 @@
 <th>D3</th>
 <th>D2</th>
 <th>D1</th>
-<th align="center">D0</th>
+<th style="text-align: center;">D0</th>
 </tr>
 </thead>
 <tbody>
@@ -3027,7 +3027,7 @@
 <td>GF1</td>
 <td>GF0</td>
 <td>PD</td>
-<td align="center">IDL</td>
+<td style="text-align: center;">IDL</td>
 </tr>
 <tr>
 <td>与串口通信有关</td>
@@ -3037,7 +3037,7 @@
 <td>通用工作标志位，用户可以自由使用。</td>
 <td>通用工作标志位，用户可以自由使用。</td>
 <td>掉电模式设定位。</td>
-<td align="center">空闲模式设定位。</td>
+<td style="text-align: center;">空闲模式设定位。</td>
 </tr>
 <tr>
 <td>SMOD=0; 串口方式1，2，3时，波特率正常。SMOD=1; 串口方式1，2，3时，波特率加倍。</td>
@@ -3047,7 +3047,7 @@
 <td>\</td>
 <td>\</td>
 <td>PD=0 单片机处于正常工作状态。PD=1 单片机进入掉电(Power Down)模式，可由外部中断或硬件复位模式唤醒，进入掉电模式后，外部晶振停振，CPU、定时器、串行口全部停止工作，只有外部中断工作。</td>
-<td align="center">IDL=0 单片机处于正常工作状态。IDL=1 单片机进入空闲(Idle)模式，除CPU不工作外，其余仍继续工作，在空闲模式下可由任一个中断或硬件复位唤醒。</td>
+<td style="text-align: center;">IDL=0 单片机处于正常工作状态。IDL=1 单片机进入空闲(Idle)模式，除CPU不工作外，其余仍继续工作，在空闲模式下可由任一个中断或硬件复位唤醒。</td>
 </tr>
 </tbody>
 </table>
@@ -3057,7 +3057,7 @@
 <tr>
 <th>D7</th>
 <th>D6</th>
-<th align="center">D5</th>
+<th style="text-align: center;">D5</th>
 <th>D4</th>
 <th>D3</th>
 <th>D2</th>
@@ -3069,7 +3069,7 @@
 <tr>
 <td>TF1</td>
 <td>TR1</td>
-<td align="center">TF0</td>
+<td style="text-align: center;">TF0</td>
 <td>TR0</td>
 <td>IE1</td>
 <td>IT1</td>
@@ -3079,7 +3079,7 @@
 <tr>
 <td>T1溢出标志位</td>
 <td>定时计数器1控制位</td>
-<td align="center">T0溢出标志位</td>
+<td style="text-align: center;">T0溢出标志位</td>
 <td>定时计数器0控制位</td>
 <td>外部中断INT1请求中断标志位</td>
 <td>外部中断INT1触发方式控制位</td>
@@ -3089,7 +3089,7 @@
 <tr>
 <td>TF1=1表示T1有中断产生（硬件控制）当转向中断服务时，再由硬件自动清0。</td>
 <td>TR1=1表示T1开始运行</td>
-<td align="center">TF0=1表示T0有中断产生（硬件控制）当转向中断服务时，再由硬件自动清0。</td>
+<td style="text-align: center;">TF0=1表示T0有中断产生（硬件控制）当转向中断服务时，再由硬件自动清0。</td>
 <td>TR0=1表示T0开始运行</td>
 <td>IE1=1，INT1有中断产生（硬件控制）在中断响应完成后转向中断服务时，再由硬件自动清零。</td>
 <td>IT1=1时，INT1为跳变沿触发方式，后沿负跳有效；IT1=0时，INT1为电平方式，低电平有效。</td>
@@ -3107,7 +3107,7 @@
 <tr>
 <th>定时器1</th>
 <th></th>
-<th align="center"></th>
+<th style="text-align: center;"></th>
 <th></th>
 <th>定时器0</th>
 <th></th>
@@ -3119,7 +3119,7 @@
 <tr>
 <td>7</td>
 <td>6</td>
-<td align="center"><em>5</em></td>
+<td style="text-align: center;"><em>5</em></td>
 <td>4</td>
 <td>3</td>
 <td>2</td>
@@ -3129,7 +3129,7 @@
 <tr>
 <td>GATE</td>
 <td>C/T</td>
-<td align="center">M1</td>
+<td style="text-align: center;">M1</td>
 <td>M0</td>
 <td>GATE</td>
 <td>C/T</td>
@@ -3139,7 +3139,7 @@
 <tr>
 <td>门控制</td>
 <td>C/T=0，定时器模式。C/T=1，计数器模式。</td>
-<td align="center">用来选择定时计/计数器的工作方式</td>
+<td style="text-align: center;">用来选择定时计/计数器的工作方式</td>
 <td>用来选择定时计/计数器的工作方式</td>
 <td>门控制</td>
 <td>C/T=0，定时器模式。C/T=1，计数器模式。</td>
@@ -3192,7 +3192,7 @@
 <th>D6</th>
 <th>D5</th>
 <th>D4</th>
-<th align="center">D3</th>
+<th style="text-align: center;">D3</th>
 <th>D2</th>
 <th>D1</th>
 <th>D0</th>
@@ -3204,7 +3204,7 @@
 <td>-</td>
 <td>-</td>
 <td>ES</td>
-<td align="center">ET1</td>
+<td style="text-align: center;">ET1</td>
 <td>EX1</td>
 <td>ET0</td>
 <td>EX0</td>
@@ -3214,7 +3214,7 @@
 <td></td>
 <td></td>
 <td>串行口中断允许位</td>
-<td align="center">定时器T1溢出中断允许位</td>
+<td style="text-align: center;">定时器T1溢出中断允许位</td>
 <td>外部中断1允许位</td>
 <td>定时器T0溢出中断允许位</td>
 <td>外部中断 INT0允许位</td>
@@ -3224,7 +3224,7 @@
 <td></td>
 <td></td>
 <td>ES=1，允许串行口中断</td>
-<td align="center">ET1=1，允许T1中断</td>
+<td style="text-align: center;">ET1=1，允许T1中断</td>
 <td>EX1=1，允许外部中断1中断</td>
 <td>ET0=1，允许T0中断</td>
 <td>EX0=1，允许外部中断0中断</td>
@@ -3239,7 +3239,7 @@
 <th>D6</th>
 <th>D5</th>
 <th>D4</th>
-<th align="center">D3</th>
+<th style="text-align: center;">D3</th>
 <th>D2</th>
 <th>D1</th>
 <th>D0</th>
@@ -3251,7 +3251,7 @@
 <td>SM1</td>
 <td>SM2</td>
 <td>REN</td>
-<td align="center">TB8</td>
+<td style="text-align: center;">TB8</td>
 <td>RB8</td>
 <td>T1</td>
 <td>R1</td>
@@ -3261,7 +3261,7 @@
 <td>工作方式选择位</td>
 <td>多机通信控制位，主要用于方式2和方式3。</td>
 <td>允许串行接收位。</td>
-<td align="center">在方式2或方式3中，是发送数据的第九位，可以用软件规定其作用。</td>
+<td style="text-align: center;">在方式2或方式3中，是发送数据的第九位，可以用软件规定其作用。</td>
 <td>在方式2或方式3中，是接收到数据的第九位，作为奇偶校验位或地址帧/数据帧的标志位。在方式1时，若SM2=0，则RB8是接收到的停止位。</td>
 <td>串行口发送中断请求标志位</td>
 <td>串行口接收中断请求标志位</td>
@@ -3271,7 +3271,7 @@
 <td></td>
 <td></td>
 <td>允许串行接收控制位。由软件置1或清0。REN=1时，允许接收；REN=0时，禁止接收。</td>
-<td align="center"></td>
+<td style="text-align: center;"></td>
 <td></td>
 <td>当发送完一帧串行数据后，由硬件置1，在转向中断服务程序后，用软件清0。</td>
 <td>当接收完一帧串行数据后，由硬件置1；在转向中断服务程序后，用软件清0。</td>
@@ -3359,7 +3359,7 @@
 <th>D6</th>
 <th>D5</th>
 <th>D4</th>
-<th align="center">D3</th>
+<th style="text-align: center;">D3</th>
 <th>D2</th>
 <th>D1</th>
 <th>D0</th>
@@ -3371,7 +3371,7 @@
 <td>/</td>
 <td>/</td>
 <td>PS</td>
-<td align="center">PT1</td>
+<td style="text-align: center;">PT1</td>
 <td>PX1</td>
 <td>PT0</td>
 <td>PX0</td>
@@ -3381,7 +3381,7 @@
 <td></td>
 <td></td>
 <td>串行中断优先级设定位</td>
-<td align="center">定时中断1优先级设定位</td>
+<td style="text-align: center;">定时中断1优先级设定位</td>
 <td>外部中断l优先级设定位</td>
 <td>定时中断0优先级设定位</td>
 <td>外部中断0优先级设定位</td>
@@ -3391,7 +3391,7 @@
 <td></td>
 <td></td>
 <td>X =0,  优先级为低；X=1, 优先级为高。</td>
-<td align="center">X =0,  优先级为低；X=1, 优先级为高。</td>
+<td style="text-align: center;">X =0,  优先级为低；X=1, 优先级为高。</td>
 <td>X =0,  优先级为低；X=1, 优先级为高。</td>
 <td>X =0,  优先级为低；X=1, 优先级为高。</td>
 <td>X =0,  优先级为低；X=1, 优先级为高。</td>

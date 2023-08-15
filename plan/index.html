@@ -17,7 +17,7 @@
         <link rel="next" href="../about/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -2019,21 +2019,29 @@
 <p><del>BL808 FLASH的实现？</del></p>
 <p><del>完成了GNU项目的minizip的迁移</del></p>
 <p><strong>ESP32-C3的WIFI/GPIO/UART/SPI/WDG实现？</strong></p>
-<p>提交个PR，userapps/minizip包</p>
+<p><del>提交个PR，userapps/minizip包</del></p>
 <p>BL808 WIFI的实现？</p>
 <p>RT Smart GNU项目的迁移，例如Sqllite、micropython、<strong>python</strong> 和mcurses？</p>
+<p>补充<code>FreeRTOS-Wrapper</code>的<code>README_zh.md</code></p>
 <p>开源之夏的申请，ESP32 申请成功，三个任务：</p>
 <ul>
 <li>
 <p><del>使用<code>scons</code>编译而非<code>cmake</code>，进行重构；找到链接脚本错误并尝试解决中。。。 重构成功，成功解决了bin生成问题和链接脚本问题</del></p>
 </li>
 <li>
-<p>实现WIFI驱动 太他妈难了，<code>ESP-IDF</code>这边提供了<code>LWIP</code>库，<code>RtThread</code>这边提供了<code>LWIP</code>库，尝试对<code>ESP-IDF</code>中<code>esp-wifi</code>库进行重构；<del>这个进行增量增加依赖，缺少依赖增加相关函数来实现</del>；有点难，建议抓编译日志，抓取参与的C文件或者通过cmake.txt来抓取分析。</p>
-</li>
-<li>
-<p>实现BLE驱动</p>
+<p>实现WIFI驱动 太他妈难了，<code>ESP-IDF</code>这边提供了<code>LWIP</code>库，<code>RtThread</code>这边提供了<code>LWIP</code>库，尝试对<code>ESP-IDF</code>中<code>esp-wifi</code>库进行重构；<sub>~这个进行增量增加依赖，缺少依赖增加相关函数来实现；有点难，建议抓编译日志，抓取参与的C文件或者通过cmake.txt来抓取分析。目前编译成功，但是离可以使用还有一段距离，报错指令缺失。</sub>~目前可以链接，但是rt_mutex_take报错。</p>
 </li>
 </ul>
+<p>踩坑记录：</p>
+<p>1、nvs_flash_init函数rtthread代码放到iram上，已解决</p>
+<p>2、Og和Os编译参数，可能</p>
+<p>3、tskTCB的问题，暂时绕过</p>
+<p>4、xQueueSemaphoreTake中rt_mutex_take的问题？？？</p>
+<p>5、xQueueReceiveFromISR和xQueueReceiveFromISR的锅？？？</p>
+<ul>
+<li>实现BLE驱动</li>
+</ul>
+<p>NimBle模块，RT-Thread已迁移</p>
 <p><del>完成阶段1任务提交PR，计划要完成的事情：</del></p>
 <ul>
 <li>
@@ -2057,17 +2065,29 @@
 <p><a href="https://club.rt-thread.org/ask/article/d0cfd78e7cdec07b.html">https://club.rt-thread.org/ask/article/d0cfd78e7cdec07b.html</a></p>
 <p>2、图优部分</p>
 <p>读中文论文，学习思路？</p>
+<p>跑bfs和sssp算法，pull模式和push模式相比是不是会有切换的点；而对非单调类算法，绝大多数情况是pull模式更有优势</p>
+<p>看一下相关论文，在动态图处理领域你想做什么方向，作为你硕士阶段的研究点，可以找一篇经典论文作为基础（比如流图处理领域就是graphbolt和kickstarter），看论文后可以做一个总结，看看前沿的工作围绕哪些方向做的，做一个ppt之类的</p>
 <p>阅读<code>To Push or To Pull.pdf</code>论文，大体读了一遍，没读懂</p>
-<p>阅读新发的论文。。</p>
-<p>目前Tegra性能存在一些问题，猜测是<code>source_change_in_contrbution</code>导致的性能下降；不是由于活跃点集挂钩，必须激活一部分顶点来进行<code>Pull</code>，感觉可以切换优化？Tegra收敛判断还是有点问题，再想办法改改。。</p>
-<p>实现<code>SSSP</code>算法和<code>BFS</code>算法，<code>GraphBolt</code>能计算<code>SSSP</code>吗？我觉得不太可能吧，<code>SSSP</code>是取最小值<code>min</code>？<code>BFS</code>是取最小值层数<code>depth</code>；<code>SSSP</code>和<code>BFS</code>的连通性该如何解决？两种单调类算法<code>push</code>用小顶堆实现也不是不可以，每个顶点都开一个小顶堆，小顶堆的开销大概是<code>O(|E|)</code>；对于<code>pull</code>而言无需这么做，只需识别出受影响的顶点并且进行重计算即可。理论上可行，再想想。刚刚想了一下，需要每次迭代每个顶点都需要维护一个小顶堆，开销大概为O(T*|E|)，感觉差不多可行，明天可以试一下。实现遇到了一些问题，原子操作无法实现，需要借助锁来实现；另外<code>sourceChangeInContribution</code>没啥好实现的思路，再想想想想，感觉还是不行，再想想想想。难写难写，这<code>sourceChangeInContribution</code>是真不好实现，差不多了，初稿实现了，有一些小小的误差，但是问题不大。。。。实现了，下一步就是优化 &amp; 读论文优化 &amp; 实现<code>Pull</code>和传统（还是要实现<code>sourechange</code>）。</p>
+<p>阅读新发的论文 * 2，学姐一篇 + 张老师一篇。</p>
+<p>目前Tegra性能存在一些问题，猜测是<code>source_change_in_contrbution</code>导致的性能下降；不是由于活跃点集挂钩，必须激活一部分顶点来进行<code>Pull</code>，感觉可以切换优化？Tegra收敛判断还是有点问题，再想办法改改。</p>
+<details> 
+<summary>实现`SSSP`算法和`BFS`算法</summary>
+
+~~实现`SSSP`算法和`BFS`算法，`GraphBolt`能计算`SSSP`吗？我觉得不太可能吧，`SSSP`是取最小值`min`？`BFS`是取最小值层数`depth`；`SSSP`和`BFS`的连通性该如何解决？两种单调类算法`push`用小顶堆实现也不是不可以，每个顶点都开一个小顶堆，小顶堆的开销大概是`O(|E|)`；对于`pull`而言无需这么做，只需识别出受影响的顶点并且进行重计算即可。理论上可行，再想想。刚刚想了一下，需要每次迭代每个顶点都需要维护一个小顶堆，开销大概为O(T*|E|)，感觉差不多可行，明天可以试一下。实现遇到了一些问题，原子操作无法实现，需要借助锁来实现；另外`sourceChangeInContribution`没啥好实现的思路，再想想想想，感觉还是不行，再想想想想。难写难写，这`sourceChangeInContribution`是真不好实现，差不多了，初稿实现了，有一些小小的误差，但是问题不大。。。。实现了，下一步就是优化 & 读论文优化 & 实现`Pull`和传统（还是要实现`sourechange`。实现了SSSP和BFS的Tegra版本。~~
+
+</details>
+
 <p><del>优化<code>Tegra</code>算法，添加<code>has_source_chang</code>和<code>force_active</code></del></p>
 <p><del>GraphBolt和Tegra的进一步结合优化？</del></p>
 <p><del>原版GraphBolt和现版GraphBolt区别？</del></p>
 <p><del>HPC论文提上日程？DDL 7月7日？废了</del></p>
 <p><del>改进Lp算法的Tegra准确度问题？已改进</del></p>
 <p><del>用机器学习算法预测<code>t1</code>和<code>t2</code></del></p>
-<p>3、外出旅游计划安排</p>
+<p>3、未来图书馆空间预约系统</p>
+<p>写前端，已新建项目并开始写</p>
+<p>4、8月19日去微山湖游玩</p>
+<p>具体后面做计划</p>
+<p>5、外出旅游计划安排</p>
 <p>下半年去四川游玩</p>
 <p>六月份去南京游玩 / 研究生入学</p>
 <h2 id="_3">暂缓<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
